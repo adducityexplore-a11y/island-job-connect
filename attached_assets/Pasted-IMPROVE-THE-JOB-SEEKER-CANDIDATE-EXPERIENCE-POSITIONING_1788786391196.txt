@@ -1,0 +1,1147 @@
+IMPROVE THE JOB SEEKER / CANDIDATE EXPERIENCE & POSITIONING
+
+I want to improve The Jobs MV candidate-facing experience so job seekers immediately understand that this is NOT just another website where they search through job advertisements.
+
+IMPORTANT:
+
+Do NOT rebuild the candidate platform from scratch.
+
+Do NOT change:
+- Existing authentication
+- Existing database structure unless required
+- Existing job listings
+- Existing applications
+- Existing Hospitality Passport data
+- Existing approved brand identity
+- Employer Workspace
+- Admin Console
+
+Improve the candidate-facing messaging, navigation, dashboard and user experience around the functionality that already exists.
+
+CORE CANDIDATE VALUE:
+
+The Jobs MV should help candidates:
+
+DISCOVER OPPORTUNITIES
++
+BUILD THEIR HOSPITALITY PASSPORT
++
+SHOWCASE THEIR EXPERIENCE
++
+APPLY FASTER
++
+TRACK APPLICATIONS
++
+BE DISCOVERED FOR RELEVANT OPPORTUNITIES
+
+The candidate should understand:
+
+"This isn't only somewhere I search for jobs. This is where I build my hospitality career profile and connect with the right opportunities."
+
+==================================================
+1. CANDIDATE POSITIONING
+==================================================
+
+Create a clear candidate-side brand message that complements the Employer message.
+
+EMPLOYER:
+
+MORE THAN A JOB BOARD
+
+You need the right people.
+We help you find them.
+
+
+CANDIDATE:
+
+MORE THAN A JOB SEARCH
+
+Your experience deserves to be seen.
+
+
+Supporting text:
+
+Create your Hospitality Passport, discover hospitality opportunities, apply faster, and make it easier for employers to understand what you can bring to their team.
+
+
+Highlight message:
+
+One profile. More opportunities.
+Your next move starts here.
+
+Keep this wording simple, professional and human.
+
+==================================================
+2. TWO PRIMARY CANDIDATE ACTIONS
+==================================================
+
+Give candidates two clear actions.
+
+PRIMARY:
+
+Find Opportunities →
+
+Supporting text:
+
+Explore hospitality opportunities across the Maldives.
+
+
+SECONDARY:
+
+Build My Hospitality Passport
+
+Supporting text:
+
+Showcase your experience, skills, qualifications and availability.
+
+
+If the candidate already has a Hospitality Passport, change:
+
+Build My Hospitality Passport
+
+to:
+
+View My Hospitality Passport
+
+or:
+
+Update My Hospitality Passport
+
+
+Do not show an incorrect CTA to an existing Passport user.
+
+==================================================
+3. HOSPITALITY PASSPORT MUST BE CENTRAL
+==================================================
+
+Hospitality Passport should become one of the signature features of the candidate experience.
+
+Do NOT present it as just another profile form.
+
+The candidate journey should feel like:
+
+CREATE YOUR HOSPITALITY PASSPORT
+↓
+SHOWCASE YOUR EXPERIENCE
+↓
+DISCOVER OPPORTUNITIES
+↓
+APPLY FASTER
+↓
+TRACK YOUR APPLICATIONS
+↓
+BE DISCOVERED FOR RELEVANT OPPORTUNITIES
+
+
+The Passport should help candidates communicate:
+
+Current Position
+Hospitality Experience
+Maldives Experience
+Resort Experience
+Skills
+Certifications
+Languages
+Availability
+Career Preferences
+
+
+The existing CV-first Passport workflow must remain.
+
+UPLOAD CV
+→ PRE-FILL WHERE POSSIBLE
+→ CONFIRM IMPORTANT DETAILS
+→ SAVE PASSPORT
+
+Do not force candidates to manually recreate their entire CV.
+
+==================================================
+4. CANDIDATE DASHBOARD
+==================================================
+
+If the candidate currently does not have a proper dashboard/home area, create or improve one.
+
+Call it:
+
+My Career
+
+or keep the existing candidate dashboard name if already established.
+
+Recommended heading:
+
+Your hospitality career, in one place.
+
+Show a personalized welcome if the candidate name exists.
+
+Example:
+
+Welcome back, Ahmed.
+
+Supporting text:
+
+Keep your Hospitality Passport updated, discover opportunities and track your applications.
+
+
+Do not invent candidate names.
+
+==================================================
+5. CANDIDATE DASHBOARD TOP AREA
+==================================================
+
+At the top show:
+
+Hospitality Passport Completion
+
+Applications
+
+Shortlisted
+
+Interviews
+
+
+Use REAL data only.
+
+Example:
+
+Hospitality Passport
+80% Complete
+
+Applications
+6
+
+Shortlisted
+2
+
+Interviews
+1
+
+
+Do not show fake numbers.
+
+If no applications exist, show 0.
+
+==================================================
+6. PASSPORT COMPLETION
+==================================================
+
+Make Passport Completion useful.
+
+Example:
+
+YOUR HOSPITALITY PASSPORT
+
+80% Complete
+
+Your profile is looking good.
+
+Add your availability and key skills to help employers understand your experience better.
+
+
+Actions:
+
+Update Passport
+
+Preview Passport
+
+
+If CV is missing:
+
+Upload your CV to get started faster.
+
+[ Upload CV ]
+
+
+Completion must use real profile data.
+
+==================================================
+7. OPEN TO OPPORTUNITIES
+==================================================
+
+Make this setting easy to understand.
+
+Show:
+
+OPEN TO OPPORTUNITIES
+
+ON / OFF
+
+
+Supporting text when ON:
+
+Your Hospitality Passport can be considered for relevant opportunities according to your profile visibility settings.
+
+
+When OFF:
+
+Your profile will not appear in general employer Talent Search.
+
+
+Button/toggle:
+
+Open to Opportunities
+
+
+Candidates must remain in control of this setting.
+
+Do not automatically enable it without candidate consent.
+
+==================================================
+8. FIND OPPORTUNITIES
+==================================================
+
+Keep:
+
+Find Jobs
+
+in navigation because it is immediately understandable.
+
+However, candidate marketing areas can use:
+
+Find Opportunities
+
+or:
+
+Explore Opportunities
+
+
+Do not rename every instance of Find Jobs unnecessarily.
+
+The Find Jobs page should remain highly functional.
+
+Search:
+
+Search by job title, resort, hotel or keyword...
+
+
+Filters should include where data supports them:
+
+Department
+
+Location
+
+Experience
+
+Employment Type
+
+Local / International Eligibility
+
+More Filters
+
+
+Mobile:
+
+Use:
+
+Filter Jobs
+
+to open a filter drawer.
+
+==================================================
+9. JOB CARDS
+==================================================
+
+Improve job cards so candidates can understand an opportunity quickly.
+
+Show where available:
+
+Job Title
+
+Employer
+
+Verified Employer badge ONLY if genuinely verified
+
+Location
+
+Department
+
+Posted Date
+
+Closing Date
+
+
+Employment package highlights where provided:
+
+Salary
+
+Service Charge
+
+Accommodation
+
+Meals
+
+
+Example:
+
+BARTENDER
+
+ABC Maldives Resort ✓
+
+Baa Atoll · Food & Beverage
+
+Posted 2 days ago
+Closes 18 Sep
+
+
+USD 900–1,100 / month
+
+Service Charge Provided
+
+Accommodation ✓
+
+Meals ✓
+
+
+[ View Opportunity ]
+
+♡ Save
+
+
+Never invent missing package information.
+
+If salary is not provided:
+
+Salary: Not disclosed
+
+Do not display ambiguous numbers without currency.
+
+==================================================
+10. JOB DETAIL PAGE
+==================================================
+
+The Job Detail page should help candidates answer:
+
+Is this right for me?
+
+What will I receive?
+
+Am I suitable?
+
+How do I apply?
+
+
+Organize information into:
+
+ABOUT THE ROLE
+
+EMPLOYMENT PACKAGE
+
+REQUIREMENTS
+
+PREFERRED EXPERIENCE
+
+ABOUT THE EMPLOYER
+
+APPLICATION DEADLINE
+
+
+Use the structured Resort Offer information where available.
+
+Employment Package may show:
+
+Basic Salary
+
+Service Charge
+
+Accommodation
+
+Meals
+
+Health Insurance
+
+Annual Leave
+
+Air Ticket
+
+Working Hours
+
+Weekly Off
+
+Contract Length
+
+
+Only show actual employer-provided information.
+
+If something is not disclosed, clearly say:
+
+Not disclosed
+
+or:
+
+Not provided
+
+where appropriate.
+
+==================================================
+11. APPLY WITH HOSPITALITY PASSPORT
+==================================================
+
+Make applying simple.
+
+Primary CTA:
+
+Apply with Hospitality Passport
+
+
+If the candidate has a sufficiently complete Passport:
+
+Allow them to review their application and submit.
+
+
+If important information is missing:
+
+Show:
+
+Complete a few details before applying.
+
+Then take the candidate directly to the missing Passport fields.
+
+
+Do not force them to recreate their profile for every vacancy.
+
+==================================================
+12. APPLICATION TRACKING
+==================================================
+
+This is a major candidate benefit.
+
+Create or improve:
+
+My Applications
+
+
+The candidate should clearly see:
+
+Job Title
+
+Employer
+
+Applied Date
+
+Current Status
+
+Last Updated
+
+
+Candidate-friendly statuses:
+
+Application Received
+
+Under Review
+
+Shortlisted
+
+Interview
+
+Offered
+
+Hired
+
+Not Selected
+
+
+Avoid exposing internal employer/admin statuses that candidates do not need to see.
+
+==================================================
+13. APPLICATION PROGRESS
+==================================================
+
+When candidate opens an application, show a simple progress tracker.
+
+Example:
+
+APPLICATION RECEIVED ✓
+
+UNDER REVIEW ●
+
+SHORTLISTED ○
+
+INTERVIEW ○
+
+DECISION ○
+
+
+Show dates where actual data exists.
+
+Example:
+
+Application Received
+7 September
+
+
+Do not invent timelines or promise response dates.
+
+==================================================
+14. SAVED OPPORTUNITIES
+==================================================
+
+Keep or add:
+
+Saved Jobs
+
+Allow candidates to save opportunities and return later.
+
+Candidate navigation can include:
+
+Find Jobs
+
+Hospitality Passport
+
+My Applications
+
+Saved Jobs
+
+My Profile
+
+==================================================
+15. OPPORTUNITIES FOR YOU
+==================================================
+
+If the system has enough structured candidate/job data to support matching, add:
+
+Opportunities For You
+
+
+Supporting text:
+
+Hospitality opportunities that may match your experience and career preferences.
+
+
+IMPORTANT:
+
+Do not create fake recommendations.
+
+Only show jobs based on real matching data.
+
+Do not say:
+
+Perfect Match
+
+Guaranteed Match
+
+
+Use wording such as:
+
+May Be a Good Match
+
+Strong Alignment
+
+Based on Your Experience
+
+
+Explain why where possible.
+
+Example:
+
+Why this may suit you:
+
+✓ Bartending experience
+
+✓ Maldives resort experience
+
+✓ Position matches your career preference
+
+
+Never invent candidate experience.
+
+==================================================
+16. PROFILE DISCOVERY
+==================================================
+
+Explain the value of Hospitality Passport discovery simply.
+
+Possible section:
+
+BE DISCOVERED
+
+Headline:
+
+The right opportunity may find you.
+
+Supporting text:
+
+Keep your Hospitality Passport updated and turn on Open to Opportunities so your profile can be considered for relevant hospitality opportunities.
+
+
+Do not promise that employers will contact the candidate.
+
+Do not say:
+
+Employers will find you.
+
+Use:
+
+can be considered
+
+or:
+
+may be discovered.
+
+==================================================
+17. CANDIDATE PRIVACY
+==================================================
+
+Candidate privacy must remain clear.
+
+Do not expose to general Talent Search:
+
+Private email
+
+Private phone number
+
+Exact home address
+
+Passport number
+
+Government ID
+
+Internal screening notes
+
+Internal expert review notes
+
+
+Employers should see only information allowed by the candidate visibility/application workflow.
+
+==================================================
+18. NEW CANDIDATE EXPERIENCE
+==================================================
+
+For a brand-new candidate:
+
+Do not overwhelm them with a dashboard full of empty cards.
+
+Create a simple onboarding experience.
+
+Example:
+
+WELCOME TO THE JOBS MV
+
+Your hospitality career starts here.
+
+STEP 1
+Upload Your CV
+
+STEP 2
+Complete Your Hospitality Passport
+
+STEP 3
+Explore Opportunities
+
+STEP 4
+Apply & Track
+
+
+Primary CTA:
+
+Create My Hospitality Passport
+
+
+Secondary:
+
+Explore Jobs
+
+==================================================
+19. RETURNING CANDIDATE EXPERIENCE
+==================================================
+
+Returning candidates should see useful information immediately.
+
+Example:
+
+Welcome back, Ahmed.
+
+Passport: 85% Complete
+
+Open to Opportunities: ON
+
+3 Active Applications
+
+1 Shortlisted
+
+
+Then:
+
+Recommended / Latest Opportunities
+
+Application Updates
+
+Passport Reminder if needed
+
+
+Only use real data.
+
+==================================================
+20. CANDIDATE NOTIFICATIONS
+==================================================
+
+If notification functionality already exists, support useful candidate notifications.
+
+Examples:
+
+Application received
+
+Application status changed
+
+Shortlisted
+
+Interview requested
+
+Offer update
+
+Saved job closing soon
+
+Relevant opportunity if real matching supports it
+
+
+Do not create duplicate notifications.
+
+==================================================
+21. VISUAL DESIGN
+==================================================
+
+Apply the new premium The Jobs MV visual identity to the candidate experience.
+
+Use:
+
+Deep navy
+
+Warm ivory / off-white
+
+Warm gold accents
+
+Clean white cards
+
+Modern typography
+
+Subtle shadows
+
+Rounded corners
+
+Clear icons
+
+Maldives hospitality imagery where appropriate
+
+
+The public candidate experience can feel more editorial and aspirational.
+
+The candidate dashboard and Hospitality Passport editor should remain more functional.
+
+Do not make forms overly decorative.
+
+==================================================
+22. CANDIDATE HERO / ENTRY PAGE
+==================================================
+
+If there is a Candidate Portal entry/login area similar to the Employer Portal, update its message.
+
+Use:
+
+MORE THAN A JOB SEARCH
+
+
+Headline:
+
+Your experience deserves to be seen.
+
+
+Supporting text:
+
+Create your Hospitality Passport, discover hospitality opportunities, apply faster, and make it easier for employers to understand what you can bring to their team.
+
+
+Highlight:
+
+One profile. More opportunities.
+Your next move starts here.
+
+
+Primary CTA:
+
+Find Opportunities →
+
+
+Secondary CTA:
+
+Build My Hospitality Passport
+
+
+If user is not logged in, route appropriately through signup/login before protected actions.
+
+==================================================
+23. DO NOT OVERPROMISE
+==================================================
+
+Do not use claims such as:
+
+We guarantee you a job
+
+Get hired instantly
+
+Best jobs in Maldives
+
+#1 job platform
+
+Guaranteed interviews
+
+Employers will contact you
+
+Perfect job matches
+
+
+The Jobs MV should feel trustworthy.
+
+Use realistic language:
+
+Discover
+
+Connect
+
+Apply
+
+Be considered
+
+Track
+
+Showcase
+
+Opportunity
+
+Suitable match
+
+==================================================
+24. MOBILE-FIRST EXPERIENCE
+==================================================
+
+A large percentage of candidates may arrive through social media or messaging links.
+
+The candidate experience must work extremely well on mobile.
+
+Optimize for:
+
+375px
+
+390px
+
+430px
+
+
+Mobile requirements:
+
+Simple navigation
+
+Large search field
+
+Easy filters
+
+Job cards instead of wide tables
+
+Large Apply button
+
+Simple Passport editing
+
+CV upload from phone
+
+Easy profile photo upload
+
+Easy application tracking
+
+No horizontal overflow
+
+Readable typography
+
+Fast loading
+
+
+Do not make mobile feel like a compressed desktop website.
+
+==================================================
+25. KEEP THE EXPERIENCE SIMPLE
+==================================================
+
+Do not add unnecessary complexity.
+
+A candidate should understand the platform quickly:
+
+LOOKING FOR AN OPPORTUNITY?
+
+Find Jobs
+
+
+WANT TO STAND OUT?
+
+Build Your Hospitality Passport
+
+
+WANT TO KNOW WHAT'S HAPPENING?
+
+Track Your Applications
+
+
+OPEN TO NEW OPPORTUNITIES?
+
+Turn on Open to Opportunities
+
+==================================================
+26. CONNECT WITH EMPLOYER EXPERIENCE
+==================================================
+
+Candidate and Employer positioning should complement each other.
+
+
+EMPLOYER:
+
+MORE THAN A JOB BOARD
+
+You need the right people.
+We help you find them.
+
+
+CANDIDATE:
+
+MORE THAN A JOB SEARCH
+
+Your experience deserves to be seen.
+
+
+The Jobs MV connects both sides through:
+
+Hospitality Passport
+
+Structured vacancies
+
+Applications
+
+Screening
+
+Expert review
+
+Managed recruitment
+
+Talent discovery
+
+
+Do not make the two sides feel like separate brands.
+
+==================================================
+27. CORE BRAND PURPOSE
+==================================================
+
+Use our existing brand purpose where appropriate:
+
+Right Talent.
+Right Opportunity.
+Right Time.
+
+
+Do not repeat it excessively.
+
+The candidate experience should communicate:
+
+RIGHT TALENT
+
+Show what you can bring.
+
+
+RIGHT OPPORTUNITY
+
+Discover hospitality roles that fit your career.
+
+
+RIGHT TIME
+
+Keep your availability updated and stay ready for opportunities.
+
+==================================================
+28. FINAL QA
+==================================================
+
+Test the full candidate journey:
+
+1. New candidate enters platform
+
+2. Understands immediately that The Jobs MV is more than job listings
+
+3. Creates account
+
+4. Uploads CV
+
+5. Builds Hospitality Passport
+
+6. Confirms experience
+
+7. Adds skills
+
+8. Adds availability
+
+9. Chooses Open to Opportunities setting
+
+10. Searches jobs
+
+11. Opens job detail
+
+12. Saves opportunity
+
+13. Applies using Hospitality Passport
+
+14. Application is recorded
+
+15. Candidate sees Application Received
+
+16. Employer updates application
+
+17. Candidate sees appropriate status update
+
+18. Candidate can return to dashboard
+
+19. Candidate can update Passport
+
+20. Candidate can manage privacy/discoverability
+
+
+Test:
+
+Desktop
+
+Tablet
+
+Mobile
+
+
+Confirm:
+
+No fake data
+
+No broken routes
+
+No duplicate candidate profiles
+
+No duplicate applications
+
+No lost Hospitality Passport information
+
+No privacy leaks
+
+No dead buttons
+
+No mobile overflow
+
+No authentication regression
+
+
+FINAL EXPERIENCE:
+
+The candidate should leave with this understanding:
+
+"The Jobs MV isn't only where I look for vacancies.
+
+I can build one hospitality profile, show what I can offer, find opportunities, apply faster, track my applications, and make myself available for relevant opportunities."
+
+
+THE JOBS MV
+
+More than a job search.
+
+Your experience deserves to be seen.
+
+Right Talent.
+Right Opportunity.
+Right Time.

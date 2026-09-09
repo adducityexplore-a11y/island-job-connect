@@ -1,0 +1,22 @@
+/* Custom overrides for Clerk elements that can't be styled inline easily */
+.cl-formFieldInput::placeholder {
+  color: hsl(var(--muted-foreground));
+  opacity: 1;
+}
+
+.cl-formButtonPrimary:active {
+  transform: scale(0.98);
+}
+
+.cl-rootBox {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.cl-cardBox {
+  width: min(440px, calc(100vw - 2rem));
+  max-width: 100%;
+  overflow: hidden;
+}

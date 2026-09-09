@@ -1,0 +1,360 @@
+REDESIGN ONLY THE "THE JOBS MV HIRING SUPPORT" SECTION
+ON THE EMPLOYER OVERVIEW PAGE.
+
+The current version is functionally correct, but I do NOT like
+the visual presentation.
+
+DO NOT change:
+- Employer functionality
+- Routes
+- Hiring request functionality
+- Database
+- Existing data
+- Authentication
+- Overall Employer Workspace layout
+- Sidebar
+- KPI cards
+
+Redesign ONLY the Hiring Support area and its related
+"Post a Vacancy" secondary action.
+
+==================================================
+PROBLEM WITH CURRENT DESIGN
+==================================================
+
+The current Hiring Support section looks like a large dark
+dashboard banner.
+
+It is:
+- Too heavy
+- Too wide visually
+- Too much navy
+- Too much information inside one rectangle
+- The 3-step area looks like table columns
+- The primary CTA feels disconnected from the main message
+- It does not feel like a special human recruitment service
+
+I want this section to feel like:
+
+"THE JOBS MV TEAM IS HERE TO TAKE WORK OFF MY HANDS."
+
+It should be the most memorable part of the Employer Workspace.
+
+But it must remain SIMPLE.
+
+==================================================
+NEW VISUAL DIRECTION
+==================================================
+
+Create ONE premium Hiring Support feature card.
+
+Do NOT make the entire card dark navy.
+
+Use a warm ivory / white main card with subtle border,
+soft shadow and premium spacing.
+
+Use deep navy for typography.
+
+Use warm gold strategically to identify The Jobs MV
+assisted service.
+
+Possible visual treatment:
+
+- Warm ivory/white card
+- Small gold accent line or glow
+- Gold sparkle icon
+- Deep navy headings
+- Subtle pale-gold background detail
+- Rounded 20-24px corners
+- Generous whitespace
+
+The section should feel premium and helpful,
+NOT like an advertisement.
+
+==================================================
+DESKTOP LAYOUT
+==================================================
+
+Use approximately:
+
+LEFT SIDE: 58-62%
+RIGHT SIDE: 38-42%
+
+Do not create separate equal-width dashboard columns.
+
+--------------------------------
+LEFT SIDE
+--------------------------------
+
+Small gold service label:
+
+✦ THE JOBS MV HIRING SUPPORT
+
+
+Headline:
+
+Need someone for your team?
+
+Then stronger second line:
+
+Tell us who.
+We'll help find them.
+
+
+Make "We'll help find them." the strongest visual line.
+
+Do not make the headline excessively large.
+
+Supporting copy:
+
+Tell us the role and what matters most. Our hospitality
+team will help search, screen and review suitable
+candidates for you.
+
+
+Then show:
+
+You interview. You decide.
+We help with the rest.
+
+
+PRIMARY CTA:
+
+✦ Find Candidates For Me  →
+
+
+Make this button distinctive.
+
+Use warm gold with dark navy text.
+
+Keep it close to the message.
+
+Do NOT place it on the far opposite side of the card.
+
+==================================================
+RIGHT SIDE - HOW IT WORKS
+==================================================
+
+Create a simple vertical journey.
+
+Do NOT use three horizontal table-style boxes.
+
+Heading:
+
+HOW WE HELP
+
+
+STEP 01
+
+Use a simple icon.
+
+Tell us who you need
+
+Position + a few important details
+
+
+Connect to next step using a thin subtle vertical line.
+
+
+STEP 02
+
+Use The Jobs MV gold sparkle / screening icon.
+
+We do the searching
+
+Our hospitality team screens & reviews
+
+
+Connect to next step.
+
+
+STEP 03
+
+Use shortlist / people-check icon.
+
+Meet your shortlist
+
+Choose who you'd like to interview
+
+
+Keep each step short.
+
+Use icons + short text.
+
+No paragraphs.
+
+==================================================
+VISUAL DIFFERENCE BETWEEN EMPLOYER AND JOBS MV
+==================================================
+
+Use visual language intentionally.
+
+EMPLOYER ACTIONS:
+Deep navy / neutral icons
+
+THE JOBS MV ASSISTANCE:
+Warm gold / sparkle icon
+
+
+For example:
+
+01 Tell us who you need
+= neutral/navy
+
+02 We do the searching
+= GOLD because The Jobs MV is doing the work
+
+03 Meet your shortlist
+= neutral/navy
+
+
+This reinforces:
+
+Gold = The Jobs MV helping me.
+
+==================================================
+REMOVE THE CURRENT BOTTOM STEP BAR
+==================================================
+
+Remove the current:
+
+01 Tell us who you need
+02 We screen & review
+03 Meet your shortlist
+
+horizontal dark table-style row.
+
+Replace it completely with the new vertical journey.
+
+==================================================
+REMOVE THE LARGE SECONDARY VACANCY BAR
+==================================================
+
+Remove the current full-width:
+
+"Prefer to manage it yourself?"
+
+card/bar underneath Hiring Support.
+
+It creates unnecessary visual competition.
+
+Do NOT remove Post a Vacancy functionality.
+
+Instead place a subtle secondary option at the bottom
+of the Hiring Support feature:
+
+Prefer to hire yourself?
+
+Post a Vacancy →
+
+
+This should be visually quiet.
+
+It must NOT compete with:
+
+Find Candidates For Me.
+
+==================================================
+SIMPLIFY
+==================================================
+
+Do not add:
+- Extra statistics
+- Testimonials
+- Fake employer logos
+- Illustrations of random corporate people
+- Large decorative graphics
+- Multiple CTA buttons
+- Complex animations
+- More explanatory paragraphs
+
+The strength should come from:
+
+Typography
+Whitespace
+Icons
+Hierarchy
+Navy + ivory + gold
+Clear wording
+
+==================================================
+MOBILE
+==================================================
+
+On mobile:
+
+Stack the card vertically.
+
+Order:
+
+THE JOBS MV HIRING SUPPORT
+
+Need someone for your team?
+
+Tell us who.
+We'll help find them.
+
+Supporting text
+
+Find Candidates For Me
+
+You interview. You decide.
+We help with the rest.
+
+HOW WE HELP
+
+01 Tell us who you need
+|
+02 We do the searching
+|
+03 Meet your shortlist
+
+Prefer to hire yourself?
+Post a Vacancy →
+
+
+Do not create horizontal scrolling.
+
+Do not make the card excessively tall.
+
+Keep text concise.
+
+==================================================
+IMPORTANT
+==================================================
+
+This section should NOT look like:
+
+- Another dashboard widget
+- An advertisement
+- A complicated recruitment workflow
+- An enterprise HR software feature
+
+It should feel like a PERSONAL SERVICE inside the platform.
+
+The emotional message should be:
+
+"I'M BUSY.
+I TELL THE JOBS MV WHO I NEED.
+THEY HELP WITH THE SEARCH.
+I REVIEW THE SHORTLIST."
+
+==================================================
+FINAL VISUAL TEST
+==================================================
+
+When a busy resort manager or guesthouse owner sees this
+section for the first time, their eye should naturally follow:
+
+THE JOBS MV HIRING SUPPORT
+          ↓
+TELL US WHO. WE'LL HELP FIND THEM.
+          ↓
+FIND CANDIDATES FOR ME
+          ↓
+HOW IT WORKS
+
+They should understand the service in approximately
+5 seconds.
+
+Make it premium, calm, simple and human.

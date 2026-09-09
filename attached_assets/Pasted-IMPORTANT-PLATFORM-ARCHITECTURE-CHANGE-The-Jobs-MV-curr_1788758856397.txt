@@ -1,0 +1,1169 @@
+IMPORTANT PLATFORM ARCHITECTURE CHANGE
+
+The Jobs MV currently appears to have both:
+
+1. Employer Workspace
+2. Recruiter Workspace
+
+This is confusing because both areas are designed for essentially the same type of user: companies and people hiring candidates.
+
+I want to SIMPLIFY the platform.
+
+There should be ONE unified hiring workspace:
+
+EMPLOYER WORKSPACE
+
+Do NOT maintain a separate Recruiter Workspace.
+
+IMPORTANT:
+Before changing anything, AUDIT the existing Employer Workspace and Recruiter Workspace.
+
+Identify:
+- Pages
+- Routes
+- Components
+- Features
+- Database relationships
+- Authentication logic
+- User roles
+- Permissions
+- Vacancy functionality
+- Application functionality
+- Candidate screening
+- Shortlisting
+- Interview functionality
+- Company profile
+- Recruitment requests
+- Talent Search
+- Any unique recruiter functionality
+
+Do NOT simply delete the Recruiter Workspace.
+
+Merge useful Recruiter Workspace functionality into Employer Workspace first.
+
+Do not lose existing data or working functionality.
+
+--------------------------------------------------
+1. FINAL PLATFORM STRUCTURE
+--------------------------------------------------
+
+The Jobs MV should have THREE main experiences:
+
+CANDIDATE
+
+EMPLOYER
+
+ADMIN
+
+
+CANDIDATE EXPERIENCE
+
+For job seekers.
+
+Main areas:
+
+Find Jobs
+Hospitality Passport
+My Applications
+Saved Jobs
+My Profile
+
+
+EMPLOYER WORKSPACE
+
+For:
+
+Resorts
+Hotels
+Guesthouses
+Restaurants
+Hospitality businesses
+HR Managers
+Recruiters
+Hiring Managers
+Business Owners
+
+They all use the SAME Employer Workspace.
+
+
+ADMIN CONSOLE
+
+For authorized The Jobs MV team members only.
+
+Used to manage:
+
+Employers
+Vacancies
+Candidates
+Applications
+Managed Recruitment
+Expert Review
+Verification
+Reports
+Platform administration
+
+--------------------------------------------------
+2. REMOVE RECRUITER WORKSPACE AS A SEPARATE PRODUCT
+--------------------------------------------------
+
+Remove the concept of a separate:
+
+Recruiter Workspace
+
+from the user-facing platform.
+
+Do NOT delete its useful functionality.
+
+Instead:
+
+Audit Recruiter Workspace
+→ Identify useful features
+→ Move/merge them into Employer Workspace
+→ Test everything
+→ Remove duplicate routes/components only after successful migration.
+
+If Recruiter Workspace contains functionality that Employer Workspace does not currently have, preserve and integrate it.
+
+--------------------------------------------------
+3. EMPLOYER WORKSPACE
+--------------------------------------------------
+
+The final Employer Workspace navigation should be:
+
+Overview
+
+Vacancies
+
+Applications
+
+Recruitment Requests
+
+Talent Search
+
+Company Profile
+
+
+Optional later:
+
+Team
+Notifications
+Settings
+
+
+Do not show Talent Search if it is currently non-functional.
+
+Do not create fake functionality.
+
+--------------------------------------------------
+4. OVERVIEW
+--------------------------------------------------
+
+Employer Workspace Overview should show:
+
+Active Vacancies
+
+Applications
+
+New Applicants
+
+Shortlisted
+
+
+Also show:
+
+Recruitment Progress
+
+Active Recruitment Requests
+Shortlists Ready
+Interviews
+Hired / Filled
+
+
+Add:
+
+NEEDS YOUR ATTENTION
+
+Examples:
+
+New applications to review
+
+Shortlist ready
+
+Interview request awaiting action
+
+Vacancy closing soon
+
+
+Only show real data.
+
+--------------------------------------------------
+5. VACANCIES
+--------------------------------------------------
+
+Vacancies is for employers who want to manage hiring themselves.
+
+Workflow:
+
+POST VACANCY
+→ RECEIVE APPLICATIONS
+→ REVIEW
+→ SHORTLIST
+→ INTERVIEW
+→ OFFER
+→ HIRE
+
+
+Vacancy page should support:
+
+Create Vacancy
+
+Edit Vacancy
+
+Pause Vacancy
+
+Close Vacancy
+
+Duplicate Vacancy
+
+View Public Listing
+
+View Candidates
+
+
+Each vacancy should show:
+
+Job Title
+Department
+Location
+Status
+Posted Date
+Closing Date
+Applications
+Shortlisted
+Interviews
+
+--------------------------------------------------
+6. APPLICATIONS
+--------------------------------------------------
+
+Merge the strongest application-management functionality from the old Recruiter Workspace into Employer Workspace.
+
+Application stages:
+
+New
+
+Screening
+
+Shortlisted
+
+Interview
+
+Offered
+
+Hired
+
+Not Selected
+
+
+Employer should be able to:
+
+Search candidates
+
+Filter applications
+
+Open candidate
+
+View Hospitality Passport
+
+View CV when permitted
+
+Review candidate screening information
+
+Shortlist
+
+Schedule/request interview
+
+Mark offered
+
+Mark hired
+
+Mark not selected
+
+
+Do not lose any existing application data during the merge.
+
+--------------------------------------------------
+7. CANDIDATE DETAIL
+--------------------------------------------------
+
+Preserve any useful Recruiter Workspace candidate-detail functionality.
+
+Employer Candidate Detail should show:
+
+Candidate Name
+
+Current Position
+
+Current Employer
+
+Location
+
+Hospitality Experience
+
+Resort Experience
+
+Maldives Experience
+
+Key Skills
+
+Languages
+
+Certifications
+
+Availability
+
+Notice Period
+
+Hospitality Passport
+
+CV
+
+
+If screening information exists show:
+
+Strong Match
+Good Match
+Needs Review
+
+
+Explain WHY.
+
+Example:
+
+STRONG MATCH
+
+✓ 5 years hospitality experience
+
+✓ 3 years Maldives resort experience
+
+✓ Luxury resort background
+
+✓ Micros POS
+
+✓ Available within 30 days
+
+
+Never show only an unexplained AI percentage.
+
+Never invent information.
+
+--------------------------------------------------
+8. THE JOBS MV REVIEWED
+--------------------------------------------------
+
+Preserve:
+
+THE JOBS MV REVIEWED ✓
+
+where already supported.
+
+Only authorized The Jobs MV team members can apply this status.
+
+Employers may see:
+
+✓ THE JOBS MV REVIEWED
+
+Reviewed by The Jobs MV hospitality recruitment team.
+
+
+Employers must NOT see:
+
+Internal admin notes
+
+Internal expert notes
+
+Private verification information
+
+--------------------------------------------------
+9. RECRUITMENT REQUESTS
+--------------------------------------------------
+
+This is different from Vacancies.
+
+Keep it inside Employer Workspace.
+
+This is for employers who want:
+
+THE JOBS MV TO HELP FIND CANDIDATES.
+
+
+Employer journey:
+
+REQUEST CANDIDATES
+
+→ REQUEST RECEIVED
+
+→ SOURCING
+
+→ SCREENING
+
+→ EXPERT REVIEW
+
+→ SHORTLIST READY
+
+→ INTERVIEW
+
+→ FILLED
+
+
+Employer should be able to track this process.
+
+This must connect directly with the Admin Console Managed Recruitment system.
+
+Do not create another separate recruitment database/workflow if one already exists.
+
+--------------------------------------------------
+10. TWO CLEAR HIRING OPTIONS
+--------------------------------------------------
+
+Employer Workspace should clearly communicate:
+
+OPTION 1
+
+POST A VACANCY
+
+Manage recruitment yourself.
+
+Post
+→ Receive Applications
+→ Shortlist
+→ Interview
+→ Hire
+
+
+OPTION 2
+
+REQUEST CANDIDATES
+
+Let The Jobs MV help.
+
+Tell us who you need
+→ We source
+→ We screen
+→ Our hospitality experts review
+→ You receive an interview-ready shortlist
+→ You interview
+→ You hire
+
+
+These are TWO workflows inside ONE Employer Workspace.
+
+They are NOT two different account types.
+
+--------------------------------------------------
+11. TALENT SEARCH
+--------------------------------------------------
+
+Talent Search belongs inside Employer Workspace.
+
+It should NOT require a Recruiter account.
+
+Authorized employer users can eventually search candidates who have:
+
+Hospitality Passport
+
+AND
+
+Open to Opportunities = ON
+
+
+Possible filters:
+
+Position
+
+Department
+
+Hospitality Experience
+
+Maldives Experience
+
+Skills
+
+Languages
+
+Availability
+
+Location
+
+
+Employer actions:
+
+View Candidate
+
+Save Candidate
+
+Invite to Apply
+
+
+Respect candidate privacy settings.
+
+If Talent Search is not fully functional yet:
+
+Do not create fake results.
+
+Either keep it hidden or clearly mark it unavailable until ready.
+
+--------------------------------------------------
+12. COMPANY PROFILE
+--------------------------------------------------
+
+Move/preserve Company Profile inside Employer Workspace.
+
+Fields:
+
+Company Logo
+
+Company / Property Name
+
+Company Type
+
+Location
+
+Website
+
+Description
+
+Primary Recruitment Contact
+
+Email
+
+Phone
+
+Verification Status
+
+
+Company types:
+
+Resort
+
+Hotel
+
+Guesthouse
+
+Restaurant
+
+Cafe
+
+Tourism Business
+
+Recruitment Agency
+
+Other
+
+--------------------------------------------------
+13. EMPLOYER ACCOUNT VS USER
+--------------------------------------------------
+
+IMPORTANT ARCHITECTURE:
+
+An Employer is the COMPANY / PROPERTY.
+
+Example:
+
+ABC Maldives Resort
+
+
+Users belong to that Employer.
+
+Examples:
+
+HR Manager
+
+Recruiter
+
+HR Executive
+
+Hiring Manager
+
+Business Owner
+
+
+Do NOT create separate Employer and Recruiter company accounts for the same organization.
+
+Instead use:
+
+EMPLOYER ACCOUNT
+
+with
+
+EMPLOYER USERS / TEAM MEMBERS.
+
+
+This architecture should support multiple users belonging to one employer in the future.
+
+--------------------------------------------------
+14. EMPLOYER TEAM ROLES
+--------------------------------------------------
+
+Prepare architecture for employer team roles.
+
+Possible roles:
+
+Employer Admin
+
+HR Manager
+
+Recruiter
+
+Hiring Manager
+
+Viewer
+
+
+Do not necessarily build the full Team Management feature now if it requires major work.
+
+But do not structure authentication in a way that prevents it later.
+
+All these roles should access the same:
+
+EMPLOYER WORKSPACE
+
+with permissions based on their role.
+
+--------------------------------------------------
+15. AUTHENTICATION
+--------------------------------------------------
+
+Simplify authentication roles.
+
+Primary platform contexts:
+
+Candidate
+
+Employer User
+
+Admin
+
+
+Do not require a separate:
+
+Recruiter account type
+
+unless Recruiter is simply an internal permission/role under an Employer account.
+
+
+Existing recruiter users must NOT lose access.
+
+Migrate/map existing recruiter accounts safely to Employer Users.
+
+Preserve:
+
+User ID where possible
+
+Employer relationship
+
+Vacancies
+
+Applications
+
+Candidate activity
+
+Company profile
+
+Saved data
+
+Permissions
+
+--------------------------------------------------
+16. ROUTES
+--------------------------------------------------
+
+Audit existing routes before changing them.
+
+Create one consistent Employer Workspace route structure.
+
+For example:
+
+/employer
+
+/employer/overview
+
+/employer/vacancies
+
+/employer/vacancies/:id
+
+/employer/applications
+
+/employer/applications/:id
+
+/employer/recruitment
+
+/employer/recruitment/:id
+
+/employer/talent
+
+/employer/company
+
+
+Use the project's existing routing conventions where appropriate.
+
+Do not blindly create duplicate routes if equivalent routes already exist.
+
+Old Recruiter Workspace routes should safely redirect to the equivalent Employer Workspace page after migration.
+
+Do not leave broken bookmarks/links.
+
+--------------------------------------------------
+17. WEBSITE NAVIGATION
+--------------------------------------------------
+
+Remove user-facing navigation text:
+
+Recruiter Workspace
+
+
+Replace with:
+
+Employer Workspace
+
+
+For Employers page should lead employers toward:
+
+Employer Workspace
+
+Post a Vacancy
+
+Request Candidates
+
+
+Do not make users decide whether they are an:
+
+Employer
+
+or
+
+Recruiter.
+
+
+The simple question is:
+
+ARE YOU HIRING?
+
+If yes:
+
+Employer Workspace.
+
+--------------------------------------------------
+18. LOGIN EXPERIENCE
+--------------------------------------------------
+
+Simplify login routing.
+
+Candidate logs in
+→ Candidate experience
+
+
+Employer team member logs in
+→ Employer Workspace
+
+
+Admin logs in
+→ Admin Console
+
+
+Do not show both:
+
+Employer Dashboard
+
+and
+
+Recruiter Dashboard
+
+to the same user.
+
+--------------------------------------------------
+19. VISUAL CONSISTENCY
+--------------------------------------------------
+
+After merging, make Employer Workspace visually consistent.
+
+Do not leave some pages looking like the old Recruiter Workspace and others looking like Employer Workspace.
+
+Use one design system:
+
+Deep navy
+
+Warm off-white / soft grey background
+
+White cards
+
+Modern typography
+
+Consistent icons
+
+Consistent buttons
+
+Consistent status badges
+
+Consistent spacing
+
+Premium hospitality-focused appearance
+
+
+The final experience should feel like ONE product.
+
+--------------------------------------------------
+20. MOBILE
+--------------------------------------------------
+
+Test the unified Employer Workspace carefully on mobile.
+
+Test:
+
+Overview
+
+Vacancies
+
+Applications
+
+Candidate Detail
+
+Recruitment Requests
+
+Company Profile
+
+
+Use:
+
+Mobile navigation drawer
+
+Stacked cards
+
+Candidate cards instead of wide tables
+
+Large tap targets
+
+Responsive forms
+
+No horizontal overflow
+
+
+Test approximately:
+
+375px
+
+390px
+
+430px
+
+--------------------------------------------------
+21. ADMIN CONSOLE CONNECTION
+--------------------------------------------------
+
+Do NOT merge Admin Console with Employer Workspace.
+
+Admin Console remains completely separate.
+
+EMPLOYER WORKSPACE:
+
+Used by companies hiring people.
+
+
+ADMIN CONSOLE:
+
+Used by The Jobs MV team to manage the platform.
+
+
+Employer Recruitment Request
+→ appears in Admin Managed Recruitment
+
+
+Employer Verification Request
+→ appears in Admin Verification
+
+
+Candidate requiring expert review
+→ appears in Admin Review Queue
+
+
+Admin updates Managed Recruitment
+→ Employer sees updated Recruitment Request progress.
+
+
+Maintain one source of truth.
+
+--------------------------------------------------
+22. DO NOT DUPLICATE DATA
+--------------------------------------------------
+
+This migration is especially important.
+
+Do NOT create:
+
+Duplicate employers
+
+Duplicate vacancies
+
+Duplicate applications
+
+Duplicate candidate records
+
+Duplicate recruitment requests
+
+Duplicate company profiles
+
+
+Use existing records wherever possible.
+
+If both Employer Workspace and Recruiter Workspace currently use different schemas, carefully map them before migration.
+
+Do not delete old data until successful migration has been confirmed.
+
+--------------------------------------------------
+23. MIGRATION SAFETY
+--------------------------------------------------
+
+Before removing anything:
+
+1. Audit Employer Workspace.
+
+2. Audit Recruiter Workspace.
+
+3. Compare features.
+
+4. Identify duplicate features.
+
+5. Identify unique Recruiter features.
+
+6. Identify unique Employer features.
+
+7. Define which existing component becomes canonical.
+
+8. Merge missing functionality.
+
+9. Map existing recruiter users to employer users.
+
+10. Preserve data relationships.
+
+11. Update navigation.
+
+12. Update routes.
+
+13. Add safe redirects.
+
+14. Test authentication.
+
+15. Test data.
+
+16. Test permissions.
+
+17. Only then remove obsolete duplicate UI/components.
+
+
+Do not perform destructive database migration unless necessary.
+
+Prefer backward-compatible migration.
+
+--------------------------------------------------
+24. FINAL PLATFORM EXPERIENCE
+--------------------------------------------------
+
+The platform should become easy to understand:
+
+--------------------------------
+
+THE JOBS MV
+
+JOB SEEKER
+
+Find Jobs
+Hospitality Passport
+Applications
+Saved Jobs
+
+
+EMPLOYER
+
+Employer Workspace
+
+Overview
+Vacancies
+Applications
+Recruitment Requests
+Talent Search
+Company Profile
+
+
+THE JOBS MV TEAM
+
+Admin Console
+
+Employers
+Vacancies
+Candidates
+Applications
+Managed Recruitment
+Review Queue
+Reports
+Audit Log
+
+--------------------------------
+
+There should NOT be a fourth separate:
+
+Recruiter Workspace.
+
+--------------------------------------------------
+25. FINAL QA
+--------------------------------------------------
+
+After completing the merge, test these scenarios:
+
+
+SCENARIO 1 - EXISTING RECRUITER
+
+Existing recruiter logs in.
+
+They are redirected safely to:
+
+Employer Workspace.
+
+Their:
+
+Company
+
+Vacancies
+
+Applications
+
+Candidate data
+
+remain available.
+
+
+SCENARIO 2 - EMPLOYER SELF-SERVICE
+
+Employer logs in.
+
+Posts vacancy.
+
+Receives application.
+
+Reviews candidate.
+
+Shortlists.
+
+Interviews.
+
+Offers.
+
+Hires.
+
+
+SCENARIO 3 - MANAGED RECRUITMENT
+
+Employer logs in.
+
+Clicks Request Candidates.
+
+Submits request.
+
+Admin receives request.
+
+Admin moves request through:
+
+Sourcing
+Screening
+Expert Review
+Shortlist Ready
+
+Employer sees progress.
+
+Employer opens shortlist.
+
+Employer requests interview.
+
+Candidate is hired.
+
+Request becomes Filled.
+
+
+SCENARIO 4 - CANDIDATE
+
+Candidate account must remain completely separate from Employer Workspace.
+
+Candidate can:
+
+Find Jobs
+
+Use Hospitality Passport
+
+Apply
+
+Track Applications
+
+Manage Saved Jobs
+
+
+SCENARIO 5 - ADMIN
+
+Admin Console remains protected.
+
+Employer users cannot access it.
+
+
+FINAL CHECK:
+
+No duplicate Employer/Recruiter dashboards.
+
+No broken routes.
+
+No lost data.
+
+No duplicate company profiles.
+
+No duplicate vacancies.
+
+No duplicate applications.
+
+No permission leaks.
+
+No dead buttons.
+
+Mobile works correctly.
+
+Desktop works correctly.
+
+
+FINAL PRODUCT PRINCIPLE:
+
+ONE hiring workspace.
+
+EMPLOYER WORKSPACE.
+
+
+An HR Manager is an employer team member.
+
+A Recruiter is an employer team member.
+
+A Hiring Manager is an employer team member.
+
+A Guesthouse Owner is an employer team member.
+
+They do not need different products.
+
+The Jobs MV should be simple:
+
+LOOKING FOR A JOB?
+→ Candidate Experience
+
+HIRING PEOPLE?
+→ Employer Workspace
+
+MANAGING THE PLATFORM?
+→ Admin Console
+
+
+Right Talent.
+Right Opportunity.
+Right Time.

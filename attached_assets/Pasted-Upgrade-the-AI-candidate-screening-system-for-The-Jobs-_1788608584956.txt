@@ -1,0 +1,472 @@
+Upgrade the AI candidate screening system for The Jobs MV.
+
+MAIN OBJECTIVE:
+
+Create a realistic, explainable AI recruitment screening system specifically designed for Maldives hospitality recruitment.
+
+Do NOT allow AI to make final hiring decisions.
+
+The AI should assist HR by comparing candidates against clearly defined vacancy requirements.
+
+---
+
+1. THREE TYPES OF JOB REQUIREMENTS
+
+For every vacancy create:
+
+MANDATORY REQUIREMENTS
+
+PREFERRED REQUIREMENTS
+
+OPERATIONAL REQUIREMENTS
+
+Example for Bartender:
+
+Mandatory:
+
+* Minimum 2 years relevant experience
+* Bartending experience
+* English communication
+
+Preferred:
+
+* Maldives resort experience
+* Luxury resort experience
+* Cocktail knowledge
+* Wine knowledge
+* POS experience
+* WSET certification
+
+Operational:
+
+* Local / international recruitment eligibility
+* Required joining date
+* Notice period
+* Number of vacancies
+* Salary range
+* Work permit sponsorship availability where relevant
+
+Allow recruiter/admin to edit these requirements.
+
+---
+
+2. CUSTOM WEIGHTING
+
+Do NOT use one fixed AI scoring formula for every vacancy.
+
+Allow recruiter to define importance.
+
+Example:
+
+Relevant Experience: 25%
+Position Experience: 20%
+Resort Experience: 20%
+Technical Skills: 15%
+Qualifications: 10%
+Availability: 10%
+
+Total: 100%
+
+Allow requirements to be marked:
+
+Required
+Preferred
+Not Important
+
+---
+
+3. EXPLAINABLE AI MATCH SCORE
+
+Generate an overall candidate match score.
+
+Example:
+
+Overall Match: 86%
+
+Relevant Experience: 25/25
+Position Experience: 20/20
+Maldives / Resort Experience: 15/20
+Technical Skills: 13/15
+Qualifications: 5/10
+Availability: 8/10
+
+Never display an AI score without explanation.
+
+---
+
+4. AI ASSESSMENT
+
+For each candidate generate:
+
+Strong Matches
+
+Potential Concerns
+
+Missing Requirements
+
+Information Not Found
+
+Needs HR Verification
+
+Example:
+
+STRONG MATCHES
+
+* 5 years bartending experience
+* 3 years Maldives resort experience
+* Strong cocktail experience
+* Micros POS experience
+
+MISSING / NOT FOUND
+
+* No WSET certification found
+
+NEEDS HR VERIFICATION
+
+* Notice period unclear
+* Work permit status not provided
+
+---
+
+5. MALDIVES HOSPITALITY KNOWLEDGE
+
+Build the screening logic so AI understands Maldives hospitality terminology.
+
+Examples:
+
+Service charge
+Live-in resort
+Island resort
+Staff accommodation
+OJT
+F&B Attendant
+Waiter
+Senior Waiter
+Captain
+Supervisor
+Bartender
+Senior Bartender
+Head Bartender
+Bar Supervisor
+Outlet Supervisor
+Butler
+Guest Service Agent
+All Inclusive
+Half Board
+Full Board
+Micros POS
+Oracle POS
+Pre-opening
+Cross exposure
+Notice period
+Current island
+Local hire
+International hire
+Work permit
+Expat quota
+
+The system should understand related job titles and hospitality career progression.
+
+Example:
+
+Bartender
+→ Senior Bartender
+→ Head Bartender
+→ Bar Supervisor
+
+Waiter
+→ Senior Waiter
+→ Captain
+→ Supervisor
+
+Do not treat closely related hospitality titles as unrelated.
+
+---
+
+6. MALDIVES EXPERIENCE
+
+Extract separately:
+
+Total hospitality experience
+
+Resort experience
+
+Maldives experience
+
+Luxury resort experience
+
+Current Maldives employment
+
+Previous Maldives employers
+
+Do NOT automatically reject candidates without Maldives experience.
+
+Only increase its importance when the recruiter marks:
+
+"Maldives experience required"
+
+or
+
+"Maldives experience preferred"
+
+---
+
+7. LOCAL AND INTERNATIONAL CANDIDATES
+
+Do NOT automatically rank candidates higher or lower based purely on nationality.
+
+Create explicit recruitment settings:
+
+Local Candidates Only
+
+Local Candidates Preferred
+
+Local and International Candidates
+
+International Candidates Accepted
+
+If international candidate recruitment is permitted, collect:
+
+Current country
+
+Currently in Maldives: Yes / No
+
+Current Maldives employer
+
+Existing work permit: Yes / No / Unknown
+
+Work authorization status
+
+Passport validity if provided
+
+Joining availability
+
+Notice period
+
+Do not claim legal employment eligibility without verification.
+
+Show:
+
+"Employer verification required."
+
+---
+
+8. MALDIVES RECRUITMENT CHECK
+
+Add a section to each candidate called:
+
+Maldives Recruitment Check
+
+Example:
+
+Candidate Type:
+International
+
+Maldives Experience:
+3 Years
+
+Currently in Maldives:
+Yes
+
+Current Employer:
+ABC Resort
+
+Notice Period:
+30 Days
+
+Work Authorization:
+Needs Verification
+
+Passport:
+Needs Verification
+
+Potential Work Permit Action:
+Employer review required
+
+This is informational only.
+
+AI must not make immigration or legal approval decisions.
+
+---
+
+9. CV PARSING
+
+Extract structured information from uploaded CVs:
+
+Name
+Current Position
+Current Employer
+Nationality
+Current Location
+Phone
+Email
+Total Experience
+Hospitality Experience
+Resort Experience
+Maldives Experience
+Work History
+Education
+Certifications
+Languages
+Technical Skills
+POS Experience
+Leadership Experience
+Availability
+Notice Period
+
+If information does not exist in the CV, show:
+
+"Not found"
+
+Do not invent information.
+
+---
+
+10. EVIDENCE-BASED AI SCREENING
+
+Every important AI finding should reference the information found in the candidate CV/profile.
+
+Example:
+
+Maldives Experience: STRONG
+
+Evidence:
+"Worked as Bartender at XYZ Maldives Resort from March 2022 to January 2025."
+
+Do not make assumptions when evidence is unavailable.
+
+---
+
+11. CONFIDENCE
+
+For extracted information show:
+
+Confirmed from CV
+
+Candidate Provided
+
+AI Inferred
+
+Needs Verification
+
+Avoid presenting AI inference as fact.
+
+---
+
+12. AI INTERVIEW QUESTIONS
+
+After screening create:
+
+"Questions to Verify"
+
+Generate questions based on missing or unclear information.
+
+Example:
+
+* Are you currently working in Maldives?
+* What is your notice period?
+* Do you currently have an active Maldives work permit?
+* Which POS systems have you used?
+* Describe your cocktail preparation experience.
+* How many guests/covers did your previous outlet normally handle?
+
+---
+
+13. HUMAN DECISION
+
+Always display:
+
+"AI recommendations are provided to assist recruiters. Final screening and hiring decisions remain with the employer."
+
+Recruiter must be able to:
+
+Override AI score
+
+Add HR notes
+
+Manually shortlist
+
+Manually reject
+
+Move candidate to interview
+
+Mark selected/hired
+
+---
+
+14. PROTECTED CHARACTERISTICS
+
+Never use the following to automatically increase or decrease candidate match score:
+
+Gender
+Religion
+Race
+Ethnicity
+Photo
+Disability
+Age unless an explicit lawful job requirement has been configured and legally validated
+
+Nationality must not silently influence the candidate score.
+
+Recruitment restrictions must be explicitly configured at vacancy level.
+
+---
+
+15. ADMIN KNOWLEDGE BASE
+
+Create an admin-controlled section called:
+
+Maldives Recruitment Knowledge Base
+
+Admin can maintain:
+
+Hospitality job titles
+Equivalent job titles
+Career hierarchy
+Common resort skills
+Certifications
+Maldives recruitment terminology
+Work permit guidance
+Recruitment policy guidance
+Screening rules
+
+AI screening should use this knowledge base.
+
+Do NOT hard-code policies permanently into prompts.
+
+Allow administrators to update them as regulations and recruitment practices change.
+
+---
+
+16. POLICY VERSIONING
+
+Add:
+
+Policy Name
+Source
+Effective Date
+Last Reviewed
+Status
+Notes
+
+Example:
+
+Maldives Work Visa Process
+Source: Maldives Immigration
+Last Reviewed: September 2026
+
+This allows The Jobs MV to keep recruitment guidance updated when Maldives regulations change.
+
+---
+
+17. MAIN PRINCIPLE
+
+The AI should answer:
+
+"How well does this candidate match THIS vacancy?"
+
+It should NOT answer:
+
+"Should this person be hired?"
+
+Final hiring decisions must always remain with the recruiter.

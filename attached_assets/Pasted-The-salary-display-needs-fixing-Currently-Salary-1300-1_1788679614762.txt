@@ -1,0 +1,98 @@
+The salary display needs fixing
+
+Currently:
+
+Salary: 1300 - 1700
+
+That immediately creates questions.
+
+1300 what? MVR? USD? Monthly?
+
+It should be:
+
+Salary: USD 1,300–1,700/month
+
+or
+
+Salary: MVR 13,000–17,000/month
+
+If the employer doesn't disclose it:
+
+Salary: Not disclosed
+
+Never show a number without currency.
+
+3. Add the Maldives-specific employment package
+
+This is where you can differentiate from normal job boards.
+
+The card could have compact tags:
+
+USD 1,300–1,700
+Service Charge ✓
+Accommodation ✓
+
+Don't show 10 benefits on the search page. Keep the complete information for View Opportunity.
+
+4. Verified Employer is excellent, with one condition
+
+I really like:
+
+✓ Verified Employer
+
+But only display it when you have actually verified that employer.
+
+That badge could eventually become important to The Jobs MV's reputation.
+
+5. Add deadline/freshness
+
+I'd rather see:
+
+Closes 18 Sep
+
+or
+
+Posted 2 days ago • Closes 18 Sep
+
+than a long job description on the search card.
+
+Freshness is important because one of the frustrations with job websites is finding vacancies that are already closed.
+
+6. Reduce the description
+
+Currently the description takes significant space.
+
+I'd make each result more scan-friendly:
+
+Recreation Coordinator
+Anantara Kihavah ✓ • Baa Atoll
+
+USD 1,300–1,700 • Service Charge • Accommodation
+
+Plan and facilitate resort recreation activities including water sports, excursions...
+
+Posted 2 days ago • Closes 18 Sep
+
+View Opportunity
+
+That gives the candidate almost everything necessary to decide whether it's worth opening.
+
+One feature I'd definitely add
+
+Add:
+
+♡ Save
+
+to every job.
+
+A candidate browsing during a work break may not be ready to apply immediately. They can save it and return later.
+
+Overall
+
+I'd give this page 8.5/10 visually.
+
+Don't redesign it. The whitespace, typography, colors and cards are already strong.
+
+The remaining work is mostly functional differentiation:
+
+Search + Filters + Verified Employer + Transparent Package + Deadline + Save Job + Hospitality Passport application

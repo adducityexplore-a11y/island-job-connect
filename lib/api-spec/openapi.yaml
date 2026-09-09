@@ -1,0 +1,3426 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: The Jobs MV Phase 1 API
+servers:
+  - url: /api
+paths:
+  /recruiter/register:
+    post:
+      operationId: registerRecruiter
+      security:
+        - ClerkCookieAuth: []
+        - ClerkBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecruiterRegistrationRequest"
+      responses:
+        "200":
+          description: Existing employer profile already linked to this Clerk account
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompanyProfile"
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompanyProfile"
+        "400":
+          $ref: "#/components/responses/Error"
+        "401":
+          $ref: "#/components/responses/Error"
+        "409":
+          $ref: "#/components/responses/Error"
+  /storage/uploads/request-url:
+    post:
+      operationId: requestUploadUrl
+      security:
+        - ClerkCookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UploadUrlRequest"
+      responses:
+        "200":
+          description: Upload URL
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadUrlResponse"
+  /healthz:
+    get:
+      operationId: healthCheck
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /jobs:
+    get:
+      operationId: listPublicJobs
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+        - name: department
+          in: query
+          schema:
+            type: string
+        - name: location
+          in: query
+          schema:
+            type: string
+        - name: experienceLevel
+          in: query
+          schema:
+            type: string
+            enum: [Entry Level, 1-2 Years, 3-5 Years, 5+ Years]
+        - name: candidateScope
+          in: query
+          schema:
+            type: string
+            enum: [Local, International, Both]
+      responses:
+        "200":
+          description: Jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PublicJob"
+  /jobs/{id}:
+    get:
+      operationId: getPublicJob
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Active public job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicJob"
+        "404":
+          $ref: "#/components/responses/Error"
+  /companies:
+    get:
+      operationId: listPublicCompanies
+      responses:
+        "200":
+          description: Public companies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PublicCompany"
+  /companies/{id}:
+    get:
+      operationId: getPublicCompany
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Public company
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicCompany"
+        "404":
+          $ref: "#/components/responses/Error"
+  /jobs/{id}/view:
+    post:
+      operationId: recordJobView
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OkResponse"
+  /jobs/{id}/apply:
+    post:
+      operationId: recordLegacyJobApplication
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OkResponse"
+  /jobs/{id}/applications:
+    post:
+      operationId: createApplication
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApplicationCreateRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Application"
+        "409":
+          $ref: "#/components/responses/Error"
+  /jobs/{id}/application-status:
+    get:
+      operationId: getCandidateJobApplicationStatus
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: The signed-in candidate's application state for this job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandidateJobApplicationStatus"
+        "401":
+          $ref: "#/components/responses/Error"
+  /employer/jobs:
+    get:
+      operationId: listRecruiterJobs
+      responses:
+        "200":
+          description: Jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RecruiterJob"
+    post:
+      operationId: createRecruiterJob
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobCreateRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruiterJob"
+  /employer/jobs/{id}:
+    put:
+      operationId: updateRecruiterJob
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobUpdateRequest"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruiterJob"
+    delete:
+      operationId: closeRecruiterJob
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Closed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OkResponse"
+  /employer/jobs/{id}/repost:
+    post:
+      operationId: repostRecruiterJob
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruiterJob"
+  /employer/jobs/expired:
+    delete:
+      operationId: closeExpiredRecruiterJobs
+      responses:
+        "200":
+          description: Closed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeletionResult"
+  /recruiter/company:
+    get:
+      operationId: getCompanyProfile
+      responses:
+        "200":
+          description: Company
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompanyProfile"
+    patch:
+      operationId: updateCompanyProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompanyProfileUpdateRequest"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompanyProfile"
+  /recruiter/dashboard:
+    get:
+      operationId: getRecruiterDashboard
+      responses:
+        "200":
+          description: Summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruiterDashboard"
+  /candidate/profile:
+    get:
+      operationId: getCandidateProfile
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandidateProfile"
+    put:
+      operationId: upsertCandidateProfile
+      security:
+        - ClerkCookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CandidateProfileUpdateRequest"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandidateProfile"
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandidateProfile"
+  /candidate/cv/upload-url:
+    post:
+      operationId: requestCandidateCvUploadUrl
+      security:
+        - ClerkCookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CandidateCvUploadRequest"
+      responses:
+        "200":
+          description: Private URL for directly uploading the candidate's CV
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandidateCvUploadResponse"
+        "400":
+          $ref: "#/components/responses/Error"
+        "409":
+          $ref: "#/components/responses/Error"
+  /candidate/cv:
+    get:
+      operationId: downloadCandidateCv
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Candidate CV
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            application/msword:
+              schema:
+                type: string
+                format: binary
+            application/vnd.openxmlformats-officedocument.wordprocessingml.document:
+              schema:
+                type: string
+                format: binary
+        "404":
+          $ref: "#/components/responses/Error"
+  /candidate/cv/complete:
+    post:
+      operationId: completeCandidateCvUpload
+      security:
+        - ClerkCookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CandidateCvUploadCompleteRequest"
+      responses:
+        "200":
+          description: CV upload was verified and activated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandidateCvUploadCompleteResponse"
+        "400":
+          $ref: "#/components/responses/Error"
+        "404":
+          $ref: "#/components/responses/Error"
+  /candidate/applications:
+    get:
+      operationId: listCandidateApplications
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Candidate applications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CandidateApplication"
+  /candidate/saved-jobs:
+    get:
+      operationId: listCandidateSavedJobs
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Saved job IDs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+  /candidate/saved-jobs/{jobId}:
+    put:
+      operationId: saveCandidateJob
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Job saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SavedJob"
+        "404":
+          $ref: "#/components/responses/Error"
+        "409":
+          $ref: "#/components/responses/Error"
+    delete:
+      operationId: deleteCandidateSavedJob
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Saved job removed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OkResponse"
+        "409":
+          $ref: "#/components/responses/Error"
+  /recruiter/applications:
+    get:
+      operationId: listRecruiterApplications
+      responses:
+        "200":
+          description: Applications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RecruiterApplication"
+  /recruiter/applications/{id}:
+    get:
+      operationId: getRecruiterApplication
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Application
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationDetail"
+  /recruiter/candidates/{id}:
+    get:
+      operationId: getRecruiterCandidate
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Candidate
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruiterCandidateProfile"
+  /recruiter/candidates/{id}/cv:
+    get:
+      operationId: downloadRecruiterCandidateCv
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Candidate CV
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        "404":
+          $ref: "#/components/responses/Error"
+  /recruiter/applications/{id}/status:
+    patch:
+      operationId: updateApplicationStatus
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApplicationStatusUpdateRequest"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Application"
+  /recruiter/jobs/{id}/status:
+    patch:
+      operationId: updateVacancyStatus
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VacancyStatusUpdateRequest"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruiterJob"
+  /admin/overview:
+    get:
+      operationId: getAdminOverview
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Administration overview
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminOverview"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/function-check:
+    get:
+      operationId: getAdminFunctionCheck
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Sanitized service checks
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminFunctionCheck"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/employers:
+    get:
+      operationId: listAdminEmployers
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+      responses:
+        "200":
+          description: Employers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminEmployersPage"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/employers/{id}/verification:
+    patch:
+      operationId: updateAdminEmployerVerification
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployerVerificationUpdate"
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Updated employer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminEmployer"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/jobs:
+    get:
+      operationId: listAdminJobs
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+      responses:
+        "200":
+          description: Jobs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminJobsPage"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/jobs/{id}/close:
+    post:
+      operationId: closeAdminJob
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Closed job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminJob"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/jobs/{id}/verification:
+    patch:
+      operationId: updateAdminJobVerification
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobVerificationUpdate"
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Updated job verification
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminJob"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/jobs/{id}/repost:
+    post:
+      operationId: repostAdminJob
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "201":
+          description: Reposted job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminJob"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/candidates:
+    get:
+      operationId: listAdminCandidates
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+      responses:
+        "200":
+          description: Candidates
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminCandidatesPage"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/candidates/{id}/review:
+    patch:
+      operationId: updateAdminCandidateReview
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CandidateReviewUpdate"
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Updated candidate review
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminCandidate"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/applications:
+    get:
+      operationId: listAdminApplications
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+      responses:
+        "200":
+          description: Applications
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminApplicationsPage"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/applications/{id}:
+    get:
+      operationId: getAdminApplication
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Application detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminApplicationDetail"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/applications/{id}/status:
+    patch:
+      operationId: updateAdminApplicationStatus
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminApplicationStatusUpdate"
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Updated application
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminApplication"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /admin/audit-events:
+    get:
+      operationId: listAdminAuditEvents
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          description: Audit events
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminAuditEventsPage"
+        "401":
+          $ref: "#/components/responses/Error"
+        "403":
+          $ref: "#/components/responses/Error"
+  /employer/recruitment-requests:
+    get:
+      operationId: listEmployerRecruitmentRequests
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EmployerRecruitmentRequestSummary"
+    post:
+      operationId: createEmployerRecruitmentRequest
+      security:
+        - ClerkCookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecruitmentRequestCreate"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruitmentRequest"
+  /employer/recruitment-requests/{id}:
+    get:
+      operationId: getEmployerRecruitmentRequest
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmployerRecruitmentRequestDetail"
+  /employer/recruitment-requests/{id}/urgent-service:
+    patch:
+      operationId: respondToUrgentServiceTerms
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UrgentServiceEmployerResponse"
+      responses:
+        "200":
+          description: Urgent service response recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruitmentRequest"
+  /employer/recruitment-requests/{id}/shortlist/{candidateId}/action:
+    patch:
+      operationId: employerRecruitmentCandidateAction
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - name: candidateId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployerRecruitmentAction"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruitmentAssignment"
+  /admin/recruitment-requests:
+    get:
+      operationId: listAdminRecruitmentRequests
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: urgency
+          in: query
+          schema:
+            type: string
+        - name: property
+          in: query
+          schema:
+            type: string
+        - name: department
+          in: query
+          schema:
+            type: string
+        - name: position
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RecruitmentRequest"
+  /admin/recruitment-requests/urgent-metrics:
+    get:
+      operationId: getAdminUrgentRecruitmentMetrics
+      security:
+        - ClerkCookieAuth: []
+      responses:
+        "200":
+          description: Urgent Hiring conversion and fulfillment metrics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UrgentServiceMetrics"
+  /admin/recruitment-requests/{id}:
+    get:
+      operationId: getAdminRecruitmentRequest
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminRecruitmentRequestDetail"
+  /admin/recruitment-requests/{id}/status:
+    patch:
+      operationId: updateAdminRecruitmentRequestStatus
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecruitmentStatusUpdate"
+      responses:
+        "200":
+          description: Updated
+  /admin/recruitment-requests/{id}/urgent-service:
+    patch:
+      operationId: updateAdminUrgentService
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UrgentServiceAdminUpdate"
+      responses:
+        "200":
+          description: Urgent service updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruitmentRequest"
+  /admin/recruitment-requests/{id}/candidates:
+    get:
+      operationId: searchRecruitmentCandidatePool
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Opted-in candidate suggestions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminCandidatePoolItem"
+  /admin/recruitment-requests/{id}/candidates/{candidateId}:
+    put:
+      operationId: assignRecruitmentCandidate
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - name: candidateId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Assigned
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecruitmentCandidateAssignmentRequest"
+  /admin/recruitment-requests/{id}/candidates/{candidateId}/decision:
+    patch:
+      operationId: decideRecruitmentCandidate
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - name: candidateId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Decided
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecruitmentCandidateDecisionRequest"
+  /recruiter/talent:
+    get:
+      operationId: searchRecruiterTalent
+      security:
+        - ClerkCookieAuth: []
+        - ClerkBearerAuth: []
+      parameters:
+        - name: role
+          in: query
+          schema: { type: string }
+        - name: department
+          in: query
+          schema: { type: string }
+        - name: skills
+          in: query
+          schema: { type: string }
+        - name: hospitalityExperience
+          in: query
+          schema: { type: string }
+        - name: maldivesExperience
+          in: query
+          schema: { type: string }
+        - name: location
+          in: query
+          schema: { type: string }
+        - name: availability
+          in: query
+          schema: { type: string }
+        - name: language
+          in: query
+          schema: { type: string }
+      responses:
+        "200":
+          description: Consented candidate previews
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/RecruiterTalentPreview" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+  /recruiter/talent/{id}:
+    get:
+      operationId: getRecruiterTalent
+      security:
+        - ClerkCookieAuth: []
+        - ClerkBearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Consented candidate professional passport
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/RecruiterTalentDetail" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+        "404": { $ref: "#/components/responses/Error" }
+  /recruiter/talent/{id}/saved:
+    put:
+      operationId: saveRecruiterTalent
+      security:
+        - ClerkCookieAuth: []
+        - ClerkBearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Candidate saved to the employer shortlist
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/EmployerSavedCandidate" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+        "404": { $ref: "#/components/responses/Error" }
+    delete:
+      operationId: deleteRecruiterTalentSaved
+      security:
+        - ClerkCookieAuth: []
+        - ClerkBearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Candidate removed from employer shortlist
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/OkResponse" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+        "404": { $ref: "#/components/responses/Error" }
+  /recruiter/talent/{id}/invitations:
+    post:
+      operationId: inviteRecruiterTalent
+      security:
+        - ClerkCookieAuth: []
+        - ClerkBearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/RecruiterTalentInvitationCreate" }
+      responses:
+        "201":
+          description: Invitation created or existing invitation returned
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/EmployerCandidateInvitation" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+        "404": { $ref: "#/components/responses/Error" }
+  /admin/recruitment-requests/{id}/notes:
+    post:
+      operationId: addRecruitmentAdminNote
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "201":
+          description: Note created
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecruitmentAdminNoteRequest"
+components:
+  securitySchemes:
+    ClerkCookieAuth:
+      type: apiKey
+      in: cookie
+      name: __session
+    ClerkBearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 25
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorEnvelope"
+  schemas:
+    RecruiterTalentPreview:
+      type: object
+      required: [id, fullName, saved]
+      properties:
+        id: { type: integer }
+        fullName: { type: string }
+        location: { type: [string, "null"] }
+        headline: { type: [string, "null"] }
+        desiredPosition: { type: [string, "null"] }
+        department: { type: [string, "null"] }
+        yearsExperience: { type: [string, "null"] }
+        hospitalitySpecialties: { type: [string, "null"] }
+        languages: { type: [string, "null"] }
+        availability: { type: [string, "null"] }
+        availabilityStatus: { type: [string, "null"] }
+        totalHospitalityExperience: { type: [string, "null"] }
+        totalResortExperience: { type: [string, "null"] }
+        maldivesExperience: { type: [string, "null"] }
+        luxuryResortExperience: { type: [string, "null"] }
+        roleSpecificSkills: { type: [string, "null"] }
+        technicalSkills: { type: [string, "null"] }
+        posSystems: { type: [string, "null"] }
+        leadershipExperience: { type: [string, "null"] }
+        employmentStatus: { type: [string, "null"] }
+        noticePeriod: { type: [string, "null"] }
+        availableFrom: { type: [string, "null"], format: date-time }
+        currentlyInMaldives: { type: [boolean, "null"] }
+        profilePhotoUrl: { type: [string, "null"], format: uri }
+        saved: { type: boolean }
+    RecruiterTalentDetail:
+      allOf:
+        - $ref: "#/components/schemas/RecruiterTalentPreview"
+        - type: object
+          properties:
+            education: { type: [string, "null"] }
+            professionalCertifications: { type: [string, "null"] }
+            hospitalityCertifications: { type: [string, "null"] }
+            languageProficiencies: { type: [array, "null"], items: { type: object, additionalProperties: true } }
+    RecruiterTalentInvitationCreate:
+      type: object
+      required: [jobId]
+      properties:
+        jobId: { type: integer, minimum: 1 }
+        message: { type: string, maxLength: 2000 }
+    EmployerSavedCandidate:
+      type: object
+      required: [id, employerId, candidateId, createdAt, updatedAt]
+      properties:
+        id: { type: integer }
+        employerId: { type: integer }
+        candidateId: { type: integer }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    EmployerCandidateInvitation:
+      type: object
+      required: [id, employerId, candidateId, jobId, createdAt, updatedAt]
+      properties:
+        id: { type: integer }
+        employerId: { type: integer }
+        candidateId: { type: integer }
+        jobId: { type: integer }
+        message: { type: [string, "null"] }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    OkResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        success:
+          type: boolean
+    DeletionResult:
+      type: object
+      required:
+        - deleted
+      properties:
+        deleted:
+          type: integer
+    UploadUrlRequest:
+      type: object
+      required:
+        - name
+        - size
+        - contentType
+      properties:
+        name:
+          type: string
+        size:
+          type: integer
+        contentType:
+          type: string
+    UploadUrlResponse:
+      type: object
+      required:
+        - uploadURL
+        - objectPath
+        - metadata
+      properties:
+        uploadURL:
+          type: string
+        objectPath:
+          type: string
+        metadata:
+          $ref: "#/components/schemas/UploadUrlRequest"
+    HealthStatus:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+    ErrorEnvelope:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+    ApplicationStage:
+      type: string
+      enum:
+        - Application Received
+        - Reviewed
+        - Shortlisted
+        - Interview
+        - Offered
+        - Hired
+        - Not Selected
+        - New Applicant
+        - AI Reviewed
+        - Selected
+        - Rejected
+    Disclosure:
+      type: string
+      enum:
+        - provided
+        - not_disclosed
+        - not_provided
+    SavedJob:
+      type: object
+      required:
+        - jobId
+      properties:
+        jobId:
+          type: integer
+    PublicJob:
+      type: object
+      required:
+        - id
+        - title
+        - department
+        - companyName
+        - location
+        - createdAt
+        - verifiedEmployer
+        - offerInformationCompleteness
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        department:
+          type: string
+        companyName:
+          type: string
+        location:
+          type: string
+        experienceLevel:
+          type:
+            - string
+            - "null"
+          enum: [Entry Level, 1-2 Years, 3-5 Years, 5+ Years, null]
+        candidateScope:
+          type:
+            - string
+            - "null"
+          enum: [Local, International, Both, null]
+        description:
+          type: string
+        expiresAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        applicationDeadline:
+          type:
+            - string
+            - "null"
+          format: date-time
+        publishedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        source:
+          type:
+            - string
+            - "null"
+        originalSourceUrl:
+          type:
+            - string
+            - "null"
+        verificationStatus:
+          type: string
+        verifiedEmployer:
+          type: boolean
+        offerInformationCompleteness:
+          type: integer
+          minimum: 0
+          maximum: 100
+        salaryMin:
+          type:
+            - integer
+            - "null"
+        salaryMax:
+          type:
+            - integer
+            - "null"
+        salaryCurrency:
+          type:
+            - string
+            - "null"
+          enum: [USD, MVR, null]
+        salaryPeriod:
+          type:
+            - string
+            - "null"
+          enum: [month, null]
+        salaryDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        serviceCharge:
+          type:
+            - string
+            - "null"
+        serviceChargeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        otherAllowances:
+          type:
+            - string
+            - "null"
+        otherAllowancesDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        overtime:
+          type:
+            - string
+            - "null"
+        overtimeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        accommodation:
+          type:
+            - string
+            - "null"
+        accommodationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        meals:
+          type:
+            - string
+            - "null"
+        mealsDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        healthInsurance:
+          type:
+            - string
+            - "null"
+        healthInsuranceDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        annualLeave:
+          type:
+            - string
+            - "null"
+        annualLeaveDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        airTicket:
+          type:
+            - string
+            - "null"
+        airTicketDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        workingHours:
+          type:
+            - string
+            - "null"
+        workingHoursDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        weeklyOff:
+          type:
+            - string
+            - "null"
+        weeklyOffDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        probation:
+          type:
+            - string
+            - "null"
+        probationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        contractLength:
+          type:
+            - string
+            - "null"
+        contractLengthDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+    PublicCompany:
+      type: object
+      required:
+        - id
+        - companyName
+        - verified
+        - createdAt
+      properties:
+        id:
+          type: integer
+        companyName:
+          type: string
+        logoUrl:
+          type:
+            - string
+            - "null"
+        verified:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+    RecruiterJob:
+      type: object
+      required:
+        - id
+        - title
+        - status
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        experienceLevel:
+          type:
+            - string
+            - "null"
+          enum: [Entry Level, 1-2 Years, 3-5 Years, 5+ Years, null]
+        candidateScope:
+          type:
+            - string
+            - "null"
+          enum: [Local, International, Both, null]
+        salaryMin:
+          type:
+            - integer
+            - "null"
+        salaryMax:
+          type:
+            - integer
+            - "null"
+        salaryCurrency:
+          type:
+            - string
+            - "null"
+          enum: [USD, MVR, null]
+        salaryPeriod:
+          type:
+            - string
+            - "null"
+          enum: [month, null]
+        description:
+          type: string
+        requirements:
+          type:
+            - string
+            - "null"
+        applyContact:
+          type: string
+        applyMethod:
+          type: string
+        type:
+          type: string
+        imageUrl:
+          type:
+            - string
+            - "null"
+        status:
+          type: string
+        viewCount:
+          type: integer
+        applyCount:
+          type: integer
+        expiresAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        applicationDeadline:
+          type:
+            - string
+            - "null"
+          format: date-time
+        publishedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        source:
+          type:
+            - string
+            - "null"
+        originalSourceUrl:
+          type:
+            - string
+            - "null"
+          format: uri
+        verificationStatus:
+          type: string
+        salaryDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        serviceCharge:
+          type:
+            - string
+            - "null"
+        serviceChargeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        otherAllowances:
+          type:
+            - string
+            - "null"
+        otherAllowancesDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        overtime:
+          type:
+            - string
+            - "null"
+        overtimeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        accommodation:
+          type:
+            - string
+            - "null"
+        accommodationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        meals:
+          type:
+            - string
+            - "null"
+        mealsDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        healthInsurance:
+          type:
+            - string
+            - "null"
+        healthInsuranceDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        annualLeave:
+          type:
+            - string
+            - "null"
+        annualLeaveDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        airTicket:
+          type:
+            - string
+            - "null"
+        airTicketDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        workingHours:
+          type:
+            - string
+            - "null"
+        workingHoursDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        weeklyOff:
+          type:
+            - string
+            - "null"
+        weeklyOffDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        probation:
+          type:
+            - string
+            - "null"
+        probationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        contractLength:
+          type:
+            - string
+            - "null"
+        contractLengthDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+    JobCreateRequest:
+      type: object
+      required:
+        - title
+        - department
+        - location
+        - description
+        - applyContact
+      properties:
+        title:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        experienceLevel:
+          type:
+            - string
+            - "null"
+          enum: [Entry Level, 1-2 Years, 3-5 Years, 5+ Years, null]
+        candidateScope:
+          type:
+            - string
+            - "null"
+          enum: [Local, International, Both, null]
+        salaryMin:
+          type: integer
+        salaryMax:
+          type: integer
+        salaryCurrency:
+          type: string
+          enum: [USD, MVR]
+        salaryPeriod:
+          type: string
+          enum: [month]
+        description:
+          type: string
+        requirements:
+          type: string
+        applyContact:
+          type: string
+        type:
+          type: string
+          enum:
+            - Normal
+            - Featured
+            - Urgent
+        applyMethod:
+          type: string
+          enum:
+            - whatsapp
+            - email
+        imageUrl:
+          type: string
+        source:
+          type: string
+        originalSourceUrl:
+          type:
+            - string
+            - "null"
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+        applicationDeadline:
+          type:
+            - string
+            - "null"
+          format: date-time
+        expiresAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        salaryDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        serviceCharge:
+          type: string
+        serviceChargeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        otherAllowances:
+          type: string
+        otherAllowancesDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        overtime:
+          type: string
+        overtimeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        accommodation:
+          type: string
+        accommodationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        meals:
+          type: string
+        mealsDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        healthInsurance:
+          type: string
+        healthInsuranceDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        annualLeave:
+          type: string
+        annualLeaveDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        airTicket:
+          type: string
+        airTicketDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        workingHours:
+          type: string
+        workingHoursDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        weeklyOff:
+          type: string
+        weeklyOffDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        probation:
+          type: string
+        probationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        contractLength:
+          type: string
+        contractLengthDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+    JobUpdateRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        applyMethod:
+          type: string
+          enum: [whatsapp, email]
+        type:
+          type: string
+          enum: [Normal, Featured, Urgent]
+        imageUrl:
+          type: string
+        experienceLevel:
+          type:
+            - string
+            - "null"
+          enum: [Entry Level, 1-2 Years, 3-5 Years, 5+ Years, null]
+        candidateScope:
+          type:
+            - string
+            - "null"
+          enum: [Local, International, Both, null]
+        description:
+          type: string
+        requirements:
+          type: string
+        applyContact:
+          type: string
+        status:
+          type: string
+        source:
+          type: string
+        originalSourceUrl:
+          type:
+            - string
+            - "null"
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+        applicationDeadline:
+          type:
+            - string
+            - "null"
+          format: date-time
+        expiresAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        salaryMin:
+          type: integer
+        salaryMax:
+          type: integer
+        salaryCurrency:
+          type: string
+          enum: [USD, MVR]
+        salaryPeriod:
+          type: string
+          enum: [month]
+        salaryDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        serviceCharge:
+          type: string
+        serviceChargeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        otherAllowances:
+          type: string
+        otherAllowancesDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        overtime:
+          type: string
+        overtimeDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        accommodation:
+          type: string
+        accommodationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        meals:
+          type: string
+        mealsDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        healthInsurance:
+          type: string
+        healthInsuranceDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        annualLeave:
+          type: string
+        annualLeaveDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        airTicket:
+          type: string
+        airTicketDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        workingHours:
+          type: string
+        workingHoursDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        weeklyOff:
+          type: string
+        weeklyOffDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        probation:
+          type: string
+        probationDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+        contractLength:
+          type: string
+        contractLengthDisclosure:
+          $ref: "#/components/schemas/Disclosure"
+    RecruiterRegistrationRequest:
+      type: object
+      required:
+        - companyName
+        - contactName
+      properties:
+        companyName:
+          type: string
+          minLength: 2
+        contactName:
+          type: string
+          minLength: 2
+        phone:
+          type: string
+    CompanyProfile:
+      type: object
+      required:
+        - id
+        - email
+        - companyName
+        - contactName
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+        companyName:
+          type: string
+        contactName:
+          type: string
+        phone:
+          type:
+            - string
+            - "null"
+        logoUrl:
+          type:
+            - string
+            - "null"
+    CompanyProfileUpdateRequest:
+      type: object
+      properties:
+        companyName:
+          type: string
+        contactName:
+          type: string
+        phone:
+          type: string
+        logoUrl:
+          type:
+            - string
+            - "null"
+    RecruiterDashboard:
+      type: object
+      required:
+        - totalJobs
+        - activeJobs
+        - applications
+        - newApplicants
+        - shortlisted
+        - interview
+        - hired
+      properties:
+        totalJobs:
+          type: integer
+        activeJobs:
+          type: integer
+        applications:
+          type: integer
+        newApplicants:
+          type: integer
+        shortlisted:
+          type: integer
+        interview:
+          type: integer
+        hired:
+          type: integer
+    CandidateProfile:
+      type: object
+      required:
+        - id
+        - email
+        - fullName
+        - cvAvailable
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+        fullName:
+          type: string
+        phone:
+          type:
+            - string
+            - "null"
+        location:
+          type:
+            - string
+            - "null"
+        headline:
+          type:
+            - string
+            - "null"
+        summary:
+          type:
+            - string
+            - "null"
+        yearsExperience:
+          type:
+            - string
+            - "null"
+        hospitalitySpecialties:
+          type:
+            - string
+            - "null"
+        languages:
+          type:
+            - string
+            - "null"
+        availability:
+          type:
+            - string
+            - "null"
+        cvAvailable:
+          type: boolean
+        desiredPosition:
+          type:
+            - string
+            - "null"
+        department:
+          type:
+            - string
+            - "null"
+        expectedSalary:
+          type:
+            - string
+            - "null"
+        profilePhotoUrl:
+          type:
+            - string
+            - "null"
+          format: uri
+        availabilityStatus:
+          type:
+            - string
+            - "null"
+          enum:
+            - Available Now
+            - Available Within 30 Days
+            - Currently Employed
+            - Not Looking
+        currentEmployer:
+          type:
+            - string
+            - "null"
+        nationality:
+          type:
+            - string
+            - "null"
+        totalHospitalityExperience:
+          type:
+            - string
+            - "null"
+        totalResortExperience:
+          type:
+            - string
+            - "null"
+        maldivesExperience:
+          type:
+            - string
+            - "null"
+        luxuryResortExperience:
+          type:
+            - string
+            - "null"
+        roleSpecificSkills:
+          type:
+            - string
+            - "null"
+        technicalSkills:
+          type:
+            - string
+            - "null"
+        posSystems:
+          type:
+            - string
+            - "null"
+        leadershipExperience:
+          type:
+            - string
+            - "null"
+        education:
+          type:
+            - string
+            - "null"
+        professionalCertifications:
+          type:
+            - string
+            - "null"
+        hospitalityCertifications:
+          type:
+            - string
+            - "null"
+        employmentStatus:
+          type:
+            - string
+            - "null"
+        noticePeriod:
+          type:
+            - string
+            - "null"
+        availableFrom:
+          type:
+            - string
+            - "null"
+          format: date-time
+        currentlyInMaldives:
+          type:
+            - boolean
+            - "null"
+        workHistory:
+          type:
+            - array
+            - "null"
+          items:
+            type: object
+            additionalProperties: true
+        languageProficiencies:
+          type:
+            - array
+            - "null"
+          items:
+            type: object
+            additionalProperties: true
+        jobsMvReviewed:
+          type: boolean
+        reviewedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+    CandidateProfileUpdateRequest:
+      type: object
+      required:
+        - email
+        - fullName
+      properties:
+        email:
+          type: string
+        fullName:
+          type: string
+        phone:
+          type: string
+        location:
+          type: string
+        headline:
+          type: string
+        summary:
+          type: string
+        yearsExperience:
+          type: string
+        hospitalitySpecialties:
+          type: string
+        languages:
+          type: string
+        availability:
+          type: string
+        currentEmployer:
+          type: string
+        nationality:
+          type: string
+        totalHospitalityExperience:
+          type: string
+        totalResortExperience:
+          type: string
+        maldivesExperience:
+          type: string
+        luxuryResortExperience:
+          type: string
+        roleSpecificSkills:
+          type: string
+        technicalSkills:
+          type: string
+        posSystems:
+          type: string
+        leadershipExperience:
+          type: string
+        education:
+          type: string
+        professionalCertifications:
+          type: string
+        hospitalityCertifications:
+          type: string
+        employmentStatus:
+          type: string
+        noticePeriod:
+          type: string
+        availableFrom:
+          type:
+            - string
+            - "null"
+          format: date-time
+        currentlyInMaldives:
+          type:
+            - boolean
+            - "null"
+        workHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        languageProficiencies:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        desiredPosition:
+          type: string
+        department:
+          type: string
+        expectedSalary:
+          type: string
+        profilePhotoUrl:
+          type:
+            - string
+            - "null"
+          format: uri
+        availabilityStatus:
+          type:
+            - string
+            - "null"
+          enum:
+            - Available Now
+            - Available Within 30 Days
+            - Currently Employed
+            - Not Looking
+        openToOpportunities:
+          type: boolean
+    ApplicationCreateRequest:
+      type: object
+      properties:
+        coverLetter:
+          type: string
+          maxLength: 5000
+    CandidateCvUploadRequest:
+      type: object
+      required:
+        - name
+        - size
+        - contentType
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        size:
+          type: integer
+          minimum: 1
+          maximum: 10485760
+        contentType:
+          type: string
+          enum:
+            - application/pdf
+            - application/msword
+            - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    CandidateCvUploadResponse:
+      type: object
+      required:
+        - uploadURL
+        - uploadToken
+        - expiresAt
+      properties:
+        uploadURL:
+          type: string
+          format: uri
+        uploadToken:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+    CandidateCvUploadCompleteRequest:
+      type: object
+      required:
+        - uploadToken
+      properties:
+        uploadToken:
+          type: string
+          minLength: 1
+          maxLength: 4096
+    CandidateCvUploadCompleteResponse:
+      type: object
+      required:
+        - cvAvailable
+      properties:
+        cvAvailable:
+          type: boolean
+    CandidateJobApplicationStatus:
+      type: object
+      required:
+        - applied
+      properties:
+        applied:
+          type: boolean
+        applicationId:
+          type: integer
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+    Application:
+      type: object
+      required:
+        - id
+        - jobId
+        - candidateId
+        - status
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: integer
+        candidateId:
+          type: integer
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+    CandidateApplication:
+      type: object
+      required:
+        - id
+        - jobId
+        - jobTitle
+        - companyName
+        - status
+        - createdAt
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: integer
+        jobTitle:
+          type: string
+        companyName:
+          type: string
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        receivedAt:
+          type: string
+          format: date-time
+        reviewedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        shortlistedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        interviewAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        offeredAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        hiredAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        notSelectedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+    RecruiterApplication:
+      type: object
+      required:
+        - id
+        - jobId
+        - candidateId
+        - status
+        - candidateName
+        - candidateJobsMvReviewed
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: integer
+        jobTitle:
+          type: string
+        candidateId:
+          type: integer
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+        candidateName:
+          type: string
+        candidateHeadline:
+          type:
+            - string
+            - "null"
+        candidateCurrentEmployer:
+          type:
+            - string
+            - "null"
+        candidateTotalHospitalityExperience:
+          type:
+            - string
+            - "null"
+        candidateTotalResortExperience:
+          type:
+            - string
+            - "null"
+        candidateMaldivesExperience:
+          type:
+            - string
+            - "null"
+        candidateAvailability:
+          type:
+            - string
+            - "null"
+        candidateEmploymentStatus:
+          type:
+            - string
+            - "null"
+        candidateNoticePeriod:
+          type:
+            - string
+            - "null"
+        candidateCurrentlyInMaldives:
+          type:
+            - boolean
+            - "null"
+        candidateJobsMvReviewed:
+          type: boolean
+        candidateReviewedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+    RecruiterCandidateProfile:
+      type: object
+      required:
+        - id
+        - email
+        - fullName
+        - jobsMvReviewed
+      properties:
+        cvAvailable:
+          type: boolean
+        id:
+          type: integer
+        email:
+          type: string
+        fullName:
+          type: string
+        phone:
+          type:
+            - string
+            - "null"
+        location:
+          type:
+            - string
+            - "null"
+        headline:
+          type:
+            - string
+            - "null"
+        summary:
+          type:
+            - string
+            - "null"
+        yearsExperience:
+          type:
+            - string
+            - "null"
+        hospitalitySpecialties:
+          type:
+            - string
+            - "null"
+        languages:
+          type:
+            - string
+            - "null"
+        availability:
+          type:
+            - string
+            - "null"
+        currentEmployer:
+          type:
+            - string
+            - "null"
+        nationality:
+          type:
+            - string
+            - "null"
+        totalHospitalityExperience:
+          type:
+            - string
+            - "null"
+        totalResortExperience:
+          type:
+            - string
+            - "null"
+        maldivesExperience:
+          type:
+            - string
+            - "null"
+        luxuryResortExperience:
+          type:
+            - string
+            - "null"
+        roleSpecificSkills:
+          type:
+            - string
+            - "null"
+        technicalSkills:
+          type:
+            - string
+            - "null"
+        posSystems:
+          type:
+            - string
+            - "null"
+        leadershipExperience:
+          type:
+            - string
+            - "null"
+        education:
+          type:
+            - string
+            - "null"
+        professionalCertifications:
+          type:
+            - string
+            - "null"
+        hospitalityCertifications:
+          type:
+            - string
+            - "null"
+        employmentStatus:
+          type:
+            - string
+            - "null"
+        noticePeriod:
+          type:
+            - string
+            - "null"
+        availableFrom:
+          type:
+            - string
+            - "null"
+          format: date-time
+        currentlyInMaldives:
+          type:
+            - boolean
+            - "null"
+        workHistory:
+          type:
+            - array
+            - "null"
+          items:
+            type: object
+            additionalProperties: true
+        languageProficiencies:
+          type:
+            - array
+            - "null"
+          items:
+            type: object
+            additionalProperties: true
+        jobsMvReviewed:
+          type: boolean
+        reviewedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+    ApplicationDetail:
+      type: object
+      properties:
+        application:
+          $ref: "#/components/schemas/Application"
+        candidate:
+          $ref: "#/components/schemas/RecruiterCandidateProfile"
+        jobTitle:
+          type: string
+        history:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationStatusHistory"
+    ApplicationStatusHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+        note:
+          type:
+            - string
+            - "null"
+        createdAt:
+          type: string
+          format: date-time
+    ApplicationStatusUpdateRequest:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+        note:
+          type: string
+    VacancyStatusUpdateRequest:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+            - closed
+    AdminOverview:
+      type: object
+      required:
+        - employers
+        - jobs
+        - candidates
+        - applications
+      properties:
+        employers:
+          type: integer
+        jobs:
+          type: integer
+        candidates:
+          type: integer
+        applications:
+          type: integer
+    AdminFunctionCheck:
+      type: object
+      required:
+        - api
+        - database
+        - counts
+      properties:
+        api:
+          type: string
+          enum:
+            - ok
+        database:
+          type: string
+          enum:
+            - ok
+        counts:
+          $ref: "#/components/schemas/AdminOverview"
+    AdminEmployer:
+      type: object
+      required:
+        - id
+        - companyName
+        - contactName
+        - verified
+        - createdAt
+      properties:
+        id:
+          type: integer
+        companyName:
+          type: string
+        contactName:
+          type: string
+        verified:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+    AdminJob:
+      type: object
+      required:
+        - id
+        - employerId
+        - title
+        - status
+        - verificationStatus
+        - createdAt
+      properties:
+        id:
+          type: integer
+        employerId:
+          type: integer
+        title:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+            - closed
+        type:
+          type: string
+        expiresAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        verificationStatus:
+          type: string
+          enum:
+            - unverified
+            - verified
+            - needs_review
+        createdAt:
+          type: string
+          format: date-time
+    AdminCandidate:
+      type: object
+      required:
+        - id
+        - fullName
+        - email
+        - jobsMvReviewed
+        - createdAt
+      properties:
+        id:
+          type: integer
+        fullName:
+          type: string
+        email:
+          type: string
+        phone:
+          type:
+            - string
+            - "null"
+        location:
+          type:
+            - string
+            - "null"
+        headline:
+          type:
+            - string
+            - "null"
+        jobsMvReviewed:
+          type: boolean
+        reviewedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+    CandidateReviewUpdate:
+      type: object
+      required:
+        - jobsMvReviewed
+      properties:
+        jobsMvReviewed:
+          type: boolean
+        reviewNotes:
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+    AdminApplication:
+      type: object
+      required:
+        - id
+        - jobId
+        - candidateId
+        - status
+        - createdAt
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: integer
+        candidateId:
+          type: integer
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+        createdAt:
+          type: string
+          format: date-time
+    AdminApplicationDetail:
+      type: object
+      required:
+        - application
+        - candidate
+        - job
+      properties:
+        application:
+          $ref: "#/components/schemas/AdminApplication"
+        candidate:
+          $ref: "#/components/schemas/AdminCandidate"
+        job:
+          $ref: "#/components/schemas/AdminJob"
+        history:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationStatusHistory"
+    AdminEmployersPage:
+      type: object
+      required:
+        - items
+        - total
+        - limit
+        - offset
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminEmployer"
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    AdminJobsPage:
+      type: object
+      required:
+        - items
+        - total
+        - limit
+        - offset
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminJob"
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    AdminCandidatesPage:
+      type: object
+      required:
+        - items
+        - total
+        - limit
+        - offset
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminCandidate"
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    AdminApplicationsPage:
+      type: object
+      required:
+        - items
+        - total
+        - limit
+        - offset
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminApplication"
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    EmployerVerificationUpdate:
+      type: object
+      required:
+        - verified
+      properties:
+        verified:
+          type: boolean
+    JobVerificationUpdate:
+      type: object
+      required:
+        - verificationStatus
+      properties:
+        verificationStatus:
+          type: string
+          enum:
+            - unverified
+            - verified
+            - needs_review
+    AdminApplicationStatusUpdate:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          $ref: "#/components/schemas/ApplicationStage"
+        note:
+          type: string
+          maxLength: 1000
+    AdminAuditEvent:
+      type: object
+      required:
+        - id
+        - action
+        - entityType
+        - createdAt
+      properties:
+        id:
+          type: integer
+        action:
+          type: string
+        entityType:
+          type: string
+        entityId:
+          type:
+            - string
+            - "null"
+        metadata:
+          type: object
+          additionalProperties: true
+        createdAt:
+          type: string
+          format: date-time
+    AdminAuditEventsPage:
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminAuditEvent"
+    RecruitmentRequestCreate:
+      type: object
+      required:
+        - companyPropertyName
+        - positionTitle
+        - department
+        - employeesRequired
+        - hiringScope
+        - contactPerson
+        - contactEmail
+        - contactNumber
+      properties:
+        companyPropertyName:
+          type: string
+        positionTitle:
+          type: string
+        department:
+          type: string
+        employeesRequired:
+          type: integer
+        hiringScope:
+          type: string
+          enum:
+            - Local
+            - International
+            - Both
+        minimumExperience:
+          type: string
+        preferredExperience:
+          type: string
+        salary:
+          type: string
+        serviceCharge:
+          type: string
+        accommodationProvided:
+          type: boolean
+        foodProvided:
+          type: boolean
+        joiningDate:
+          type: string
+          format: date-time
+        urgency:
+          type: string
+          enum:
+            - Normal
+            - Urgent
+        englishLevel:
+          type: string
+        educationRequirement:
+          type: string
+        genderPreference:
+          type: string
+        nationalityPreference:
+          type: string
+        additionalRequirements:
+          type: string
+        jobDescription:
+          type: string
+        contactPerson:
+          type: string
+        contactEmail:
+          type: string
+          format: email
+        contactNumber:
+          type: string
+    RecruitmentRequest:
+      allOf:
+        - $ref: "#/components/schemas/RecruitmentRequestCreate"
+        - type: object
+          required:
+            - id
+            - employerId
+            - status
+            - createdAt
+          properties:
+            id:
+              type: integer
+            employerId:
+              type: integer
+            jobId:
+              type:
+                - integer
+                - "null"
+            status:
+              type: string
+              enum:
+                - Vacancy
+                - Applications
+                - Screening
+                - Expert Review
+                - Interview-Ready Shortlist
+                - Employer Interview
+                - Position Filled
+                - Closed
+            createdAt:
+              type: string
+              format: date-time
+            updatedAt:
+              type: string
+              format: date-time
+            urgentServiceStatus:
+              type: string
+              enum: [Not Requested, Requested, Terms Ready, Accepted, Active, Fulfilled, Declined]
+            urgentServiceTerms:
+              type: [string, "null"]
+            urgentTermsSentAt:
+              type: [string, "null"]
+              format: date-time
+            urgentAcceptedAt:
+              type: [string, "null"]
+              format: date-time
+            urgentActivatedAt:
+              type: [string, "null"]
+              format: date-time
+            urgentFulfilledAt:
+              type: [string, "null"]
+              format: date-time
+            urgentDeclinedAt:
+              type: [string, "null"]
+              format: date-time
+    EmployerRecruitmentCounters:
+      type: object
+      required: [applicationsReceived, assignedCandidates, shortlistedCandidates, interviewCandidates, hiredCandidates]
+      properties:
+        applicationsReceived: { type: integer }
+        assignedCandidates: { type: integer }
+        shortlistedCandidates: { type: integer }
+        interviewCandidates: { type: integer }
+        hiredCandidates: { type: integer }
+    RecruitmentMatchReason:
+      type: object
+      required: [criterion, matched]
+      properties:
+        criterion: { type: string }
+        matched: { type: boolean }
+        evidence: { type: [string, "null"] }
+    RecruitmentMatch:
+      type: object
+      required: [score, strengths, reasons, missingEvidence]
+      properties:
+        score: { type: [integer, "null"], minimum: 0, maximum: 100 }
+        strengths: { type: array, items: { type: string } }
+        reasons: { type: array, items: { $ref: "#/components/schemas/RecruitmentMatchReason" } }
+        missingEvidence: { type: array, items: { type: string } }
+        criteria: { type: array, items: { type: object, additionalProperties: true } }
+    EmployerShortlistCandidate:
+      type: object
+      required: [id, fullName, openToOpportunities, match, cvUrl]
+      properties:
+        id: { type: integer }
+        fullName: { type: string }
+        headline: { type: [string, "null"] }
+        desiredPosition: { type: [string, "null"] }
+        department: { type: [string, "null"] }
+        yearsExperience: { type: [string, "null"] }
+        maldivesExperience: { type: [string, "null"] }
+        availabilityStatus: { type: [string, "null"] }
+        expectedSalary: { type: [string, "null"] }
+        nationality: { type: [string, "null"] }
+        location: { type: [string, "null"] }
+        profilePhotoUrl: { type: [string, "null"] }
+        openToOpportunities: { type: boolean }
+        decision: { type: [string, "null"] }
+        employerAction: { type: [string, "null"] }
+        cvUrl: { type: string }
+        match: { $ref: "#/components/schemas/RecruitmentMatch" }
+    EmployerRecruitmentRequestSummary:
+      allOf:
+        - $ref: "#/components/schemas/RecruitmentRequest"
+        - type: object
+          required: [counters]
+          properties:
+            counters: { $ref: "#/components/schemas/EmployerRecruitmentCounters" }
+    EmployerRecruitmentRequestDetail:
+      allOf:
+        - $ref: "#/components/schemas/EmployerRecruitmentRequestSummary"
+        - type: object
+          required: [shortlist]
+          properties:
+            shortlist:
+              type: array
+              items: { $ref: "#/components/schemas/EmployerShortlistCandidate" }
+    RecruitmentAssignment:
+      type: object
+      required: [id, requestId, candidateId, assignedByClerkUserId, createdAt, updatedAt]
+      properties:
+        id: { type: integer }
+        requestId: { type: integer }
+        candidateId: { type: integer }
+        decision: { type: [string, "null"] }
+        employerAction: { type: [string, "null"] }
+        invitedToInterviewAt: { type: [string, "null"], format: date-time }
+        hiredAt: { type: [string, "null"], format: date-time }
+        matchScore: { type: [integer, "null"] }
+        assignedByClerkUserId: { type: string }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    RecruitmentStatusUpdate:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          enum:
+            - Vacancy
+            - Applications
+            - Screening
+            - Expert Review
+            - Interview-Ready Shortlist
+            - Employer Interview
+            - Position Filled
+            - Closed
+        note:
+          type: string
+          maxLength: 1000
+        jobId:
+          type:
+            - integer
+            - "null"
+    UrgentServiceEmployerResponse:
+      type: object
+      required: [response]
+      properties:
+        response:
+          type: string
+          enum: [Accepted, Declined]
+    UrgentServiceAdminUpdate:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [Terms Ready, Active, Fulfilled, Declined]
+        terms:
+          type: string
+          minLength: 10
+          maxLength: 2000
+    UrgentServiceMetrics:
+      type: object
+      required: [requested, termsReady, accepted, active, fulfilled, declined, conversionRate, averageFulfillmentHours, interviews, hires]
+      properties:
+        requested: { type: integer }
+        termsReady: { type: integer }
+        accepted: { type: integer }
+        active: { type: integer }
+        fulfilled: { type: integer }
+        declined: { type: integer }
+        conversionRate: { type: number }
+        averageFulfillmentHours: { type: [number, "null"] }
+        interviews: { type: integer }
+        hires: { type: integer }
+    RecruitmentCandidateAssignmentRequest:
+      type: object
+      properties:
+        decision:
+          type: string
+    RecruitmentCandidateDecisionRequest:
+      type: object
+      required:
+        - decision
+      properties:
+        decision:
+          type: string
+    RecruitmentAdminNoteRequest:
+      type: object
+      required:
+        - note
+      properties:
+        note:
+          type: string
+        candidateId:
+          type: integer
+    EmployerRecruitmentAction:
+      type: object
+      required:
+        - action
+      properties:
+        action:
+          type: string
+          enum:
+            - Invite for Interview
+            - Reject
+            - Keep for Review
+            - Mark Hired
+    AdminRecruitmentRequestDetail:
+      type: object
+      properties:
+        counters:
+          type: object
+          properties:
+            applicationsReceived:
+              type: integer
+            assignedCandidates:
+              type: integer
+            suitableCandidates:
+              type: integer
+            shortlistedCandidates:
+              type: integer
+            interviewCandidates:
+              type: integer
+            hiredCandidates:
+              type: integer
+        history:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              status:
+                type: string
+              note:
+                type: string
+                nullable: true
+              createdAt:
+                type: string
+                format: date-time
+        assignments:
+          type: array
+          items:
+            type: object
+            properties:
+              candidate:
+                $ref: "#/components/schemas/CandidateProfile"
+              assignment:
+                type: object
+                properties:
+                  decision:
+                    type: string
+                    nullable: true
+                  employerAction:
+                    type: string
+                    nullable: true
+                  matchScore:
+                    type: integer
+                    nullable: true
+        notes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              note:
+                type: string
+              candidateId:
+                type: integer
+                nullable: true
+              createdAt:
+                type: string
+                format: date-time
+      allOf:
+        - $ref: "#/components/schemas/RecruitmentRequest"
+    AdminCandidatePoolItem:
+      type: object
+      properties:
+        profile:
+          $ref: "#/components/schemas/CandidateProfile"
+        match:
+          type: object
+          properties:
+            score:
+              type: integer
+            availableCriteria:
+              type: integer
+            criteria:
+              type: array
+              items:
+                type: object
+                properties:
+                  criterion:
+                    type: string
+                  matched:
+                    type: boolean

@@ -1,0 +1,289 @@
+Improve ONLY the Employer Services section near the bottom of The Jobs MV homepage.
+
+IMPORTANT:
+- Do not redesign the whole homepage.
+- Do not change the overall website structure.
+- Do not change existing functionality, routes, database logic or authentication.
+- Keep the same core message and purpose.
+- Improve the wording slightly for clarity, but do not change the brand meaning.
+- Keep the new premium editorial visual style already used on the website.
+- Make the section feel more useful and convincing to employers, not just decorative.
+
+GOAL:
+
+This section should clearly explain that employers have two options:
+
+1. Request Candidates and let The Jobs MV help
+2. Post a Vacancy and manage recruitment themselves
+
+The section must make employers understand the service in a few seconds.
+
+--------------------------------------------------
+1. KEEP THE MAIN HEADLINE
+--------------------------------------------------
+
+Keep this headline exactly:
+
+Don't lose great talent because hiring takes too long.
+
+Do not replace it with generic recruitment wording.
+
+This is an important brand message.
+
+--------------------------------------------------
+2. IMPROVE THE SUPPORTING TEXT
+--------------------------------------------------
+
+Replace the current paragraph with:
+
+Tell us who you need. We screen and review suitable candidates, then deliver an interview-ready shortlist so you can hire faster.
+
+Keep it short and easy to scan.
+
+--------------------------------------------------
+3. IMPROVE THE SMALL SUPPORT BOX
+--------------------------------------------------
+
+Replace the existing text:
+
+Recruitment support for resorts, hotels, guesthouses and hospitality businesses.
+
+with:
+
+Built for resorts, hotels, guesthouses and hospitality businesses that need a faster, simpler way to recruit.
+
+Style this as a subtle information strip or highlighted note.
+
+Do not make it look like another large card.
+
+--------------------------------------------------
+4. KEEP THE TWO EMPLOYER ACTIONS
+--------------------------------------------------
+
+Keep two clear CTAs:
+
+PRIMARY:
+
+Request Candidates →
+
+SECONDARY:
+
+Post a Vacancy
+
+Request Candidates should remain visually dominant.
+
+Post a Vacancy should use a lighter / outline style.
+
+Optionally add small supporting labels:
+
+Need our help?
+Request Candidates
+
+Prefer to manage hiring yourself?
+Post a Vacancy
+
+Keep these subtle and do not overcrowd the section.
+
+--------------------------------------------------
+5. REPLACE THE CURRENT RIGHT-SIDE IMAGE
+--------------------------------------------------
+
+The current image looks too much like a promotional poster because it contains large Jobs MV text inside the image and partially cropped people.
+
+Replace it with a clean, premium hospitality recruitment image.
+
+Preferred visual:
+
+- Professional Maldives hospitality employees
+- Resort/service environment
+- 3–4 hospitality professionals if possible
+- Natural expressions
+- Clean uniforms
+- No embedded text
+- No logos inside the photograph
+- No awkwardly cropped people
+- Premium resort/hospitality feeling
+
+The image should support the message rather than compete with it.
+
+If a suitable existing image asset is available in the project, use it.
+
+Do not invent employer logos or fake resort branding.
+
+--------------------------------------------------
+6. ADD A SIMPLE 3-STEP PROCESS
+--------------------------------------------------
+
+Replace the single floating:
+
+Expert Screening
+
+card with a clear 3-step employer process.
+
+Use:
+
+01
+Tell Us Who You Need
+
+Share the position and key requirements.
+
+
+02
+We Screen & Review
+
+Our hospitality team identifies and reviews suitable candidates.
+
+
+03
+You Interview & Hire
+
+Receive an interview-ready shortlist and make your hiring decision.
+
+Desktop:
+These can appear as three compact cards or steps overlapping the lower part of the image or immediately below it.
+
+Mobile:
+Stack vertically.
+
+Keep the steps visually light and premium.
+
+Do not create a complicated workflow graphic.
+
+--------------------------------------------------
+7. VISUAL STYLE
+--------------------------------------------------
+
+Keep the premium editorial design language.
+
+Use:
+
+Warm off-white / ivory background
+Deep navy headings
+Warm gold accent
+White cards
+Subtle shadows
+Soft borders
+Rounded corners
+Generous whitespace
+Clean modern icons
+
+Use gold sparingly for:
+
+EMPLOYER SERVICES label
+Small line/accent
+Step numbers
+CTA arrow or minor detail
+
+Do not turn the whole section yellow.
+
+--------------------------------------------------
+8. SECTION LABEL
+--------------------------------------------------
+
+Keep a small section label above the headline.
+
+Use:
+
+FOR EMPLOYERS
+
+or
+
+EMPLOYER SERVICES
+
+Prefer whichever matches the rest of the homepage section-label system.
+
+Use small uppercase text with subtle gold accent.
+
+--------------------------------------------------
+9. LAYOUT
+--------------------------------------------------
+
+Desktop:
+
+LEFT SIDE:
+Section label
+Headline
+Supporting text
+Support note
+Two CTAs
+
+RIGHT SIDE:
+Clean hospitality image
+3-step process integrated elegantly
+
+Maintain balanced proportions.
+
+Do not let the image become much larger than the message.
+
+Mobile:
+
+Text first
+CTAs
+Image
+3 steps stacked below
+
+No horizontal overflow.
+
+--------------------------------------------------
+10. RESPONSIVENESS
+--------------------------------------------------
+
+Test at:
+
+375px
+390px
+430px
+Tablet
+Desktop
+Large desktop
+
+Mobile priorities:
+
+- Headline remains readable
+- Buttons are easy to tap
+- Image crops correctly
+- Process steps stack cleanly
+- No overlapping text
+- No tiny text
+- No horizontal scrolling
+
+--------------------------------------------------
+11. DO NOT ADD FAKE SOCIAL PROOF
+--------------------------------------------------
+
+Do not add:
+
+Fake testimonials
+Fake HR quotes
+Fake employer logos
+Fake client numbers
+Fake success rates
+Fake "trusted by" claims
+
+Only use actual data if it already exists in the system.
+
+--------------------------------------------------
+12. FINAL RESULT
+--------------------------------------------------
+
+The final employer section should communicate this clearly:
+
+Don't lose great talent because hiring takes too long.
+
+Tell us who you need.
+
+We screen and review suitable candidates.
+
+You receive an interview-ready shortlist.
+
+You interview and hire.
+
+The employer should immediately understand the difference between:
+
+REQUEST CANDIDATES
+
+and
+
+POST A VACANCY.
+
+The section should feel premium, human, Maldives hospitality-focused and easy to understand.

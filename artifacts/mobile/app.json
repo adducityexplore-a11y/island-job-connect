@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "TheJobs MV",
+    "slug": "thejobsmv",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "thejobsmv",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0077B6"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.thejobsmv.app"
+    },
+    "android": {
+      "package": "com.thejobsmv.app"
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png",
+      "bundler": "metro",
+      "output": "single",
+      "name": "The Jobs MV",
+      "shortName": "Jobs MV",
+      "lang": "en",
+      "title": "The Jobs MV — Maldives Hospitality Jobs",
+      "description": "Find your next resort career in the Maldives. Browse F&B, Front Office, Housekeeping, Diving and more hospitality jobs across top Maldivian resorts.",
+      "themeColor": "#0077B6",
+      "backgroundColor": "#FFFFFF"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://replit.com/"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* Refined hypothesis: ocean ink, sun-warmed sand, and a quiet lagoon accent. */
+.refined-editorial {
+  --ref-ocean: #082b3a;
+  --ref-deep: #061f2b;
+  --ref-lagoon: #177f86;
+  --ref-lagoon-soft: #d9ebe7;
+  --ref-sand: #f4efe5;
+  --ref-sand-deep: #e6ddcc;
+  --ref-sun: #d5a642;
+  --ref-ink: #102c38;
+  --ref-muted: #526a70;
+  --ref-line: #c8d2cd;
+  background: var(--ref-sand);
+  color: var(--ref-ink);
+  font-family: 'DM Sans', sans-serif;
+}
+.refined-editorial h1,
+.refined-editorial h2,
+.refined-editorial h3,
+.refined-editorial .font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+.refined-editorial h1 { font-weight: 400; }
+.refined-editorial i { letter-spacing: -.025em; }
+.refined-editorial a { transition: color .25s ease, background-color .25s ease, border-color .25s ease, gap .25s ease; }
+.refined-editorial [class*="text-[#12243f]"] { color: var(--ref-ocean) !important; }
+.refined-editorial [class*="text-[#e8c56a]"] { color: #f0ca72 !important; }
+.refined-editorial [class*="text-[#b37a19]"] { color: #9b6d1d !important; }
+.refined-editorial [class*="text-[#637187]"] { color: var(--ref-muted) !important; }
+.refined-editorial [class*="text-white"] { color: #f7f4ec; }
+.refined-editorial [class*="bg-[#12243f]"] { background-color: var(--ref-ocean) !important; }
+.refined-editorial [class*="bg-[#f5f2ec]"] { background-color: var(--ref-sand) !important; }
+.refined-editorial [class*="bg-[#e7e1d6]"] { background-color: var(--ref-sand-deep) !important; }
+.refined-editorial [class*="bg-[#dba933]"] { background-color: var(--ref-sun) !important; }
+.refined-editorial [class*="bg-[#f5efe2]"] { background-color: var(--ref-lagoon-soft) !important; }
+.refined-editorial [class*="border-[#12243f]"] { border-color: var(--ref-ocean) !important; }
+.refined-editorial [class*="border-[#cfd0cc]"] { border-color: var(--ref-line) !important; }
+.refined-editorial [class*="border-[#bfc3c0]"] { border-color: #a8bcb7 !important; }
+.refined-editorial .refined-kicker {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: .24em;
+  font-weight: 700;
+}
+.refined-editorial .refined-meta { font-family: 'DM Sans', sans-serif; letter-spacing: .01em; }
+@media (max-width: 640px) {
+  .refined-editorial h1 { letter-spacing: -.045em; }
+  .refined-editorial h2 { letter-spacing: -.04em; }
+}

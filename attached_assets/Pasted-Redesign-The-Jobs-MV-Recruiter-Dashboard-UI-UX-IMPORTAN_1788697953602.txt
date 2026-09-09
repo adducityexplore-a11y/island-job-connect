@@ -1,0 +1,960 @@
+Redesign The Jobs MV Recruiter Dashboard UI/UX.
+
+IMPORTANT:
+The current recruiter dashboard feels too basic, flat and dull.
+
+You ARE allowed to redesign:
+- Visual style
+- Layout
+- Dashboard cards
+- Sidebar
+- Typography hierarchy
+- Spacing
+- Icons
+- Buttons
+- Empty states
+- Tables
+- Candidate cards
+- Job cards
+- Mobile navigation
+
+Do NOT change:
+- The Jobs MV brand identity
+- Existing recruiter authentication
+- Existing database relationships
+- Existing working recruitment functionality
+
+The goal is to create a PREMIUM, MODERN HOSPITALITY RECRUITMENT DASHBOARD.
+
+It should feel suitable for:
+
+- Luxury resorts
+- Hotels
+- Guesthouses
+- Professional hospitality recruiters
+- HR managers
+
+The design should feel closer to a modern SaaS recruitment platform than a basic admin template.
+
+--------------------------------------------------
+1. OVERALL DESIGN DIRECTION
+--------------------------------------------------
+
+Create a clean, premium and modern recruiter experience.
+
+Use The Jobs MV brand colors but introduce more visual depth.
+
+Primary brand:
+Deep navy
+
+Accent:
+Warm hospitality-inspired gold / soft yellow
+
+Supporting colors:
+Soft blue
+Green for positive/hired status
+Amber for attention
+Soft red for rejected/urgent states
+Light neutral backgrounds
+
+Avoid excessive bright colors.
+
+Use a soft off-white/light grey dashboard background instead of large areas of pure white.
+
+Use:
+- Rounded cards
+- Soft shadows
+- Subtle borders
+- Clear hierarchy
+- Premium iconography
+- Better spacing
+- Strong typography
+
+Avoid:
+- Flat white screens
+- Huge empty spaces
+- Thin grey outlines everywhere
+- Generic admin-template appearance
+- Too many identical cards
+
+The interface should feel professional but welcoming.
+
+--------------------------------------------------
+2. SIDEBAR REDESIGN
+--------------------------------------------------
+
+Redesign the left navigation.
+
+Make the sidebar deep navy.
+
+Place The Jobs MV logo at the top.
+
+Under the logo display:
+
+RECRUITER PORTAL
+
+Navigation:
+
+Dashboard
+Vacancies
+Applications
+Talent Search
+Company Profile
+
+Use modern line icons.
+
+Active menu item:
+
+- Slightly lighter navy background
+- Gold/yellow accent indicator
+- White text
+- Clear icon
+
+Inactive items:
+Soft white/grey text.
+
+At the bottom of the sidebar show:
+
+Company / Resort Name
+Recruiter Name
+Profile Avatar
+
+Also include:
+
+Settings
+Help
+Logout
+
+Desktop sidebar should feel premium and structured.
+
+On mobile, convert this into a clean slide-out navigation drawer.
+
+--------------------------------------------------
+3. TOP HEADER
+--------------------------------------------------
+
+Add a modern header inside the recruiter workspace.
+
+Left side:
+
+Page title
+Short page description
+
+Right side:
+
+Search icon
+Notifications
+Recruiter profile/avatar
+
+For relevant pages include the main action.
+
+Example:
+
+Dashboard
+
+Overview of your recruitment activity.
+
+[ + Post Vacancy ]
+
+Keep the header clean.
+
+--------------------------------------------------
+4. DASHBOARD HERO AREA
+--------------------------------------------------
+
+The dashboard should immediately show what is happening with recruitment.
+
+Instead of starting with many identical white cards, create a stronger top section.
+
+Greeting example:
+
+Good afternoon, Abdullah
+
+Subtext:
+
+Here's what is happening with your recruitment today.
+
+Add:
+
++ Post New Vacancy
+
+Below the greeting create 4 primary KPI cards:
+
+ACTIVE VACANCIES
+12
+
+NEW APPLICANTS
+28
+
+SHORTLISTED
+9
+
+INTERVIEWS
+4
+
+Use larger numbers and subtle visual differences between cards.
+
+Each card should include:
+
+- Icon
+- Main number
+- Label
+- Useful supporting information
+
+Example:
+
+NEW APPLICANTS
+28
+
++6 since yesterday
+
+Do not display fake information. Only show comparison when actual historical data exists.
+
+--------------------------------------------------
+5. RECRUITMENT PIPELINE
+--------------------------------------------------
+
+Create a visually strong Recruitment Pipeline section.
+
+Title:
+
+Recruitment Pipeline
+
+Show:
+
+New
+Screening
+Shortlisted
+Interview
+Offered
+Hired
+
+Use a horizontal visual pipeline on desktop.
+
+Example:
+
+28
+New
+
+18
+Screening
+
+9
+Shortlisted
+
+4
+Interview
+
+2
+Offered
+
+3
+Hired
+
+Each stage should be clickable.
+
+Clicking a stage should open Applications filtered by that stage.
+
+On mobile make the pipeline horizontally scrollable or stack elegantly.
+
+--------------------------------------------------
+6. ACTION REQUIRED
+--------------------------------------------------
+
+Make this an important dashboard section.
+
+Title:
+
+Needs Your Attention
+
+Examples:
+
+12 New Applications
+Review candidates
+
+3 Interviews Today
+View schedule
+
+2 Vacancies Closing Soon
+Review vacancies
+
+1 Offer Awaiting Decision
+View candidate
+
+Use compact cards with icons.
+
+Use subtle attention colors.
+
+Do not make this look like an error area.
+
+If nothing requires attention show:
+
+You're all caught up.
+
+No recruitment actions need your attention.
+
+--------------------------------------------------
+7. RECENT CANDIDATES
+--------------------------------------------------
+
+Add:
+
+Recent Candidates
+
+Show the newest applicants.
+
+Candidate cards should contain:
+
+Profile image/avatar if available
+Candidate Name
+Current Role
+Applied Position
+Experience
+Maldives Experience
+Availability
+Application Stage
+
+Example:
+
+Ahmed Mohamed
+Bartender
+
+Applied for:
+Bartender | Luxury Resort
+
+5 Years Experience
+3 Years Maldives
+
+Available in 14 days
+
+STRONG MATCH
+
+[ View Candidate ]
+
+Keep the cards compact.
+
+Show only a few candidates on Dashboard.
+
+Button:
+
+View All Applications
+
+--------------------------------------------------
+8. ACTIVE VACANCIES
+--------------------------------------------------
+
+Add:
+
+Active Vacancies
+
+Instead of basic rows, create clean vacancy cards.
+
+Example:
+
+BARTENDER
+
+Mint Beach Club
+
+Baa Atoll
+
+Active
+
+Applications: 24
+Shortlisted: 6
+Interviews: 2
+
+Closes:
+18 September
+
+[ View Candidates ]
+
+Secondary menu:
+
+Edit
+Pause
+Duplicate
+Close
+
+--------------------------------------------------
+9. JOBS / VACANCIES PAGE
+--------------------------------------------------
+
+Rename the visible heading:
+
+Vacancies
+
+instead of generic "Jobs" where appropriate.
+
+Create a modern vacancy management page.
+
+Top:
+
+Vacancies
+
+Manage your open hospitality positions.
+
+[ + Post New Vacancy ]
+
+Below:
+
+Search
+
+Filters:
+All
+Active
+Draft
+Paused
+Closed
+Expired
+
+Job cards should display:
+
+Job Title
+Department
+Location
+Status
+Published Date
+Closing Date
+Applications
+Shortlisted
+Interviewing
+
+Main CTA:
+
+View Candidates
+
+Do not use a giant empty white box if there are no vacancies.
+
+Use an attractive empty state:
+
+Your next great hire starts here.
+
+Create your first hospitality vacancy and start connecting with candidates.
+
+[ Post Your First Vacancy ]
+
+--------------------------------------------------
+10. APPLICATIONS PAGE
+--------------------------------------------------
+
+The Applications page should feel like the most important part of the platform.
+
+Title:
+
+Candidate Pipeline
+
+Subtitle:
+
+Review, shortlist and move candidates through your hiring process.
+
+At the top show stage tabs:
+
+All
+New
+Screening
+Shortlisted
+Interview
+Offered
+Hired
+
+Include filters:
+
+Vacancy
+Experience
+Maldives Experience
+Availability
+The Jobs MV Reviewed
+
+Candidate cards should be visually stronger than ordinary table rows.
+
+Each card should display:
+
+Candidate avatar
+
+Candidate name
+
+Current position
+
+Current employer
+
+Applied position
+
+Total hospitality experience
+
+Maldives experience
+
+Availability
+
+Screening result
+
+Application stage
+
+Possible badges:
+
+STRONG MATCH
+
+GOOD MATCH
+
+NEEDS REVIEW
+
+THE JOBS MV REVIEWED ✓
+
+Primary CTA:
+
+View Candidate
+
+Do not overwhelm the card with information.
+
+--------------------------------------------------
+11. CANDIDATE PROFILE PAGE
+--------------------------------------------------
+
+Create a premium candidate profile.
+
+Top section:
+
+Candidate Avatar
+
+Name
+
+Current Position
+
+Location
+
+Availability
+
+Buttons:
+
+Shortlist
+Schedule Interview
+Move Stage
+
+Then use clear sections:
+
+Professional Summary
+
+Hospitality Experience
+
+Maldives Experience
+
+Skills
+
+Certifications
+
+Languages
+
+Availability
+
+Hospitality Passport
+
+CV
+
+SCREENING SUMMARY
+
+Make Screening Summary visually prominent.
+
+Example:
+
+STRONG MATCH
+
+Why this candidate matches:
+
+✓ 5 years hospitality experience
+
+✓ 3 years Maldives resort experience
+
+✓ Bartending experience
+
+✓ Cocktail knowledge
+
+✓ Micros POS
+
+Needs Verification:
+
+? WSET certification
+
+Potential consideration:
+
+30-day notice period
+
+The purpose is to help the recruiter understand the candidate in seconds.
+
+--------------------------------------------------
+12. THE JOBS MV REVIEWED
+--------------------------------------------------
+
+Make this a premium trust badge.
+
+Display:
+
+✓ THE JOBS MV REVIEWED
+
+Use a distinctive but professional treatment.
+
+Supporting tooltip/text:
+
+Reviewed by The Jobs MV hospitality recruitment team.
+
+Only display after authorized manual review.
+
+--------------------------------------------------
+13. COMPANY PROFILE REDESIGN
+--------------------------------------------------
+
+The current Company Profile screen is too basic.
+
+Create a visually stronger profile management page.
+
+At the top create a company header:
+
+Company Logo
+
+Company / Resort Name
+
+Company Type
+
+Location
+
+Verification Badge
+
+Profile Completion %
+
+Then sections:
+
+COMPANY INFORMATION
+
+Company Name
+Company Type
+Location
+Website
+Description
+
+COMPANY BRANDING
+
+Upload Logo
+Cover Image
+
+RECRUITMENT CONTACT
+
+Contact Person
+Email
+Phone
+
+Keep private fields clearly marked:
+
+Private
+Only visible to The Jobs MV and authorized recruiters.
+
+EMPLOYER VERIFICATION
+
+Status:
+
+Verified
+Pending
+Not Verified
+
+Include explanation of verification.
+
+--------------------------------------------------
+14. TALENT SEARCH
+--------------------------------------------------
+
+Create Talent Search as one of the most visually impressive pages.
+
+Title:
+
+Discover Hospitality Talent
+
+Subtitle:
+
+Find candidates before they find your vacancy.
+
+Search bar:
+
+Search by role, skill or experience...
+
+Filters:
+
+Role
+Department
+Maldives Experience
+Hospitality Experience
+Availability
+Location
+Language
+
+Candidate preview cards:
+
+Candidate Name
+Current Position
+Experience
+Maldives Experience
+Key Skills
+Availability
+
+Actions:
+
+View Profile
+Save Candidate
+Invite to Apply
+
+This page should visually reinforce the idea that The Jobs MV helps employers hire faster.
+
+--------------------------------------------------
+15. TYPOGRAPHY
+--------------------------------------------------
+
+Improve typography hierarchy.
+
+Use a modern professional sans-serif font already available in the project or a suitable web-safe/Google font.
+
+Headings:
+Strong, bold and confident.
+
+Body:
+Highly readable.
+
+Avoid making every heading extremely bold.
+
+Create clear hierarchy between:
+
+Page Title
+Section Title
+Card Title
+Supporting Text
+Metadata
+
+--------------------------------------------------
+16. BUTTON SYSTEM
+--------------------------------------------------
+
+Create a consistent button system.
+
+Primary:
+Deep navy background
+White text
+
+Important/highlight CTA:
+Brand gold/yellow where appropriate
+
+Secondary:
+Light background
+Navy text
+Border
+
+Danger:
+Only for destructive actions such as Close/Delete.
+
+Use clear button labels.
+
+Examples:
+
+Post New Vacancy
+
+View Candidates
+
+Review Applications
+
+Shortlist Candidate
+
+Schedule Interview
+
+Invite to Apply
+
+Avoid vague buttons such as:
+
+Submit
+Continue
+Open
+
+when a more specific label is available.
+
+--------------------------------------------------
+17. STATUS DESIGN
+--------------------------------------------------
+
+Create consistent status badges.
+
+Vacancies:
+
+Active
+Draft
+Paused
+Closed
+Expired
+
+Applications:
+
+New
+Screening
+Shortlisted
+Interview
+Offered
+Hired
+Not Selected
+
+Candidate screening:
+
+Strong Match
+Good Match
+Needs Review
+
+Trust:
+
+The Jobs MV Reviewed
+Verified Employer
+
+Use subtle background colors rather than highly saturated labels.
+
+--------------------------------------------------
+18. EMPTY STATES
+--------------------------------------------------
+
+Every empty screen should feel intentional.
+
+Do not show huge blank boxes.
+
+Use:
+
+Icon
+Short headline
+Helpful explanation
+Relevant action
+
+Example:
+
+No applications yet
+
+Once candidates apply to your vacancy, they will appear here.
+
+[ View Active Vacancies ]
+
+--------------------------------------------------
+19. MOBILE EXPERIENCE
+--------------------------------------------------
+
+Mobile must NOT look like a compressed desktop dashboard.
+
+Create a true mobile recruiter experience.
+
+On mobile:
+
+Use a compact top navigation.
+
+Cards should stack.
+
+KPI cards can use a 2-column grid.
+
+Candidate cards should replace tables.
+
+Primary actions should be easy to reach with one hand.
+
+Use sticky actions where useful.
+
+No horizontal overflow.
+
+Filters should open in a clean filter drawer.
+
+Candidate stage tabs can horizontally scroll.
+
+Test at approximately:
+
+375px
+390px
+430px
+
+--------------------------------------------------
+20. DESIGN PERSONALITY
+--------------------------------------------------
+
+The overall feeling should communicate:
+
+Professional
+
+Fast
+
+Trustworthy
+
+Modern
+
+Hospitality-focused
+
+Human
+
+Premium
+
+It should NOT feel:
+
+Corporate and cold
+
+Generic
+
+Like an old HR system
+
+Like a free admin dashboard template
+
+Like a basic job board
+
+Think:
+
+"Modern hospitality recruitment workspace."
+
+--------------------------------------------------
+21. CORE BRAND MESSAGE
+--------------------------------------------------
+
+Use the brand purpose subtly throughout the recruiter experience:
+
+Right Talent.
+Right Opportunity.
+Right Time.
+
+Do not repeat this excessively.
+
+The recruiter dashboard should visually reinforce:
+
+Great talent should never be lost to a slow hiring process.
+
+--------------------------------------------------
+22. FINAL QA
+--------------------------------------------------
+
+After redesigning, test:
+
+Dashboard
+
+Vacancies
+
+Applications
+
+Candidate Profile
+
+Talent Search
+
+Company Profile
+
+Desktop
+
+Tablet
+
+Mobile
+
+Confirm:
+
+All existing routes still work.
+
+Authentication works.
+
+No database functionality is broken.
+
+Cards use real data.
+
+No fake metrics are displayed.
+
+No buttons are dead.
+
+No duplicate components have been introduced.
+
+Mobile layouts are properly responsive.
+
+The final result should look like a premium recruitment product that a Maldives luxury resort would feel confident using.

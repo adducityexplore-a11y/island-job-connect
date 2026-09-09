@@ -1,0 +1,118 @@
+uploads = []
+
+[[generated]]
+id = "ocx10Lnb3I6F8DYgT9sNQ"
+uri = "file://artifacts/mobile/assets/images/icon.png"
+type = "image"
+title = "jobs mv app icon"
+
+[[generated]]
+id = "1ae1jkgTSd5u5B1w_Ic32"
+uri = "file://artifacts/mobile/assets/images/hero_banner.png"
+type = "image"
+title = "maldives resort hero banner"
+
+[[outputs]]
+id = "6TdyvEt3qA6rjtoYA2X1z"
+uri = "file://jobsmv-qrcode.png"
+type = "image"
+title = "Jobs MV App — QR Code"
+logical_id = "9fca7a1e-9a2f-4cd4-9722-19bab0f98cf8"
+
+[[outputs]]
+id = "eR04SXqQjLlHtSXNUVUxa"
+uri = "file://attached_assets/stock_images/housekeeping.jpg"
+type = "image"
+title = "luxury hotel housekeeping staff making bed room"
+logical_id = "172a425a-cb3d-4040-9511-86834fadd8e3"
+
+[[outputs]]
+id = "WquZILit68nojzE366C1h"
+uri = "file://attached_assets/stock_images/fb.jpg"
+type = "image"
+title = "luxury resort restaurant fine dining service waiter Maldives"
+logical_id = "e6d007f7-a145-4798-b200-0059f029338a"
+
+[[outputs]]
+id = "3_rgC2VTleQoHAYg9jcQO"
+uri = "file://attached_assets/stock_images/spa.jpg"
+type = "image"
+title = "luxury overwater spa treatment massage therapist Maldives"
+logical_id = "fbf573ca-852a-4ebd-b7d4-0e0cf617d41a"
+
+[[outputs]]
+id = "9LmnBA9N7BawWWqcRXlI2"
+uri = "file://attached_assets/stock_images/recreation.jpg"
+type = "image"
+title = "Maldives beach resort outdoor recreation sports activities"
+logical_id = "9b8ff73d-861d-4f6e-b513-d0d0ec850c93"
+
+[[outputs]]
+id = "3-B9YHYOLWXZRj6-itpWl"
+uri = "file://attached_assets/stock_images/engineering.jpg"
+type = "image"
+title = "hotel resort maintenance engineering technician working"
+logical_id = "3b24ad60-2cb9-4e09-8f71-5746d767d80b"
+
+[[outputs]]
+id = "UMbCbkE7kcxFXTpgqU3dx"
+uri = "file://attached_assets/stock_images/sales_marketing.jpg"
+type = "image"
+title = "hotel resort sales marketing professionals meeting"
+logical_id = "b0f8f4b7-96fc-4ba6-9dc5-9d003d0cd1c4"
+
+[[outputs]]
+id = "Qev7cwNm2ZuBQaKFo1iy8"
+uri = "file://attached_assets/stock_images/hr.jpg"
+type = "image"
+title = "hotel human resources HR manager interviewing candidate"
+logical_id = "aa4df47e-b305-416e-a248-6025b82fb44d"
+
+[[outputs]]
+id = "A25SQSNPoz_V_-zoPDcrT"
+uri = "file://attached_assets/stock_images/finance.jpg"
+type = "image"
+title = "finance accounting professional working at desk"
+logical_id = "148ba1ee-39f7-4ca4-98dc-c3a6c8c0e385"
+
+[[outputs]]
+id = "aQKTJKhrm5sybfmeZ2AS5"
+uri = "file://attached_assets/stock_images/transport.jpg"
+type = "image"
+title = "Maldives luxury speedboat ocean transfer tropical"
+logical_id = "d9e45ea8-f36b-4c39-b39f-193c6329bfa5"
+
+[[outputs]]
+id = "5vLvvPJ9oV7bHtnoF8_v7"
+uri = "file://attached_assets/stock_images/diving.jpg"
+type = "image"
+title = "scuba diving underwater coral reef Maldives tropical ocean"
+logical_id = "70585b93-6266-47d7-9555-c59a02143207"
+
+[[outputs]]
+id = "T4LJdD5oiwhmMB3nl4VVQ"
+uri = "file://attached_assets/stock_images/guest_services.jpg"
+type = "image"
+title = "luxury resort butler concierge helping guest villa"
+logical_id = "c6ec8eaa-6c94-4147-b0ee-6fcd6bbe2ffd"
+
+[[outputs]]
+id = "Kj-r_xzOCKkw8CTCdUMFt"
+uri = "file://attached_assets/stock_images/it.jpg"
+type = "image"
+title = "IT technician working on server computer technology"
+logical_id = "e218148e-8a0c-44d5-b45e-de26e9a63b70"
+
+[[outputs]]
+id = "2LwlH6FMusJzAET-pGhXx"
+uri = "file://attached_assets/stock_images/management.jpg"
+type = "image"
+title = "luxury resort hotel general manager leadership professional"
+logical_id = "3e1f207e-1925-4a11-8146-9a3c5624d0c9"
+
+[[outputs]]
+id = "Z_39wqSGfi1U4GhcuCtBX"
+uri = "file://attached_assets/stock_images/kids_club.jpg"
+type = "image"
+title = "kids club children activities resort beach tropical"
+logical_id = "3cbc903b-6746-4af1-951f-5f01127b7572"

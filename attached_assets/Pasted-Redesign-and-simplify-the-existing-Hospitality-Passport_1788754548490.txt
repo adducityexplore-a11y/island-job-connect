@@ -1,0 +1,939 @@
+Redesign and simplify the existing Hospitality Passport for The Jobs MV.
+
+CORE IDEA:
+
+The Hospitality Passport should be:
+
+CV-FIRST
+FAST TO COMPLETE
+EASY TO UNDERSTAND
+STRUCTURED FOR RECRUITMENT
+MOBILE FRIENDLY
+
+Candidates should NOT have to manually recreate everything already contained in their CV.
+
+The ideal experience is:
+
+UPLOAD CV
+→ EXTRACT / PRE-FILL INFORMATION
+→ CANDIDATE CONFIRMS IMPORTANT DETAILS
+→ SAVE PASSPORT
+→ READY FOR JOBS & TALENT SEARCH
+
+Our goal is for a candidate to create a useful Hospitality Passport in approximately 3–5 minutes.
+
+IMPORTANT:
+- Improve the existing Hospitality Passport instead of creating a duplicate system.
+- Preserve existing candidate accounts and saved data.
+- Keep compatibility with recruiter Talent Search and candidate screening.
+- Remove technical/database-style inputs from the candidate experience.
+- Never show JSON fields to candidates.
+- Never invent information from a CV.
+- Extracted information must always be editable and confirmed by the candidate.
+- Make the experience excellent on mobile.
+
+--------------------------------------------------
+1. PASSPORT HEADER
+--------------------------------------------------
+
+Redesign the top of the page.
+
+Small label:
+
+HOSPITALITY PASSPORT
+
+Headline:
+
+Your hospitality career. Ready for every opportunity.
+
+Supporting text:
+
+Upload your CV and complete a few important details so employers can quickly understand your experience, availability and what you're looking for.
+
+Show:
+
+Passport Completion: XX%
+
+Example:
+
+Hospitality Passport
+70% Complete
+
+Supporting message:
+
+Add your availability and key skills to strengthen your profile.
+
+Completion percentage must be calculated from actual completed fields.
+
+Do not use fake percentages.
+
+--------------------------------------------------
+2. STEP 1 - UPLOAD CV
+--------------------------------------------------
+
+Make CV upload the first and most prominent action.
+
+Section title:
+
+Start with your CV
+
+Text:
+
+Upload your latest CV. We'll use it to help build your Hospitality Passport so you don't have to enter everything again.
+
+Button:
+
+Upload CV
+
+Accepted formats:
+
+PDF
+DOCX
+
+After upload show:
+
+✓ CV Uploaded
+
+Filename
+
+Upload Date
+
+Actions:
+
+View CV
+Replace CV
+
+Do not expose internal document paths.
+
+--------------------------------------------------
+3. CV INFORMATION EXTRACTION
+--------------------------------------------------
+
+If CV parsing/extraction capability already exists, use it.
+
+If it does not exist, create the architecture/UI so it can be added safely without breaking the Passport.
+
+Extract where possible:
+
+Full Name
+
+Current Position
+
+Current Employer
+
+Current Location
+
+Work History
+
+Total Hospitality Experience
+
+Resort Experience
+
+Maldives Experience
+
+Skills
+
+POS / Software Systems
+
+Education
+
+Professional Certifications
+
+Hospitality Certifications
+
+Languages
+
+Do NOT invent missing information.
+
+If information cannot be confidently extracted:
+
+Leave it empty
+
+or show:
+
+Needs confirmation
+
+After extraction show:
+
+We found some information in your CV.
+
+Please review and confirm your details.
+
+All extracted information must be editable.
+
+--------------------------------------------------
+4. REMOVE TECHNICAL INPUTS
+--------------------------------------------------
+
+Remove all candidate-facing JSON inputs.
+
+The candidate must NEVER see instructions such as:
+
+"Add a JSON list..."
+
+Remove JSON text areas for:
+
+Work History
+Languages
+Skills
+Certifications
+Any other structured information
+
+Replace them with normal user-friendly components.
+
+--------------------------------------------------
+5. BASIC PROFILE
+--------------------------------------------------
+
+Create a simple section:
+
+ABOUT YOU
+
+Fields:
+
+Profile Photo
+Full Name
+Current Position
+Current Employer
+Current Location
+
+Replace:
+
+Profile Photo URL
+
+with:
+
+Upload Profile Photo
+
+Allow:
+
+Upload
+Preview
+Replace
+Remove
+
+Do not ask candidates to paste image URLs.
+
+--------------------------------------------------
+6. CURRENT LOCATION
+--------------------------------------------------
+
+Include:
+
+Current Location
+
+and:
+
+Currently in Maldives?
+
+Yes
+No
+
+If Yes, optionally allow:
+
+Current Atoll / Island
+
+This is useful for hospitality recruitment.
+
+Do not require exact residential addresses.
+
+--------------------------------------------------
+7. CAREER PREFERENCES
+--------------------------------------------------
+
+Create:
+
+WHAT ARE YOU LOOKING FOR?
+
+Fields:
+
+Department
+
+Desired Position
+
+Preferred Location
+
+Expected Salary (Optional)
+
+Department should be a dropdown.
+
+Options:
+
+Food & Beverage
+Bars / Beverage
+Culinary
+Front Office
+Housekeeping
+Spa
+Recreation
+Engineering
+Finance
+Human Resources
+Sales & Marketing
+Security
+Guest Relations
+Butler Service
+Other
+
+Preferred Location options should support:
+
+Anywhere in Maldives
+
+Specific Atoll / Location
+
+Expected Salary should clearly include:
+
+Currency
+
+Amount
+
+Period
+
+Example:
+
+USD 1,000 / month
+
+Expected salary must remain optional.
+
+--------------------------------------------------
+8. AVAILABILITY
+--------------------------------------------------
+
+Make Availability one of the most important sections.
+
+Title:
+
+AVAILABILITY
+
+Fields:
+
+Current Employment Status
+
+Options:
+
+Employed
+Not Employed
+On Notice Period
+Available Immediately
+
+Notice Period
+
+Options:
+
+Available Immediately
+7 Days
+14 Days
+30 Days
+45 Days
+60 Days
+90 Days
+Other
+
+Available From:
+
+Date picker
+
+Add:
+
+OPEN TO OPPORTUNITIES
+
+Toggle:
+
+On / Off
+
+Supporting text:
+
+Turn this on if you would like The Jobs MV to consider your profile for suitable opportunities.
+
+When ON, the candidate may appear in authorized Talent Search results according to platform privacy rules.
+
+--------------------------------------------------
+9. HOSPITALITY EXPERIENCE
+--------------------------------------------------
+
+Do NOT force candidates to manually type their entire career history.
+
+Create a simple section:
+
+HOSPITALITY EXPERIENCE
+
+Fields:
+
+Total Hospitality Experience
+
+Options:
+
+Less than 1 year
+1–2 years
+3–5 years
+6–10 years
+10+ years
+
+Total Resort Experience:
+
+None
+Less than 1 year
+1–2 years
+3–5 years
+6–10 years
+10+ years
+
+Maldives Hospitality Experience:
+
+None
+Less than 1 year
+1–2 years
+3–5 years
+5+ years
+
+Luxury Resort Experience:
+
+Yes
+No
+
+Leadership Experience:
+
+Yes
+No
+
+If these values were extracted/calculated from CV work history, show them to the candidate for confirmation.
+
+--------------------------------------------------
+10. WORK HISTORY
+--------------------------------------------------
+
+Work History should primarily come from the CV.
+
+Show extracted experience as professional cards.
+
+Example:
+
+BARTENDER
+
+ABC Maldives Resort
+Maldives
+
+January 2023 – Present
+
+Responsibilities...
+
+[ Edit ]
+
+If candidate wants to manually add experience:
+
++ Add Experience
+
+Fields:
+
+Position
+
+Employer / Resort
+
+Property Type
+
+Country
+
+Start Date
+
+End Date
+
+Currently Working Here
+
+Responsibilities
+
+Property Type options:
+
+Resort
+Luxury Resort
+Hotel
+Guesthouse
+Restaurant
+Cafe
+Other
+
+Button:
+
+Save Experience
+
+Allow:
+
+Edit
+Delete
+Add Another Experience
+
+Never expose JSON.
+
+--------------------------------------------------
+11. KEY SKILLS
+--------------------------------------------------
+
+Create:
+
+KEY SKILLS
+
+Use searchable selectable tags instead of one large text field.
+
+Examples:
+
+Bartending
+Cocktail Making
+Mixology
+Wine Service
+Barista
+Fine Dining
+Buffet Service
+À La Carte Service
+Guest Relations
+Butler Service
+Upselling
+Cash Handling
+Inventory Control
+Team Leadership
+Training
+Complaint Handling
+HACCP
+Food Safety
+
+Allow candidates to search and add additional relevant skills.
+
+Do not automatically confirm a skill solely because AI inferred it indirectly.
+
+CV-extracted skills should be reviewable by the candidate.
+
+--------------------------------------------------
+12. SYSTEMS & SOFTWARE
+--------------------------------------------------
+
+Create:
+
+SYSTEMS & SOFTWARE
+
+Use selectable tags.
+
+Examples:
+
+Micros
+Oracle Hospitality
+Opera PMS
+POS Systems
+Microsoft Office
+Other
+
+Allow custom additions.
+
+--------------------------------------------------
+13. CERTIFICATIONS
+--------------------------------------------------
+
+Create:
+
+CERTIFICATIONS
+
+Instead of plain text fields, show certification cards.
+
+Example:
+
+WSET Level 2
+Wine & Spirit Education Trust
+
+[ Edit ]
+
+Button:
+
++ Add Certification
+
+Fields:
+
+Certification Name
+
+Issuing Organization
+
+Year
+
+Certificate Upload (Optional)
+
+Do not require candidates to upload certificates to create a Passport.
+
+If a certificate has not been independently verified, do not label it Verified.
+
+--------------------------------------------------
+14. LANGUAGES
+--------------------------------------------------
+
+Remove Language JSON input.
+
+Create:
+
+LANGUAGES
+
+Button:
+
++ Add Language
+
+Fields:
+
+Language
+
+Proficiency
+
+Proficiency options:
+
+Basic
+Conversational
+Professional
+Fluent
+Native
+
+Example display:
+
+English
+Fluent
+
+Dhivehi
+Native
+
+Hindi
+Conversational
+
+Allow:
+
+Edit
+Remove
+
+--------------------------------------------------
+15. PROFESSIONAL SUMMARY
+--------------------------------------------------
+
+Do not require candidates to write a long professional summary.
+
+If a professional summary exists in the CV, extract it where possible.
+
+Allow candidate to:
+
+Edit Professional Summary
+
+Keep it optional.
+
+If no summary exists, do not block Passport completion.
+
+--------------------------------------------------
+16. PASSPORT PREVIEW
+--------------------------------------------------
+
+This is very important.
+
+The Hospitality Passport should not feel like just a form.
+
+Add:
+
+Preview Passport
+
+After saving, show a professional candidate profile.
+
+Example:
+
+--------------------------------
+
+PROFILE PHOTO
+
+AHMED MOHAMED
+
+Senior Bartender
+
+Maldives
+
+6 YEARS
+Hospitality Experience
+
+4 YEARS
+Maldives Experience
+
+LUXURY RESORT
+Experience
+
+AVAILABLE
+30 Days
+
+OPEN TO OPPORTUNITIES ●
+
+--------------------------------
+
+KEY SKILLS
+
+Cocktails
+Wine
+Micros POS
+Barista
+Team Leadership
+
+--------------------------------
+
+EXPERIENCE
+
+Senior Bartender
+ABC Maldives Resort
+2023 – Present
+
+Bartender
+XYZ Resort
+2020 – 2023
+
+--------------------------------
+
+LANGUAGES
+
+English - Fluent
+Dhivehi - Native
+
+--------------------------------
+
+CERTIFICATIONS
+
+WSET Level 2
+
+--------------------------------
+
+CV
+
+✓ CV Available
+
+--------------------------------
+
+This should look like a premium professional hospitality profile, not an application form.
+
+--------------------------------------------------
+17. PASSPORT COMPLETION
+--------------------------------------------------
+
+Create a meaningful completion calculation.
+
+Important fields should contribute more than optional fields.
+
+Suggested required/core information:
+
+CV
+Full Name
+Current Position
+Current Location
+Desired Position
+Department
+Hospitality Experience
+Maldives Experience
+Availability
+Open to Opportunities preference
+
+Useful additional information:
+
+Profile Photo
+Skills
+Languages
+Certifications
+Professional Summary
+
+Show helpful prompts.
+
+Example:
+
+80% Complete
+
+Complete these to strengthen your Passport:
+
++ Add Key Skills
++ Confirm Availability
++ Add Languages
+
+Do not require 100% completion before candidates can apply for jobs unless a specific vacancy requires missing information.
+
+--------------------------------------------------
+18. TALENT SEARCH INTEGRATION
+--------------------------------------------------
+
+The structured Hospitality Passport must support Recruiter Talent Search.
+
+Recruiters should eventually be able to search:
+
+Bartender
+
++ Maldives Experience
+
++ 3–5 Years Experience
+
++ Open to Opportunities
+
++ Available within 30 Days
+
+The search should use structured confirmed Passport data.
+
+Do not depend only on CV keyword search.
+
+This is a major purpose of the Hospitality Passport.
+
+--------------------------------------------------
+19. PRIVACY
+--------------------------------------------------
+
+Candidates must control whether they are discoverable.
+
+OPEN TO OPPORTUNITIES:
+
+OFF
+
+Candidate should not appear in general recruiter Talent Search.
+
+ON
+
+Candidate can be considered for relevant opportunities according to platform privacy rules.
+
+Applying directly for a vacancy can still share the candidate's application information with that employer as required by the application process.
+
+Do not expose:
+
+Private phone number
+Private email
+Exact home address
+Passport number
+Government ID
+Internal review notes
+
+unless specifically required and permitted by the platform workflow.
+
+--------------------------------------------------
+20. MOBILE EXPERIENCE
+--------------------------------------------------
+
+This page must be designed mobile-first.
+
+Do NOT show one extremely long desktop form compressed onto mobile.
+
+Use clear sections/cards:
+
+CV
+About You
+Career Preferences
+Availability
+Experience
+Skills
+Languages
+Certifications
+
+Allow sections to collapse/expand if useful.
+
+Use:
+
+Large tap targets
+
+Full-width buttons
+
+Mobile-friendly dropdowns
+
+Date pickers
+
+Tag selectors
+
+Upload controls
+
+Clear progress indicator
+
+Sticky Save button if appropriate
+
+No horizontal overflow.
+
+Test approximately:
+
+375px
+390px
+430px
+
+--------------------------------------------------
+21. SAVE BEHAVIOR
+--------------------------------------------------
+
+Avoid candidates losing their information.
+
+Use safe auto-save where practical.
+
+Also provide:
+
+Save Changes
+
+Show:
+
+Saved ✓
+
+after successful save.
+
+If unsaved changes exist and the candidate attempts to leave, warn them appropriately.
+
+--------------------------------------------------
+22. FINAL USER EXPERIENCE
+--------------------------------------------------
+
+The current Hospitality Passport feels too much like a long database form.
+
+The new experience should feel:
+
+Simple
+Fast
+Professional
+Mobile-friendly
+Hospitality-specific
+Useful to recruiters
+
+The candidate should think:
+
+"I uploaded my CV, confirmed a few important details, and now employers can understand what I can offer."
+
+NOT:
+
+"I have to type my entire CV again."
+
+The core flow must be:
+
+UPLOAD CV
+↓
+WE HELP PRE-FILL
+↓
+CONFIRM IMPORTANT DETAILS
+↓
+ADD AVAILABILITY & PREFERENCES
+↓
+SAVE PASSPORT
+↓
+READY TO APPLY / BE DISCOVERED
+
+Final message after completion:
+
+Your Hospitality Passport is ready.
+
+Keep your availability up to date so we can connect you with the right opportunities.
+
+Right Talent. Right Opportunity. Right Time.
+
+--------------------------------------------------
+23. FINAL QA
+--------------------------------------------------
+
+After implementation test:
+
+1. New candidate opens Hospitality Passport
+2. Uploads CV
+3. CV saves correctly
+4. Extracted information appears if parsing is supported
+5. Candidate can correct extracted information
+6. Candidate uploads profile photo
+7. Candidate selects career preferences
+8. Candidate confirms experience
+9. Candidate selects skills
+10. Candidate adds language normally without JSON
+11. Candidate adds/edits work experience normally without JSON
+12. Candidate sets availability
+13. Candidate enables Open to Opportunities
+14. Candidate saves Passport
+15. Completion percentage updates
+16. Passport Preview displays correctly
+17. Recruiter can access permitted structured information
+18. Talent Search can use confirmed structured fields
+19. Private information remains protected
+20. Test desktop and mobile
+
+Do not break existing candidate accounts, job applications, recruiter access or existing saved Passport data.

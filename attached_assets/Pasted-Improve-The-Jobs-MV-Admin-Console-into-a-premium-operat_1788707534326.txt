@@ -1,0 +1,1315 @@
+Improve The Jobs MV Admin Console into a premium, operational control center for the platform.
+
+IMPORTANT:
+- Do not rebuild the app from scratch.
+- Keep the existing authentication, database structure, routes and working admin functionality.
+- Preserve existing employer, vacancy, candidate, application, recruitment and audit data.
+- Improve the current Admin Console UI, workflows and usability.
+- Make the design visually consistent with The Jobs MV recruiter portal, but slightly more serious and operational.
+- Do not add fake data.
+- All counts, statuses and alerts must come from real database records.
+- Make the entire Admin Console fully responsive on desktop, tablet and mobile.
+
+CORE GOAL:
+
+The Admin Console should help The Jobs MV team answer three questions immediately:
+
+1. What needs attention right now?
+2. Which employers, vacancies or candidates need review?
+3. Where is the recruitment process slowing down?
+
+The admin console should support our core purpose:
+
+Great talent should never be lost to a slow hiring process.
+
+Right Talent. Right Opportunity. Right Time.
+
+--------------------------------------------------
+1. REDESIGN THE ADMIN SIDEBAR
+--------------------------------------------------
+
+Use a premium deep navy sidebar.
+
+At the top show:
+
+The Jobs MV logo
+
+ADMIN CONSOLE
+
+Main navigation:
+
+Overview
+Employers
+Vacancies
+Candidates
+Applications
+Recruitment
+Review Queue
+Reports
+Audit Log
+
+At the bottom:
+
+System Health
+Settings
+Admin Profile
+Logout
+
+Use consistent modern line icons.
+
+Active navigation item:
+- lighter navy background
+- subtle gold/yellow accent
+- white text
+- clear active indicator
+
+Inactive items:
+- soft grey/white text
+
+Keep sidebar fixed on desktop.
+
+On mobile:
+- convert to slide-out navigation drawer
+- large tap targets
+- no horizontal overflow
+
+--------------------------------------------------
+2. ADMIN OVERVIEW
+--------------------------------------------------
+
+Rename:
+
+System Overview
+
+to:
+
+Admin Overview
+
+Subtitle:
+
+Monitor platform activity, verification, recruitment and actions requiring attention.
+
+At the top show 4 main KPI cards:
+
+Verified Employers
+Active Vacancies
+Candidates
+Applications
+
+Use real numbers only.
+
+Below add a second row:
+
+Pending Employer Verification
+Vacancies Pending Review
+Candidates Awaiting Review
+Active Recruitment Requests
+
+These cards should be clickable.
+
+Example:
+
+Pending Employer Verification
+4
+
+Click → Employers filtered by Pending Verification
+
+Vacancies Pending Review
+7
+
+Click → Vacancies filtered by Pending Review
+
+--------------------------------------------------
+3. NEEDS ATTENTION
+--------------------------------------------------
+
+Add a major section:
+
+NEEDS YOUR ATTENTION
+
+This should be the most useful section on the Admin Overview.
+
+Show only real items requiring action.
+
+Examples:
+
+3 Employers Waiting for Verification
+Review employer profiles
+
+5 Vacancies Waiting for Verification
+Review vacancy details
+
+4 Candidates Awaiting The Jobs MV Review
+Review candidates
+
+2 Recruitment Requests Need Action
+Open recruitment workspace
+
+3 Vacancies Closing Soon
+Review deadlines
+
+2 Reported Listings
+Review reports
+
+1 Candidate Waiting Too Long for Employer Response
+Review application activity
+
+Each item should be clickable and open the relevant filtered page.
+
+If nothing requires attention show:
+
+You're all caught up.
+
+No admin actions require your attention right now.
+
+--------------------------------------------------
+4. PLATFORM ACTIVITY
+--------------------------------------------------
+
+Add:
+
+Recent Platform Activity
+
+Examples:
+
+Employer registered
+Vacancy submitted
+Employer verified
+Candidate registered
+Application received
+Candidate shortlisted
+Recruitment request created
+The Jobs MV review completed
+Candidate hired
+
+Show:
+
+Activity
+Related employer / candidate / vacancy
+Date and time
+
+Do not use fake activity.
+
+--------------------------------------------------
+5. SYSTEM HEALTH
+--------------------------------------------------
+
+Move the current:
+
+API Services
+Database Connection
+
+away from the main focus of the Overview.
+
+Create a smaller page or section called:
+
+System Health
+
+Show:
+
+API Status
+Database Status
+Authentication Status
+File Storage Status
+Email / Notification Status if available
+
+Use statuses:
+
+Operational
+Warning
+Unavailable
+
+System Health should be available from the bottom of the sidebar.
+
+Do not let technical health dominate the business dashboard.
+
+--------------------------------------------------
+6. EMPLOYERS PAGE
+--------------------------------------------------
+
+Improve the Employers page significantly.
+
+Title:
+
+Employers
+
+Subtitle:
+
+Manage employer accounts, verification and platform activity.
+
+At the top add:
+
+Search employers...
+
+Filters:
+
+All
+Verified
+Pending Verification
+Unverified
+Suspended
+
+Additional filters:
+
+Company Type
+Location / Atoll
+Joined Date
+
+Company Type:
+
+Resort
+Hotel
+Guesthouse
+Restaurant
+Cafe
+Tourism Business
+Recruitment Agency
+Other
+
+The employer table should show:
+
+Company
+Company Type
+Location
+Primary Contact
+Joined
+Verification Status
+Active Vacancies
+Actions
+
+Do NOT show only generic contact information.
+
+Make company name clickable.
+
+--------------------------------------------------
+7. EMPLOYER DETAIL PAGE
+--------------------------------------------------
+
+Create a full Employer Detail page.
+
+Header:
+
+Company Logo
+Company Name
+Company Type
+Location
+Verification Status
+
+Show:
+
+COMPANY DETAILS
+
+Company Name
+Company Type
+Location
+Website
+Description
+Primary Contact
+Email
+Phone
+
+PLATFORM ACTIVITY
+
+Total Vacancies
+Active Vacancies
+Applications Received
+Candidates Hired
+Last Activity
+
+VERIFICATION
+
+Status:
+
+Not Verified
+Pending Verification
+Verified
+Rejected
+Suspended
+
+Admin actions:
+
+Approve Verification
+Reject Verification
+Suspend Employer
+Revoke Verification
+
+Require a reason for:
+
+Reject
+Suspend
+Revoke
+
+Store:
+
+Action
+Admin
+Reason
+Date
+Time
+
+All verification changes must appear in Audit Log.
+
+--------------------------------------------------
+8. EMPLOYER VERIFICATION WORKFLOW
+--------------------------------------------------
+
+Replace the current simple:
+
+Verified
+Revoke
+
+workflow with a proper approval process.
+
+Use:
+
+Not Submitted
+Pending Review
+Verified
+Rejected
+Suspended
+
+When an employer submits for verification:
+
+→ status becomes Pending Review
+
+Admin opens employer profile
+→ reviews details
+→ Approve or Reject
+
+If Approved:
+
+Verified Employer badge becomes available publicly.
+
+If Rejected:
+
+Admin must enter a reason.
+
+Do not automatically verify employers.
+
+--------------------------------------------------
+9. VACANCIES PAGE
+--------------------------------------------------
+
+Rename:
+
+Jobs
+
+to:
+
+Vacancies
+
+Title:
+
+Vacancies
+
+Subtitle:
+
+Review, verify and manage all vacancies on The Jobs MV.
+
+Add search:
+
+Search by job title, employer, location or department...
+
+Filters:
+
+All
+Pending Review
+Verified
+Active
+Paused
+Closed
+Expired
+Rejected
+
+The vacancy table should show:
+
+Job Title
+Employer Name
+Department
+Location
+Published Date
+Closing Date
+Status
+Verification
+Applications
+Actions
+
+IMPORTANT:
+
+Replace:
+
+Employer ID #10
+
+with:
+
+Employer Name
+
+Internal database IDs should not be the main information shown to admins.
+
+Employer ID can remain available inside detailed information if needed.
+
+--------------------------------------------------
+10. VACANCY VERIFICATION
+--------------------------------------------------
+
+Create a proper vacancy verification process.
+
+Statuses:
+
+Pending Review
+Verified
+Rejected
+Closed
+Expired
+
+If employer publishes a vacancy that requires verification:
+
+Status:
+
+Pending Review
+
+Admin must open the vacancy before verification.
+
+Create a:
+
+Vacancy Review Page
+
+Show:
+
+Job Title
+Employer
+Department
+Location
+Employment Type
+Salary
+Service Charge
+Accommodation
+Meals
+Benefits
+Working Hours
+Requirements
+Experience
+Eligibility
+Deadline
+Original Source if applicable
+Job Description
+
+Admin actions:
+
+Verify Vacancy
+Reject Vacancy
+Close Vacancy
+Edit if authorized
+
+If rejecting:
+
+Require rejection reason.
+
+Keep verification history.
+
+--------------------------------------------------
+11. VACANCY QUALITY CHECK
+--------------------------------------------------
+
+Add a small Admin Quality Check section.
+
+Check whether the vacancy includes:
+
+Job Title
+Department
+Location
+Salary / Not Disclosed
+Service Charge / Not Disclosed
+Accommodation
+Meals
+Benefits
+Deadline
+Requirements
+Eligibility
+Company Information
+
+Show:
+
+Offer Information Completeness
+
+Example:
+
+85% Complete
+
+Do not invent information.
+
+If the employer has not provided something show:
+
+Not provided
+
+Do not auto-fill missing information.
+
+--------------------------------------------------
+12. CANDIDATES PAGE
+--------------------------------------------------
+
+Improve the Candidates page.
+
+Title:
+
+Candidates
+
+Subtitle:
+
+Manage candidate profiles, Hospitality Passports and review status.
+
+Search by:
+
+Candidate Name
+Current Role
+Skills
+Location
+Experience
+
+Filters:
+
+Hospitality Passport Complete
+Maldives Experience
+Availability
+Reviewed
+Not Reviewed
+Candidate Type
+
+Candidate table/cards should show:
+
+Candidate Name
+Current Role
+Current Location
+Hospitality Experience
+Maldives Experience
+Availability
+Hospitality Passport
+Review Status
+Applications
+
+Click candidate name to open Candidate Detail.
+
+--------------------------------------------------
+13. CANDIDATE DETAIL
+--------------------------------------------------
+
+Create a complete Admin Candidate Detail page.
+
+Header:
+
+Candidate Name
+Current Role
+Location
+Availability
+
+Sections:
+
+Professional Summary
+
+Hospitality Experience
+
+Maldives Experience
+
+Skills
+
+Certifications
+
+Languages
+
+Availability
+
+Hospitality Passport
+
+CV
+
+Application History
+
+Recruitment History
+
+Screening Summary
+
+The Jobs MV Review
+
+Do not expose sensitive information unnecessarily.
+
+--------------------------------------------------
+14. REVIEW QUEUE
+--------------------------------------------------
+
+Add a new major sidebar item:
+
+Review Queue
+
+This should become one of the most important admin tools.
+
+Title:
+
+The Jobs MV Review Queue
+
+Subtitle:
+
+Review strong candidates before they are presented to employers.
+
+Tabs:
+
+Awaiting Review
+In Review
+Reviewed
+Needs More Information
+
+Each candidate card should show:
+
+Candidate Name
+Current Position
+Applied Vacancy
+Employer
+Hospitality Experience
+Maldives Experience
+Availability
+Screening Result
+Date Added to Queue
+
+Main action:
+
+Review Candidate
+
+--------------------------------------------------
+15. THE JOBS MV REVIEW
+--------------------------------------------------
+
+When admin opens a candidate from Review Queue show:
+
+Screening Summary
+
+Example:
+
+STRONG MATCH
+
+Strong Matches:
+
+✓ 5 years hospitality experience
+✓ 3 years Maldives resort experience
+✓ Bartending experience
+✓ Cocktail knowledge
+✓ Micros POS
+
+Needs Verification:
+
+? WSET certification
+? Work authorization status
+
+Potential Concern:
+
+⚠ 30-day notice period
+
+Allow authorized admin to complete manual review.
+
+Fields:
+
+Review Decision
+
+Options:
+
+Reviewed - Recommended
+Reviewed - Suitable
+Needs More Information
+Not Recommended
+
+Add:
+
+Expert Review Notes
+
+Internal Notes
+
+Candidate Verification Questions
+
+Reviewed By
+Review Date
+
+If approved for reviewed status show:
+
+✓ THE JOBS MV REVIEWED
+
+Only authorized admins can apply this badge.
+
+Do not show internal notes to candidates.
+
+--------------------------------------------------
+16. APPLICATIONS PAGE
+--------------------------------------------------
+
+Improve Applications into a platform-wide application management page.
+
+Title:
+
+Applications
+
+Subtitle:
+
+Monitor candidate movement through employer hiring pipelines.
+
+Filters:
+
+Employer
+Vacancy
+Stage
+Candidate
+Application Date
+The Jobs MV Reviewed
+
+Stages:
+
+New
+Screening
+Shortlisted
+Interview
+Offered
+Hired
+Not Selected
+
+Show:
+
+Candidate
+Vacancy
+Employer
+Applied Date
+Current Stage
+Last Updated
+Review Status
+
+Make candidate and vacancy clickable.
+
+--------------------------------------------------
+17. SLOW APPLICATION ALERTS
+--------------------------------------------------
+
+Add application inactivity tracking.
+
+The system should identify applications that have not had an employer status update for a configurable number of days.
+
+Example:
+
+Candidate waiting 7 days without employer response.
+
+Show in:
+
+Needs Your Attention
+
+and optionally:
+
+Applications → Needs Action
+
+Do not automatically penalize the employer.
+
+This is an operational alert only.
+
+The purpose is to reduce delays that may cause strong candidates to accept another opportunity.
+
+--------------------------------------------------
+18. RECRUITMENT WORKSPACE
+--------------------------------------------------
+
+Upgrade the existing Recruitment section into a managed recruitment workspace.
+
+This is where The Jobs MV handles recruitment on behalf of employers.
+
+Title:
+
+Managed Recruitment
+
+Subtitle:
+
+Manage employer recruitment requests from vacancy to interview-ready shortlist.
+
+Stages:
+
+New Request
+Vacancy Setup
+Sourcing
+Screening
+Expert Review
+Shortlist Ready
+Sent to Employer
+Interview
+Filled
+Closed
+
+Each recruitment request should show:
+
+Employer
+Position
+Number of Vacancies
+Location
+Requested Date
+Required Joining Date
+Current Stage
+Applications / Candidates
+Assigned Team Member
+Priority
+
+Main CTA:
+
+Open Recruitment Request
+
+--------------------------------------------------
+19. RECRUITMENT REQUEST DETAIL
+--------------------------------------------------
+
+Create a recruitment case/workspace.
+
+Header:
+
+Position
+Employer
+Location
+Status
+
+Show:
+
+EMPLOYER REQUIREMENTS
+
+Mandatory Requirements
+
+Preferred Requirements
+
+Operational Requirements
+
+Number Required
+
+Salary / Package
+
+Joining Date
+
+Candidate Type
+
+APPLICATIONS
+
+SCREENED CANDIDATES
+
+REVIEWED CANDIDATES
+
+SHORTLIST
+
+INTERVIEW
+
+HIRED
+
+Admin actions:
+
+Add Candidate
+Move Candidate
+Request More Information
+Mark The Jobs MV Reviewed
+Add to Shortlist
+Send Shortlist to Employer
+Schedule Interview
+Mark Hired
+Close Recruitment Request
+
+--------------------------------------------------
+20. SHORTLIST WORKSPACE
+--------------------------------------------------
+
+For managed recruitment create:
+
+Interview-Ready Shortlist
+
+Each candidate should display:
+
+Candidate
+Current Role
+Experience
+Maldives Experience
+Skills
+Availability
+Screening Result
+The Jobs MV Reviewed
+Expert Notes
+
+Allow admin to select candidates and build a shortlist.
+
+Show:
+
+Selected Candidates: 5
+
+Action:
+
+Send / Mark Shortlist Ready
+
+Do not automatically send externally unless the existing system supports it.
+
+--------------------------------------------------
+21. REPORTS
+--------------------------------------------------
+
+Add:
+
+Reports
+
+Start with simple useful operational reports.
+
+Show:
+
+Employers Registered
+Verified Employers
+Active Vacancies
+Applications
+Shortlisted Candidates
+Interviews
+Hires
+Managed Recruitment Requests
+Average Time to Shortlist if data exists
+Average Employer Response Time if data exists
+
+Use real historical data only.
+
+Allow date filters:
+
+Last 7 Days
+Last 30 Days
+Last 90 Days
+Custom Range
+
+Do not create fake trends.
+
+--------------------------------------------------
+22. AUDIT LOG
+--------------------------------------------------
+
+Keep Audit Log but improve readability.
+
+Track important admin actions:
+
+Employer Verified
+Employer Verification Revoked
+Employer Suspended
+Vacancy Verified
+Vacancy Rejected
+Vacancy Closed
+Candidate Reviewed
+The Jobs MV Reviewed Badge Applied
+Recruitment Status Changed
+Admin Settings Changed
+
+Show:
+
+Action
+Admin
+Entity
+Previous State
+New State
+Date
+Time
+
+Add filters:
+
+Admin
+Action
+Entity Type
+Date
+
+Audit Log should be read-only.
+
+--------------------------------------------------
+23. VISUAL DESIGN
+--------------------------------------------------
+
+The current Admin Console feels too basic and table-heavy.
+
+Improve the visual design while keeping it efficient.
+
+Use:
+
+Deep navy sidebar
+
+Soft off-white / light grey content background
+
+White content cards
+
+Subtle shadows
+
+Rounded corners
+
+Clear typography
+
+Modern icons
+
+Consistent spacing
+
+Compact premium tables
+
+Clear status badges
+
+Use brand gold/yellow sparingly for important attention or brand elements.
+
+Status colors:
+
+Green:
+Verified / Active / Hired / Operational
+
+Amber:
+Pending / Needs Review / Attention
+
+Blue:
+Screening / Informational
+
+Red:
+Rejected / Suspended / Critical
+
+Grey:
+Closed / Expired / Inactive
+
+Avoid overly saturated colors.
+
+--------------------------------------------------
+24. TABLE IMPROVEMENTS
+--------------------------------------------------
+
+All large tables should include:
+
+Search
+Filters
+Sorting
+Pagination
+
+Make table headers sticky where helpful.
+
+Allow row click to open detail page.
+
+Keep action buttons compact.
+
+Avoid displaying large red destructive buttons on every row unless necessary.
+
+Use a three-dot menu for secondary actions.
+
+Example:
+
+Employer Row
+
+Company Name
+Location
+Verified
+12 Vacancies
+
+[ View ]
+
+...
+
+Secondary menu:
+
+Suspend
+Revoke Verification
+View Audit History
+
+--------------------------------------------------
+25. MOBILE EXPERIENCE
+--------------------------------------------------
+
+Admin Console must be usable on mobile.
+
+Do not simply shrink desktop tables.
+
+On mobile:
+
+Convert tables to cards.
+
+Use slide-out sidebar.
+
+Use filter drawers.
+
+Make status badges readable.
+
+Primary actions full-width where appropriate.
+
+Use sticky bottom action bar for important review actions if useful.
+
+No horizontal scrolling.
+
+Test:
+
+375px
+390px
+430px
+
+--------------------------------------------------
+26. EMPTY STATES
+--------------------------------------------------
+
+Every page must have meaningful empty states.
+
+Examples:
+
+Review Queue:
+
+No candidates waiting for review.
+
+New candidates requiring The Jobs MV review will appear here.
+
+Recruitment:
+
+No active recruitment requests.
+
+Employer recruitment requests will appear here when The Jobs MV is asked to manage hiring.
+
+Pending Verification:
+
+No employers waiting for verification.
+
+You're all caught up.
+
+--------------------------------------------------
+27. NOTIFICATIONS
+--------------------------------------------------
+
+Add an admin notification area if the system supports notifications.
+
+Notify admin for:
+
+New employer verification request
+
+New vacancy awaiting verification
+
+New managed recruitment request
+
+Candidate added to Review Queue
+
+Reported vacancy
+
+Recruitment deadline approaching
+
+Do not create duplicate notifications.
+
+--------------------------------------------------
+28. DATA CONSISTENCY
+--------------------------------------------------
+
+All dashboard statistics must use real database data.
+
+Example:
+
+If employer becomes Verified:
+
+- Employer status changes
+- Verified employer count updates
+- Pending verification count decreases
+- Audit Log records action
+
+If vacancy becomes Verified:
+
+- Vacancy verification updates
+- Admin dashboard count updates
+- Vacancy public status updates if required
+- Audit Log records action
+
+If candidate becomes The Jobs MV Reviewed:
+
+- Candidate Review status updates
+- Review Queue updates
+- Candidate detail updates
+- Relevant recruiter view updates
+
+Use a single source of truth.
+
+--------------------------------------------------
+29. SECURITY AND PERMISSIONS
+--------------------------------------------------
+
+Protect all admin routes.
+
+Only authorized admins can access the Admin Console.
+
+Only authorized admin roles can:
+
+Verify employer
+Reject employer
+Suspend employer
+Verify vacancy
+Reject vacancy
+Apply The Jobs MV Reviewed badge
+Modify recruitment cases
+View private review notes
+
+Do not expose admin-only data to candidate or recruiter accounts.
+
+--------------------------------------------------
+30. FINAL QA
+--------------------------------------------------
+
+Test the complete admin workflow:
+
+1. Admin logs in
+2. Admin Overview loads real data
+3. Employer submits verification
+4. Pending count updates
+5. Admin opens employer
+6. Admin approves employer
+7. Employer becomes Verified
+8. Audit Log records action
+9. Employer submits vacancy
+10. Vacancy enters review
+11. Admin reviews vacancy
+12. Admin verifies vacancy
+13. Candidate applies
+14. Application appears
+15. Candidate enters Review Queue when appropriate
+16. Admin reviews candidate
+17. The Jobs MV Reviewed status is applied manually
+18. Recruitment request is created
+19. Candidate moves through screening
+20. Shortlist becomes ready
+21. Candidate moves to interview
+22. Candidate is marked hired
+23. Dashboard and Reports update correctly
+
+Test all relevant pages on desktop and mobile.
+
+Fix:
+
+Broken routes
+Dead buttons
+Incorrect counts
+Incorrect filters
+Status mismatches
+Permission issues
+Mobile layout problems
+Duplicate components
+Database inconsistencies
+
+--------------------------------------------------
+FINAL PRODUCT DIRECTION
+--------------------------------------------------
+
+The Admin Console should NOT feel like a technical database management panel.
+
+It should feel like the operational headquarters of The Jobs MV.
+
+The admin should be able to quickly manage:
+
+EMPLOYERS
+→ VERIFY
+
+VACANCIES
+→ REVIEW
+
+CANDIDATES
+→ REVIEW
+
+APPLICATIONS
+→ MONITOR
+
+RECRUITMENT
+→ MANAGE
+
+SHORTLISTS
+→ PREPARE
+
+HIRES
+→ TRACK
+
+The most important concept is:
+
+Do not just show data.
+
+Show what needs action.
+
+Great talent should never be lost because nobody acted in time.

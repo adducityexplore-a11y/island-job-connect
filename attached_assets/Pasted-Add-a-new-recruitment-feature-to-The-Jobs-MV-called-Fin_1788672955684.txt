@@ -1,0 +1,185 @@
+Add a new recruitment feature to The Jobs MV called **“Find Candidates For Me”**.
+
+The purpose of this feature is to help guesthouses, smaller resorts, hotels and other employers that do not have a dedicated HR or recruitment manager.
+
+### Employer Side
+
+Add a clear button on the employer dashboard:
+
+**Find Candidates For Me**
+
+When the employer clicks the button, open a recruitment request form with these fields:
+
+* Company / Property Name
+* Position Title
+* Department
+* Number of Employees Required
+* Local / International / Both
+* Minimum Experience Required
+* Preferred Experience
+* Salary
+* Service Charge
+* Accommodation Provided: Yes / No
+* Food Provided: Yes / No
+* Joining Date
+* Urgency: Normal / Urgent
+* English Level
+* Education Requirement
+* Gender Preference if legally applicable
+* Nationality Preference if legally applicable
+* Additional Requirements
+* Job Description
+* Contact Person
+* Contact Email
+* Contact Number
+
+Add a button:
+
+**Submit Recruitment Request**
+
+After submission, the employer should be able to see the recruitment request status:
+
+* Request Received
+* Job Published
+* Applications Received
+* Screening In Progress
+* Shortlist Ready
+* Interview Stage
+* Position Filled
+* Closed
+
+### Candidate Database
+
+Create a searchable candidate database for administrators.
+
+Each candidate profile should include:
+
+* Full Name
+* Nationality
+* Current Location
+* Department
+* Current Position
+* Desired Position
+* Years of Experience
+* Maldives Resort Experience
+* Education
+* Languages
+* Expected Salary
+* Current Employment Status
+* Availability Date
+* CV
+* Phone Number
+* Email
+* Profile Photo if available
+* Last Profile Update
+
+Add an availability status:
+
+**Available Now**
+**Available Within 30 Days**
+**Currently Employed**
+**Not Looking**
+
+Candidates should be able to update this status from their profile.
+
+### Admin Recruitment Dashboard
+
+Create a dedicated admin page called:
+
+**Recruitment Requests**
+
+The admin should be able to:
+
+* View all employer recruitment requests
+* Filter by property, department, position, urgency and status
+* Open each request
+* Search the candidate database
+* Match candidates to the vacancy
+* Review CVs
+* Mark candidates as Suitable / Not Suitable / Shortlisted
+* Add private admin notes
+* Assign candidates to a recruitment request
+
+For every recruitment request, show:
+
+**Applications Received**
+**Suitable Candidates**
+**Shortlisted Candidates**
+**Interview Candidates**
+**Hired Candidates**
+
+### Candidate Matching
+
+Add a matching system that suggests suitable candidates based on:
+
+* Position
+* Department
+* Experience
+* Maldives resort experience
+* Nationality preference
+* Availability
+* Salary expectation
+* Current location
+
+Show a simple match score such as:
+
+**92% Match**
+**85% Match**
+**73% Match**
+
+The admin must still make the final decision.
+
+### Employer Shortlist View
+
+Once candidates are shortlisted, the employer should see a clean shortlist.
+
+For each candidate show:
+
+* Name
+* Position
+* Experience
+* Nationality
+* Availability
+* Current Location
+* Key Strengths
+* CV
+* Match Score
+
+Add buttons:
+
+**Invite for Interview**
+**Reject**
+**Keep for Review**
+
+### Candidate Pool Feature
+
+Add a feature for job seekers called:
+
+**Open to Opportunities**
+
+When activated, their profile becomes searchable by The Jobs MV recruitment team.
+
+Include the message:
+
+“Turn this on if you would like The Jobs MV to consider your profile for suitable job opportunities.”
+
+### Important Design Requirements
+
+The feature must work very well on mobile phones.
+
+Use clean cards, simple buttons and minimal text.
+
+On mobile, show the most important information first:
+
+Position
+Property
+Urgency
+Applications
+Shortlisted
+Status
+
+Do not overcrowd the screen.
+
+The design should match the existing The Jobs MV branding and current platform style.
+
+The main goal is to turn The Jobs MV from only a job-posting website into a recruitment support platform that can help employers source, screen and shortlist suitable hospitality candidates quickly.

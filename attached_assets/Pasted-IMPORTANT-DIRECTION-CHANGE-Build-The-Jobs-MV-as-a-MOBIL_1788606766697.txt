@@ -1,0 +1,277 @@
+IMPORTANT DIRECTION CHANGE:
+
+Build The Jobs MV as a MOBILE-FIRST WEB PLATFORM, not as a native mobile app.
+
+For now, do NOT focus on creating an iOS or Android application.
+
+The goal is to create a professional Maldives hospitality recruitment web platform that works extremely well on:
+
+* Mobile phones
+* Tablets
+* Laptops
+* Desktop computers
+
+The website should feel similar to a modern app when opened on a mobile browser, but users should NOT need to install anything.
+
+CURRENT PROJECT:
+
+Do not rebuild the project from scratch.
+
+Review the existing code and keep all working functionality.
+
+Adapt the existing project architecture, navigation, layouts and components into a responsive web platform.
+
+PLATFORM STRUCTURE:
+
+Create three clearly separated experiences:
+
+1. JOB SEEKER PLATFORM
+
+Candidates should be able to:
+
+* Browse jobs without logging in
+* Search and filter vacancies
+* Open individual job pages
+* Apply easily from mobile
+* Create a candidate profile
+* Upload CV
+* Save jobs
+* View application history
+* Update availability
+* Update experience and qualifications
+
+IMPORTANT:
+
+Job links shared through TikTok, Instagram, WhatsApp, Telegram or Google should open directly to the job page.
+
+Do NOT force users to register or install anything just to view a vacancy.
+
+Keep the application process extremely simple.
+
+2. RECRUITER PLATFORM
+
+Create a professional web dashboard for employers.
+
+Recruiters should be able to:
+
+* Create company profile
+* Post jobs themselves
+* Create jobs using AI
+* View their vacancies
+* View applications
+* Review candidate profiles
+* See AI candidate summaries
+* See AI match scores
+* Shortlist candidates
+* Move candidates to interview
+* Mark candidates selected/hired
+* Generate interview questions
+* Manage their recruitment pipeline
+
+Keep both options:
+
+"Post a Job"
+
+and
+
+"Let The Jobs MV Handle It"
+
+Make "Let The Jobs MV Handle It" the more prominent service.
+
+Description:
+
+"Tell us who you need. The Jobs MV can prepare your vacancy, publish it, manage applications and help identify the strongest candidates."
+
+3. THE JOBS MV ADMIN PLATFORM
+
+Create a separate secure admin dashboard.
+
+Admin should be able to:
+
+* Create vacancies on behalf of companies
+* Manage companies
+* Manage recruiters
+* Manage candidates
+* Manage jobs
+* Manage applications
+* Review CVs
+* Generate AI candidate assessments
+* Create shortlists
+* Manage recruitment stages
+* Manage featured vacancies
+* View platform statistics
+
+The admin dashboard is extremely important because initially The Jobs MV may manage recruitment for companies instead of requiring every company to operate the platform themselves.
+
+DESKTOP DESIGN:
+
+Do not stretch a mobile interface across a desktop screen.
+
+Use a professional SaaS/recruitment platform layout.
+
+Recruiter and admin desktop dashboards can use:
+
+Left sidebar navigation
+Top header
+Dashboard cards
+Candidate lists
+Search
+Filters
+Responsive data views
+
+MOBILE DESIGN:
+
+Mobile experience is a HIGH PRIORITY.
+
+Use:
+
+Simple navigation
+Large touch targets
+Responsive cards
+Readable typography
+Minimal horizontal tables
+Sticky important actions where useful
+Fast-loading pages
+
+Candidate applications should be particularly easy on mobile.
+
+RESPONSIVE BREAKPOINTS:
+
+Test the platform at:
+
+375px
+390px
+430px
+768px
+1024px
+1440px
+
+There should be no horizontal scrolling or broken layouts.
+
+PUBLIC WEBSITE:
+
+Keep the public-facing website simple.
+
+Main navigation:
+
+Jobs
+Companies
+For Employers
+About
+
+Primary candidate CTA:
+
+Find Jobs
+
+Employer CTA:
+
+Find Candidates
+
+The homepage should immediately explain:
+
+"Hospitality Jobs & Recruitment in Maldives"
+
+Do not market the platform primarily as an "AI company."
+
+AI should work behind the scenes to make recruitment faster.
+
+CORE BUSINESS MESSAGE:
+
+For Job Seekers:
+
+"Find your next hospitality opportunity in Maldives."
+
+For Employers:
+
+"Tell us who you need. We'll help you find the right people."
+
+AI FEATURES:
+
+AI should assist with:
+
+Job descriptions
+CV parsing
+Candidate summaries
+Candidate-job matching
+Shortlisting assistance
+Interview questions
+Recruitment communication
+
+AI must NOT make final hiring decisions.
+
+Do not automatically reject candidates.
+
+PLATFORM PRIORITY:
+
+The most important workflow is:
+
+Employer has vacancy
+→ Vacancy is created
+→ Vacancy is published
+→ Candidate opens shared job link
+→ Candidate applies
+→ Application enters recruiter dashboard
+→ AI assists candidate review
+→ Recruiter/admin shortlists candidates
+→ Interview
+→ Selected
+→ Hired
+
+Make this workflow excellent before adding unnecessary features.
+
+TECHNICAL DIRECTION:
+
+Convert or adapt the current project into a production-ready responsive WEB application.
+
+If the current project uses Expo/React Native architecture, review whether it is appropriate for the long-term web platform.
+
+Do NOT immediately rewrite everything.
+
+First identify:
+
+* Current frontend framework
+* Backend
+* Database
+* Authentication
+* Existing routes
+* Existing working functionality
+
+Then recommend and implement the safest migration/adaptation approach.
+
+Preserve existing data and working features.
+
+SEO:
+
+Because this is a web recruitment platform, implement proper SEO for public job pages.
+
+Each vacancy should have:
+
+Unique URL
+Job title
+Company
+Location
+Job description
+Meta title
+Meta description
+Social sharing metadata
+
+Public job pages should be indexable by search engines where appropriate.
+
+PERFORMANCE:
+
+Optimize for users in Maldives who may be using mobile data.
+
+Keep pages lightweight.
+Optimize images.
+Use lazy loading where appropriate.
+Avoid unnecessary animations and heavy UI libraries.
+
+FINAL GOAL:
+
+The Jobs MV should NOT feel like a mobile app stretched into a website.
+
+It should feel like a professional web-based recruitment platform similar to a modern recruitment SaaS product, while remaining extremely easy to use on a mobile phone.
+
+Do not build native iOS or Android apps at this stage.
+
+Focus development resources entirely on making the web platform reliable, professional and commercially usable.

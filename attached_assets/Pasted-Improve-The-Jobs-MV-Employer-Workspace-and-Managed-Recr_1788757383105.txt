@@ -1,0 +1,1329 @@
+Improve The Jobs MV Employer Workspace and Managed Recruitment Request experience.
+
+IMPORTANT:
+- Work with the EXISTING Employer Workspace.
+- Do not rebuild the application from scratch.
+- Preserve existing authentication, database relationships, vacancies, applications and employer accounts.
+- Keep the current general brand identity, but improve UI/UX where necessary.
+- Do not create duplicate recruitment systems.
+- Make the workflow extremely simple for employers.
+- Mobile experience is a priority.
+- Do not use fake statistics or fake candidates.
+- All counts and statuses must come from real data.
+
+CORE BUSINESS IDEA:
+
+The Jobs MV offers employers TWO ways to recruit:
+
+OPTION 1:
+POST A VACANCY
+
+Employer manages recruitment themselves.
+
+Post Vacancy
+→ Receive Applications
+→ Review
+→ Shortlist
+→ Interview
+→ Hire
+
+
+OPTION 2:
+REQUEST CANDIDATES
+
+The Jobs MV helps manage the recruitment process.
+
+Tell Us Who You Need
+→ We Source
+→ We Screen
+→ Experts Review
+→ Interview-Ready Shortlist
+→ Employer Interviews
+→ Hire
+
+
+The second option is one of the main differentiators of The Jobs MV.
+
+The experience should communicate:
+
+"Tell us who you need. We'll help find the right people."
+
+--------------------------------------------------
+1. EMPLOYER OVERVIEW
+--------------------------------------------------
+
+Keep the current heading:
+
+Your hiring workspace
+
+Supporting text:
+
+Keep vacancies, candidates and hiring decisions in one place.
+
+Keep the primary button:
+
+Post a Vacancy
+
+Show these KPI cards using real data:
+
+Active Vacancies
+Applications
+New Applicants
+Shortlisted
+
+Below the KPI cards, make Managed Recruitment more visually prominent.
+
+Replace:
+
+Find Candidates For Me
+
+with:
+
+NEED HELP FINDING THE RIGHT PEOPLE?
+
+Headline:
+
+Let The Jobs MV Find Candidates For You
+
+Supporting text:
+
+Tell us who you need. Our hospitality recruitment team will source, screen and review suitable candidates, then present you with an interview-ready shortlist.
+
+Button:
+
+Request Candidates
+
+Small supporting text:
+
+You interview. You decide. We help with the search.
+
+Do not position this only for employers without HR departments.
+
+This service should be useful for:
+
+Resorts
+Hotels
+Guesthouses
+Restaurants
+Hospitality businesses
+
+including companies that already have HR teams but need additional recruitment support.
+
+--------------------------------------------------
+2. SIMPLIFY REQUEST CANDIDATES
+--------------------------------------------------
+
+The current Request Candidates form is too long.
+
+The promise is:
+
+"Tell us who you need."
+
+Therefore the initial request should be quick and easy.
+
+Reduce the form to FOUR main sections:
+
+1. Position
+2. What Matters Most
+3. Package & Joining
+4. Contact
+
+Do not require employers to complete a large recruitment questionnaire before submitting.
+
+Target completion time:
+
+Approximately 2–3 minutes.
+
+--------------------------------------------------
+3. SECTION 1 - POSITION
+--------------------------------------------------
+
+Title:
+
+POSITION
+
+Supporting text:
+
+Tell us about the role you need to fill.
+
+Fields:
+
+Company / Property
+
+Automatically pre-fill from employer account.
+
+Do not make the employer repeatedly type their company name.
+
+Position Title
+
+Department
+
+Number of Hires Needed
+
+Hiring Scope
+
+Hiring Speed
+
+
+DEPARTMENT
+
+Use dropdown:
+
+Food & Beverage
+Bars / Beverage
+Culinary
+Front Office
+Housekeeping
+Spa
+Recreation
+Engineering
+Finance
+Human Resources
+Sales & Marketing
+Guest Relations
+Butler Service
+Security
+Other
+
+
+HIRING SCOPE
+
+Options:
+
+Maldivian Candidates
+International Candidates
+Local & International Candidates
+
+
+HIRING SPEED
+
+Options:
+
+Standard
+Urgent
+
+Standard supporting text:
+
+Normal recruitment process.
+
+Urgent supporting text:
+
+We need suitable candidates as soon as possible.
+
+When Urgent is selected show:
+
+URGENT RECRUITMENT
+
+We'll prioritize your request. Any additional service terms will be confirmed before work begins.
+
+Do not automatically charge or create payment obligations.
+
+--------------------------------------------------
+4. SECTION 2 - WHAT MATTERS MOST
+--------------------------------------------------
+
+Title:
+
+WHAT MATTERS MOST?
+
+Supporting text:
+
+Tell us what you're looking for in the right candidate.
+
+Fields:
+
+Minimum Experience
+
+Key Skills / Requirements
+
+Preferred Experience (Optional)
+
+Education / Certification (Optional)
+
+English Level (Optional)
+
+
+MINIMUM EXPERIENCE
+
+Prefer structured options:
+
+No minimum
+Less than 1 year
+1–2 years
+3–5 years
+5+ years
+10+ years
+
+Allow additional explanation if needed.
+
+
+KEY SKILLS / REQUIREMENTS
+
+Use a text area or searchable tags.
+
+Placeholder:
+
+e.g. Luxury resort experience, Micros POS, wine knowledge, leadership skills...
+
+
+PREFERRED EXPERIENCE
+
+Optional.
+
+Placeholder:
+
+e.g. Maldives resort experience, pre-opening experience...
+
+
+EDUCATION / CERTIFICATION
+
+Optional.
+
+Placeholder:
+
+e.g. Hospitality qualification, WSET Level 2...
+
+
+ENGLISH LEVEL
+
+Optional dropdown:
+
+Basic
+Conversational
+Professional
+Fluent
+No specific requirement
+
+--------------------------------------------------
+5. REMOVE GENDER & NATIONALITY TEXT BOXES
+--------------------------------------------------
+
+Remove the current candidate-facing/employer-facing open text fields:
+
+Gender Preference
+
+Nationality Preference
+
+Do not encourage employers to use nationality or gender as general candidate ranking criteria.
+
+Use Hiring Scope for the operational recruitment market:
+
+Maldivian Candidates
+International Candidates
+Local & International Candidates
+
+If there is a genuinely job-specific operational or legal requirement, allow the employer to explain it under:
+
+Additional Requirements
+
+The Jobs MV team can review such requirements before using them for screening.
+
+--------------------------------------------------
+6. SECTION 3 - PACKAGE & JOINING
+--------------------------------------------------
+
+Title:
+
+PACKAGE & JOINING
+
+Supporting text:
+
+Help us understand the offer and when you need the candidate.
+
+Fields:
+
+Basic Salary
+Service Charge
+Expected Joining Date
+Accommodation
+Meals / Food
+
+BASIC SALARY
+
+Optional.
+
+Use structured:
+
+Currency
+Minimum
+Maximum
+Period
+
+Currency options should include at minimum:
+
+USD
+MVR
+
+Period:
+
+Per Month
+Per Day
+Other
+
+Do not allow ambiguous salary such as:
+
+1500
+
+without currency.
+
+
+SERVICE CHARGE
+
+Optional.
+
+Allow:
+
+Average Amount
+Currency
+Period
+
+Or:
+
+Not Disclosed
+
+
+EXPECTED JOINING DATE
+
+Use date picker.
+
+
+ACCOMMODATION
+
+Toggle:
+
+Provided
+Not Provided
+
+
+MEALS / FOOD
+
+Toggle:
+
+Provided
+Not Provided
+
+Optionally support later:
+
+Health Insurance
+Annual Leave
+Air Ticket
+Weekly Off
+Other Benefits
+
+Do not make these mandatory for the initial request.
+
+--------------------------------------------------
+7. SECTION 4 - CONTACT
+--------------------------------------------------
+
+Title:
+
+CONTACT
+
+Supporting text:
+
+Who should our recruitment team contact about this request?
+
+Automatically pre-fill:
+
+Contact Person
+Email
+Phone
+
+from the employer account/company profile.
+
+Allow employer to edit these details for this request.
+
+Do not make employers repeatedly enter information already stored in their profile.
+
+--------------------------------------------------
+8. OPTIONAL JOB DESCRIPTION
+--------------------------------------------------
+
+Do not make Job Description a major required field.
+
+Add:
+
+Additional Information (Optional)
+
+Placeholder:
+
+Anything else we should know about this position?
+
+Allow employer to:
+
+Paste Job Description
+
+OR
+
+Upload Job Description
+
+if file upload functionality exists.
+
+This should remain optional.
+
+--------------------------------------------------
+9. SUBMIT REQUEST
+--------------------------------------------------
+
+Main CTA:
+
+Submit Recruitment Request
+
+Before submission show a short summary:
+
+Position
+Number Needed
+Hiring Scope
+Hiring Speed
+Minimum Experience
+Expected Joining Date
+
+Then submit.
+
+After successful submission do NOT simply return to an empty page.
+
+Show a confirmation screen:
+
+REQUEST RECEIVED ✓
+
+Headline:
+
+We're on it.
+
+Supporting text:
+
+Your recruitment request has been received. The Jobs MV team will review your requirements and begin the next steps.
+
+Show:
+
+Request ID
+Position
+Number Required
+Hiring Speed
+Submitted Date
+
+Button:
+
+Track Recruitment
+
+Secondary:
+
+Back to Workspace
+
+--------------------------------------------------
+10. RECRUITMENT REQUEST TRACKING
+--------------------------------------------------
+
+The Recruitment Requests page should become a proper tracking system.
+
+Rename heading:
+
+Recruitment Requests
+
+Supporting text:
+
+Track recruitment being managed with support from The Jobs MV.
+
+Each request card should show:
+
+Position
+Employer
+Number Required
+Request ID
+Requested Date
+Required Joining Date
+Hiring Scope
+Current Status
+
+Main button:
+
+View Request
+
+--------------------------------------------------
+11. RECRUITMENT STAGES
+--------------------------------------------------
+
+Use these stages:
+
+REQUEST RECEIVED
+
+SOURCING
+
+SCREENING
+
+EXPERT REVIEW
+
+SHORTLIST READY
+
+INTERVIEW
+
+FILLED
+
+CLOSED
+
+
+Display these visually as a recruitment progress tracker.
+
+Example:
+
+Request Received ✓
+
+Sourcing ✓
+
+Screening ●
+
+Expert Review ○
+
+Shortlist Ready ○
+
+Interview ○
+
+Filled ○
+
+
+Clearly highlight the current stage.
+
+On mobile display this vertically or in a mobile-friendly progress component.
+
+--------------------------------------------------
+12. EMPLOYER-FACING STATUS LANGUAGE
+--------------------------------------------------
+
+Make status descriptions understandable.
+
+REQUEST RECEIVED
+
+We've received your requirements and are reviewing the request.
+
+
+SOURCING
+
+We're identifying potential candidates for your position.
+
+
+SCREENING
+
+Potential candidates are being screened against your requirements.
+
+
+EXPERT REVIEW
+
+Our hospitality recruitment team is reviewing the strongest matches.
+
+
+SHORTLIST READY
+
+Your interview-ready shortlist is ready.
+
+
+INTERVIEW
+
+Candidates have progressed to the interview stage.
+
+
+FILLED
+
+The recruitment request has been successfully filled.
+
+
+CLOSED
+
+This recruitment request has been closed.
+
+--------------------------------------------------
+13. SHORTLIST READY EXPERIENCE
+--------------------------------------------------
+
+This should be one of the most important moments in the Employer Workspace.
+
+When status becomes:
+
+SHORTLIST READY
+
+Display prominently:
+
+YOUR SHORTLIST IS READY
+
+Supporting text:
+
+We've reviewed the strongest matches for your vacancy.
+
+Show:
+
+X Interview-Ready Candidates
+
+Button:
+
+View Shortlist
+
+Do not use fake candidate numbers.
+
+--------------------------------------------------
+14. SHORTLIST PAGE
+--------------------------------------------------
+
+Create an employer-facing shortlist view.
+
+Each candidate card should show:
+
+Candidate Name
+
+Current Position
+
+Current Location
+
+Total Hospitality Experience
+
+Maldives Experience
+
+Key Skills
+
+Availability
+
+Notice Period
+
+Relevant Certifications
+
+Screening Summary
+
+Hospitality Passport
+
+CV if candidate permissions/application context allow
+
+
+If manually reviewed by authorized The Jobs MV staff show:
+
+✓ THE JOBS MV REVIEWED
+
+
+Supporting text:
+
+Reviewed by The Jobs MV hospitality recruitment team.
+
+
+Employer actions:
+
+View Candidate
+
+Shortlist / Keep
+
+Request Interview
+
+Not Proceeding
+
+
+Do not expose internal The Jobs MV review notes.
+
+--------------------------------------------------
+15. EXPLAIN WHY A CANDIDATE MATCHES
+--------------------------------------------------
+
+Do not show only an unexplained percentage.
+
+Show useful reasons.
+
+Example:
+
+STRONG MATCH
+
+Why this candidate matches:
+
+✓ 6 years hospitality experience
+
+✓ 4 years Maldives resort experience
+
+✓ Luxury resort background
+
+✓ Micros POS experience
+
+✓ Available within 30 days
+
+
+Needs Confirmation:
+
+? Certification requires verification
+
+
+The employer should understand the candidate quickly.
+
+Do not invent candidate information.
+
+--------------------------------------------------
+16. EMPLOYER INTERVIEW STAGE
+--------------------------------------------------
+
+When employer selects:
+
+Request Interview
+
+allow:
+
+Preferred Date
+
+Preferred Time
+
+Interview Type:
+
+Video
+Phone
+In Person
+Other
+
+Message / Notes
+
+If scheduling functionality exists, integrate it.
+
+Otherwise save the interview request for The Jobs MV/admin team to coordinate.
+
+Update recruitment progress appropriately.
+
+--------------------------------------------------
+17. VACANCIES PAGE
+--------------------------------------------------
+
+Improve existing vacancy cards.
+
+Current vacancy cards are too basic.
+
+Each vacancy should show:
+
+Job Title
+
+Status
+
+Department
+
+Location
+
+Posted Date
+
+Closing Date
+
+Applications
+
+Shortlisted
+
+Interviewing
+
+
+Example:
+
+ASSISTANT FOOD & BEVERAGE MANAGER
+
+ACTIVE
+
+Food & Beverage · Maldives
+
+Posted 7 Sep
+Closes 30 Sep
+
+12 Applications
+4 Shortlisted
+2 Interviews
+
+
+Main action:
+
+View Candidates
+
+
+Secondary:
+
+Edit
+
+More menu:
+
+Pause
+Duplicate
+Close
+View Public Listing
+
+Do not show information that does not exist.
+
+--------------------------------------------------
+18. APPLICATIONS
+--------------------------------------------------
+
+Applications should follow:
+
+NEW
+
+SCREENING
+
+SHORTLISTED
+
+INTERVIEW
+
+OFFERED
+
+HIRED
+
+NOT SELECTED
+
+
+Allow filters:
+
+Vacancy
+Stage
+Experience
+Maldives Experience
+Availability
+The Jobs MV Reviewed
+
+
+Candidate preview should show:
+
+Name
+Current Position
+Applied Vacancy
+Experience
+Maldives Experience
+Availability
+Current Stage
+
+Main action:
+
+View Candidate
+
+--------------------------------------------------
+19. OVERVIEW DASHBOARD
+--------------------------------------------------
+
+Keep the current dashboard structure but make it more useful.
+
+Top metrics:
+
+Active Vacancies
+Applications
+New Applicants
+Shortlisted
+
+
+Add:
+
+RECRUITMENT PROGRESS
+
+Show real counts:
+
+Active Recruitment Requests
+Shortlists Ready
+Interviews
+Filled
+
+
+Add:
+
+NEEDS YOUR ATTENTION
+
+Examples:
+
+3 New Applicants to Review
+
+1 Shortlist Ready
+
+2 Interview Requests
+
+1 Vacancy Closing Soon
+
+
+Only show real items.
+
+If none:
+
+You're all caught up.
+
+No hiring actions need your attention right now.
+
+--------------------------------------------------
+20. SIDEBAR
+--------------------------------------------------
+
+Use:
+
+Overview
+
+Vacancies
+
+Applications
+
+Recruitment Requests
+
+Talent Search
+
+
+Talent Search can remain hidden or marked as coming later if it is not yet functional.
+
+Do not expose a broken Talent Search feature.
+
+--------------------------------------------------
+21. TALENT SEARCH FUTURE COMPATIBILITY
+--------------------------------------------------
+
+The architecture should remain compatible with future Talent Search.
+
+Future employer example:
+
+Search:
+
+Bartender
+
+Filters:
+
+Maldives Experience
+3+ Years Experience
+Available Within 30 Days
+Open to Opportunities
+
+
+Talent Search will use structured Hospitality Passport information.
+
+Do not build a fake search experience if candidate data is not yet ready.
+
+--------------------------------------------------
+22. VISUAL DESIGN
+--------------------------------------------------
+
+Improve the current Employer Workspace visually.
+
+The current design is clean but still slightly flat.
+
+Make it feel like a premium hospitality recruitment workspace.
+
+Use:
+
+Deep navy
+
+Warm off-white / soft grey backgrounds
+
+White cards
+
+Subtle shadows
+
+Rounded corners
+
+Clear hierarchy
+
+Modern icons
+
+Strong typography
+
+More visual distinction between sections
+
+
+Use brand gold/yellow sparingly for:
+
+Important actions
+
+Progress
+
+The Jobs MV branding
+
+
+Do not overcrowd the interface.
+
+--------------------------------------------------
+23. MANAGED RECRUITMENT VISUAL IDENTITY
+--------------------------------------------------
+
+Make Managed Recruitment visually recognizable throughout the workspace.
+
+Use a subtle label:
+
+THE JOBS MV RECRUITMENT SUPPORT
+
+Where appropriate.
+
+Do not overuse it.
+
+The employer should immediately understand the difference between:
+
+MY VACANCIES
+
+and
+
+THE JOBS MV MANAGED RECRUITMENT
+
+--------------------------------------------------
+24. MOBILE EXPERIENCE
+--------------------------------------------------
+
+Mobile is extremely important.
+
+Do not simply shrink the desktop layout.
+
+On mobile:
+
+Cards stack vertically
+
+Metrics use 2-column grid where appropriate
+
+Recruitment progress becomes vertical
+
+Forms become single-column
+
+Buttons become large and easy to tap
+
+Filters use drawer/sheet
+
+Candidate cards replace large tables
+
+Important CTAs remain easy to reach
+
+No horizontal overflow
+
+
+Test approximately:
+
+375px
+
+390px
+
+430px
+
+--------------------------------------------------
+25. DATA CONSISTENCY
+--------------------------------------------------
+
+All recruitment stages must use one source of truth.
+
+Example:
+
+Admin changes request:
+
+Screening
+→ Expert Review
+
+Employer should immediately see:
+
+Expert Review
+
+If Admin marks:
+
+Shortlist Ready
+
+Employer should see:
+
+Your Shortlist Is Ready
+
+and:
+
+View Shortlist
+
+
+If candidate is marked Hired and the position is filled:
+
+Recruitment progress should update appropriately.
+
+
+Do not create separate conflicting status systems for Admin and Employer.
+
+--------------------------------------------------
+26. ADMIN INTEGRATION
+--------------------------------------------------
+
+Employer Recruitment Requests must connect directly to the existing Admin Managed Recruitment workspace.
+
+When employer submits:
+
+Request Candidates
+
+Admin should receive the recruitment request.
+
+Admin sees:
+
+Employer
+
+Position
+
+Number Required
+
+Hiring Scope
+
+Hiring Speed
+
+Requirements
+
+Package
+
+Joining Date
+
+Contact
+
+
+Admin manages:
+
+Request Received
+→ Sourcing
+→ Screening
+→ Expert Review
+→ Shortlist Ready
+→ Interview
+→ Filled
+
+
+Employer sees the same progress in employer-friendly language.
+
+--------------------------------------------------
+27. NOTIFICATIONS
+--------------------------------------------------
+
+If notification functionality exists, notify employer when:
+
+Request Received
+
+Recruitment moves to major stage
+
+More Information Required
+
+Shortlist Ready
+
+Interview Update
+
+Position Filled
+
+
+The most important notification:
+
+Your shortlist is ready.
+
+Do not create duplicate notifications.
+
+--------------------------------------------------
+28. FINAL QA
+--------------------------------------------------
+
+Test BOTH recruitment journeys.
+
+
+SELF-SERVICE:
+
+1. Employer logs in
+
+2. Posts vacancy
+
+3. Vacancy becomes active according to verification rules
+
+4. Candidate applies
+
+5. Employer receives application
+
+6. Employer reviews candidate
+
+7. Candidate is shortlisted
+
+8. Interview
+
+9. Offer
+
+10. Hire
+
+
+MANAGED RECRUITMENT:
+
+1. Employer logs in
+
+2. Clicks Request Candidates
+
+3. Form is simple and fast
+
+4. Employer submits request
+
+5. Confirmation screen appears
+
+6. Admin receives request
+
+7. Status = Request Received
+
+8. Admin moves to Sourcing
+
+9. Employer sees Sourcing
+
+10. Admin moves candidates through Screening
+
+11. Expert Review is completed
+
+12. Admin prepares shortlist
+
+13. Status becomes Shortlist Ready
+
+14. Employer receives notification
+
+15. Employer opens shortlist
+
+16. Employer reviews candidates
+
+17. Employer requests interview
+
+18. Candidate progresses
+
+19. Candidate hired
+
+20. Request becomes Filled
+
+
+Check:
+
+Desktop
+
+Tablet
+
+Mobile
+
+
+Fix:
+
+Broken buttons
+
+Dead routes
+
+Duplicate status logic
+
+Incorrect counts
+
+Form validation
+
+Mobile overflow
+
+Missing data
+
+Permission issues
+
+Employer/Admin status inconsistencies
+
+
+FINAL EXPERIENCE:
+
+The employer should never feel that recruitment is complicated.
+
+The Jobs MV should give them two clear choices:
+
+
+DO IT YOURSELF
+
+Post a Vacancy
+
+or
+
+
+LET US HELP
+
+Request Candidates
+
+
+The Managed Recruitment promise should remain:
+
+Tell us who you need.
+
+We source.
+We screen.
+Our hospitality experts review.
+You interview.
+You hire.
+
+
+The product should bring our company purpose to life:
+
+Great talent should never be lost to a slow hiring process.
+
+Right Talent. Right Opportunity. Right Time.

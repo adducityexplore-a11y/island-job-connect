@@ -1,0 +1,386 @@
+Review the CURRENT version of The Jobs MV project before making any changes.
+
+IMPORTANT:
+Do not rebuild the application.
+Do not delete or replace existing working features.
+Do not create duplicate pages or duplicate components.
+
+I want you to inspect what has already been implemented from the AI recruitment platform plan and improve the existing implementation.
+
+MAIN PRIORITY:
+The recruiter experience must feel extremely simple, professional and mobile-first.
+
+STEP 1: AUDIT THE CURRENT PROJECT
+
+Check and identify which of these already exist:
+
+* Recruiter login
+* Recruiter dashboard
+* Company profile
+* Job creation
+* Create Job with AI
+* Applicant management
+* Candidate profile
+* CV upload
+* CV parsing
+* AI candidate summary
+* AI match score
+* Shortlisting
+* Interview stages
+* Recruitment pipeline
+* Candidate database
+* AI interview questions
+* Admin dashboard
+* Candidate dashboard
+
+Do not recreate anything that already works.
+
+Fix and improve existing features instead.
+
+STEP 2: RECRUITER DASHBOARD
+
+Make the recruiter dashboard the main focus.
+
+At the top show only the most important information:
+
+Active Jobs
+New Applicants
+Shortlisted
+Interview
+Hired
+
+Below that show:
+
+Recent Applicants
+
+Each applicant card should show:
+
+Candidate name
+Position applied for
+Current job title
+Years of experience
+Maldives resort experience
+Availability
+AI Match Score
+
+Buttons:
+
+View Candidate
+Shortlist
+Interview
+
+Keep this extremely clean.
+
+Avoid too many cards or unnecessary statistics.
+
+STEP 3: ADD A PRIMARY ACTION
+
+At the top of the recruiter dashboard create one strong primary button:
+
+* Create New Vacancy
+
+Beside or underneath it add:
+
+✨ Create with AI
+
+The AI option should allow the HR manager to describe their requirement naturally.
+
+Example:
+
+"We need 3 bartenders with minimum 2 years experience. Maldives resort experience preferred. Strong cocktails and English communication. Salary USD 650 plus service charge."
+
+AI should automatically prepare the job advertisement.
+
+The recruiter must review and approve it before publishing.
+
+STEP 4: VACANCY PAGE
+
+Each vacancy should have its own recruitment dashboard.
+
+Example:
+
+Bartender
+3 Positions
+Status: Active
+
+Applications: 64
+Strong Matches: 18
+Shortlisted: 10
+Interview: 5
+Selected: 2
+
+Then show applicants underneath.
+
+Add easy filters:
+
+All
+Best Matches
+New
+Shortlisted
+Interview
+Rejected
+
+STEP 5: CANDIDATE CARDS
+
+Do not display candidates using large complicated tables, especially on mobile.
+
+Use cards.
+
+Example:
+
+Ahmed Ali
+
+Bartender
+5 Years Experience
+3 Years Maldives Experience
+
+Available: Immediate
+
+AI Match
+89%
+
+Strengths:
+• Resort experience
+• Strong cocktail background
+• POS experience
+
+Buttons:
+
+View Profile
+Shortlist
+
+The match score should be visually prominent.
+
+STEP 6: EXPLAIN AI SCORES
+
+AI scores must never appear without explanation.
+
+When recruiter clicks the score, show:
+
+Overall Match: 89%
+
+Experience: 95%
+Required Skills: 90%
+Resort Experience: 100%
+Education/Certification: 75%
+Availability: 100%
+
+Strengths
+
+Potential Concerns
+
+Missing Requirements
+
+Also clearly state:
+
+"AI recommendations assist recruitment decisions. Final hiring decisions remain with the employer."
+
+STEP 7: CANDIDATE PROFILE
+
+Improve the candidate profile so HR can understand the candidate within approximately 30 seconds.
+
+At the top:
+
+Name
+Current Position
+Location
+Availability
+Total Experience
+Maldives Experience
+AI Match Score
+
+Then:
+
+AI Recruiter Summary
+
+Example:
+
+"Ahmed is a bartender with five years of hospitality experience, including three years in Maldives resorts. His background strongly matches this vacancy due to resort experience, cocktail knowledge and guest-facing service experience."
+
+Below:
+
+Work Experience
+Skills
+Education
+Certifications
+Languages
+CV
+
+Actions should remain visible:
+
+Shortlist
+Move to Interview
+Reject
+Contact
+
+STEP 8: RECRUITMENT PIPELINE
+
+Create a simple visual pipeline:
+
+New
+↓
+Reviewed
+↓
+Shortlisted
+↓
+Interview
+↓
+Selected
+↓
+Hired
+
+Allow recruiter to change candidate status easily.
+
+On desktop this can be horizontal.
+
+On mobile use a simple status selector or vertical flow.
+
+Do not create complicated drag-and-drop if it negatively affects mobile usability.
+
+STEP 9: MOBILE EXPERIENCE
+
+This is a HIGH PRIORITY requirement.
+
+Test every recruiter page at approximately:
+
+375px width
+390px width
+430px width
+
+Fix:
+
+Horizontal scrolling
+Tiny buttons
+Oversized headings
+Tables that do not fit
+Cards overflowing the screen
+Poor spacing
+Navigation problems
+
+Use:
+
+Large touch targets
+Candidate cards
+Bottom sheets/modals where appropriate
+Sticky important actions
+Clear typography
+
+The recruiter should be able to manage hiring comfortably from an iPhone or Android phone.
+
+STEP 10: NAVIGATION
+
+Keep recruiter navigation simple.
+
+Recommended navigation:
+
+Dashboard
+Jobs
+Candidates
+Messages
+Company
+
+Do not put AI as a separate main navigation item.
+
+AI should appear naturally inside recruitment workflows.
+
+Examples:
+
+Create with AI
+AI Match
+AI Summary
+Generate Interview Questions
+
+STEP 11: REMOVE CLUTTER
+
+Review the current interface and remove:
+
+Duplicate information
+Duplicate cards
+Unnecessary statistics
+Long explanatory text
+Placeholder features
+Developer/debug information
+Buttons that do nothing
+Repeated navigation links
+
+The interface should look like a real commercial product, not a demo dashboard.
+
+STEP 12: ADMIN VS RECRUITER
+
+Make sure admin controls are completely separated from recruiter controls.
+
+Recruiters must NOT see:
+
+Other company's private information
+Platform-wide candidate information without permission
+Other recruiters' private data
+Admin controls
+
+Admin should have platform-level access.
+
+STEP 13: DATA PROTECTION
+
+Candidate contact details and uploaded CVs are private information.
+
+Ensure recruiters only see candidate data related to applications they are authorized to access.
+
+Do not expose candidate CV URLs publicly.
+
+Use secure authenticated file access.
+
+STEP 14: DO NOT FAKE AI
+
+If actual AI integration is not connected yet, do not generate random AI scores.
+
+Clearly mark development/demo AI data.
+
+Create the architecture needed for real AI processing instead.
+
+AI scoring should eventually be based on:
+
+Job requirements
+Candidate CV
+Experience
+Skills
+Qualifications
+Availability
+
+Never score based on:
+
+Gender
+Religion
+Race
+Age
+Photo
+Ethnicity
+
+Nationality should only be displayed where operationally required and should not automatically increase or reduce the AI match score.
+
+STEP 15: FINAL QUALITY CHECK
+
+After completing improvements:
+
+Test recruiter login.
+Create one test vacancy.
+Apply using one test candidate.
+Confirm application appears.
+Confirm candidate profile opens.
+Confirm application status changes.
+Confirm mobile layout works.
+Check browser console for errors.
+Check for broken routes.
+Check for duplicate pages.
+Check database errors.
+
+Do not add the next major feature until this workflow works correctly:
+
+RECRUITER CREATES JOB
+→ CANDIDATE APPLIES
+→ RECRUITER SEES APPLICATION
+→ AI ASSISTS REVIEW
+→ RECRUITER SHORTLISTS
+→ INTERVIEW
+→ SELECTED
+→ HIRED
+
+Focus on making this workflow excellent before expanding the platform.

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --background: 210 20% 98%;
+  --foreground: 215 30% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 30% 15%;
+  --primary: 224 71% 12%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 195 85% 40%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 45 93% 47%;
+  --accent-foreground: 224 71% 12%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 224 71% 12%;
+  --radius: .75rem;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+.jobs-visual, .jobs-visual * { box-sizing: border-box; }
+.jobs-visual { font-family: var(--font-sans); color: hsl(var(--foreground)); }
+.jobs-visual h1,.jobs-visual h2,.jobs-visual h3 { font-family: var(--font-display); }
+.jobs-visual a { text-decoration: none; color: inherit; }
+@keyframes jobs-pan { from { transform:scale(1.03) translate3d(0,0,0) } to { transform:scale(1.1) translate3d(-1%,1%,0) } }
+@keyframes jobs-rise { from { opacity:0; transform:translateY(18px) } to { opacity:1; transform:translateY(0) } }
+.jobs-rise { animation: jobs-rise .8s cubic-bezier(.2,.8,.2,1) both; }
+.jobs-pan { animation: jobs-pan 24s ease-in-out infinite alternate; }

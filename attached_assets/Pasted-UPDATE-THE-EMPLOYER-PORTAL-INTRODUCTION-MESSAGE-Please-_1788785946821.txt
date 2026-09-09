@@ -1,0 +1,219 @@
+UPDATE THE EMPLOYER PORTAL INTRODUCTION MESSAGE
+
+Please update ONLY the wording and small content presentation on the Employer Portal entry/login page.
+
+Do NOT:
+- Redesign the entire page
+- Change authentication
+- Change routes
+- Change Employer Workspace functionality
+- Change database logic
+- Change the existing brand colors or overall visual style
+
+The purpose of this change is to make employers immediately understand that The Jobs MV is NOT just another job-posting website.
+
+Our key difference is:
+
+Employers can tell us who they need, and The Jobs MV hospitality experts help screen and review suitable candidates and build an interview-ready shortlist.
+
+This saves employers valuable recruitment time, especially hospitality businesses that may not have a dedicated recruitment team.
+
+---------------------------------------------
+CHANGE THE CURRENT CONTENT
+---------------------------------------------
+
+Remove the current headline:
+
+"Find hospitality candidates for your resort."
+
+Replace it with:
+
+SMALL LABEL:
+
+MORE THAN A JOB BOARD
+
+
+MAIN HEADLINE:
+
+You need the right people.
+We help you find them.
+
+
+SUPPORTING TEXT:
+
+Our hospitality experts screen and review suitable candidates, then build an interview-ready shortlist for you, saving you valuable time in the hiring process.
+
+
+HIGHLIGHT MESSAGE:
+
+You focus on your operation.
+We help you find the talent.
+
+---------------------------------------------
+ADD TWO CLEAR ACTIONS
+---------------------------------------------
+
+The employer should immediately understand that there are TWO ways to use The Jobs MV.
+
+PRIMARY CTA:
+
+Request Candidates →
+
+Small supporting text:
+
+Let The Jobs MV help with screening and shortlisting.
+
+
+SECONDARY CTA:
+
+Post a Vacancy
+
+Small supporting text:
+
+Post your vacancy and manage applications yourself.
+
+
+Request Candidates should be the visually dominant action.
+
+Post a Vacancy should be secondary.
+
+---------------------------------------------
+VISUAL PRESENTATION
+---------------------------------------------
+
+Keep the existing premium The Jobs MV style:
+
+Deep navy background
+White headline
+Warm gold accent
+Clean modern typography
+Generous spacing
+Professional hospitality appearance
+
+Use the gold accent subtly on:
+
+MORE THAN A JOB BOARD
+
+or a small line/dot next to the label.
+
+Do not make large amounts of text gold.
+
+Make:
+
+"You need the right people."
+
+strong and bold.
+
+Consider giving:
+
+"We help you find them."
+
+a subtle premium accent treatment while maintaining excellent readability.
+
+---------------------------------------------
+IMPORTANT POSITIONING
+---------------------------------------------
+
+Do NOT make the first message primarily about:
+
+Posting vacancies
+Managing applications
+Using a dashboard
+
+Those are features.
+
+The FIRST thing employers should understand is the VALUE:
+
+THE JOBS MV HELPS THEM FIND SUITABLE HOSPITALITY CANDIDATES WHILE SAVING THEM TIME.
+
+The message should communicate:
+
+Employer tells us who they need
+↓
+The Jobs MV screens suitable candidates
+↓
+Hospitality experts review strong matches
+↓
+Employer receives an interview-ready shortlist
+↓
+Employer interviews and hires
+
+Do not display this as a large complicated workflow on the login screen.
+
+The wording should communicate the idea simply.
+
+---------------------------------------------
+IMPORTANT CLAIM RULES
+---------------------------------------------
+
+Do not say:
+
+"We find the best candidates"
+
+"Perfect candidates"
+
+"Guaranteed hires"
+
+"#1 recruitment platform"
+
+"Most trusted"
+
+or make any other unsupported claims.
+
+Use:
+
+Suitable candidates
+
+Strong matches
+
+Interview-ready shortlist
+
+Hospitality expert review
+
+Recruitment support
+
+---------------------------------------------
+MOBILE
+---------------------------------------------
+
+Make sure the new message works well on mobile.
+
+The headline should not become excessively large.
+
+Keep the most important information visible without excessive scrolling.
+
+CTA buttons should be easy to tap.
+
+Do not allow text or buttons to overflow.
+
+---------------------------------------------
+FINAL MESSAGE HIERARCHY
+---------------------------------------------
+
+MORE THAN A JOB BOARD
+
+You need the right people.
+We help you find them.
+
+Our hospitality experts screen and review suitable candidates, then build an interview-ready shortlist for you, saving you valuable time in the hiring process.
+
+You focus on your operation.
+We help you find the talent.
+
+[ Request Candidates → ]
+
+Let The Jobs MV help with screening and shortlisting.
+
+[ Post a Vacancy ]
+
+Post your vacancy and manage applications yourself.
+
+---------------------------------------------
+
+FINAL GOAL:
+
+Within 5 seconds of seeing this page, an employer should understand:
+
+"This isn't only a website where I post a job. I can tell The Jobs MV who I need, and their hospitality team can help screen candidates and prepare a shortlist for me."
+
+Keep the message simple, premium, professional and hospitality-focused.

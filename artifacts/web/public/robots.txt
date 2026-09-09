@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /web/admin
+Disallow: /web/employer/dashboard
+Disallow: /web/candidate/dashboard
+Disallow: /api/
+
+Sitemap: https://thejobsmv.com/web/sitemap.xml

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /employer/
+Disallow: /api/
+
+Sitemap: https://thejobsmv.com/sitemap.xml

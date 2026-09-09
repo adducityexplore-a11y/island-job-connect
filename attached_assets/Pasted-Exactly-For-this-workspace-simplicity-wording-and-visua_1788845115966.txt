@@ -1,0 +1,1114 @@
+Exactly. For this workspace, **simplicity, wording, and visual hierarchy should be designed together**. The employer shouldn't feel like they've entered complicated HR software. It should feel like **The Jobs MV is taking hiring work off their hands**.
+
+I would give Replit one focused redesign prompt covering the entire Employer Workspace, while protecting the functionality you already built.
+
+```text
+REDESIGN AND SIMPLIFY THE JOBS MV EMPLOYER WORKSPACE
+
+GOAL
+
+Improve the existing Employer Workspace so it is extremely simple, clear, fast and visually professional.
+
+IMPORTANT:
+
+Do NOT rebuild the Employer Workspace from scratch.
+
+Audit the existing components, routes, database, authentication and functionality first.
+
+Preserve all working:
+- Employer accounts
+- Vacancies
+- Applications
+- Candidate data
+- Shortlists
+- Hiring requests
+- Company profiles
+- Verification
+- Authentication
+- Existing database relationships
+
+This task is primarily about:
+
+1. SIMPLIFYING THE EXPERIENCE
+2. IMPROVING THE WORDING
+3. IMPROVING VISUAL HIERARCHY
+4. MAKING THE JOBS MV HIRING SUPPORT FEEL SPECIAL
+5. REDUCING THE AMOUNT OF WORK REQUIRED FROM EMPLOYERS
+
+
+==================================================
+WHO THIS WORKSPACE IS FOR
+==================================================
+
+Do NOT design this only for professional HR departments.
+
+Users may include:
+
+- Resort managers
+- Guesthouse owners
+- Hotel managers
+- F&B managers
+- Department heads
+- HR managers
+- Recruiters
+- Small hospitality business owners
+
+Many will be busy.
+
+Some may rarely use recruitment software.
+
+The interface must therefore be understandable without training.
+
+DESIGN PRINCIPLE:
+
+A user should understand what to do within 10 seconds.
+
+
+==================================================
+CORE PROMISE
+==================================================
+
+The Jobs MV is NOT just another job posting website.
+
+Employers should immediately understand:
+
+"I don't have to spend hours searching through CVs.
+
+I can tell The Jobs MV who I need, and their hospitality team can help find, screen and review suitable candidates for me."
+
+
+The core message is:
+
+TELL US WHO YOU NEED.
+WE HELP YOU FIND THEM.
+
+
+Supporting philosophy:
+
+YOU SAVE TIME.
+YOU INTERVIEW.
+YOU DECIDE.
+
+
+==================================================
+SIMPLIFY THE MAIN NAVIGATION
+==================================================
+
+Current navigation is too recruitment-system focused.
+
+Simplify the employer navigation to:
+
+Overview
+
+Vacancies
+
+Candidates
+
+Hiring Support
+
+Company Profile
+
+
+Use "Vacancies" instead of "Jobs".
+
+Use "Candidates" as the main place for:
+- Applications
+- Shortlisted candidates
+- Interviews
+- Candidate review
+
+Do not make Talent Search a major navigation item for now.
+
+If Talent Search functionality already exists, DO NOT delete it.
+
+Integrate it naturally under Candidates or preserve it for future use.
+
+Do not destroy existing routes or data.
+
+
+==================================================
+1. OVERVIEW PAGE
+==================================================
+
+Change:
+
+"Hiring overview"
+
+to:
+
+YOUR HIRING
+
+
+Supporting text:
+
+Everything you need to manage your hiring, in one simple place.
+
+
+Keep the top statistics simple.
+
+Show only:
+
+Active Vacancies
+
+New Applicants
+
+Shortlisted
+
+Interviews
+
+
+Use real data only.
+
+Do not overload the top area with analytics.
+
+
+==================================================
+THE MOST IMPORTANT SECTION
+==================================================
+
+Immediately below the statistics, create a visually distinctive premium section.
+
+This is the signature feature of The Jobs MV.
+
+SMALL LABEL:
+
+THE JOBS MV HIRING SUPPORT
+
+
+MAIN HEADLINE:
+
+Tell us who you need.
+We help you find them.
+
+
+DESCRIPTION:
+
+Our hospitality team helps find, screen and review suitable candidates, then prepares an interview-ready shortlist for you.
+
+
+STRONG SUPPORTING MESSAGE:
+
+You save time.
+You interview.
+You decide.
+
+
+PRIMARY CTA:
+
+Find Candidates For Me →
+
+
+SECONDARY TEXT LINK:
+
+View My Hiring Requests
+
+
+==================================================
+MAKE THIS SECTION LOOK SPECIAL
+==================================================
+
+This should NOT look like another normal dashboard card.
+
+It should immediately catch the employer's attention.
+
+Use:
+
+- Deep navy background
+- Warm gold accent
+- White typography
+- Premium spacing
+- Subtle visual depth
+- Rounded corners consistent with brand
+- Simple hospitality/recruitment illustration or subtle visual element if appropriate
+- Clean icons
+- Very subtle gradient or texture if it improves the design
+
+Do NOT make it flashy.
+
+Do NOT use excessive animation.
+
+Do NOT use stock-looking corporate HR imagery.
+
+Do NOT make it look like an advertisement.
+
+It should feel like a PREMIUM SERVICE built directly into the workspace.
+
+
+==================================================
+SHOW HOW EASY IT IS
+==================================================
+
+Inside or directly underneath the Hiring Support section, show a simple 3-step explanation.
+
+01
+
+TELL US WHO YOU NEED
+
+Share the position and what matters most.
+
+
+02
+
+WE SCREEN & REVIEW
+
+Our hospitality team reviews suitable candidates.
+
+
+03
+
+MEET YOUR SHORTLIST
+
+Review interview-ready candidates and choose who you want to meet.
+
+
+Keep this compact.
+
+Do not turn this into a large complicated workflow diagram.
+
+On desktop:
+
+Show horizontally.
+
+On mobile:
+
+Stack vertically.
+
+
+==================================================
+SECONDARY HIRING OPTION
+==================================================
+
+Employers must still be able to post and manage vacancies themselves.
+
+But visually distinguish this from Hiring Support.
+
+Add a smaller secondary section:
+
+PREFER TO MANAGE IT YOURSELF?
+
+Post a vacancy and receive applications directly through The Jobs MV.
+
+[ Post a Vacancy ]
+
+
+This should NOT compete visually with:
+
+Find Candidates For Me
+
+
+Hiring Support is our key differentiator.
+
+
+==================================================
+YOUR HIRING ACTIVITY
+==================================================
+
+Below the main actions, show:
+
+YOUR HIRING ACTIVITY
+
+
+Prioritize things requiring employer attention.
+
+Examples:
+
+3 new applications are waiting for review.
+
+[ Review Applications ]
+
+
+1 candidate has been shortlisted.
+
+[ Review Candidate ]
+
+
+Interview requested for Ahmed.
+
+[ View Details ]
+
+
+If there is nothing requiring attention:
+
+You're all caught up.
+
+We'll show important hiring updates here.
+
+
+Use REAL data only.
+
+
+==================================================
+2. VACANCIES
+==================================================
+
+Rename:
+
+Jobs
+
+to:
+
+Vacancies
+
+
+Page heading:
+
+YOUR VACANCIES
+
+
+Supporting text:
+
+Post and manage your open positions.
+
+
+Primary CTA:
+
+Post a Vacancy
+
+
+Keep vacancy cards simple.
+
+
+Example:
+
+ASSISTANT FOOD & BEVERAGE MANAGER
+
+Active
+
+Food & Beverage · Maldives
+
+1 Application
+1 Shortlisted
+0 Interviews
+
+
+Primary action:
+
+View Candidates
+
+
+Secondary actions:
+
+Edit
+
+More
+
+
+Under More:
+
+Pause
+Duplicate
+Close Vacancy
+
+
+Avoid showing too many buttons at once.
+
+
+==================================================
+3. CANDIDATES
+==================================================
+
+Replace technical wording such as:
+
+Candidate Pipeline
+
+with:
+
+YOUR CANDIDATES
+
+
+Supporting text:
+
+Review applicants and move the right people forward.
+
+
+Use simple filters:
+
+Vacancy
+
+Stage
+
+Search
+
+
+Do not show unnecessary recruitment terminology.
+
+
+Candidate card example:
+
+AHMED ALI
+
+Bar Manager
+
+15 years hospitality experience
+
+15 years Maldives experience
+
+Notice: 1 month
+
+
+Applied for:
+
+Assistant Food & Beverage Manager
+
+
+Status:
+
+SHORTLISTED
+
+
+If genuinely reviewed by The Jobs MV:
+
+✓ THE JOBS MV REVIEWED
+
+
+Actions:
+
+View Candidate
+
+Move Forward
+
+
+Keep cards clean and easy to scan.
+
+
+==================================================
+CANDIDATE DETAIL
+==================================================
+
+When employer opens a candidate, make the page easy to understand.
+
+Do NOT show a complicated CV database.
+
+Start with:
+
+CANDIDATE SNAPSHOT
+
+
+Show:
+
+Current Position
+
+Total Hospitality Experience
+
+Maldives Experience
+
+Resort Experience
+
+Key Skills
+
+Availability
+
+Notice Period
+
+Languages
+
+Certifications
+
+
+Then:
+
+EXPERIENCE
+
+HOSPITALITY PASSPORT
+
+CV
+
+
+==================================================
+THE JOBS MV REVIEW
+==================================================
+
+If the candidate has actually been reviewed by an authorized The Jobs MV team member, show a special section:
+
+THE JOBS MV REVIEW
+
+
+Use a premium but professional treatment.
+
+
+Show:
+
+STRONG MATCHES
+
+✓ Relevant hospitality experience
+✓ Maldives resort experience
+✓ Required position experience
+
+
+NEEDS VERIFICATION
+
+• Joining availability
+
+
+EXPERT SUMMARY
+
+[Actual review summary]
+
+
+Never invent this information.
+
+Never automatically show:
+
+THE JOBS MV REVIEWED
+
+unless an authorized review has actually happened.
+
+
+==================================================
+SIMPLE CANDIDATE ACTIONS
+==================================================
+
+At the bottom or sticky action area:
+
+Shortlist
+
+Request Interview
+
+Not Proceeding
+
+
+Avoid complicated stage controls where possible.
+
+Translate internal recruitment stages into simple employer actions.
+
+
+==================================================
+4. HIRING SUPPORT
+==================================================
+
+This is one of the most important pages in the entire Employer Workspace.
+
+Rename any overly technical wording to:
+
+HIRING SUPPORT
+
+
+Page heading:
+
+LET US HELP WITH YOUR NEXT HIRE
+
+
+Description:
+
+Tell us who you need. Our hospitality team will help find, screen and review suitable candidates and prepare an interview-ready shortlist.
+
+
+Primary CTA:
+
+Find Candidates For Me
+
+
+==================================================
+EMPTY STATE
+==================================================
+
+Do NOT say:
+
+"No supported searches yet."
+
+
+Instead show:
+
+READY WHEN YOU ARE.
+
+Tell us who you're looking for and we'll help with the search.
+
+
+[ Find Candidates For Me ]
+
+
+Below:
+
+HOW IT WORKS
+
+Tell us who you need
+→
+We screen & review
+→
+You receive a shortlist
+→
+You interview & decide
+
+
+Keep this visually simple.
+
+
+==================================================
+HIRING REQUEST FORM
+==================================================
+
+THIS IS VERY IMPORTANT.
+
+The form must NOT feel like work.
+
+We are promising to save employers time.
+
+Therefore do not give them a huge recruitment form.
+
+
+Headline:
+
+WHO DO YOU NEED?
+
+
+Supporting text:
+
+Give us the basics. We'll take it from here.
+
+
+STEP 1
+
+Position
+
+Example:
+Bartender
+
+
+STEP 2
+
+How many people do you need?
+
+Example:
+3
+
+
+STEP 3
+
+Who can apply?
+
+Maldivian
+
+International
+
+Both
+
+
+STEP 4
+
+When do you need them?
+
+As soon as possible
+
+Within 2 weeks
+
+Within 1 month
+
+Flexible
+
+
+STEP 5
+
+What matters most?
+
+Optional.
+
+Example:
+
+"2+ years bartending experience, good cocktail knowledge and previous resort experience preferred."
+
+
+Then:
+
+[ Find Candidates For Me → ]
+
+
+The initial request should ideally take approximately 1–2 minutes.
+
+
+==================================================
+DO NOT ASK EVERYTHING UP FRONT
+==================================================
+
+Do not force employers to complete:
+
+Long job descriptions
+
+Large skill matrices
+
+Complex salary structures
+
+Multiple technical recruitment fields
+
+Long candidate criteria
+
+Internal HR terminology
+
+
+If more information is needed, The Jobs MV team can collect it later.
+
+This is a SERVICE.
+
+We should reduce the employer's work.
+
+
+==================================================
+HIRING REQUEST STATUS
+==================================================
+
+Once submitted, show a simple status.
+
+Example:
+
+BARTENDER
+
+3 PEOPLE
+
+Request received
+
+
+Then a simple progress journey:
+
+REQUEST RECEIVED
+
+↓
+
+FINDING CANDIDATES
+
+↓
+
+SCREENING & REVIEW
+
+↓
+
+SHORTLIST READY
+
+↓
+
+INTERVIEWS
+
+↓
+
+FILLED
+
+
+Employer-facing wording should be simple.
+
+Internally the system may keep more detailed statuses.
+
+
+==================================================
+SHORTLIST READY
+==================================================
+
+This moment should feel important.
+
+Show a visually distinctive card:
+
+YOUR SHORTLIST IS READY
+
+
+We've reviewed suitable candidates for your Bartender position.
+
+
+3 candidates ready for your review.
+
+
+[ View My Shortlist → ]
+
+
+Do not use fake numbers.
+
+
+==================================================
+5. COMPANY PROFILE
+==================================================
+
+Keep this page simple.
+
+Change:
+
+Company details
+
+to:
+
+YOUR COMPANY
+
+
+Supporting text:
+
+Manage the information candidates see about your company.
+
+
+Replace:
+
+Logo Image URL
+
+
+with:
+
+UPLOAD COMPANY LOGO
+
+
+Allow:
+
+Upload from device
+
+Replace
+
+Remove
+
+
+Do not make normal employers paste image URLs.
+
+
+Public information:
+
+Company / Resort Name
+
+Property Type
+
+Location
+
+Short Description
+
+Website - optional
+
+Logo
+
+
+Private section:
+
+YOUR CONTACT DETAILS
+
+
+Explain:
+
+Only The Jobs MV team can see this information.
+
+
+Fields:
+
+Contact Name
+
+Phone
+
+Email
+
+
+Keep:
+
+Save Changes
+
+
+==================================================
+WORDING RULES
+==================================================
+
+Throughout the Employer Workspace use SIMPLE HUMAN LANGUAGE.
+
+
+Prefer:
+
+Your Hiring
+
+Vacancies
+
+Candidates
+
+Hiring Support
+
+Find Candidates For Me
+
+Tell Us Who You Need
+
+Your Shortlist
+
+Why This Candidate Fits
+
+Request Interview
+
+Move Forward
+
+Not Proceeding
+
+
+Avoid unnecessary terms such as:
+
+Talent Acquisition
+
+Candidate Acquisition
+
+Recruitment Pipeline
+
+Sourcing Pipeline
+
+Initiate Request
+
+Candidate Match Analysis
+
+Human Capital
+
+ATS
+
+Requisition
+
+
+The employer should not need recruitment knowledge to understand the platform.
+
+
+==================================================
+VISUAL DESIGN
+==================================================
+
+The existing visual foundation is good.
+
+DO NOT completely redesign it.
+
+Keep:
+
+- Deep navy sidebar
+- Warm off-white/light workspace background
+- White cards
+- Rounded corners
+- Existing brand typography
+- The Jobs MV logo
+- Gold accent
+- Clean professional layout
+
+
+Improve:
+
+- Visual hierarchy
+- Spacing
+- Button consistency
+- Card hierarchy
+- Empty states
+- Mobile usability
+- Status clarity
+- Typography hierarchy
+
+
+Use gold strategically.
+
+Gold should mainly highlight:
+
+- Hiring Support
+- Important actions
+- Step numbers
+- Selected special service elements
+
+
+Do NOT make every button gold.
+
+
+==================================================
+HIRING SUPPORT VISUAL IDENTITY
+==================================================
+
+Hiring Support should have its own recognizable visual treatment throughout the Employer Workspace.
+
+For example:
+
+Gold sparkle / people-search icon
+
+Gold accent line
+
+Small label:
+
+THE JOBS MV HIRING SUPPORT
+
+
+Whenever the employer sees this treatment, they should understand:
+
+"The Jobs MV team can help me with this."
+
+
+Keep it consistent on:
+
+Overview
+
+Hiring Support
+
+Hiring Request
+
+Shortlist Ready
+
+The Jobs MV Reviewed candidate sections
+
+
+==================================================
+MOBILE EXPERIENCE
+==================================================
+
+This workspace MUST be excellent on mobile.
+
+Many managers will check hiring while working.
+
+On mobile:
+
+- Replace sidebar with simple navigation drawer
+- Keep primary actions large
+- Stack cards vertically
+- Avoid wide tables
+- Candidate cards should be easy to scan
+- Keep Find Candidates For Me prominent
+- Forms should use large touch-friendly fields
+- Avoid horizontal scrolling
+- Avoid long paragraphs
+- Keep important actions within easy reach
+
+
+Test at:
+
+375px
+
+390px
+
+430px
+
+
+==================================================
+THE 10-SECOND TEST
+==================================================
+
+After redesigning, test the Overview page mentally from the perspective of:
+
+1. Guesthouse owner
+2. Resort department head
+3. Hotel manager
+4. HR manager
+
+
+Within 10 seconds they should understand:
+
+"I can post a vacancy myself."
+
+"I can review my candidates."
+
+"Or I can simply tell The Jobs MV who I need and they will help with the search, screening and shortlist."
+
+
+If this is not immediately obvious, simplify further.
+
+
+==================================================
+MOST IMPORTANT BRAND EXPERIENCE
+==================================================
+
+The Employer Workspace should NOT feel like:
+
+"Here is recruitment software. Learn how to use it."
+
+
+It should feel like:
+
+"We know you're busy.
+
+Tell us who you need.
+
+We'll help with the search."
+
+
+THE JOBS MV
+
+Tell us who you need.
+We help you find them.
+
+You save time.
+You interview.
+You decide.
+```
+
+One wording choice I'd particularly keep is **“Find Candidates For Me”** rather than “Start a hiring request.” The first sounds like the employer is **handing work to The Jobs MV**. The second sounds like they're starting another administrative process.
+
+That small wording difference captures exactly what your platform is trying to achieve.

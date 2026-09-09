@@ -1,0 +1,1532 @@
+REDESIGN THE JOB SEEKER EXPERIENCE TO BE MOBILE-FIRST, SIMPLE, FAST AND GEN Z FRIENDLY
+
+GOAL
+
+Redesign and simplify The Jobs MV job seeker / candidate experience.
+
+The majority of job seekers will use MOBILE PHONES.
+
+Many users may come directly from:
+
+- TikTok
+- Instagram
+- WhatsApp
+- Telegram
+- Shared job links
+- Google search
+
+The candidate experience must therefore feel:
+
+- Fast
+- Simple
+- Mobile-native
+- Modern
+- Easy to understand
+- Visually attractive
+- Gen Z friendly
+- Professional
+- Hospitality-focused
+
+IMPORTANT:
+
+Do NOT make it look like complicated HR software.
+
+Do NOT rebuild the candidate platform from scratch.
+
+Audit the existing candidate pages, components, routes, authentication and data first.
+
+Preserve all existing working functionality including:
+
+- Candidate accounts
+- Job listings
+- Job details
+- Hospitality Passport
+- CV uploads
+- Applications
+- Saved jobs
+- Candidate profile
+- Open to Opportunities
+- Existing database relationships
+- Authentication
+
+This task is about improving:
+
+1. MOBILE UX
+2. SIMPLICITY
+3. WORDING
+4. VISUAL HIERARCHY
+5. JOB DISCOVERY
+6. HOSPITALITY PASSPORT EXPERIENCE
+7. APPLICATION EXPERIENCE
+8. GEN Z CONNECTION
+
+
+==================================================
+CORE DESIGN PRINCIPLE
+==================================================
+
+The candidate should NEVER feel:
+
+"This is a long recruitment form."
+
+They should feel:
+
+"This is easy."
+
+"I can find opportunities quickly."
+
+"I can upload my CV once."
+
+"I can build my profile without filling everything again."
+
+"I can apply in a few taps."
+
+"I can see what is happening with my application."
+
+
+CORE EXPERIENCE:
+
+FIND OPPORTUNITIES
+↓
+BUILD YOUR HOSPITALITY PASSPORT
+↓
+APPLY EASILY
+↓
+TRACK YOUR APPLICATIONS
+↓
+STAY READY FOR THE NEXT OPPORTUNITY
+
+
+==================================================
+IMPORTANT GEN Z PRINCIPLE
+==================================================
+
+Do NOT try to make the platform Gen Z friendly by making it childish.
+
+Do NOT add:
+
+- Neon colors
+- Excessive emojis
+- Cartoon graphics
+- Too many animations
+- Gaming-style UI
+- Slang everywhere
+- Social-media clutter
+
+GEN Z FRIENDLY should mean:
+
+- Fast
+- Visual
+- Short wording
+- Easy navigation
+- Mobile-first
+- Clear actions
+- Fewer fields
+- Fewer clicks
+- Good spacing
+- Modern cards
+- Strong imagery
+- Smooth interactions
+
+
+Use this principle:
+
+LESS READING.
+FEWER FIELDS.
+FEWER CLICKS.
+MORE OPPORTUNITIES.
+
+
+==================================================
+CANDIDATE BRAND POSITIONING
+==================================================
+
+Candidate side should communicate:
+
+MORE THAN A JOB SEARCH
+
+
+Headline:
+
+Your experience deserves to be seen.
+
+
+Supporting copy:
+
+Build your Hospitality Passport, discover hospitality opportunities and apply without filling out the same information again and again.
+
+
+Primary CTA:
+
+Find Opportunities
+
+
+Secondary CTA:
+
+Build My Hospitality Passport
+
+
+If Passport already exists:
+
+Change secondary CTA to:
+
+View My Passport
+
+or:
+
+Update My Passport
+
+
+Do not show incorrect CTA states.
+
+
+==================================================
+MOBILE-FIRST HOMEPAGE / CANDIDATE HOME
+==================================================
+
+The mobile experience is the highest priority.
+
+Do NOT make the candidate home look like the Employer dashboard.
+
+Avoid four corporate KPI cards at the top.
+
+Instead create a personal, simple home experience.
+
+
+Example:
+
+Hi Ahmed 👋
+
+Ready for your next opportunity?
+
+
+Then show one important action based on the user's situation.
+
+
+IF NEW USER:
+
+Build your Hospitality Passport
+
+Upload your CV and create your hospitality profile in a few minutes.
+
+[ Start My Passport ]
+
+
+IF PASSPORT INCOMPLETE:
+
+Your Passport is 70% ready
+
+Add your availability to improve your profile.
+
+[ Continue Passport ]
+
+
+IF COMPLETE:
+
+Your Passport is ready
+
+Open to Opportunities: ON
+
+[ View Passport ]
+
+
+Use real candidate name and data only.
+
+
+==================================================
+LATEST OPPORTUNITIES
+==================================================
+
+Show job discovery very high on the page.
+
+Heading:
+
+Latest Opportunities
+
+or:
+
+Opportunities For You
+
+
+Do not bury jobs below many informational sections.
+
+
+Job cards should be easy to scan in 2-3 seconds.
+
+
+Example:
+
+BARTENDER
+
+ABC Maldives Resort
+
+Noonu Atoll
+
+USD 800–1,000 / month
+
+Service Charge
+
+Accommodation
+
+Posted 2 days ago
+
+
+[ View Opportunity ]
+
+Save icon
+
+
+Do not show too much description inside cards.
+
+
+==================================================
+JOB CARD DESIGN
+==================================================
+
+Make job cards mobile-friendly.
+
+Show:
+
+- Job title
+- Employer
+- Location
+- Salary if provided
+- Service charge if provided
+- Accommodation if provided
+- Posted date
+- Closing date if relevant
+- Verified Employer badge only if genuine
+
+
+Primary action:
+
+View Opportunity
+
+
+Secondary action:
+
+Save
+
+
+Do not show:
+
+Large paragraphs
+
+Too many tags
+
+Too many buttons
+
+Internal job IDs
+
+Technical recruitment information
+
+
+==================================================
+JOB SEARCH
+==================================================
+
+Mobile search should be extremely simple.
+
+
+Top:
+
+Search jobs, resorts or positions...
+
+
+Then a single clear button:
+
+Filter Jobs
+
+
+Open filters in a bottom sheet or mobile drawer.
+
+
+Important filters:
+
+Department
+
+Location
+
+Experience
+
+Employment Type
+
+Local / International
+
+Salary if available
+
+
+Do not show a huge filter panel permanently on mobile.
+
+
+Desktop can use sidebar or horizontal filters if appropriate.
+
+
+==================================================
+MOBILE BOTTOM NAVIGATION
+==================================================
+
+Create a simple mobile bottom navigation.
+
+Recommended:
+
+Home
+
+Jobs
+
+Passport
+
+Saved
+
+Profile
+
+
+Possible icons:
+
+Home
+→ House
+
+Jobs
+→ Search or Briefcase
+
+Passport
+→ Contact / Badge
+
+Saved
+→ Heart
+
+Profile
+→ User
+
+
+Keep maximum 5 items.
+
+
+Applications should be accessible from:
+
+Home
+
+or Profile
+
+or a clear section inside candidate home.
+
+
+Do not create 7-8 bottom navigation items.
+
+
+Desktop can continue using a clean top or side navigation.
+
+
+==================================================
+HOSPITALITY PASSPORT
+==================================================
+
+This is the most important candidate feature after job discovery.
+
+Do NOT make Hospitality Passport look like a long database form.
+
+
+Core message:
+
+YOUR HOSPITALITY PASSPORT
+
+Upload your CV once.
+Tell us what matters now.
+We'll help with the rest.
+
+
+Primary action:
+
+Upload My CV
+
+
+Supporting text:
+
+Takes only a few minutes.
+
+
+==================================================
+CV-FIRST EXPERIENCE
+==================================================
+
+The preferred flow:
+
+UPLOAD CV
+↓
+EXTRACT AVAILABLE INFORMATION
+↓
+CANDIDATE CONFIRMS IMPORTANT DETAILS
+↓
+SAVE PASSPORT
+
+
+If parsing exists:
+
+Pre-fill only information the system is reasonably confident about.
+
+Never invent data.
+
+Mark uncertain fields:
+
+Needs confirmation
+
+
+Candidate should be able to correct everything.
+
+
+==================================================
+PASSPORT STEP-BY-STEP FLOW
+==================================================
+
+Do NOT show every field on one screen.
+
+Use a short step-by-step mobile flow.
+
+
+STEP 1 OF 5
+
+ABOUT YOU
+
+
+STEP 2 OF 5
+
+YOUR EXPERIENCE
+
+
+STEP 3 OF 5
+
+SKILLS & LANGUAGES
+
+
+STEP 4 OF 5
+
+WHAT YOU'RE LOOKING FOR
+
+
+STEP 5 OF 5
+
+AVAILABILITY
+
+
+Use a simple progress indicator at top.
+
+Example:
+
+● ● ● ○ ○
+
+60% complete
+
+
+Primary bottom button:
+
+Continue
+
+
+Secondary:
+
+Save & Exit
+
+
+Keep each step short.
+
+
+==================================================
+STEP 1 - ABOUT YOU
+==================================================
+
+Only important fields:
+
+Profile Photo Upload
+
+Full Name
+
+Current Position
+
+Current Employer
+
+Current Location
+
+Currently in Maldives?
+Yes / No
+
+
+Do not request unnecessary private information.
+
+
+==================================================
+STEP 2 - EXPERIENCE
+==================================================
+
+Show simple structured fields:
+
+Total Hospitality Experience
+
+Maldives Experience
+
+Resort Experience
+
+Leadership Experience
+
+
+Then:
+
+Work Experience
+
+
+Use cards.
+
+Example:
+
+Bar Supervisor
+
+ABC Maldives Resort
+
+2023 – Present
+
+
+[ Edit ]
+
+
++ Add Experience
+
+
+Do NOT use JSON fields.
+
+
+==================================================
+STEP 3 - SKILLS & LANGUAGES
+==================================================
+
+Use searchable chips/tags.
+
+Skills:
+
+Cocktails
+
+Wine
+
+Bar Operations
+
+Micros POS
+
+Guest Service
+
+Inventory
+
+Leadership
+
+
+Languages:
+
+English - Fluent
+
+Dhivehi - Native
+
+
++ Add Language
+
+
+Do not make the user type everything manually if suggestions exist.
+
+
+==================================================
+STEP 4 - CAREER PREFERENCES
+==================================================
+
+Ask:
+
+What position are you looking for?
+
+Department
+
+Preferred Location
+
+Local / International Opportunities
+
+Expected Salary - optional
+
+
+Keep it simple.
+
+
+==================================================
+STEP 5 - AVAILABILITY
+==================================================
+
+Ask only:
+
+Employment Status
+
+Notice Period
+
+Available From
+
+Open to Opportunities
+
+
+Explain Open to Opportunities clearly:
+
+When ON:
+
+Your profile may be considered for relevant opportunities.
+
+
+When OFF:
+
+Your profile will not appear in general employer talent discovery.
+
+
+Candidate must control this setting.
+
+
+==================================================
+PASSPORT COMPLETION
+==================================================
+
+Do not require 100% completion unless necessary.
+
+Show useful progress.
+
+Example:
+
+Your Passport is 75% ready.
+
+Add your availability to improve your profile.
+
+
+[ Continue Passport ]
+
+
+Do not make the user feel punished for incomplete information.
+
+
+==================================================
+PASSPORT PREVIEW
+==================================================
+
+The final Passport should look like a professional hospitality profile.
+
+Show:
+
+Photo
+
+Name
+
+Current Role
+
+Location
+
+Hospitality Experience
+
+Maldives Experience
+
+Availability
+
+Open to Opportunities
+
+Skills
+
+Languages
+
+Certifications
+
+Experience
+
+CV Available
+
+
+It should feel shareable and professional.
+
+Not like a form.
+
+
+==================================================
+APPLICATION EXPERIENCE
+==================================================
+
+Applying should be extremely fast.
+
+Primary CTA on job page:
+
+Apply with Hospitality Passport
+
+
+If logged out:
+
+Sign in / Create Account
+
+then return user to the same job.
+
+
+If Passport has enough information:
+
+Show a short review screen.
+
+Example:
+
+You're applying for:
+
+Bartender
+
+ABC Maldives Resort
+
+
+Using:
+
+Your Hospitality Passport
+
+Your CV
+
+
+[ Submit Application ]
+
+
+Do NOT ask the candidate to fill the same data again.
+
+
+==================================================
+IF INFORMATION IS MISSING
+==================================================
+
+Do not block with a long error.
+
+Show:
+
+Almost ready.
+
+Add these 2 details before applying:
+
+Notice Period
+
+Available From
+
+
+[ Complete Details ]
+
+
+Take user directly to the missing fields.
+
+
+==================================================
+APPLICATION SUCCESS
+==================================================
+
+After application:
+
+Do not only show a small toast message.
+
+Create a friendly success state.
+
+
+APPLICATION SENT ✓
+
+
+Your application for Bartender has been received.
+
+
+[ Track Application ]
+
+[ Continue Browsing Jobs ]
+
+
+Keep it calm and professional.
+
+
+==================================================
+MY APPLICATIONS
+==================================================
+
+Do NOT use complicated recruitment pipeline language.
+
+Page:
+
+MY APPLICATIONS
+
+
+Each card shows:
+
+Job Title
+
+Employer
+
+Applied Date
+
+Current Status
+
+
+Candidate-friendly statuses:
+
+Application Received
+
+Under Review
+
+Shortlisted
+
+Interview
+
+Offered
+
+Hired
+
+Not Selected
+
+
+Use simple progress visuals.
+
+
+==================================================
+APPLICATION STATUS EXPERIENCE
+==================================================
+
+Example:
+
+BARTENDER
+
+ABC Maldives Resort
+
+
+Application Received ✓
+
+Under Review ●
+
+Shortlisted ○
+
+Interview ○
+
+Decision ○
+
+
+Show actual dates where available.
+
+
+Do NOT promise timelines.
+
+
+==================================================
+SAVED JOBS
+==================================================
+
+Keep Saved Jobs simple.
+
+Use heart icon consistently.
+
+Candidates should be able to:
+
+Save
+
+Unsave
+
+Open vacancy
+
+
+If a job closes:
+
+Show:
+
+This opportunity is now closed.
+
+
+Do not silently remove it without explanation.
+
+
+==================================================
+OPPORTUNITIES FOR YOU
+==================================================
+
+If real structured matching exists, show:
+
+Opportunities For You
+
+
+Supporting text:
+
+Based on your experience and career preferences.
+
+
+Explain why where possible.
+
+
+Example:
+
+Why this may suit you:
+
+Bartending experience
+
+Maldives resort experience
+
+Matches your preferred role
+
+
+Do NOT use:
+
+Perfect Match
+
+Guaranteed Match
+
+
+Do NOT fake recommendations.
+
+
+==================================================
+WORDING STYLE
+==================================================
+
+Candidate wording should be short and conversational.
+
+Prefer:
+
+Find Opportunities
+
+Build My Passport
+
+Continue Passport
+
+Apply
+
+Save
+
+Track Application
+
+Open to Opportunities
+
+Your Experience
+
+Your Skills
+
+Your Availability
+
+
+Avoid:
+
+Applicant Repository
+
+Candidate Database
+
+Talent Profile Configuration
+
+Application Lifecycle
+
+Candidate Acquisition
+
+Professional Data Record
+
+Recruitment Workflow
+
+
+Use normal human language.
+
+
+==================================================
+VISUAL IDENTITY
+==================================================
+
+Candidate side should feel younger and more energetic than Employer Workspace while staying part of the same brand.
+
+
+Use:
+
+Deep Navy
+#071A3D
+
+Warm Ivory
+#F8F6F1
+
+White
+#FFFFFF
+
+Warm Gold
+#D9A520
+
+Lagoon Blue
+#1597B8
+
+Neutral Gray
+#64748B
+
+
+Use Lagoon Blue more on candidate side than employer side.
+
+Do not overuse it.
+
+
+Brand balance:
+
+NAVY
+Trust / professionalism
+
+IVORY / WHITE
+Clean and calm
+
+GOLD
+Important brand moments
+
+LAGOON BLUE
+Fresh Maldives / candidate energy
+
+
+==================================================
+TYPOGRAPHY
+==================================================
+
+Use a highly readable modern UI font.
+
+Prefer:
+
+Inter
+
+if available.
+
+
+Typography should feel modern, clean and mobile-friendly.
+
+
+Recommended mobile:
+
+Main headline:
+30-36px
+
+Page heading:
+24-28px
+
+Card title:
+17-19px
+
+Body:
+15-16px
+
+Small information:
+13-14px
+
+
+Avoid tiny text.
+
+
+Do not use multiple decorative fonts in the candidate app.
+
+
+==================================================
+ICONS
+==================================================
+
+Use one icon family consistently.
+
+Prefer Lucide if already available.
+
+
+Recommended:
+
+Home
+House
+
+Jobs
+Search / Briefcase
+
+Passport
+Contact / Badge
+
+Saved
+Heart
+
+Profile
+User
+
+Location
+MapPin
+
+Salary
+Wallet
+
+Accommodation
+Home
+
+Applications
+FileCheck
+
+Interview
+CalendarCheck
+
+Availability
+CalendarClock
+
+Experience
+BriefcaseBusiness
+
+Upload CV
+Upload
+
+Skills
+Sparkles / Tags
+
+
+Use clean outline icons.
+
+Do not use emojis as the main interface icon system.
+
+
+==================================================
+IMAGERY
+==================================================
+
+Public candidate pages can use high-quality Maldives hospitality imagery.
+
+Examples:
+
+Resort teams
+
+Restaurants
+
+Bars
+
+Front office
+
+Housekeeping
+
+Maldives resort environments
+
+Hospitality professionals at work
+
+
+Do not overfill the dashboard with imagery.
+
+Use imagery mostly in:
+
+Candidate entry pages
+
+Homepage
+
+Marketing sections
+
+Employer/company pages
+
+
+Job cards and Passport forms should remain clean.
+
+
+==================================================
+MICROINTERACTIONS
+==================================================
+
+Use subtle interactions.
+
+Examples:
+
+Save heart animation
+
+Smooth filter drawer
+
+Progress bar movement
+
+Button hover
+
+Card hover desktop
+
+Small success animation after applying
+
+
+Do NOT use excessive motion.
+
+Respect reduced-motion preferences.
+
+
+==================================================
+DESKTOP EXPERIENCE
+==================================================
+
+Desktop should not simply stretch the phone UI.
+
+Use more horizontal space intelligently.
+
+
+Desktop candidate home can use:
+
+Left:
+Welcome + Passport
+
+Center:
+Opportunities
+
+Right:
+Applications / Saved
+
+
+But keep the same simplicity.
+
+
+Do NOT make desktop look like enterprise HR software.
+
+
+==================================================
+MOBILE PERFORMANCE
+==================================================
+
+Mobile performance is extremely important.
+
+Optimize:
+
+Images
+
+Lazy loading
+
+Page transitions
+
+Search
+
+Filters
+
+Forms
+
+CV upload
+
+
+Do not load large unnecessary assets.
+
+
+Candidate should be able to use the platform on slower mobile connections.
+
+
+==================================================
+MOBILE TESTING
+==================================================
+
+Test carefully at:
+
+320px
+
+360px
+
+375px
+
+390px
+
+412px
+
+430px
+
+
+Check:
+
+No horizontal scrolling
+
+No cut-off buttons
+
+No tiny text
+
+No overlapping cards
+
+No broken bottom nav
+
+No hidden Apply button
+
+No difficult form controls
+
+No oversized imagery
+
+No desktop-only interactions
+
+
+==================================================
+ONE ACTION PER SCREEN
+==================================================
+
+This is a key UX rule.
+
+Every important screen should have one obvious primary action.
+
+
+Examples:
+
+Job Card
+→ View Opportunity
+
+
+Job Detail
+→ Apply
+
+
+New Candidate
+→ Build Passport
+
+
+Incomplete Passport
+→ Continue Passport
+
+
+Application
+→ Track Status
+
+
+Saved Job
+→ View Opportunity
+
+
+Avoid multiple equally strong buttons.
+
+
+==================================================
+NEW USER JOURNEY
+==================================================
+
+Test this journey:
+
+TikTok user taps a job link.
+
+↓
+
+Job opens immediately.
+
+↓
+
+Candidate quickly understands:
+
+Job title
+Employer
+Location
+Package
+Requirements
+
+↓
+
+Candidate taps Apply.
+
+↓
+
+Create Account / Sign In.
+
+↓
+
+Upload CV.
+
+↓
+
+Passport is partially prepared.
+
+↓
+
+Candidate confirms a few important details.
+
+↓
+
+Submit Application.
+
+↓
+
+Application Received.
+
+↓
+
+Candidate can track status.
+
+
+This entire experience should feel short and obvious.
+
+
+==================================================
+RETURNING USER JOURNEY
+==================================================
+
+Returning candidate opens platform.
+
+↓
+
+Sees:
+
+Passport status
+
+Application updates
+
+Latest opportunities
+
+
+↓
+
+Can continue in one tap.
+
+
+No complicated dashboard navigation.
+
+
+==================================================
+IMPORTANT PRIVACY
+==================================================
+
+Do not expose private candidate details in general employer discovery.
+
+Protect:
+
+Phone
+
+Email
+
+Home address
+
+Passport number
+
+Government ID
+
+Internal review notes
+
+
+Respect candidate visibility settings.
+
+
+==================================================
+FINAL DESIGN TEST
+==================================================
+
+Ask:
+
+Can a young candidate who has never used a recruitment website understand the platform without instructions?
+
+Can they find a job within seconds?
+
+Can they build a Passport without getting bored?
+
+Can they apply without retyping their CV?
+
+Can they understand their application status?
+
+Can they use everything comfortably with one hand on a phone?
+
+
+If not:
+
+SIMPLIFY FURTHER.
+
+
+==================================================
+FINAL EXPERIENCE
+==================================================
+
+The candidate side should feel like:
+
+A MODERN HOSPITALITY CAREER PLATFORM
+
+Not:
+
+A TRADITIONAL JOB BOARD
+
+Not:
+
+AN HR DATABASE
+
+Not:
+
+A LONG APPLICATION FORM
+
+
+The user experience should communicate:
+
+FIND OPPORTUNITIES.
+
+SHOW YOUR EXPERIENCE.
+
+APPLY EASILY.
+
+TRACK WHAT HAPPENS.
+
+
+THE JOBS MV
+
+MORE THAN A JOB SEARCH.
+
+YOUR EXPERIENCE DESERVES TO BE SEEN.

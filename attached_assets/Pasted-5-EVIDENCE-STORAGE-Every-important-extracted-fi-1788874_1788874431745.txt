@@ -1,0 +1,1635 @@
+5. EVIDENCE STORAGE
+==================================================
+
+Every important extracted field should store evidence.
+
+Example:
+
+FIELD:
+Maldives Experience
+
+VALUE:
+5.8 years
+
+CONFIDENCE:
+HIGH
+
+EVIDENCE:
+
+"Bar Supervisor - ABC Maldives Resort - Jan 2020 to Oct 2023"
+
+"Bartender - XYZ Maldives - Nov 2023 to Present"
+
+
+For skills:
+
+FIELD:
+Cocktail Preparation
+
+VALUE:
+CONFIRMED
+
+EVIDENCE:
+
+"Prepared classic and signature cocktails"
+
+"Managed cocktail bar operations"
+
+
+For certifications:
+
+FIELD:
+WSET Level 2
+
+VALUE:
+CONFIRMED
+
+EVIDENCE:
+
+"WSET Level 2 Award in Wines - 2024"
+
+
+Evidence can include:
+
+- CV text excerpt
+- Work-history record
+- Passport field
+- Candidate confirmation
+
+Store source type:
+
+CV
+PASSPORT
+CANDIDATE_CONFIRMED
+ADMIN_VERIFIED
+
+
+==================================================
+6. CONFIDENCE LEVELS
+==================================================
+
+For extracted information support:
+
+CONFIRMED
+LIKELY
+UNCERTAIN
+NOT_FOUND
+NEEDS_CONFIRMATION
+
+
+Recommended logic:
+
+CONFIRMED:
+Directly supported by clear evidence.
+
+LIKELY:
+Strong contextual support but not explicit.
+
+UNCERTAIN:
+Possible but ambiguous.
+
+NOT_FOUND:
+No supporting information.
+
+NEEDS_CONFIRMATION:
+Important information not reliably available.
+
+
+Avoid showing uncertain information to employers as fact.
+
+
+==================================================
+7. DATE CALCULATIONS
+==================================================
+
+Do not let the AI estimate years of experience.
+
+Use backend code to calculate durations.
+
+Calculate:
+
+- Total hospitality experience
+- Relevant role experience
+- Department experience
+- Maldives experience
+- Resort experience
+- Leadership experience
+
+Use actual start/end dates.
+
+Handle:
+
+- Present/current roles
+- Partial dates
+- Missing months
+- Overlapping employment
+- Career gaps
+
+IMPORTANT:
+
+Overlapping roles must NOT be double-counted.
+
+Example:
+
+Role A:
+2020-2023
+
+Role B:
+2022-2024
+
+Total unique elapsed experience is approximately 4 years,
+not 5 years.
+
+
+If only year is available:
+
+2022-2024
+
+Use a conservative calculation and mark confidence appropriately.
+
+
+==================================================
+8. HOSPITALITY KNOWLEDGE BASE
+==================================================
+
+Create a configurable hospitality knowledge base.
+
+Do not rely only on generic AI knowledge.
+
+The knowledge base should support:
+
+JOB TITLES
+
+Examples:
+
+Bar Waiter
+Bartender
+Senior Bartender
+Head Bartender
+Bar Supervisor
+Bar Manager
+
+Waiter
+Senior Waiter
+Captain
+F&B Supervisor
+Assistant F&B Manager
+F&B Manager
+
+Commis
+Demi Chef
+Chef de Partie
+Sous Chef
+Executive Sous Chef
+Executive Chef
+
+Front Office Agent
+Guest Service Agent
+Guest Relations
+Front Office Supervisor
+Assistant Front Office Manager
+Front Office Manager
+
+
+Store:
+
+- Standard title
+- Alternative titles
+- Related titles
+- Department
+- Seniority
+- Typical skill areas
+- Possible career progression
+
+
+==================================================
+9. TITLE EQUIVALENCE
+==================================================
+
+The matching engine must understand similar titles.
+
+Example:
+
+Vacancy:
+
+Senior Bartender
+
+Candidate:
+
+Bartender
+
+This may be a relevant match.
+
+Candidate:
+
+Bar Supervisor
+
+This may also be relevant depending on experience.
+
+Candidate:
+
+F&B Attendant
+
+This should not be treated as equivalent without bartender evidence.
+
+
+Use:
+
+Exact Match
+Close Match
+Adjacent Role
+Different Role
+
+
+Do not award full points merely from keyword overlap.
+
+
+==================================================
+10. MALDIVES HOSPITALITY TERMINOLOGY
+==================================================
+
+The system should understand Maldives hospitality terminology such as:
+
+- Resort island
+- Live-in resort
+- Service charge
+- Staff accommodation
+- All-inclusive
+- Pre-opening
+- Cross exposure
+- Cross training
+- OJT
+- Micros
+- Oracle
+- Opera
+- F&B Attendant
+- Liquid Master
+- Butler
+- Guest Service
+- Notice period
+- Current island
+- Joining date
+- Local hire
+- International hire
+- Expat hire
+- Work permit
+- Work visa
+- Sponsorship
+- Staff ferry
+- Annual ticket
+
+
+These terms should improve interpretation, not create automatic eligibility assumptions.
+
+
+==================================================
+11. VACANCY REQUIREMENT MODEL
+==================================================
+
+Every vacancy should have structured requirements.
+
+Do not rely only on free-text job description.
+
+Use three categories:
+
+MANDATORY
+
+PREFERRED
+
+OPERATIONAL
+
+
+MANDATORY examples:
+
+- Minimum relevant experience
+- Required skill
+- Required certification
+- Required language if genuinely job-related
+- Required availability
+- Local/international hiring scope if genuinely relevant
+
+PREFERRED examples:
+
+- Maldives experience
+- Resort experience
+- Luxury hospitality
+- Specific POS
+- WSET
+- Specific cuisine
+- Pre-opening experience
+
+OPERATIONAL examples:
+
+- Number of hires
+- Joining timeline
+- Live-in resort
+- Salary
+- Accommodation
+- Meals
+- Contract length
+- Work authorization review required
+
+
+==================================================
+12. MANDATORY REQUIREMENT CHECK
+==================================================
+
+Mandatory checks happen BEFORE fit scoring.
+
+Each requirement should return:
+
+PASS
+
+FAIL
+
+NOT_CONFIRMED
+
+NOT_APPLICABLE
+
+
+Example:
+
+MINIMUM 2 YEARS BARTENDING EXPERIENCE
+
+PASS
+
+Evidence:
+4.3 years combined bartender/senior bartender experience
+
+
+ENGLISH REQUIRED
+
+NOT_CONFIRMED
+
+Reason:
+CV lists English but no proficiency level
+
+
+WSET LEVEL 2 REQUIRED
+
+FAIL
+
+Reason:
+No WSET qualification found in CV or Passport
+
+
+AVAILABLE WITHIN 30 DAYS
+
+NOT_CONFIRMED
+
+Reason:
+Notice period missing
+
+
+==================================================
+13. DO NOT AUTO-REJECT SOLELY FROM AI
+==================================================
+
+Do not silently reject candidates because of AI screening.
+
+A mandatory FAIL may flag:
+
+REQUIREMENT NOT MET
+
+But candidate records should remain available to authorized reviewers.
+
+Possible status:
+
+Eligibility Concern
+
+Needs Human Review
+
+
+Final shortlist/rejection decisions must remain controlled by authorized human users/employers according to workflow.
+
+
+==================================================
+14. SCREENING SCORE
+==================================================
+
+After mandatory checks, calculate a structured fit score.
+
+Recommended default model:
+
+Relevant Role Experience:
+25 points
+
+Position / Seniority Fit:
+20 points
+
+Maldives / Resort Experience:
+15 points
+
+Technical Skills:
+15 points
+
+Qualifications / Certifications:
+10 points
+
+Availability / Joining:
+10 points
+
+Evidence Quality:
+5 points
+
+TOTAL:
+100
+
+
+Make weights configurable per vacancy or role template.
+
+
+==================================================
+15. SCORE EXAMPLE
+==================================================
+
+Example output:
+
+CANDIDATE FIT
+
+82 / 100
+
+STRONG MATCH
+
+
+Relevant Role Experience
+23 / 25
+
+Position Fit
+18 / 20
+
+Maldives / Resort Experience
+15 / 15
+
+Technical Skills
+12 / 15
+
+Qualifications
+5 / 10
+
+Availability
+6 / 10
+
+Evidence Quality
+3 / 5
+
+
+Never show only:
+
+82% Match
+
+without explanation.
+
+
+==================================================
+16. SCORE LABELS
+==================================================
+
+Use neutral language.
+
+Suggested:
+
+85-100
+Strong Alignment
+
+70-84
+Good Alignment
+
+55-69
+Possible Match
+
+Below 55
+Limited Alignment
+
+
+These are screening aids, not hiring decisions.
+
+
+Avoid:
+
+Perfect Match
+Best Candidate
+Guaranteed Fit
+
+
+==================================================
+17. EVIDENCE-BASED SCORING
+==================================================
+
+Points should only be awarded when evidence exists.
+
+Example:
+
+Vacancy wants:
+
+Cocktail knowledge
+
+Candidate CV says:
+
+"Prepared signature cocktails and classic cocktails"
+
+Then:
+
+Cocktail Knowledge
+CONFIRMED
+Evidence found
+
+Award points.
+
+
+If candidate CV says:
+
+"Worked at a bar"
+
+Do NOT automatically award full cocktail skill points.
+
+Possibly:
+
+LIKELY / NEEDS CONFIRMATION
+
+Award partial or no points depending on rule.
+
+
+==================================================
+18. SKILL SEMANTIC MATCHING
+==================================================
+
+Use AI / embeddings / semantic matching where useful for equivalent skills.
+
+Example:
+
+Requirement:
+Cocktail preparation
+
+Candidate CV:
+Mixology, classic cocktails, signature drinks
+
+This should match.
+
+Requirement:
+POS experience
+
+Candidate:
+Micros POS
+
+This should match.
+
+
+But semantic matching must return supporting evidence.
+
+Never award invisible semantic points.
+
+
+==================================================
+19. CANDIDATE CONFIRMATION
+==================================================
+
+If critical information is missing, ask the candidate.
+
+Do NOT guess.
+
+Example:
+
+WE FOUND MOST OF YOUR INFORMATION.
+
+Please confirm 3 details:
+
+Notice Period
+
+Available From
+
+English Proficiency
+
+
+Make confirmation mobile-friendly.
+
+
+Candidate response becomes:
+
+CANDIDATE_CONFIRMED
+
+
+This should improve screening confidence.
+
+
+==================================================
+20. AI SCREENING SUMMARY
+==================================================
+
+After scoring, generate a concise screening summary.
+
+The AI summary must use only structured evidence.
+
+Example:
+
+SCREENING SUMMARY
+
+Ahmed has 7.2 years of hospitality experience, including 5.1 years in bartending roles and 4.3 years in Maldives resorts.
+
+His background aligns strongly with the vacancy's bartender experience and cocktail requirements.
+
+Micros POS experience is supported by his CV.
+
+WSET certification was not found.
+
+Joining availability requires confirmation.
+
+
+Do not let the AI invent strengths.
+
+
+==================================================
+21. SCREENING SUMMARY FORMAT
+==================================================
+
+Generate four sections:
+
+STRONG MATCHES
+
+Examples:
+
+✓ 5+ years relevant bartending experience
+
+✓ Maldives resort experience
+
+✓ Cocktail preparation evidence
+
+✓ Micros POS
+
+
+GAPS / NOT FOUND
+
+Examples:
+
+• WSET qualification not found
+
+• No luxury property evidence found
+
+
+NEEDS CONFIRMATION
+
+Examples:
+
+• Notice period
+
+• Joining date
+
+• English proficiency
+
+
+SUMMARY
+
+2-4 sentence factual screening overview.
+
+
+==================================================
+22. HUMAN HOSPITALITY EXPERT REVIEW
+==================================================
+
+Create an Admin / Reviewer workflow.
+
+The Jobs MV hospitality expert should see:
+
+Candidate
+
+Vacancy
+
+CV
+
+Hospitality Passport
+
+Mandatory checks
+
+Score breakdown
+
+Evidence
+
+AI summary
+
+Missing information
+
+
+Reviewer actions:
+
+Approve Review
+
+Edit Summary
+
+Add Expert Notes
+
+Change Match Assessment
+
+Request Candidate Information
+
+Recommend for Shortlist
+
+Do Not Recommend
+
+
+==================================================
+23. HUMAN CORRECTION
+==================================================
+
+Authorized reviewer must be able to correct AI extraction.
+
+Example:
+
+AI extracted:
+
+4 years Maldives experience
+
+Reviewer discovers:
+
+6 years
+
+
+Reviewer can correct it.
+
+Store:
+
+Original AI Value
+
+Corrected Value
+
+Corrected By
+
+Corrected Date
+
+Reason
+
+
+Do not erase audit history.
+
+
+==================================================
+24. THE JOBS MV REVIEWED BADGE
+==================================================
+
+This badge must ONLY appear after actual human review.
+
+Do NOT apply automatically after AI screening.
+
+
+Required fields:
+
+review_status
+
+reviewed_by
+
+reviewed_at
+
+
+Only when:
+
+review_status = APPROVED
+
+show:
+
+✓ THE JOBS MV REVIEWED
+
+
+This badge means:
+
+AI-assisted screening + authorized hospitality expert review completed.
+
+
+==================================================
+25. EMPLOYER CANDIDATE CARD
+==================================================
+
+Keep employer view simple.
+
+Do not expose technical AI details first.
+
+Candidate card should show:
+
+Name
+
+Current Position
+
+Current Location
+
+Relevant Experience
+
+Maldives Experience
+
+Availability
+
+Notice Period
+
+
+Then:
+
+Strong Alignment / Good Alignment / Possible Match
+
+
+If reviewed:
+
+✓ THE JOBS MV REVIEWED
+
+
+Show 2-4 reasons:
+
+WHY THIS CANDIDATE MAY FIT
+
+✓ Relevant role experience
+
+✓ Maldives resort experience
+
+✓ Required technical skills
+
+
+Actions:
+
+View Candidate
+
+Shortlist
+
+Request Interview
+
+
+==================================================
+26. EMPLOYER DETAIL VIEW
+==================================================
+
+On candidate detail show:
+
+CANDIDATE SNAPSHOT
+
+THE JOBS MV REVIEW
+
+EXPERIENCE
+
+SKILLS
+
+QUALIFICATIONS
+
+LANGUAGES
+
+AVAILABILITY
+
+HOSPITALITY PASSPORT
+
+CV
+
+
+The Jobs MV Review should show:
+
+Strong Matches
+
+Not Found / Gaps
+
+Needs Confirmation
+
+Expert Summary
+
+
+Do not overwhelm employer with raw scoring mathematics unless they choose:
+
+View Screening Details
+
+
+==================================================
+27. SCREENING DETAILS
+==================================================
+
+Optional expandable section:
+
+VIEW SCREENING DETAILS
+
+
+Show:
+
+Mandatory Requirements
+
+Scoring Breakdown
+
+Evidence
+
+Confidence
+
+Data Sources
+
+
+This helps transparency without making the default employer experience complicated.
+
+
+==================================================
+28. FAIRNESS & SENSITIVE DATA
+==================================================
+
+Screening MUST NOT score candidates based on:
+
+- Name
+- Gender
+- Profile photo
+- Race
+- Ethnicity
+- Religion
+- Political views
+- Marital status
+- Family status
+- Disability
+- Age unless a lawful job-specific requirement exists
+- Sensitive health information
+
+
+Do not infer protected characteristics.
+
+
+==================================================
+29. NATIONALITY AND WORK AUTHORIZATION
+==================================================
+
+Do NOT mix nationality into the candidate quality score.
+
+Keep:
+
+CANDIDATE QUALITY
+
+separate from:
+
+HIRING / WORK AUTHORIZATION REVIEW
+
+
+Possible fields:
+
+Candidate Type:
+
+Maldivian
+International
+Needs Confirmation
+
+
+Current Maldives Status:
+
+In Maldives
+Outside Maldives
+Needs Confirmation
+
+
+Work Authorization:
+
+Requires Employer Review
+
+
+Do NOT display:
+
+"Legally eligible"
+
+unless independently verified through an appropriate process.
+
+
+==================================================
+30. APPLICATION-SPECIFIC SCREENING
+==================================================
+
+Screening should be vacancy-specific.
+
+The same candidate may score differently for:
+
+Bartender
+
+Bar Supervisor
+
+F&B Supervisor
+
+
+Do not store one permanent global candidate score.
+
+Store:
+
+candidate_id
+
+vacancy_id
+
+screening_version
+
+screening_result
+
+
+==================================================
+31. VERSIONING
+==================================================
+
+Store screening version.
+
+Example:
+
+Screening Engine v1.0
+
+Knowledge Base v1.3
+
+Role Template v2
+
+
+If requirements change, allow re-screening.
+
+Preserve previous result for audit.
+
+
+==================================================
+32. ROLE TEMPLATES
+==================================================
+
+Create editable screening templates for common hospitality roles.
+
+Examples:
+
+Bartender
+
+Senior Bartender
+
+Bar Supervisor
+
+Waiter
+
+F&B Supervisor
+
+Restaurant Manager
+
+Front Office Agent
+
+Guest Relations
+
+Butler
+
+Housekeeping Attendant
+
+Chef de Partie
+
+Sous Chef
+
+
+Template includes:
+
+Typical skills
+
+Relevant titles
+
+Seniority
+
+Default scoring weights
+
+Suggested mandatory questions
+
+Suggested preferred criteria
+
+
+Employer can modify requirements.
+
+
+==================================================
+33. DO NOT MAKE AI THE EMPLOYER
+==================================================
+
+Avoid wording like:
+
+AI Approved
+
+AI Rejected
+
+AI Selected Candidate
+
+
+Use:
+
+AI-Assisted Screening
+
+Screening Analysis
+
+Strong Alignment
+
+Needs Review
+
+The Jobs MV Reviewed
+
+
+The employer remains responsible for final hiring decision.
+
+
+==================================================
+34. QUALITY CONTROL
+==================================================
+
+Create tests using sample CVs.
+
+Test cases must include:
+
+- Excellent exact match
+- Candidate with related title
+- Candidate with keyword-heavy but weak experience
+- Missing dates
+- Overlapping employment
+- No Maldives experience
+- Strong Maldives experience
+- Missing certification
+- Equivalent skill wording
+- Career progression
+- Career gaps
+- CV with poor formatting
+- Candidate with incomplete Passport
+
+
+Verify the engine does not over-score keyword-heavy CVs.
+
+
+==================================================
+35. CV PARSING FAILURE
+==================================================
+
+If CV parsing fails:
+
+Do not show broken screening.
+
+Show:
+
+WE COULDN'T READ ENOUGH INFORMATION FROM THIS CV.
+
+Candidate can:
+
+Upload another CV
+
+or
+
+Complete Hospitality Passport manually
+
+
+Set screening status:
+
+INSUFFICIENT_DATA
+
+
+Do not generate fake results.
+
+
+==================================================
+36. AI FAILURE / TIMEOUT
+==================================================
+
+If AI service fails:
+
+Preserve application.
+
+Do not block candidate from applying.
+
+Queue screening for retry.
+
+Show admin:
+
+Screening Pending
+
+
+Do not show employer an inaccurate score.
+
+
+==================================================
+37. DATABASE CONCEPT
+==================================================
+
+Use the existing schema where possible.
+
+If needed, add entities similar to:
+
+candidate_extracted_profiles
+
+candidate_evidence
+
+vacancy_requirements
+
+screening_runs
+
+screening_requirement_results
+
+screening_scores
+
+expert_reviews
+
+screening_corrections
+
+hospitality_role_templates
+
+hospitality_skill_dictionary
+
+
+Do NOT create duplicate candidate/vacancy/application tables.
+
+
+==================================================
+38. SCREENING RUN DATA
+==================================================
+
+Each screening run should contain:
+
+id
+
+candidate_id
+
+vacancy_id
+
+application_id if relevant
+
+status
+
+screening_version
+
+knowledge_base_version
+
+started_at
+
+completed_at
+
+overall_score
+
+alignment_label
+
+mandatory_pass_count
+
+mandatory_fail_count
+
+mandatory_unconfirmed_count
+
+ai_summary
+
+review_status
+
+
+==================================================
+39. AUDIT LOG
+==================================================
+
+Log important actions:
+
+CV extracted
+
+Candidate confirmed information
+
+Screening run created
+
+Screening completed
+
+AI summary generated
+
+Reviewer opened review
+
+Reviewer corrected data
+
+Reviewer approved
+
+Candidate shortlisted
+
+Badge applied
+
+
+This is important for trust and debugging.
+
+
+==================================================
+40. ADMIN SCREENING DASHBOARD
+==================================================
+
+Create a simple admin review queue:
+
+SCREENING & REVIEW
+
+
+Filters:
+
+Needs Review
+
+Missing Information
+
+Strong Alignment
+
+Mandatory Concern
+
+Reviewed
+
+
+Each item:
+
+Candidate
+
+Vacancy
+
+Employer
+
+Alignment
+
+Mandatory Status
+
+Screening Date
+
+Review Status
+
+
+Action:
+
+Review Candidate
+
+
+==================================================
+41. MOBILE REVIEW
+==================================================
+
+Admin/reviewer screens should also work on mobile.
+
+A reviewer should be able to quickly see:
+
+Candidate
+
+Vacancy
+
+Strong Matches
+
+Gaps
+
+Needs Confirmation
+
+AI Summary
+
+
+Then:
+
+Approve Review
+
+Request Information
+
+
+Do not force horizontal tables on mobile.
+
+
+==================================================
+42. CANDIDATE PRIVACY
+==================================================
+
+Do not expose internal screening data to candidate unless intentionally designed.
+
+Candidate may see:
+
+Profile completeness
+
+Missing information requests
+
+Application status
+
+
+Do not expose:
+
+Internal expert notes
+
+Internal employer notes
+
+Internal screening weighting
+
+Reviewer comments
+
+
+==================================================
+43. PROMPT ENGINEERING RULE
+==================================================
+
+AI prompts should NOT ask open-ended questions such as:
+
+"Is this candidate good?"
+
+Use structured tasks.
+
+Example:
+
+TASK:
+
+Using ONLY the supplied candidate evidence, determine whether each listed skill requirement is:
+
+CONFIRMED
+LIKELY
+NOT_FOUND
+CONFLICTING
+
+
+For each result return:
+
+Requirement
+
+Result
+
+Evidence ID
+
+Confidence
+
+Short reason
+
+
+This produces more consistent outputs.
+
+
+==================================================
+44. STRUCTURED AI OUTPUT
+==================================================
+
+All AI outputs used by the backend should be structured JSON validated against a schema.
+
+Do not rely on prose parsing.
+
+Example concept:
+
+{
+  "requirement_id": "...",
+  "result": "CONFIRMED",
+  "confidence": 0.94,
+  "evidence_ids": ["..."],
+  "reason": "Candidate states..."
+}
+
+
+Validate before storing.
+
+If invalid:
+
+Retry or flag screening error.
+
+
+==================================================
+45. KEEP TEMPERATURE LOW
+==================================================
+
+For extraction and screening tasks, use low randomness / deterministic settings where supported.
+
+We want:
+
+Consistency
+
+not creativity.
+
+
+==================================================
+46. COST & PERFORMANCE
+==================================================
+
+Avoid repeatedly sending the full CV to AI.
+
+Suggested pattern:
+
+CV processed once
+
+↓
+
+Structured candidate profile + evidence saved
+
+↓
+
+Vacancies compare against structured profile
+
+↓
+
+Only necessary evidence sent for screening
+
+
+Cache results where safe.
+
+Re-screen only when:
+
+CV changes
+
+Passport changes materially
+
+Vacancy requirements change
+
+Screening engine version changes
+
+Reviewer requests re-screen
+
+
+==================================================
+47. FINAL EMPLOYER EXPERIENCE
+==================================================
+
+Employer should see something like:
+
+THE JOBS MV REVIEWED ✓
+
+
+Ahmed Ali
+
+Senior Bartender
+
+
+STRONG ALIGNMENT
+
+
+WHY HE MAY FIT
+
+✓ 6 years bartending experience
+
+✓ 4 years Maldives resort experience
+
+✓ Cocktail and wine experience
+
+✓ Micros POS
+
+
+NOT FOUND
+
+• WSET qualification
+
+
+NEEDS CONFIRMATION
+
+• Joining date
+
+
+EXPERT SUMMARY
+
+Ahmed's experience aligns strongly with the role's core bartending requirements. His Maldives resort background and cocktail experience are supported by his CV. Joining availability should be confirmed before interview.
+
+
+[ View Candidate ]
+
+[ Request Interview ]
+
+
+==================================================
+48. FINAL PRODUCT POSITIONING
+==================================================
+
+Do not market this as:
+
+"AI finds the best candidate."
+
+
+Position it as:
+
+AI-ASSISTED SCREENING
++
+HOSPITALITY EXPERT REVIEW
+
+
+Public wording:
+
+Technology helps us screen faster.
+Hospitality experience helps us review stronger matches.
+
+
+Or:
+
+We use AI-assisted screening to compare candidate experience against the employer's requirements, then our hospitality experts review the strongest matches before preparing the shortlist.
+
+
+==================================================
+49. FINAL QUALITY TEST
+==================================================
+
+A screening result must answer:
+
+1. Does the candidate meet the mandatory requirements?
+
+2. How relevant is their actual experience?
+
+3. What evidence supports the match?
+
+4. What requirements are missing?
+
+5. What information needs confirmation?
+
+6. How confident are we?
+
+7. Has a human expert reviewed the result?
+
+
+If any of these cannot be answered:
+
+Do not present the candidate as fully reviewed.
+
+
+==================================================
+FINAL GOAL
+==================================================
+
+The Jobs MV screening system should NOT be:
+
+CV keyword matching.
+
+It should be:
+
+STRUCTURED REQUIREMENTS
++
+STRUCTURED CANDIDATE DATA
++
+CV EVIDENCE
++
+HOSPITALITY KNOWLEDGE
++
+RULE-BASED CHECKS
++
+AI-ASSISTED ANALYSIS
++
+HUMAN EXPERT REVIEW
+
+
+The result should be accurate enough to save employers real screening time while remaining explainable and trustworthy.
+
+THE JOBS MV
+
+Technology for speed.
+Hospitality expertise for judgment.
+Employers make the final decision.

@@ -1,0 +1,621 @@
+Improve the existing Recruiter Dashboard for The Jobs MV.
+
+IMPORTANT:
+- Keep the current visual design, colors, fonts, sidebar style and overall layout.
+- Do not redesign the dashboard from scratch.
+- Improve functionality, usability and recruitment workflow.
+- Make all pages fully responsive on desktop, tablet and mobile.
+- Do not create duplicate pages or duplicate components.
+- Use the existing database and authentication structure where possible.
+- Preserve all existing working features.
+- The goal is to turn this from a basic job-posting dashboard into a practical hospitality recruitment workspace.
+
+CORE RECRUITMENT FLOW:
+
+Post Vacancy
+→ Receive Applications
+→ Screening
+→ Shortlisted
+→ Interview
+→ Offered
+→ Hired / Not Selected
+
+The recruiter should always be able to see where each candidate is in this process.
+
+--------------------------------------------------
+1. DASHBOARD PAGE
+--------------------------------------------------
+
+Keep the existing dashboard cards but improve them.
+
+Show these cards:
+
+- Total Jobs
+- Active Jobs
+- Total Applications
+- New Applicants
+- Shortlisted
+- Interviewing
+- Offered
+- Hired
+
+Add a clear button at the top:
+
++ Post New Job
+
+Add a new section called:
+
+ACTION REQUIRED
+
+This section should only show items that need recruiter attention.
+
+Examples:
+
+12 New Applications
+Review new candidates
+
+3 Candidates Awaiting Interview
+Schedule or update interview status
+
+2 Vacancies Closing Soon
+Review vacancy deadline
+
+1 Candidate Waiting for Decision
+Update candidate status
+
+Each item should be clickable and take the recruiter directly to the relevant page.
+
+If there are no actions required, show:
+
+You're all caught up.
+No recruitment actions require your attention right now.
+
+Add another small section:
+
+RECENT ACTIVITY
+
+Examples:
+
+New application received
+Candidate shortlisted
+Interview scheduled
+Candidate hired
+Vacancy published
+
+Show date/time where available.
+
+--------------------------------------------------
+2. JOBS / VACANCIES PAGE
+--------------------------------------------------
+
+Keep the current search and status filter.
+
+Each vacancy should display:
+
+- Job Title
+- Department
+- Company / Resort
+- Location / Atoll
+- Published Date
+- Closing Date
+- Vacancy Status
+- Number of Applications
+- Number Shortlisted
+- Number Interviewing
+
+Vacancy statuses:
+
+Draft
+Active
+Paused
+Closed
+Expired
+
+For each vacancy provide these actions:
+
+View Candidates
+Edit
+Duplicate
+Pause / Resume
+Close Vacancy
+View Public Listing
+
+Make "View Candidates" the main action.
+
+If the recruiter has no jobs, improve the empty state.
+
+Headline:
+
+Create your first vacancy
+
+Supporting text:
+
+Post a hospitality vacancy and start receiving applications from candidates on The Jobs MV.
+
+Button:
+
+Post New Job
+
+--------------------------------------------------
+3. APPLICATIONS PIPELINE
+--------------------------------------------------
+
+This is the most important page.
+
+Replace the basic applications page with a stronger candidate recruitment pipeline.
+
+Candidate stages:
+
+New
+Screening
+Shortlisted
+Interview
+Offered
+Hired
+Not Selected
+
+Allow recruiters to filter by:
+
+- Vacancy
+- Stage
+- Department
+- Location
+- Candidate Type
+- Availability
+- The Jobs MV Reviewed
+
+Search should work by:
+
+Candidate Name
+Job Title
+Current Position
+Skills
+Employer / Resort
+
+Each candidate card or row should display:
+
+Candidate Name
+Current Position
+Current Employer
+Location
+Years of Hospitality Experience
+Maldives Experience
+Applied Job
+Applied Date
+Availability / Notice Period
+Current Stage
+
+If a Hospitality Passport exists, display:
+
+Hospitality Passport
+
+Add a screening indicator such as:
+
+Strong Match
+Good Match
+Needs Review
+
+Do not rely only on a percentage score.
+
+If a percentage is shown, it must also explain WHY the candidate matches.
+
+--------------------------------------------------
+4. CANDIDATE DETAIL PAGE
+--------------------------------------------------
+
+When a recruiter opens an applicant, create a complete candidate review page.
+
+Show:
+
+Candidate Name
+Current Position
+Current Employer
+Current Location
+Nationality if voluntarily provided and operationally relevant
+Total Hospitality Experience
+Maldives Experience
+Resort Experience
+Languages
+Skills
+Certifications
+Notice Period
+Available From
+CV
+Hospitality Passport
+
+Add sections:
+
+PROFESSIONAL EXPERIENCE
+
+SKILLS & CERTIFICATIONS
+
+AVAILABILITY
+
+APPLICATION DETAILS
+
+SCREENING SUMMARY
+
+The screening summary must be explainable.
+
+Example:
+
+STRONG MATCH
+
+Strong Matches:
+✓ 5 years hospitality experience
+✓ 3 years Maldives resort experience
+✓ Bartending experience
+✓ Cocktail knowledge
+✓ Micros POS experience
+
+Needs Verification:
+? WSET certification not verified
+? Current work authorization status requires confirmation
+
+Potential Concern:
+⚠ 30-day notice period
+
+Do not invent information.
+
+If information is missing, show:
+
+Not provided
+Not found in CV
+Needs verification
+
+Never automatically reject a candidate based only on AI or screening score.
+
+--------------------------------------------------
+5. THE JOBS MV REVIEWED
+--------------------------------------------------
+
+Add support for:
+
+THE JOBS MV REVIEWED
+
+This badge should ONLY appear after an authorized The Jobs MV team member manually reviews the candidate.
+
+Display:
+
+✓ THE JOBS MV REVIEWED
+
+Supporting text:
+
+This candidate has been reviewed by The Jobs MV hospitality recruitment team.
+
+Store:
+
+Reviewed By
+Review Date
+Internal Review Notes
+
+Internal review notes must not be visible to the candidate.
+
+Recruiters should be able to filter applications by:
+
+The Jobs MV Reviewed
+
+--------------------------------------------------
+6. CANDIDATE ACTIONS
+--------------------------------------------------
+
+On the candidate detail page provide clear actions:
+
+Move to Screening
+Shortlist Candidate
+Schedule Interview
+Mark as Offered
+Mark as Hired
+Mark as Not Selected
+
+When changing the stage, save:
+
+Previous Stage
+New Stage
+Date
+Recruiter
+
+Keep a history of candidate status changes.
+
+--------------------------------------------------
+7. INTERVIEW INFORMATION
+--------------------------------------------------
+
+When recruiter selects:
+
+Schedule Interview
+
+Allow:
+
+Interview Date
+Interview Time
+Interview Type
+
+Options:
+
+Video Interview
+Phone Interview
+In Person
+Other
+
+Interview Notes
+Meeting Link
+Interview Status
+
+Interview Status:
+
+Scheduled
+Completed
+Rescheduled
+Cancelled
+
+--------------------------------------------------
+8. COMPANY PROFILE
+--------------------------------------------------
+
+Improve the current Company Profile page.
+
+Replace:
+
+Logo URL
+
+with:
+
+Upload Company Logo
+
+Allow image upload and preview.
+
+Add:
+
+Company / Resort Name
+Company Type
+Location / Atoll
+Website
+Company Description
+Primary Contact Name
+Contact Email
+Contact Phone
+
+Company Type options:
+
+Resort
+Hotel
+Guesthouse
+Restaurant
+Cafe
+Tourism Business
+Recruitment Agency
+Other
+
+Separate:
+
+PUBLIC COMPANY INFORMATION
+
+from:
+
+PRIVATE RECRUITER CONTACT INFORMATION
+
+Public information can be shown to candidates.
+
+Private contact information must only be visible inside the recruiter/admin system.
+
+Add:
+
+Employer Verification Status
+
+Statuses:
+
+Not Verified
+Verification Pending
+Verified
+
+Only authorized The Jobs MV admins should be able to mark an employer as Verified.
+
+--------------------------------------------------
+9. TALENT SEARCH
+--------------------------------------------------
+
+Add a sidebar item:
+
+Talent Search
+
+This can initially be a simple but functional candidate search page.
+
+Allow recruiters to search candidate Hospitality Passports.
+
+Filters:
+
+Position
+Department
+Skills
+Hospitality Experience
+Maldives Experience
+Location
+Availability
+Languages
+
+Example search:
+
+Bartender
+Maldives Experience
+Available within 30 days
+
+Show candidate preview cards containing:
+
+Candidate Name
+Current Position
+Experience
+Maldives Experience
+Key Skills
+Availability
+
+Do not expose private information unnecessarily.
+
+Recruiters should be able to:
+
+View Profile
+Save Candidate
+Invite to Apply
+
+If this feature requires major architectural changes, build the UI and basic database structure first without breaking the existing application workflow.
+
+--------------------------------------------------
+10. SIDEBAR
+--------------------------------------------------
+
+Update recruiter navigation to:
+
+Dashboard
+Jobs
+Applications
+Talent Search
+Company Profile
+
+Keep the current sidebar design.
+
+On mobile:
+
+- Collapse sidebar into a menu
+- Make navigation easy to tap
+- Do not create horizontal overflow
+- Keep primary actions easy to reach
+
+--------------------------------------------------
+11. EMPTY STATES
+--------------------------------------------------
+
+Improve all empty screens.
+
+Avoid generic messages such as only:
+
+"No jobs found"
+"No applications found"
+
+Use helpful empty states.
+
+Examples:
+
+Jobs:
+Create your first vacancy
+Post a hospitality vacancy and start receiving applications.
+
+Applications:
+No applications yet
+New candidates will appear here when they apply to your vacancies.
+
+Talent Search:
+Start discovering hospitality talent
+Search Hospitality Passports by role, experience, skills and availability.
+
+--------------------------------------------------
+12. HOSPITALITY-SPECIFIC INFORMATION
+--------------------------------------------------
+
+The system should understand common Maldives hospitality recruitment information such as:
+
+Resort Experience
+Maldives Experience
+Current Island / Location
+Notice Period
+Available From
+Live-In Resort Experience
+POS Systems
+Languages
+Hospitality Certifications
+
+Common departments:
+
+Food & Beverage
+Bars
+Culinary
+Front Office
+Housekeeping
+Spa
+Recreation
+Engineering
+Finance
+Human Resources
+Sales & Marketing
+Security
+Other
+
+Do not hardcode candidate suitability based purely on nationality or other sensitive personal attributes.
+
+--------------------------------------------------
+13. DATA & STATUS CONSISTENCY
+--------------------------------------------------
+
+Make sure dashboard statistics are calculated from real database records.
+
+Example:
+
+If a candidate moves to Shortlisted:
+- Shortlisted dashboard count updates
+- Application pipeline updates
+- Vacancy shortlisted count updates
+
+If candidate moves to Hired:
+- Hired dashboard count updates
+- Candidate application status updates
+- Vacancy statistics update
+
+All pages must use the same source of truth.
+
+Do not use fake statistics or placeholder numbers in production.
+
+--------------------------------------------------
+14. RESPONSIVE DESIGN
+--------------------------------------------------
+
+Test these pages carefully on mobile:
+
+Dashboard
+Jobs
+Applications
+Candidate Detail
+Talent Search
+Company Profile
+
+On mobile:
+
+- Cards should stack cleanly
+- Tables can become candidate/job cards
+- Buttons must be easy to tap
+- Important information should appear before secondary details
+- No horizontal scrolling
+- Sidebar should become a mobile navigation menu
+
+--------------------------------------------------
+15. FINAL QA
+--------------------------------------------------
+
+After implementation test the complete recruiter journey:
+
+1. Recruiter logs in
+2. Completes company profile
+3. Creates vacancy
+4. Vacancy becomes active
+5. Candidate applies
+6. Application appears in recruiter dashboard
+7. Recruiter opens candidate
+8. Screening information displays correctly
+9. Candidate moves to Shortlisted
+10. Interview is scheduled
+11. Candidate moves to Offered
+12. Candidate moves to Hired
+13. Dashboard statistics update correctly
+14. Vacancy statistics update correctly
+
+Fix any broken routes, buttons, database relationships, status mismatches or mobile layout problems.
+
+Do not remove existing working functionality.
+
+The final recruiter experience should feel simple:
+
+POST → REVIEW → SHORTLIST → INTERVIEW → HIRE
+
+The Jobs MV core principle:
+
+Great talent should never be lost to a slow hiring process.
+
+Right Talent. Right Opportunity. Right Time.

@@ -1,0 +1,396 @@
+IMPROVE THE ICON SYSTEM ACROSS THE EMPLOYER WORKSPACE
+
+Please improve the visual quality and consistency of all icons across The Jobs MV Employer Workspace.
+
+IMPORTANT:
+
+Do NOT change functionality, routes, data, authentication, page structure or existing workflows.
+
+This is a visual refinement of the icon system.
+
+GOAL:
+
+Icons should feel:
+
+- Modern
+- Premium
+- Simple
+- Professional
+- Easy to understand
+- Consistent
+- Suitable for hospitality recruitment
+
+The current icons feel slightly generic and inconsistent in visual weight.
+
+-----------------------------------------
+USE ONE ICON SYSTEM
+-----------------------------------------
+
+Use one consistent icon library across the entire Employer Workspace.
+
+Prefer:
+
+Lucide Icons
+
+if already available in the project.
+
+Do NOT mix:
+
+Filled icons
+Outline icons
+Emoji
+Different icon libraries
+Different stroke styles
+
+Use clean outline icons throughout.
+
+Recommended stroke width:
+
+Approximately 1.75–2px
+
+Keep icons visually balanced.
+
+-----------------------------------------
+SIDEBAR ICONS
+-----------------------------------------
+
+Use:
+
+Overview
+→ LayoutDashboard
+
+Vacancies
+→ BriefcaseBusiness
+
+Candidates
+→ UsersRound
+
+Hiring Support
+→ Sparkles or UserSearch
+
+Company Profile
+→ Building2
+
+
+Icons should be approximately:
+
+18–20px desktop
+
+20–22px mobile
+
+
+Maintain consistent alignment between icon and label.
+
+-----------------------------------------
+MAKE HIRING SUPPORT SPECIAL
+-----------------------------------------
+
+Hiring Support is a signature The Jobs MV service.
+
+Give its icon a recognizable visual identity.
+
+Use:
+
+Sparkles
+
+or a clean UserSearch icon combined with a subtle sparkle treatment.
+
+
+Use WARM GOLD for the Hiring Support icon:
+
+#D9A520
+
+
+This gold treatment should communicate:
+
+"THE JOBS MV IS HELPING YOU."
+
+
+Do not make every navigation icon gold.
+
+Normal navigation icons should remain neutral/light.
+
+Hiring Support can retain its gold signature.
+
+-----------------------------------------
+SELECTED NAVIGATION
+-----------------------------------------
+
+Improve selected navigation styling.
+
+Normal:
+
+Light neutral icon
+Light text
+
+
+Selected:
+
+White text
+Gold icon OR subtle gold left indicator
+Slightly lighter navy background
+
+
+Do not use excessive highlighting.
+
+Keep it clean and premium.
+
+-----------------------------------------
+ACTION ICONS
+-----------------------------------------
+
+Use clear icons consistently:
+
+Find Candidates For Me
+→ UserSearch
+
+Post a Vacancy
+→ Plus + BriefcaseBusiness
+
+Search
+→ Search
+
+Filter
+→ SlidersHorizontal
+
+Edit
+→ Pencil
+
+More
+→ MoreHorizontal
+
+Close Vacancy
+→ CircleX
+
+View Candidate
+→ UserRoundSearch
+
+Shortlist
+→ UserCheck
+
+Request Interview
+→ CalendarCheck
+
+Hired
+→ BadgeCheck
+
+Upload
+→ Upload
+
+Company
+→ Building2
+
+Location
+→ MapPin
+
+Experience
+→ Briefcase
+
+Availability
+→ CalendarClock
+
+Notice Period
+→ Clock
+
+CV
+→ FileText
+
+Hospitality Passport
+→ Contact or BadgeCheck
+
+-----------------------------------------
+KPI ICONS
+-----------------------------------------
+
+Improve the icons inside the Overview KPI cards.
+
+ACTIVE VACANCIES
+BriefcaseBusiness
+
+NEW APPLICANTS
+UserPlus
+
+SHORTLISTED
+UserCheck
+
+INTERVIEWS
+CalendarCheck
+
+
+Place each icon inside a subtle rounded icon container.
+
+Example:
+
+[ icon ]   3
+           Shortlisted
+
+
+Use very light neutral backgrounds for normal KPI icons.
+
+Do not give every KPI a different bright color.
+
+-----------------------------------------
+THE JOBS MV SERVICE ICON LANGUAGE
+-----------------------------------------
+
+Create a simple visual rule across the platform:
+
+NAVY / NEUTRAL ICONS
+=
+Employer actions and normal platform functions
+
+
+GOLD ICONS
+=
+The Jobs MV assisted services
+
+
+Examples of gold:
+
+✦ Hiring Support
+
+✦ Expert Screening
+
+✓ The Jobs MV Reviewed
+
+✦ Shortlist Ready
+
+
+This should become a recognizable part of The Jobs MV visual identity.
+
+-----------------------------------------
+STATUS ICONS
+-----------------------------------------
+
+Status icons may use functional colors.
+
+For example:
+
+Active
+→ subtle green
+
+Shortlisted
+→ warm gold/amber
+
+Interview
+→ subtle blue
+
+Hired
+→ subtle green
+
+Not Proceeding
+→ muted gray/red
+
+
+Keep colors soft and professional.
+
+Do not use highly saturated colors.
+
+-----------------------------------------
+ICON CONTAINERS
+-----------------------------------------
+
+Where icons appear inside cards, use subtle containers.
+
+Recommended:
+
+32–40px rounded square
+
+Very light background
+
+8–10px border radius
+
+
+For special The Jobs MV services:
+
+Very subtle gold-tinted background
+
+Gold icon
+
+
+Avoid large circles everywhere.
+
+Use containers only where they improve hierarchy.
+
+-----------------------------------------
+BUTTON ICONS
+-----------------------------------------
+
+Buttons should use icons only when they improve understanding.
+
+Examples:
+
+[ UserSearch ] Find Candidates For Me →
+
+[ + ] Post a Vacancy
+
+[ UserCheck ] Shortlist
+
+[ CalendarCheck ] Request Interview
+
+
+Do not put icons on every single text button.
+
+Avoid visual clutter.
+
+-----------------------------------------
+MOBILE
+-----------------------------------------
+
+Icons must remain clear on mobile.
+
+Minimum touch target:
+
+44px for icon-only interactive controls.
+
+
+Do not make navigation icons tiny.
+
+Ensure:
+
+Consistent alignment
+No overlapping
+No cropped icons
+No icons too close to text
+
+-----------------------------------------
+IMPORTANT
+
+Do not use emojis as interface icons.
+
+Do not use overly decorative icons.
+
+Do not use 3D icons.
+
+Do not use cartoon-style icons.
+
+Do not use different icon families on different pages.
+
+Do not add icons simply to fill empty space.
+
+Every icon must help the user understand an action or section faster.
+
+-----------------------------------------
+FINAL VISUAL GOAL
+
+The Employer Workspace should have a recognizable visual system:
+
+DEEP NAVY
+Professional platform
+
+WARM IVORY + WHITE
+Simple and calm workspace
+
+GOLD
+The Jobs MV helping the employer
+
+CLEAN OUTLINE ICONS
+Simple, modern actions
+
+The interface should feel premium but extremely easy to understand.
+
+A busy hospitality manager should be able to understand an action from:
+
+ICON + SHORT LABEL
+
+without needing to read a long explanation.

@@ -1,0 +1,141 @@
+Update The Jobs MV homepage to communicate our company purpose more clearly and powerfully.
+
+IMPORTANT:
+- Keep the current visual design, colors, fonts, navigation and overall layout.
+- Do not redesign the website.
+- Keep it professional, clean and mobile-first.
+- Avoid making the homepage too long.
+- Do not use unsupported claims such as “#1”, “most trusted”, “leading” or “best”.
+- Make the wording feel human, confident and hospitality-focused.
+
+1. HERO SECTION
+
+Keep the main candidate-focused headline:
+
+Label:
+MALDIVES HOSPITALITY CAREERS
+
+Headline:
+Find your next hospitality opportunity in Maldives.
+
+Add the brand purpose underneath:
+
+Right Talent. Right Opportunity. Right Time.
+
+Primary CTA:
+Find Jobs
+
+Secondary CTA:
+Find Candidates
+
+
+2. EMPLOYER SECTION
+
+Make this one of the strongest sections on the homepage.
+
+Headline:
+Don't lose great talent because hiring takes too long.
+
+Supporting text:
+Tell us who you need. We help screen applications, identify strong candidates and build an interview-ready shortlist, so you can focus on running your business.
+
+CTA:
+Request Candidates
+
+Add a small supporting line:
+Recruitment support for resorts, hotels, guesthouses and hospitality businesses.
+
+Keep the existing “Post a Vacancy” self-service option available for employers who prefer to manage recruitment themselves.
+
+
+3. WHY WE EXIST SECTION
+
+Add a simple, premium-looking section near the lower part of the homepage.
+
+Small label:
+WHY WE EXIST
+
+Main statement:
+Great talent should never be lost to a slow hiring process.
+
+Supporting text:
+We make hospitality recruitment faster and simpler, helping employers find the right people and job seekers reach the right opportunities when they matter most.
+
+Show our two core values:
+
+PEOPLE FIRST
+Behind every CV is a person looking for an opportunity. Behind every vacancy is a team looking for the right person.
+
+TIME MATTERS
+Great talent doesn't wait forever. We help employers and job seekers connect before opportunities are lost.
+
+Finish the section with:
+
+Right Talent. Right Opportunity. Right Time.
+
+
+4. ABOUT PAGE
+
+Do not put the full Mission and Vision on the homepage.
+
+Create or update the About page with:
+
+OUR MISSION
+
+Great talent should never be lost to a slow hiring process.
+
+We make hospitality recruitment faster and simpler, helping employers find the right people and job seekers reach the right opportunities when they matter most.
+
+
+OUR VISION
+
+A future where talent never misses opportunity.
+
+Where every employer can reach the people they need, and every job seeker has a fair chance to be discovered.
+
+
+OUR VALUES
+
+People First
+Behind every CV is a person looking for an opportunity. Behind every vacancy is a team looking for the right person.
+
+Time Matters
+Great talent doesn't wait forever. We help employers and job seekers connect before opportunities are lost.
+
+
+OUR PURPOSE
+
+Right Talent. Right Opportunity. Right Time.
+
+
+5. MOBILE EXPERIENCE
+
+Make sure all new sections look excellent on mobile.
+
+- Strong headline hierarchy
+- Short readable paragraphs
+- Comfortable spacing
+- Full-width or easily tappable CTA buttons
+- No overcrowded cards
+- No horizontal overflow
+- “People First” and “Time Matters” should stack vertically on small screens
+- Employer message should remain highly visible on mobile
+
+
+6. IMPORTANT BRAND POSITIONING
+
+The Jobs MV should NOT look like another generic job board.
+
+The homepage should clearly communicate that we solve two problems:
+
+For Job Seekers:
+Make it easier and faster to discover the right hospitality opportunities.
+
+For Employers:
+Reduce the time and effort required to find suitable hospitality candidates, especially for businesses that may not have dedicated recruitment resources.
+
+The core idea throughout the website should be:
+
+Right Talent. Right Opportunity. Right Time.
+
+After implementation, test the homepage and About page on both desktop and mobile and make sure the existing Find Jobs, Hospitality Passport, employer and authentication functionality continues to work.

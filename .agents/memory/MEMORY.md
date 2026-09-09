@@ -1,0 +1,8 @@
+- [Unified employer workspace](recruiter-auth-transition.md) — recruiters and hiring managers are employer users; keep legacy routes/auth only as compatibility bridges.
+- [Live API code generation](live-api-codegen.md) — generated API folders must not be cleaned while the Expo preview watches them.
+- [Web-first migration](web-first-migration.md) — make responsive web the primary platform incrementally while keeping Expo operational until replacement flows are verified.
+- [Safe Drizzle schema sync](safe-drizzle-schema-sync.md) — a successful interactive push may apply nothing when a safety prompt is unanswered; verify columns before trusting it.
+- [Candidate sourcing consent and matching](candidate-sourcing-consent.md) — opt-out withdraws sourcing access; automated matching excludes protected preferences and must remain evidence-based.
+- [Structured vacancy filters](structured-vacancy-filters.md) — experience and candidate scope filters use explicit vacancy fields; never infer them from descriptions.
+- [Vacancy salary integrity](vacancy-salary-integrity.md) — never show a numeric salary without explicit currency; preserve unknown legacy metadata rather than guessing.
+- [Vite build-time service variables](vite-build-service-vars.md) — Vite configs need safe build defaults because static bundling may not receive runtime PORT or BASE_PATH.

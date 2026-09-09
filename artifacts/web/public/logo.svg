@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14305E" />
+      <stop offset="100%" stop-color="#0F2448" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13A5C9" />
+      <stop offset="100%" stop-color="#0E829F" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="512" height="512" fill="none" />
+  
+  <!-- Abstract Wave / Path -->
+  <path d="M120 320 C180 320 200 240 256 240 C312 240 332 320 392 320" fill="none" stroke="url(#accentGrad)" stroke-width="32" stroke-linecap="round" />
+  
+  <!-- Briefcase Center / Sun -->
+  <circle cx="256" cy="180" r="48" fill="url(#primaryGrad)" />
+  
+  <!-- Text -->
+  <text x="256" y="440" font-family="'Plus Jakarta Sans', 'Outfit', sans-serif" font-weight="800" font-size="64" fill="#14305E" text-anchor="middle" letter-spacing="-1">
+    The Jobs MV
+  </text>
+</svg>

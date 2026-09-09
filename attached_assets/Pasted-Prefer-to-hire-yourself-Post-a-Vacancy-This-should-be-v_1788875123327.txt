@@ -1,0 +1,115 @@
+Prefer to hire yourself?
+
+Post a Vacancy →
+
+
+This should be visually quiet.
+
+It must NOT compete with:
+
+Find Candidates For Me.
+
+==================================================
+SIMPLIFY
+==================================================
+
+Do not add:
+- Extra statistics
+- Testimonials
+- Fake employer logos
+- Illustrations of random corporate people
+- Large decorative graphics
+- Multiple CTA buttons
+- Complex animations
+- More explanatory paragraphs
+
+The strength should come from:
+
+Typography
+Whitespace
+Icons
+Hierarchy
+Navy + ivory + gold
+Clear wording
+
+==================================================
+MOBILE
+==================================================
+
+On mobile:
+
+Stack the card vertically.
+
+Order:
+
+THE JOBS MV HIRING SUPPORT
+
+Need someone for your team?
+
+Tell us who.
+We'll help find them.
+
+Supporting text
+
+Find Candidates For Me
+
+You interview. You decide.
+We help with the rest.
+
+HOW WE HELP
+
+01 Tell us who you need
+|
+02 We do the searching
+|
+03 Meet your shortlist
+
+Prefer to hire yourself?
+Post a Vacancy →
+
+
+Do not create horizontal scrolling.
+
+Do not make the card excessively tall.
+
+Keep text concise.
+
+==================================================
+IMPORTANT
+==================================================
+
+This section should NOT look like:
+
+- Another dashboard widget
+- An advertisement
+- A complicated recruitment workflow
+- An enterprise HR software feature
+
+It should feel like a PERSONAL SERVICE inside the platform.
+
+The emotional message should be:
+
+"I'M BUSY.
+I TELL THE JOBS MV WHO I NEED.
+THEY HELP WITH THE SEARCH.
+I REVIEW THE SHORTLIST."
+
+==================================================
+FINAL VISUAL TEST
+==================================================
+
+When a busy resort manager or guesthouse owner sees this
+section for the first time, their eye should naturally follow:
+
+THE JOBS MV HIRING SUPPORT
+          ↓
+TELL US WHO. WE'LL HELP FIND THEM.
+          ↓
+FIND CANDIDATES FOR ME
+          ↓
+HOW IT WORKS
+
+They should understand the service in approximately
+5 seconds.
+
+Make it premium, calm, simple and human.

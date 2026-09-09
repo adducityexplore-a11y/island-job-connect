@@ -1,0 +1,876 @@
+Improve the CURRENT The Jobs MV web platform based on the instructions below.
+
+CRITICAL RULE:
+
+DO NOT redesign or rebuild the website.
+
+The current desktop and mobile visual design is good.
+
+KEEP:
+
+* Current logo
+* Current brand colors
+* Current fonts
+* Current header style
+* Current hero background
+* Current job-card design style
+* Current button style
+* Current responsive structure
+* Current database
+* Current authentication
+* Existing working functionality
+
+This task is primarily about:
+
+1. Better business positioning
+2. Better navigation
+3. Hospitality Passport
+4. Better job information
+5. Employer recruitment workflow
+6. The Jobs MV Reviewed
+7. Removing unsupported marketing claims
+8. Improving desktop/mobile spacing
+
+==================================================
+
+1. REMOVE UNSUPPORTED MARKETING CLAIMS
+   ==================================================
+
+Search the entire public website for claims such as:
+
+"#1 Hospitality Network"
+"Maldives' most trusted"
+"Most trusted recruitment platform"
+"Perfect candidates"
+"Top-tier talent"
+"Premier recruitment service"
+"Industry leading"
+"Best recruitment platform"
+"Most popular"
+
+Remove or rewrite these unless they are supported by actual platform data.
+
+Do NOT generate fake:
+
+* Candidate numbers
+* Employer numbers
+* Hire numbers
+* Reviews
+* Success rates
+* Rankings
+* Verification badges
+* Popularity claims
+
+The Jobs MV should sound confident but credible.
+
+==================================================
+2. UPDATE HOMEPAGE HERO
+=======================
+
+Keep the existing hero background image and visual design.
+
+Replace:
+
+"THE #1 HOSPITALITY NETWORK"
+
+with:
+
+"MALDIVES HOSPITALITY CAREERS"
+
+Keep the main headline:
+
+"Find your next hospitality opportunity in Maldives."
+
+Replace the existing description with:
+
+"Verified hospitality jobs, clearer employment offers and smarter connections between talent and employers."
+
+Change:
+
+"Explore Vacancies"
+
+to:
+
+"Find Jobs"
+
+Change:
+
+"Hire Talent"
+
+to:
+
+"Find Candidates"
+
+Do not significantly increase the hero height.
+
+==================================================
+3. UPDATE MAIN NAVIGATION
+=========================
+
+Change desktop public navigation from:
+
+Find a Job
+Companies
+Post a Job
+About Us
+
+to:
+
+Find Jobs
+Hospitality Passport
+Companies
+For Employers
+
+Right-side actions:
+
+Sign In
+Find Jobs
+
+If user is logged in, replace Sign In appropriately with:
+
+My Profile / Dashboard
+
+Move:
+
+Post a Job
+
+inside the For Employers experience instead of using prime public navigation space.
+
+On mobile hamburger menu use:
+
+FOR CANDIDATES
+
+Find Jobs
+Hospitality Passport
+My Applications
+Saved Jobs
+
+FOR EMPLOYERS
+
+Find Candidates
+Post a Vacancy
+Employer Login
+
+GENERAL
+
+Companies
+About The Jobs MV
+Contact
+
+Only show account-specific links where appropriate.
+
+==================================================
+4. ADD HOSPITALITY PASSPORT
+===========================
+
+This is an important product feature.
+
+Create a candidate feature called:
+
+"HOSPITALITY PASSPORT"
+
+The Hospitality Passport is a structured professional candidate profile specifically for Maldives hospitality recruitment.
+
+It should contain:
+
+PERSONAL / PROFESSIONAL
+
+Full Name
+Current Position
+Current Employer
+Current Location
+Nationality
+Professional Summary
+
+EXPERIENCE
+
+Total Hospitality Experience
+Total Resort Experience
+Maldives Experience
+Luxury Resort Experience
+
+WORK HISTORY
+
+Position
+Employer
+Country
+Resort / Hotel
+Start Date
+End Date
+Responsibilities
+
+SKILLS
+
+Role-specific skills
+Technical skills
+POS / software systems
+Leadership experience
+
+QUALIFICATIONS
+
+Education
+Professional Certifications
+Hospitality Certifications
+
+LANGUAGES
+
+Language
+Proficiency
+
+AVAILABILITY
+
+Current Employment Status
+Notice Period
+Available From
+Currently in Maldives: Yes / No
+
+DOCUMENTS
+
+CV
+
+Do NOT require sensitive documents such as passport copies during basic profile creation.
+
+The candidate should be able to update their Hospitality Passport at any time.
+
+==================================================
+5. HOMEPAGE HOSPITALITY PASSPORT SECTION
+========================================
+
+Add this after Latest Opportunities.
+
+Heading:
+
+"One Profile. Every Opportunity."
+
+Label:
+
+"HOSPITALITY PASSPORT"
+
+Description:
+
+"Build one professional hospitality profile with your experience, skills, certifications and availability. Apply faster and help employers understand your experience beyond your CV."
+
+Show:
+
+Experience
+Maldives Experience
+Resort Experience
+Skills
+Certifications
+Languages
+Availability
+Notice Period
+
+CTA:
+
+"Create My Hospitality Passport"
+
+If logged in and profile exists:
+
+"View My Hospitality Passport"
+
+Use the current design language.
+
+Do not create an oversized section.
+
+==================================================
+6. IMPROVE LATEST OPPORTUNITIES
+===============================
+
+KEEP the existing visual style of the job cards.
+
+Do not completely redesign them.
+
+Add support for important Maldives hospitality employment information.
+
+Job card should prioritize:
+
+Job Title
+Employer
+Location / Atoll
+Verified Employer status if actually verified
+Application Deadline
+
+Then show up to 3 compact offer indicators where data exists:
+
+Salary
+Service Charge
+Accommodation
+
+Example:
+
+Salary: USD 650
+Service Charge: Provided
+Accommodation: Provided
+
+If salary is intentionally not disclosed:
+
+"Salary not disclosed"
+
+Never invent employment information.
+
+Change:
+
+"Open role"
+
+to something more useful such as:
+
+"Open until 18 Sep"
+
+when deadline exists.
+
+Primary CTA:
+
+"View Opportunity"
+
+Avoid using "Apply Now" directly from the summary card if important employment details need to be reviewed first.
+
+Candidate should open the vacancy details before applying.
+
+==================================================
+7. CREATE RESORT OFFER CARD
+===========================
+
+On the full job-detail page add:
+
+"EMPLOYMENT PACKAGE"
+
+Support structured fields:
+
+Basic Salary
+Service Charge
+Other Allowances
+Overtime
+Accommodation
+Meals
+Health Insurance
+Annual Leave
+Air Ticket
+Working Hours
+Weekly Off
+Probation
+Contract Length
+
+Employers do not need to disclose every field.
+
+If a field was not provided, clearly distinguish:
+
+"Not disclosed"
+
+from:
+
+"Not provided"
+
+Do not invent missing information.
+
+Add:
+
+"Offer Information Completeness"
+
+Example:
+
+Offer Information: 80% complete
+
+Calculate this only from actual completed fields.
+
+Do not treat undisclosed salary as fake data.
+
+==================================================
+8. VERIFIED & FRESH JOBS
+========================
+
+Create admin-controlled verification fields.
+
+Employer:
+
+Verified = Yes / No
+
+Job:
+
+Source
+Original Source URL if applicable
+Published Date
+Application Deadline
+Expiry Date
+Verification Status
+
+Only show:
+
+"Verified Employer"
+
+when admin has actually verified the employer.
+
+Automatically remove or mark vacancies closed after their expiry/deadline according to configured rules.
+
+Do not leave expired vacancies looking active.
+
+==================================================
+9. REPLACE GENERIC HOMEPAGE MARKETING CARDS
+===========================================
+
+Replace generic sections such as:
+
+Niche Focus
+Quality Talent
+Local Expertise
+
+with actual product benefits.
+
+CARD 1
+
+"Verified & Fresh Jobs"
+
+"Clearer vacancy sources, deadlines and employer information, with expired opportunities kept off the active jobs list."
+
+CARD 2
+
+"Clearer Offers"
+
+"See salary, service charge, accommodation and other employment benefits when provided by the employer."
+
+CARD 3
+
+"Application Tracking"
+
+"Follow applications from received and reviewed through shortlist, interview and final outcome when recruitment is managed through The Jobs MV."
+
+Keep these cards compact on desktop and mobile.
+
+==================================================
+10. APPLICATION TRACKER
+=======================
+
+Prepare candidate applications for these statuses:
+
+Application Received
+Reviewed
+Shortlisted
+Interview
+Offered
+Hired
+Not Selected
+
+Store timestamps for status changes.
+
+Candidate should see a simple visual status tracker.
+
+Example:
+
+Received ✓
+Reviewed ✓
+Shortlisted ●
+Interview ○
+Decision ○
+
+Do not expose internal recruiter notes to candidates.
+
+When possible, candidates should receive a final application outcome rather than remaining permanently "under review."
+
+==================================================
+11. CHANGE EMPLOYER PAGE HERO
+=============================
+
+Remove:
+
+"The Maldives' most trusted hospitality recruitment platform."
+
+Remove:
+
+"full-service headhunting"
+
+Replace the employer hero with:
+
+"Find better hospitality candidates, faster."
+
+Supporting text:
+
+"Post your vacancy and manage applications yourself, or let The Jobs MV help screen candidates and build your interview-ready shortlist."
+
+Keep the existing employer page design.
+
+==================================================
+12. KEEP THE TWO EMPLOYER OPTIONS
+=================================
+
+Keep the current two-card structure:
+
+OPTION 1:
+Let The Jobs MV Handle It
+
+OPTION 2:
+Post a Vacancy
+
+Do not remove either option.
+
+==================================================
+13. IMPROVE "LET THE JOBS MV HANDLE IT"
+=======================================
+
+Replace "MOST POPULAR" with:
+
+"RECOMMENDED"
+
+until actual usage data exists to support a Most Popular claim.
+
+Title:
+
+"Let The Jobs MV Handle It"
+
+Description:
+
+"Tell us who you need. We'll help manage applications, screen suitable candidates and build an interview-ready shortlist."
+
+Replace the existing benefits with:
+
+✓ Vacancy preparation & promotion
+✓ AI-assisted candidate screening
+✓ Human review of strong matches
+✓ Candidate availability verification
+✓ Interview-ready shortlist
+
+Button:
+
+"Request Candidates"
+
+Do NOT claim:
+
+"We deliver perfect candidates."
+
+Do NOT claim:
+
+"Candidates ready to hire."
+
+Do NOT promise that every candidate has already been interviewed unless The Jobs MV actually interviewed them.
+
+==================================================
+14. IMPROVE POST A VACANCY
+==========================
+
+Keep it as the secondary employer option.
+
+Title:
+
+"Post a Vacancy"
+
+Description:
+
+"Prefer to manage recruitment yourself? Publish your vacancy and manage applications through your employer dashboard."
+
+Benefits:
+
+✓ Publish directly on The Jobs MV
+✓ Receive applications in one dashboard
+✓ Review Hospitality Passports
+✓ Track candidates through the recruitment process
+
+Button:
+
+"Post a Vacancy"
+
+==================================================
+15. INTRODUCE "THE JOBS MV REVIEWED"
+====================================
+
+Create a service/trust concept:
+
+"THE JOBS MV REVIEWED"
+
+This must NOT automatically appear on every candidate.
+
+A candidate can only receive this status after manual review by an authorized The Jobs MV admin/recruiter.
+
+Add database fields such as:
+
+jobs_mv_reviewed
+reviewed_by
+reviewed_at
+review_notes
+
+Only authorized admin users can set this status.
+
+Explain the service:
+
+"AI helps identify strong matches. The Jobs MV can then manually review shortlisted candidates before presenting them to employers."
+
+Show a simple workflow:
+
+Vacancy
+→
+Applications
+→
+AI-Assisted Screening
+→
+The Jobs MV Review
+→
+Interview-Ready Shortlist
+→
+Employer Interview
+
+On desktop use a clean horizontal presentation.
+
+On mobile use a compact vertical presentation.
+
+==================================================
+16. AI POSITIONING
+==================
+
+Do NOT make AI the main homepage marketing message.
+
+AI is a recruitment assistant.
+
+Use wording:
+
+"AI-assisted screening"
+
+The future screening architecture should compare:
+
+Vacancy Requirements
+Relevant Experience
+Position Experience
+Resort Experience
+Maldives Experience
+Skills
+Qualifications
+Certifications
+Availability
+Evidence from Candidate Passport
+Evidence from CV
+
+AI should provide:
+
+Match Score
+Reasons
+Strengths
+Missing Requirements
+Missing Evidence
+Questions to Verify
+
+AI must NOT make final hiring decisions.
+
+Never automatically reject candidates solely because of an AI score.
+
+==================================================
+17. EMPLOYER CANDIDATE VIEW
+===========================
+
+Prepare candidate cards to support:
+
+Candidate Name
+Current Position
+Total Experience
+Resort Experience
+Maldives Experience
+Availability
+Hospitality Passport
+AI Match Score
+The Jobs MV Reviewed status
+
+Example:
+
+Ahmed Ali
+Bartender
+
+6 Years Hospitality
+5 Years Resort
+3 Years Maldives
+
+Available: 30 Days
+
+AI Match: 87%
+
+[View Hospitality Passport]
+[View Match]
+[Shortlist]
+
+Do not display fake scores.
+
+If AI screening is not active yet, hide the AI score instead of generating demo numbers in production.
+
+==================================================
+18. DESKTOP IMPROVEMENTS
+========================
+
+The existing desktop visual design is good.
+
+Do NOT redesign it.
+
+Improve:
+
+* Excessive vertical white space
+* Sections that look like enlarged mobile cards
+* Content alignment
+* Maximum content width
+* Information hierarchy
+* Consistent card heights
+* Section spacing
+
+Use desktop space efficiently.
+
+Latest Opportunities can remain a 2-column layout.
+
+Product benefit cards can use 3 columns.
+
+Employer service cards can remain 2 columns.
+
+Hospitality Passport can use a balanced 2-column desktop layout.
+
+Do not stretch paragraphs across extremely wide areas.
+
+==================================================
+19. MOBILE
+==========
+
+Do not damage the existing mobile design while improving desktop.
+
+Test:
+
+375px
+390px
+430px
+768px
+1024px
+1440px
+
+No horizontal scrolling.
+
+Keep touch targets large enough.
+
+Keep cards readable.
+
+Reduce excessive mobile vertical spacing where possible.
+
+==================================================
+20. DO NOT BUILD THESE YET
+==========================
+
+Do NOT add:
+
+Native iOS app
+Native Android app
+Complex subscription billing
+Full work permit processing
+Public passport database
+Generic AI CV generator
+Automated candidate rejection
+Complex employer rating system
+
+Keep focus on the recruitment workflow.
+
+==================================================
+21. PRODUCT PRIORITY
+====================
+
+The core The Jobs MV workflow should become:
+
+VACANCY
+
+↓
+
+STRUCTURED EMPLOYMENT OFFER
+
+↓
+
+CANDIDATE HOSPITALITY PASSPORT
+
+↓
+
+APPLICATION
+
+↓
+
+AI-ASSISTED MATCHING
+
+↓
+
+HUMAN REVIEW
+
+↓
+
+SHORTLIST
+
+↓
+
+INTERVIEW
+
+↓
+
+OFFER / NOT SELECTED
+
+↓
+
+HIRE
+
+Build around this workflow.
+
+==================================================
+22. IMPORTANT DEVELOPMENT RULE
+==============================
+
+Before changing code:
+
+Audit the existing components, routes, database and functionality.
+
+Reuse existing components whenever possible.
+
+Do NOT create duplicate versions of:
+
+Homepage
+Job cards
+Employer page
+Candidate profiles
+Navigation
+Job posting forms
+
+Modify existing components instead.
+
+Preserve existing data.
+
+Use safe database migrations for any new fields.
+
+==================================================
+23. FINAL QA
+============
+
+After implementation test:
+
+Homepage
+Find Jobs
+Job Detail
+Hospitality Passport
+Companies
+For Employers
+Request Candidates
+Post Vacancy
+Candidate application
+Employer dashboard
+Mobile navigation
+Desktop navigation
+
+Confirm:
+
+No broken routes
+No fake claims
+No fake data
+No duplicate pages
+No horizontal mobile scrolling
+No broken desktop layouts
+All CTAs route correctly
+Expired jobs are handled correctly
+Verification badges only appear when verified
+
+FINAL BUSINESS POSITIONING:
+
+The Jobs MV should NOT feel like another website that simply collects Maldives job advertisements.
+
+It should feel like a hospitality hiring platform built around:
+
+TRUST
+TRANSPARENCY
+STRUCTURED CANDIDATE INFORMATION
+BETTER MATCHING
+APPLICATION CLOSURE
+INTERVIEW-READY SHORTLISTS
+
+Do not compete on the number of vacancies.
+
+Build the platform around the quality of the recruitment process and the quality of the shortlist.

@@ -1,0 +1,1069 @@
+REDESIGN THE JOBS MV VISUAL STYLE
+
+I want to redesign the visual appearance of The Jobs MV public website.
+
+IMPORTANT:
+
+This is primarily a VISUAL DESIGN / UI redesign.
+
+DO NOT:
+- Rewrite our approved wording
+- Change our mission or vision
+- Change our brand purpose
+- Change existing page functionality
+- Change database logic
+- Change authentication
+- Change job data
+- Change employer workflows
+- Change candidate workflows
+- Remove working features
+- Create duplicate pages
+- Rebuild the application from scratch
+
+Keep the existing content, sections, routes, CTAs and functionality unless a layout adjustment is necessary for the new design.
+
+The reference design I provided is ONLY STYLE INSPIRATION.
+
+DO NOT copy it exactly.
+
+Do not reproduce its exact layout, graphics, typography combinations, decorative elements or content.
+
+Instead, extract the visual principles:
+
+Premium
+Editorial
+Modern
+Warm
+Elegant
+Hospitality-focused
+Maldives-inspired
+Image-rich
+Spacious
+Professional
+
+Then reinterpret those principles specifically for:
+
+THE JOBS MV
+Maldives Hospitality Recruitment
+
+The finished website must look like an original The Jobs MV brand.
+
+==================================================
+1. OVERALL DESIGN DIRECTION
+==================================================
+
+Move away from the current generic corporate/job-board appearance.
+
+Create a premium Maldives hospitality recruitment identity.
+
+The website should visually feel like the intersection of:
+
+Luxury Maldives hospitality
++
+Modern recruitment technology
++
+Professional career platform
+
+It should NOT look like:
+
+A generic job board
+A government portal
+A SaaS template
+A recruitment agency template
+A resort booking website
+
+It should feel uniquely:
+
+THE JOBS MV.
+
+==================================================
+2. COLOR SYSTEM
+==================================================
+
+Use the existing The Jobs MV identity as the foundation.
+
+Primary:
+
+Deep Navy
+
+Use for:
+- Headlines
+- Navigation
+- Footer
+- Important text
+- Dark sections
+- Primary interface elements
+
+Secondary background:
+
+Warm Off-White / Ivory
+
+Use instead of pure white across large public sections.
+
+Use very subtle variations of:
+- Warm ivory
+- Soft cream
+- Very light warm grey
+
+Accent:
+
+Warm Gold / Maldives Sunset Yellow
+
+Use carefully for:
+- Primary CTA
+- Small decorative lines
+- Highlighted words
+- Icons
+- Active states
+- Section labels
+- Small visual details
+
+DO NOT make the entire website yellow.
+
+Gold should feel premium because it is used selectively.
+
+Use Maldives turquoise/sea blue only as a subtle supporting accent where appropriate.
+
+==================================================
+3. TYPOGRAPHY
+==================================================
+
+Create stronger editorial typography.
+
+Main UI/navigation/body:
+
+Use a clean, highly readable modern sans-serif.
+
+Main headlines:
+
+Use strong modern typography with excellent visual hierarchy.
+
+For selected emotional words or brand statements, introduce an elegant editorial serif or italic style.
+
+Example visual treatment:
+
+Great talent.
+Great opportunities.
+[important phrase in elegant editorial typography]
+
+Do NOT make every heading serif.
+
+Use editorial typography selectively.
+
+Typography should feel:
+
+Premium
+Confident
+Human
+Hospitality-focused
+
+Not corporate and mechanical.
+
+Maintain excellent mobile readability.
+
+==================================================
+4. PHOTOGRAPHY
+==================================================
+
+Photography is now an important part of the brand.
+
+Use high-quality Maldives hospitality imagery.
+
+Prioritize:
+
+Aerial Maldives resorts
+Turquoise lagoons
+Blue skies
+Green tropical islands
+Overwater villas
+Hospitality professionals
+Restaurant/service environments
+Resort operations
+Authentic hospitality career environments
+
+The homepage hero should use the new high-quality aerial Maldives resort image provided/generated for the project if it is available in the existing assets.
+
+Do not use low-quality or heavily compressed images.
+
+Avoid generic corporate office stock photography.
+
+The website should visually communicate:
+
+"This is hospitality in the Maldives."
+
+==================================================
+5. IMAGE TREATMENT
+==================================================
+
+Do not simply place every image inside rectangular cards.
+
+Use more editorial image treatment.
+
+Examples:
+
+Large curved image containers
+Soft asymmetric corners
+Organic shapes
+Rounded editorial crops
+Image/text overlap where appropriate
+Subtle decorative botanical/tropical shapes
+
+Keep these effects restrained.
+
+The website must remain professional.
+
+Do not make the design overly feminine, decorative or lifestyle-blog-like.
+
+This is a professional hospitality recruitment platform.
+
+==================================================
+6. WHITE SPACE
+==================================================
+
+Increase breathing room.
+
+Use:
+
+Larger section spacing
+Better content width
+More space around headlines
+Better spacing between cards
+Cleaner alignment
+
+Avoid filling every available area with UI cards.
+
+Premium design requires space.
+
+==================================================
+7. HEADER / NAVIGATION
+==================================================
+
+Redesign the public navigation to match the premium style.
+
+Keep existing approved navigation items and functionality.
+
+Use:
+
+Clean white/off-white header
+The Jobs MV logo
+Generous horizontal spacing
+Simple navigation
+Clear primary CTA
+
+Desktop navigation should feel lightweight and premium.
+
+Mobile:
+
+Use a clean hamburger/menu experience.
+
+Do not overcrowd the header.
+
+==================================================
+8. HOMEPAGE HERO
+==================================================
+
+Completely redesign the visual presentation of the hero.
+
+KEEP THE CURRENT APPROVED THE JOBS MV WORDING.
+
+Do not replace our copy with the reference website's wording.
+
+Use the Maldives aerial resort image prominently.
+
+Create a balanced editorial composition.
+
+Possible structure:
+
+LEFT:
+
+Small uppercase category label
+
+Existing The Jobs MV headline
+
+Existing supporting text
+
+Primary CTA
+
+Secondary CTA
+
+
+RIGHT / BACKGROUND:
+
+Large Maldives aerial resort image
+
+Use a premium curved/organic image boundary rather than a basic rectangular image where it improves the composition.
+
+Allow the image to feel immersive.
+
+The hero should immediately communicate:
+
+Maldives
+Hospitality
+Careers
+Recruitment
+
+Do not cover the entire image with a heavy dark overlay like the old design unless needed for readability.
+
+The new design should feel brighter.
+
+Blue sky, turquoise sea and island greenery should remain visible.
+
+==================================================
+9. EXISTING HOMEPAGE SECTIONS
+==================================================
+
+IMPORTANT:
+
+Redesign ALL existing homepage sections so the entire page follows the new design language.
+
+Do NOT redesign only the hero.
+
+Every section should feel like part of the same visual system.
+
+KEEP THE EXISTING APPROVED CONTENT.
+
+Reinterpret the layout.
+
+==================================================
+10. LATEST OPPORTUNITIES
+==================================================
+
+Keep Latest Opportunities high on the homepage.
+
+This is a recruitment platform, so jobs must remain easy to reach.
+
+Redesign job cards.
+
+Make them:
+
+Cleaner
+More premium
+More scannable
+Less like generic SaaS cards
+
+Continue showing real job information only.
+
+Possible information:
+
+Job Title
+Employer
+Location
+Department
+Posted Date
+Closing Date
+Important package information when available
+Verified status where genuinely verified
+
+CTA:
+
+View Opportunity
+
+Do not invent employer logos, salaries, benefits, verification or job information.
+
+==================================================
+11. HOSPITALITY PASSPORT HOMEPAGE SECTION
+==================================================
+
+Keep the existing Hospitality Passport wording and purpose.
+
+Redesign it as an editorial feature section.
+
+Use:
+
+Image + text composition
+
+Large heading
+
+Short explanation
+
+Small feature indicators
+
+Strong CTA
+
+Possible supporting visual:
+
+Hospitality professional in a Maldives resort environment
+
+The section should make Hospitality Passport feel like an important signature product, not just another card.
+
+==================================================
+12. EMPLOYER SECTION
+==================================================
+
+Keep the approved message:
+
+Great talent should never be lost to a slow hiring process.
+
+Make this one of the strongest visual sections on the homepage.
+
+Use an editorial split layout.
+
+Clearly communicate the two employer choices:
+
+POST A VACANCY
+
+and
+
+REQUEST CANDIDATES
+
+Keep our existing approved descriptions.
+
+Do not rewrite the business model.
+
+Visually explain managed recruitment simply:
+
+Tell Us Who You Need
+
+→
+
+We Screen & Review
+
+→
+
+You Interview & Hire
+
+Use elegant icons and simple visual progression.
+
+Do not make this section look like a complicated workflow diagram.
+
+==================================================
+13. THE JOBS MV REVIEWED
+==================================================
+
+Keep the existing The Jobs MV Reviewed concept.
+
+Visually redesign it.
+
+Use:
+
+Small premium label
+
+THE JOBS MV REVIEWED
+
+Then the existing approved explanation.
+
+Process:
+
+Vacancy
+Applications
+Screening
+Expert Review
+Interview-Ready Shortlist
+Employer Interview
+
+Present this with elegant minimal icons or steps.
+
+Avoid excessive boxes.
+
+==================================================
+14. TRUST / PLATFORM BENEFITS
+==================================================
+
+Existing benefits such as:
+
+Verified & Fresh Jobs
+
+Hospitality Focus
+
+Faster Connections
+
+Application Tracking
+
+Expert Review
+
+Clearer Offers
+
+can use a compact premium benefit strip or editorial feature grid.
+
+Do not repeat the same message multiple times across the homepage.
+
+Avoid unnecessary card overload.
+
+==================================================
+15. MISSION / PURPOSE
+==================================================
+
+Where existing mission/value content appears, preserve the approved wording.
+
+Use typography and whitespace to make these statements emotionally strong.
+
+Important existing statements include:
+
+Great talent should never be lost to a slow hiring process.
+
+and:
+
+Right Talent.
+Right Opportunity.
+Right Time.
+
+Do not change these statements.
+
+==================================================
+16. FINAL CTA
+==================================================
+
+Create a strong final section before the footer.
+
+Use deep navy background.
+
+Use existing brand purpose prominently:
+
+Right Talent. Right Opportunity. Right Time.
+
+Use restrained gold accents.
+
+Provide appropriate existing candidate/employer CTA(s).
+
+This should feel like a strong brand conclusion.
+
+==================================================
+17. FOOTER
+==================================================
+
+Redesign the footer to match the premium visual identity.
+
+Use deep navy.
+
+Keep existing legitimate links.
+
+Organize clearly:
+
+Candidates
+
+Employers
+
+The Jobs MV
+
+Support / Legal
+
+Social links where actually available
+
+Do not invent social accounts or contact information.
+
+==================================================
+18. FIND JOBS PAGE
+==================================================
+
+Apply the new brand style to Find Jobs.
+
+However:
+
+Keep this page functional and easy to scan.
+
+Do NOT make the job search page overly editorial.
+
+Use:
+
+Premium header
+Warm background
+Strong search area
+Clean filters
+Modern job cards
+Consistent typography
+Navy/gold accents
+
+Functionality remains the priority.
+
+==================================================
+19. JOB DETAIL PAGE
+==================================================
+
+Apply the same visual system.
+
+Use stronger visual hierarchy for:
+
+Job title
+Employer
+Location
+Verification
+Employment package
+Requirements
+Benefits
+Closing date
+Apply CTA
+
+Do not hide important job information for the sake of design.
+
+==================================================
+20. COMPANIES PAGE
+==================================================
+
+Apply the premium brand style.
+
+Use cleaner company cards/profiles.
+
+Where actual employer imagery/logo exists, display it appropriately.
+
+Do not invent company logos or resort images.
+
+==================================================
+21. FOR EMPLOYERS PAGE
+==================================================
+
+This page can use the full premium editorial style.
+
+Use:
+
+Maldives hospitality imagery
+Strong typography
+Large whitespace
+Elegant process sections
+
+Keep existing approved employer messaging.
+
+Clearly explain:
+
+POST A VACANCY
+
+versus
+
+REQUEST CANDIDATES
+
+Do not rewrite the existing recruitment model.
+
+==================================================
+22. ABOUT PAGE
+==================================================
+
+Make About feel like a brand/story page.
+
+Use:
+
+Editorial typography
+Maldives hospitality imagery
+Mission
+Vision
+Values
+Purpose
+
+Keep the approved wording.
+
+Do not invent company history, numbers, partnerships or achievements.
+
+==================================================
+23. LOGIN / SIGN UP
+==================================================
+
+Apply the new visual identity.
+
+Keep authentication simple.
+
+Use:
+
+Warm off-white
+Navy
+Gold accent
+Clean form
+Optional Maldives visual panel
+
+Do not sacrifice usability.
+
+==================================================
+24. HOSPITALITY PASSPORT APP EXPERIENCE
+==================================================
+
+IMPORTANT:
+
+Do NOT turn the actual Hospitality Passport editing interface into a decorative editorial page.
+
+It is a working tool.
+
+Instead, inherit:
+
+Brand colors
+Typography
+Buttons
+Cards
+Spacing
+Borders
+Premium polish
+
+But maintain a clean, highly functional UI.
+
+The CV-first Passport workflow must remain unchanged.
+
+==================================================
+25. EMPLOYER WORKSPACE
+==================================================
+
+Do NOT convert Employer Workspace into the full editorial homepage style.
+
+Employer Workspace is professional recruitment software.
+
+Keep it:
+
+Clean
+Fast
+Structured
+Functional
+
+But update the visual system so it clearly belongs to the same brand:
+
+Better typography
+Warm background
+Improved navy sidebar
+Gold accent where appropriate
+Better cards
+Better status badges
+Better spacing
+Consistent icons
+
+Do not change Employer Workspace functionality as part of this visual redesign.
+
+==================================================
+26. ADMIN CONSOLE
+==================================================
+
+Admin Console should prioritize efficiency.
+
+Do not add decorative resort photography throughout Admin.
+
+Only update:
+
+Brand consistency
+Typography
+Spacing
+Navigation polish
+Cards
+Tables
+Status indicators
+Buttons
+
+Admin must remain highly functional.
+
+==================================================
+27. RESPONSIVE DESIGN
+==================================================
+
+The new style must work beautifully on mobile.
+
+Do not simply shrink the desktop design.
+
+For mobile:
+
+Stack editorial layouts
+
+Reposition images
+
+Reduce decorative elements
+
+Keep headlines readable
+
+Use full-width CTAs where appropriate
+
+Keep job cards easy to scan
+
+Maintain clear navigation
+
+Avoid horizontal overflow
+
+Keep important information above the fold
+
+Test:
+
+375px
+390px
+430px
+Tablet
+Desktop
+Large desktop
+
+==================================================
+28. ANIMATION
+==================================================
+
+Use subtle premium interactions only.
+
+Examples:
+
+Gentle fade/slide on scroll
+Small image zoom on hover
+Button arrow movement
+Card lift
+Smooth navigation transitions
+
+Avoid:
+
+Heavy animation
+Parallax overload
+Slow transitions
+Distracting effects
+
+Performance is more important than animation.
+
+==================================================
+29. PERFORMANCE
+==================================================
+
+Because this redesign uses larger photography:
+
+Optimize all images.
+
+Use:
+
+Responsive image sizes
+Lazy loading
+Modern image formats where supported
+Correct compression
+Proper dimensions
+
+Do not load full-resolution hero assets unnecessarily on mobile.
+
+Maintain fast page load.
+
+==================================================
+30. ACCESSIBILITY
+==================================================
+
+Maintain strong contrast.
+
+Gold text must remain readable.
+
+Do not use very thin fonts for important information.
+
+Buttons must have clear hover/focus states.
+
+Images need meaningful alt text where appropriate.
+
+Navigation must remain keyboard accessible.
+
+==================================================
+31. DO NOT CREATE FAKE SOCIAL PROOF
+==================================================
+
+VERY IMPORTANT.
+
+Do not create fake:
+
+Testimonials
+
+Candidate profile photos
+
+Employer avatars
+
+"Trusted by X employers"
+
+"Used by leading resorts"
+
+Placement numbers
+
+Candidate counts
+
+Success rates
+
+Employer logos
+
+Reviews
+
+Ratings
+
+Partnership claims
+
+If real data is not available, omit these elements.
+
+Use brand/value messaging instead.
+
+==================================================
+32. DESIGN CONSISTENCY
+==================================================
+
+Create reusable design tokens/components.
+
+Define consistent:
+
+Colors
+
+Typography
+
+Spacing
+
+Border radius
+
+Shadows
+
+Buttons
+
+Section labels
+
+Cards
+
+Forms
+
+Status badges
+
+Image treatments
+
+Icons
+
+Container widths
+
+Do not manually style every page differently.
+
+The entire platform should clearly belong to The Jobs MV.
+
+==================================================
+33. DESIGN PRINCIPLE
+==================================================
+
+Use the reference design for its FEELING, not its exact appearance.
+
+Take inspiration from:
+
+Editorial composition
+
+Elegant typography
+
+Warm backgrounds
+
+Premium whitespace
+
+Large photography
+
+Organic image shapes
+
+Luxury hospitality presentation
+
+Minimal cards
+
+Strong visual hierarchy
+
+
+But create an ORIGINAL design specifically for:
+
+THE JOBS MV.
+
+Do not make The Jobs MV look like a web designer portfolio or resort booking website.
+
+It is a:
+
+MALDIVES HOSPITALITY CAREER & RECRUITMENT PLATFORM.
+
+==================================================
+34. BEFORE IMPLEMENTATION
+==================================================
+
+First audit:
+
+Current homepage
+
+Existing sections
+
+Existing wording
+
+Existing reusable components
+
+Current navigation
+
+Find Jobs
+
+Job Details
+
+Hospitality Passport
+
+For Employers
+
+Employer Workspace
+
+Admin Console
+
+Responsive behavior
+
+
+Identify what can be restyled without rebuilding functionality.
+
+Then create the shared visual system.
+
+Then update the public website.
+
+Then apply appropriate brand consistency to functional workspaces.
+
+==================================================
+35. FINAL QA
+==================================================
+
+After redesign:
+
+Verify all original working functionality still works.
+
+Check:
+
+Find Jobs
+
+Search
+
+Filters
+
+Job Detail
+
+Apply
+
+Hospitality Passport
+
+Login
+
+Signup
+
+Employer Workspace
+
+Post Vacancy
+
+Request Candidates
+
+Applications
+
+Admin Console
+
+Navigation
+
+Mobile menu
+
+Links
+
+Forms
+
+
+Ensure:
+
+No lost wording
+
+No fake content
+
+No duplicate sections
+
+No broken routes
+
+No broken buttons
+
+No data changes
+
+No authentication changes
+
+No database regression
+
+No mobile overflow
+
+No unreadable typography
+
+
+FINAL VISUAL GOAL:
+
+When someone opens The Jobs MV, they should immediately feel:
+
+MALDIVES.
+
+HOSPITALITY.
+
+OPPORTUNITY.
+
+PROFESSIONALISM.
+
+The public website should feel premium and memorable.
+
+The functional areas should feel modern and efficient.
+
+Everything should still feel like ONE The Jobs MV brand.
+
+Keep our existing message.
+
+Change how beautifully we present it.

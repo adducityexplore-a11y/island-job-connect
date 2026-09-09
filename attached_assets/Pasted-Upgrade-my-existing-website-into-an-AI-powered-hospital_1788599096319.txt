@@ -1,0 +1,475 @@
+Upgrade my existing website into an AI-powered hospitality recruitment platform for the Maldives.
+
+The platform name is The Jobs MV.
+
+Main niche:
+Maldives hospitality recruitment only.
+
+Main customers:
+
+* Resorts
+* Hotels
+* Guesthouses
+* Restaurants
+* Hospitality recruitment agencies
+
+Main goal:
+Make recruitment faster by using AI to handle repetitive work such as vacancy creation, CV screening, candidate scoring, shortlisting, interview preparation, and candidate communication.
+
+IMPORTANT:
+Do not redesign the entire existing website from scratch. Keep the existing public job website and add a professional Recruiter / HR section.
+
+Create the following system:
+
+1. RECRUITER / HR LOGIN
+
+Create a separate recruiter dashboard.
+
+Recruiters should be able to:
+
+* Create company profile
+* Add company logo
+* Add company description
+* Add HR contact details
+* Post vacancies
+* View all vacancies
+* View applicants
+* View shortlisted candidates
+* Change job status
+* Close vacancies
+* Search candidate database
+
+Dashboard should be mobile-friendly and very easy to use.
+
+2. AI JOB CREATION
+
+Add a feature called:
+
+"Create Job with AI"
+
+Recruiter can enter simple information such as:
+
+Position:
+Bartender
+
+Quantity:
+3
+
+Experience:
+Minimum 2 years
+
+Requirements:
+Maldives resort experience preferred, cocktail knowledge, English communication
+
+Salary:
+USD 650 + Service Charge
+
+AI should automatically create:
+
+* Professional job title
+* Full job description
+* Responsibilities
+* Requirements
+* Experience requirements
+* Skills
+* Benefits section
+* Short social media vacancy caption
+
+Recruiter must be able to edit everything before publishing.
+
+3. AI CV SCREENING
+
+When candidates apply and upload CVs, automatically extract information from the CV.
+
+Extract:
+
+* Candidate name
+* Nationality
+* Current location
+* Phone number
+* Email
+* Current position
+* Previous positions
+* Total years of experience
+* Maldives experience
+* Resort experience
+* Education
+* Certifications
+* Languages
+* Skills
+* Current employer
+* Availability
+* Notice period
+
+Do not automatically reject candidates.
+
+AI should only assist the recruiter.
+
+4. CANDIDATE MATCH SCORE
+
+Compare each candidate against the vacancy requirements.
+
+Show a match score from 0 to 100%.
+
+Example:
+
+Overall Match: 89%
+
+Experience: 95%
+Maldives Experience: Yes
+Resort Experience: Strong
+Required Skills: 90%
+Qualification: 80%
+Language: Good
+Availability: Immediate
+
+Also show:
+
+Strengths
+Potential concerns
+Missing requirements
+
+Clearly show why the AI gave the score.
+
+5. AI SHORTLIST
+
+Add button:
+
+"Generate AI Shortlist"
+
+Allow recruiter to choose:
+
+Top 5
+Top 10
+Top 20
+
+AI should rank the strongest candidates based on vacancy requirements.
+
+Show candidates as cards.
+
+Candidate card should display:
+
+Photo if available
+Name
+Current position
+Experience
+Nationality
+Maldives experience
+Availability
+AI Match Score
+
+Buttons:
+
+View Profile
+View CV
+Shortlist
+Reject
+Contact
+
+6. CANDIDATE PROFILE
+
+Create a clean candidate profile page.
+
+Sections:
+
+Personal Information
+Professional Summary
+Work Experience
+Education
+Certifications
+Languages
+Skills
+Maldives Experience
+Availability
+Uploaded CV
+AI Assessment
+
+7. AI CANDIDATE SUMMARY
+
+For every applicant automatically generate a short recruiter summary.
+
+Example:
+
+"Ahmed is a bartender with 5 years of hospitality experience, including 3 years in Maldives resorts. He has strong cocktail knowledge, POS experience and guest-facing experience. He meets most requirements for this vacancy and is available within 30 days."
+
+8. AI INTERVIEW QUESTIONS
+
+Add button:
+
+"Generate Interview Questions"
+
+Generate questions specifically for the vacancy and candidate.
+
+Include:
+
+Technical questions
+Experience questions
+Behavioral questions
+Leadership questions if applicable
+Maldives resort-related questions
+Candidate-specific questions based on their CV
+
+9. RECRUITER SEARCH
+
+Create a candidate search tool.
+
+Recruiter should be able to search using natural language.
+
+Example:
+
+"Find me 5 Maldivian waiters with resort experience who are available immediately."
+
+AI should understand the request and filter the candidate database.
+
+Also provide normal filters:
+
+Position
+Nationality
+Experience
+Maldives Experience
+Current Location
+Availability
+Skills
+
+10. APPLICATION STATUS
+
+Use these stages:
+
+New Applicant
+AI Reviewed
+Shortlisted
+Interview
+Selected
+Rejected
+Hired
+
+Show the status clearly on recruiter dashboard.
+
+11. RECRUITMENT PIPELINE
+
+Create a visual recruitment pipeline.
+
+Example:
+
+New Applicants: 64
+AI Reviewed: 64
+Shortlisted: 12
+Interview: 6
+Selected: 2
+Hired: 1
+
+Recruiter can click each stage to view candidates.
+
+12. AI COMMUNICATION ASSISTANT
+
+Add buttons to generate:
+
+Interview invitation
+Shortlist message
+Additional information request
+Rejection message
+Offer follow-up
+WhatsApp message
+Email message
+
+Recruiter must review the message before sending.
+
+Do not automatically send any communication.
+
+13. COMPANY DASHBOARD
+
+Top dashboard should show:
+
+Active Jobs
+Total Applicants
+New Applicants
+Shortlisted
+Interviewing
+Hired
+
+Also show:
+
+Recent vacancies
+Recent applicants
+Best matching applicants
+Recruitment activity
+
+14. JOB PERFORMANCE
+
+For each vacancy show:
+
+Views
+Applications
+Qualified applicants
+Shortlisted
+Interviewed
+Hired
+Days since posted
+
+15. CANDIDATE DATABASE
+
+Create a central candidate talent pool.
+
+Recruiters should only have access according to permissions.
+
+Admin should have full database access.
+
+Prevent recruiters from accessing private candidate information unless allowed.
+
+16. ADMIN DASHBOARD
+
+Create admin dashboard for The Jobs MV.
+
+Admin can manage:
+
+Companies
+Recruiters
+Candidates
+Jobs
+Applications
+AI usage
+Reports
+Subscriptions
+Featured jobs
+Candidate database
+
+Admin should also see:
+
+Total registered candidates
+Total companies
+Active jobs
+Applications this month
+Most requested positions
+Most active companies
+
+17. BUSINESS MODEL / SUBSCRIPTIONS
+
+Prepare the system for different recruiter plans.
+
+Free:
+Limited job posting.
+
+Starter:
+Job posting + applicant management.
+
+AI Recruiter:
+AI CV screening
+AI scoring
+AI shortlist
+AI interview questions
+
+Premium:
+Candidate database search
+Multiple recruiters
+More vacancies
+Advanced analytics
+
+Do not add payment gateway yet.
+
+Create the subscription structure so payment can be added later.
+
+18. CANDIDATE SIDE
+
+Keep candidate experience simple.
+
+Candidate should be able to:
+
+Create profile
+Upload CV
+Apply for jobs
+Save jobs
+View applications
+Update availability
+Update work experience
+
+Make the profile reusable so they do not need to upload the same information for every job.
+
+19. MOBILE FIRST
+
+This is extremely important.
+
+Most users in Maldives will use mobile phones.
+
+Recruiter dashboard and candidate website must work perfectly on mobile.
+
+Use:
+Large buttons
+Simple navigation
+Readable cards
+Minimal tables on mobile
+Bottom navigation where appropriate
+Fast page loading
+
+20. DESIGN
+
+Use a modern professional recruitment platform design.
+
+Style:
+Clean
+Minimal
+Professional
+Hospitality-focused
+Trustworthy
+
+Do not make it look like a generic AI website.
+
+Keep The Jobs MV branding.
+
+21. AI SAFETY
+
+AI should assist recruitment, not make final hiring decisions.
+
+Always allow the recruiter to manually override:
+
+* AI score
+* Shortlist
+* Candidate status
+
+Display:
+
+"AI recommendations are provided to assist recruiters. Final hiring decisions should be made by the employer."
+
+Do not make automatic rejection decisions based on nationality, gender, age, race, religion or other protected personal characteristics.
+
+22. DEVELOPMENT APPROACH
+
+Build this in phases without breaking the existing website.
+
+Phase 1:
+Recruiter dashboard
+Job posting
+Applications
+Candidate profiles
+Application statuses
+
+Phase 2:
+AI CV parsing
+AI candidate summaries
+AI match scores
+
+Phase 3:
+AI shortlist
+AI interview questions
+Candidate search
+
+Phase 4:
+Subscriptions
+Analytics
+Communication assistant
+
+Start by reviewing the current project structure and database.
+
+Reuse existing components wherever possible.
+
+Do not delete existing jobs, users or functionality.
+
+Make database migrations safely.
+
+Before making major changes, identify:
+
+* Current authentication system
+* Current database tables
+* Current job posting system
+* Current candidate application system
+
+Then implement Phase 1 first.
