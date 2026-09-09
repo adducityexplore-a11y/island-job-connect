@@ -58,7 +58,7 @@ function RootLayoutNav() {
         name="job/[id]"
         options={{
           title: "Job Details",
-          headerStyle: { backgroundColor: "#0077B6" },
+          headerStyle: { backgroundColor: "#2A6F97" },
           headerTintColor: "#ffffff",
           headerTitleStyle: { fontFamily: "Inter_600SemiBold" },
         }}
@@ -93,7 +93,7 @@ export default function RootLayout() {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0077B6" />
+        <meta name="theme-color" content="#2A6F97" />
         <meta name="robots" content="index, follow" />
         <meta property="og:site_name" content="The Jobs MV" />
         <meta property="og:type" content="website" />

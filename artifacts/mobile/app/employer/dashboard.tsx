@@ -23,7 +23,7 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 
 const TYPE_COLORS: Record<string, string> = {
-  Featured: "#0077B6",
+  Featured: "#2A6F97",
   Urgent: "#DC2626",
   Normal: "#6B7280",
 };
@@ -220,7 +220,7 @@ export default function EmployerDashboardScreen() {
               {employer?.logoUrl ? (
                 <Image source={{ uri: employer.logoUrl }} style={styles.logoImg} resizeMode="cover" />
               ) : (
-                <Ionicons name="business" size={26} color="#0077B6" />
+                <Ionicons name="business" size={26} color="#2A6F97" />
               )}
               <View style={styles.logoEditBadge}>
                 <Ionicons name="camera" size={10} color="#fff" />
@@ -234,10 +234,10 @@ export default function EmployerDashboardScreen() {
         </View>
         <View style={styles.headerRight}>
           <TouchableOpacity onPress={() => router.replace("/")} style={styles.homeBtn}>
-            <Ionicons name="home-outline" size={20} color="#0077B6" />
+            <Ionicons name="home-outline" size={20} color="#2A6F97" />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleLogout} style={styles.logoutBtn}>
-            <Ionicons name="log-out-outline" size={20} color="#0077B6" />
+            <Ionicons name="log-out-outline" size={20} color="#2A6F97" />
           </TouchableOpacity>
         </View>
       </View>
@@ -263,7 +263,7 @@ export default function EmployerDashboardScreen() {
           <Text style={styles.postBtnText}>Create New Vacancy</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.applicantsBtn} onPress={() => router.push("/employer/applications")}>
-          <Ionicons name="people" size={18} color="#0077B6" />
+          <Ionicons name="people" size={18} color="#2A6F97" />
           <Text style={styles.applicantsBtnText}>Applicants</Text>
         </TouchableOpacity>
         {expiredCount > 0 && (
@@ -298,7 +298,7 @@ export default function EmployerDashboardScreen() {
             style={styles.applicantCard}
             onPress={() => router.push(`/employer/application/${application.id}` as any)}
           >
-            <View style={styles.applicantIcon}><Ionicons name="person" size={18} color="#0077B6" /></View>
+            <View style={styles.applicantIcon}><Ionicons name="person" size={18} color="#2A6F97" /></View>
             <View style={{ flex: 1 }}>
               <Text style={styles.applicantName}>{application.candidateName}</Text>
               <Text style={styles.applicantMeta}>{application.jobTitle || "Vacancy"} · {application.candidateHeadline || "Hospitality candidate"}</Text>
@@ -315,7 +315,7 @@ export default function EmployerDashboardScreen() {
         <Text style={styles.sectionTitle}>Your Listings</Text>
 
         {jobsLoading ? (
-          <ActivityIndicator color="#0077B6" style={{ marginTop: 40 }} />
+          <ActivityIndicator color="#2A6F97" style={{ marginTop: 40 }} />
         ) : jobs.length === 0 ? (
           <View style={styles.emptyState}>
             <Ionicons name="briefcase-outline" size={48} color="#B0C4D8" />
@@ -358,8 +358,8 @@ export default function EmployerDashboardScreen() {
                     <Text style={styles.statInlineText}>{job.viewCount ?? 0} views</Text>
                   </View>
                   <View style={styles.statInline}>
-                    <Ionicons name="paper-plane-outline" size={13} color="#0077B6" />
-                    <Text style={[styles.statInlineText, { color: "#0077B6" }]}>{job.applyCount ?? 0} applied</Text>
+                    <Ionicons name="paper-plane-outline" size={13} color="#2A6F97" />
+                    <Text style={[styles.statInlineText, { color: "#2A6F97" }]}>{job.applyCount ?? 0} applied</Text>
                   </View>
                 </View>
 
@@ -367,8 +367,8 @@ export default function EmployerDashboardScreen() {
                   {!isExpired ? (
                     <>
                       <TouchableOpacity style={styles.actionBtn} onPress={() => router.push({ pathname: "/employer/edit-job", params: { job: JSON.stringify(job) } })}>
-                        <Ionicons name="pencil" size={14} color="#0077B6" />
-                        <Text style={[styles.actionText, { color: "#0077B6" }]}>Edit</Text>
+                        <Ionicons name="pencil" size={14} color="#2A6F97" />
+                        <Text style={[styles.actionText, { color: "#2A6F97" }]}>Edit</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={styles.actionBtn} onPress={() => handleTogglePause(job)}>
                         <Ionicons name={job.status === "active" ? "pause-circle" : "play-circle"} size={14} color="#6B7280" />
@@ -381,8 +381,8 @@ export default function EmployerDashboardScreen() {
                     </>
                   ) : (
                     <TouchableOpacity style={[styles.actionBtn, { flex: 1, backgroundColor: "#EFF6FF", borderWidth: 1, borderColor: "#BFDBFE" }]} onPress={() => handleRepost(job)}>
-                      <Ionicons name="refresh-circle" size={14} color="#0077B6" />
-                      <Text style={[styles.actionText, { color: "#0077B6" }]}>Repost Job</Text>
+                      <Ionicons name="refresh-circle" size={14} color="#2A6F97" />
+                      <Text style={[styles.actionText, { color: "#2A6F97" }]}>Repost Job</Text>
                     </TouchableOpacity>
                   )}
                 </View>
@@ -433,38 +433,38 @@ export default function EmployerDashboardScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F0F7FF" },
+  container: { flex: 1, backgroundColor: "#FBF8F1" },
   header: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, paddingVertical: 14 },
   headerLeft: { flexDirection: "row", alignItems: "center" },
-  logoCircle: { width: 52, height: 52, borderRadius: 26, backgroundColor: "#E0F2FE", alignItems: "center", justifyContent: "center", overflow: "hidden", borderWidth: 2, borderColor: "#D1E9FF" },
+  logoCircle: { width: 52, height: 52, borderRadius: 26, backgroundColor: "#F3ECD9", alignItems: "center", justifyContent: "center", overflow: "hidden", borderWidth: 2, borderColor: "#E4DCC8" },
   logoImg: { width: 52, height: 52, borderRadius: 26 },
-  logoEditBadge: { position: "absolute", bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: "#0077B6", alignItems: "center", justifyContent: "center" },
+  logoEditBadge: { position: "absolute", bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: "#2A6F97", alignItems: "center", justifyContent: "center" },
   greeting: { fontSize: 12, color: "#6B7280" },
-  companyName: { fontSize: 17, fontWeight: "700", color: "#003A6B" },
+  companyName: { fontSize: 17, fontWeight: "700", color: "#1C4E6B" },
   headerRight: { flexDirection: "row", gap: 8, alignItems: "center" },
-  homeBtn: { padding: 8, backgroundColor: "#E0F2FE", borderRadius: 10 },
-  logoutBtn: { padding: 8, backgroundColor: "#E0F2FE", borderRadius: 10 },
+  homeBtn: { padding: 8, backgroundColor: "#F3ECD9", borderRadius: 10 },
+  logoutBtn: { padding: 8, backgroundColor: "#F3ECD9", borderRadius: 10 },
   statsRow: { gap: 10, paddingHorizontal: 20, paddingBottom: 14 },
   statCard: { width: 104, backgroundColor: "#fff", borderRadius: 12, padding: 14, alignItems: "center", shadowColor: "#000", shadowOpacity: 0.04, shadowRadius: 4, elevation: 2 },
-  statNum: { fontSize: 24, fontWeight: "800", color: "#003A6B" },
+  statNum: { fontSize: 24, fontWeight: "800", color: "#1C4E6B" },
   statLabel: { fontSize: 11, color: "#6B7280", marginTop: 2 },
   actionRow: { flexDirection: "row", gap: 10, paddingHorizontal: 20, marginBottom: 16 },
-  postBtn: { flex: 1, flexDirection: "row", alignItems: "center", gap: 8, backgroundColor: "#0077B6", borderRadius: 12, padding: 13, justifyContent: "center" },
+  postBtn: { flex: 1, flexDirection: "row", alignItems: "center", gap: 8, backgroundColor: "#2A6F97", borderRadius: 12, padding: 13, justifyContent: "center" },
   postBtnText: { color: "#fff", fontWeight: "700", fontSize: 14 },
   cleanupBtn: { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: "#FEF2F2", borderRadius: 12, paddingHorizontal: 14, paddingVertical: 13, borderWidth: 1, borderColor: "#FECACA" },
   cleanupBtnText: { color: "#DC2626", fontWeight: "700", fontSize: 14 },
-  applicantsBtn: { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: "#fff", borderRadius: 12, paddingHorizontal: 14, paddingVertical: 13, borderWidth: 1, borderColor: "#D1E9FF" },
-  applicantsBtnText: { color: "#0077B6", fontWeight: "700", fontSize: 14 },
+  applicantsBtn: { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: "#fff", borderRadius: 12, paddingHorizontal: 14, paddingVertical: 13, borderWidth: 1, borderColor: "#E4DCC8" },
+  applicantsBtnText: { color: "#2A6F97", fontWeight: "700", fontSize: 14 },
   list: { flex: 1, paddingHorizontal: 20 },
-  sectionTitle: { fontSize: 16, fontWeight: "700", color: "#003A6B", marginBottom: 12 },
+  sectionTitle: { fontSize: 16, fontWeight: "700", color: "#1C4E6B", marginBottom: 12 },
   sectionHeadingRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
-  seeAll: { color: "#0077B6", fontSize: 13, fontWeight: "700", marginBottom: 12 },
-  applicantCard: { flexDirection: "row", alignItems: "center", gap: 10, backgroundColor: "#fff", borderRadius: 12, padding: 12, marginBottom: 8, borderWidth: 1, borderColor: "#E2E8F0" },
-  applicantIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: "#E0F2FE", alignItems: "center", justifyContent: "center" },
-  applicantName: { fontSize: 14, fontWeight: "700", color: "#0F172A" },
-  applicantMeta: { fontSize: 11, color: "#64748B", marginTop: 2 },
-  applicantStatus: { fontSize: 10, color: "#0077B6", fontWeight: "700", maxWidth: 72, textAlign: "right" },
-  noApplicants: { color: "#64748B", fontSize: 13, backgroundColor: "#fff", padding: 14, borderRadius: 12, marginBottom: 16 },
+  seeAll: { color: "#2A6F97", fontSize: 13, fontWeight: "700", marginBottom: 12 },
+  applicantCard: { flexDirection: "row", alignItems: "center", gap: 10, backgroundColor: "#fff", borderRadius: 12, padding: 12, marginBottom: 8, borderWidth: 1, borderColor: "#E4DCC8" },
+  applicantIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: "#F3ECD9", alignItems: "center", justifyContent: "center" },
+  applicantName: { fontSize: 14, fontWeight: "700", color: "#22303C" },
+  applicantMeta: { fontSize: 11, color: "#7A7469", marginTop: 2 },
+  applicantStatus: { fontSize: 10, color: "#2A6F97", fontWeight: "700", maxWidth: 72, textAlign: "right" },
+  noApplicants: { color: "#7A7469", fontSize: 13, backgroundColor: "#fff", padding: 14, borderRadius: 12, marginBottom: 16 },
   emptyState: { alignItems: "center", paddingTop: 48 },
   emptyText: { fontSize: 17, fontWeight: "600", color: "#6B7280", marginTop: 12 },
   emptySubText: { fontSize: 13, color: "#9CA3AF", marginTop: 4 },
@@ -486,20 +486,20 @@ const styles = StyleSheet.create({
   statsInline: { flexDirection: "row", gap: 14, marginBottom: 10 },
   statInline: { flexDirection: "row", alignItems: "center", gap: 4 },
   statInlineText: { fontSize: 12, fontWeight: "600", color: "#6B7280" },
-  jobActions: { flexDirection: "row", gap: 4, borderTopWidth: 1, borderTopColor: "#F0F7FF", paddingTop: 10 },
+  jobActions: { flexDirection: "row", gap: 4, borderTopWidth: 1, borderTopColor: "#FBF8F1", paddingTop: 10 },
   actionBtn: { flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 4, paddingVertical: 8, borderRadius: 8, backgroundColor: "#F8FAFC" },
   actionText: { fontSize: 12, fontWeight: "600", color: "#6B7280" },
   modalOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.45)", justifyContent: "flex-end" },
   modalCard: { backgroundColor: "#fff", borderTopLeftRadius: 24, borderTopRightRadius: 24, padding: 28, gap: 14 },
-  modalTitle: { fontSize: 20, fontWeight: "800", color: "#003A6B", textAlign: "center" },
+  modalTitle: { fontSize: 20, fontWeight: "800", color: "#1C4E6B", textAlign: "center" },
   modalSubtitle: { fontSize: 13, color: "#6B7280", textAlign: "center", lineHeight: 19 },
-  logoPreview: { width: "100%", height: 140, borderRadius: 14, backgroundColor: "#F0F7FF" },
+  logoPreview: { width: "100%", height: 140, borderRadius: 14, backgroundColor: "#FBF8F1" },
   logoPlaceholder: { alignItems: "center", justifyContent: "center", gap: 6 },
   logoPlaceholderText: { fontSize: 13, color: "#B0C4D8" },
-  logoInput: { borderWidth: 1, borderColor: "#D1E9FF", borderRadius: 10, padding: 13, fontSize: 14, backgroundColor: "#F8FAFC", color: "#111" },
+  logoInput: { borderWidth: 1, borderColor: "#E4DCC8", borderRadius: 10, padding: 13, fontSize: 14, backgroundColor: "#F8FAFC", color: "#111" },
   modalActions: { flexDirection: "row", gap: 10, marginTop: 4 },
-  cancelBtn: { flex: 1, padding: 14, borderRadius: 12, borderWidth: 1, borderColor: "#D1E9FF", alignItems: "center" },
+  cancelBtn: { flex: 1, padding: 14, borderRadius: 12, borderWidth: 1, borderColor: "#E4DCC8", alignItems: "center" },
   cancelBtnText: { fontSize: 15, fontWeight: "600", color: "#6B7280" },
-  saveBtn: { flex: 1, padding: 14, borderRadius: 12, backgroundColor: "#0077B6", alignItems: "center" },
+  saveBtn: { flex: 1, padding: 14, borderRadius: 12, backgroundColor: "#2A6F97", alignItems: "center" },
   saveBtnText: { fontSize: 15, fontWeight: "700", color: "#fff" },
 });

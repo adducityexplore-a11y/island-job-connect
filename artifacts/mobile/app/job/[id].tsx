@@ -383,7 +383,7 @@ export default function JobDetailScreen() {
                   { backgroundColor: "#ECFDF5", borderColor: "#A7F3D0" },
                 ]}
               >
-                <Feather name="shield" size={16} color="#10B981" />
+                <Feather name="shield" size={16} color="#2A9D8F" />
                 <View style={{ flex: 1 }}>
                   <Text style={styles.verifiedBlockTitle}>Verified Resort</Text>
                   <Text style={styles.verifiedBlockText}>
@@ -437,7 +437,7 @@ export default function JobDetailScreen() {
         {/* Apply buttons row */}
         <View style={styles.applyRow}>
           <TouchableOpacity
-            style={[styles.directApplyBtn, { backgroundColor: hasApplied ? "#10B981" : colors.primary }]}
+            style={[styles.directApplyBtn, { backgroundColor: hasApplied ? "#2A9D8F" : colors.primary }]}
             onPress={handleApplyDirect}
             activeOpacity={0.85}
             disabled={applying || hasApplied}

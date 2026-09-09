@@ -100,7 +100,7 @@ export default function EmployerRegisterScreen() {
       >
         <View style={styles.header}>
           <View style={styles.iconCircle}>
-            <Ionicons name="business" size={36} color="#0077B6" />
+            <Ionicons name="business" size={36} color="#2A6F97" />
           </View>
           <Text style={styles.title}>Finish your employer profile</Text>
           <Text style={styles.subtitle}>Your email is verified. Add the company details candidates should see with your vacancies.</Text>
@@ -150,7 +150,7 @@ export default function EmployerRegisterScreen() {
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
         <View style={[styles.container, { padding: 24, paddingTop: insets.top + 20 }]}>
           <Pressable style={styles.backBtn} onPress={() => signUp.reset()}>
-            <Ionicons name="arrow-back" size={24} color="#0077B6" />
+            <Ionicons name="arrow-back" size={24} color="#2A6F97" />
           </Pressable>
           <Text style={styles.title}>Verify your account</Text>
           <Text style={styles.subtitle}>Enter the code sent to {form.email}</Text>
@@ -197,12 +197,12 @@ export default function EmployerRegisterScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <Pressable style={styles.backBtn} onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={24} color="#0077B6" />
+          <Ionicons name="arrow-back" size={24} color="#2A6F97" />
         </Pressable>
 
         <View style={styles.header}>
           <View style={styles.iconCircle}>
-            <Ionicons name="business" size={36} color="#0077B6" />
+            <Ionicons name="business" size={36} color="#2A6F97" />
           </View>
           <Text style={styles.title}>Create Employer Account</Text>
           <Text style={styles.subtitle}>Start posting jobs for your resort</Text>
@@ -265,27 +265,27 @@ export default function EmployerRegisterScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F0F7FF" },
+  container: { flex: 1, backgroundColor: "#FBF8F1" },
   content: { padding: 24 },
   backBtn: { marginBottom: 16 },
   header: { alignItems: "center", marginBottom: 28 },
-  iconCircle: { width: 80, height: 80, borderRadius: 40, backgroundColor: "#E0F2FE", alignItems: "center", justifyContent: "center", marginBottom: 16 },
-  title: { fontSize: 24, fontWeight: "700", color: "#003A6B", marginBottom: 6 },
+  iconCircle: { width: 80, height: 80, borderRadius: 40, backgroundColor: "#F3ECD9", alignItems: "center", justifyContent: "center", marginBottom: 16 },
+  title: { fontSize: 24, fontWeight: "700", color: "#1C4E6B", marginBottom: 6 },
   subtitle: { fontSize: 15, color: "#555", textAlign: "center", marginBottom: 16 },
   errorBox: { backgroundColor: "#FEE2E2", borderRadius: 10, padding: 12, marginBottom: 16 },
   errorText: { color: "#991B1B", fontSize: 14, textAlign: "center", marginTop: 4 },
   form: {},
   signedInContent: { flexGrow: 1, justifyContent: "center" },
   label: { fontSize: 14, fontWeight: "600", color: "#333", marginBottom: 6, marginTop: 14 },
-  input: { backgroundColor: "#fff", borderRadius: 10, borderWidth: 1, borderColor: "#D1E9FF", padding: 14, fontSize: 15, color: "#111" },
+  input: { backgroundColor: "#fff", borderRadius: 10, borderWidth: 1, borderColor: "#E4DCC8", padding: 14, fontSize: 15, color: "#111" },
   passwordRow: { flexDirection: "row", alignItems: "center", gap: 8 },
-  eyeBtn: { padding: 14, backgroundColor: "#fff", borderRadius: 10, borderWidth: 1, borderColor: "#D1E9FF", height: 50 },
-  btn: { backgroundColor: "#0077B6", borderRadius: 12, padding: 16, alignItems: "center", marginTop: 24 },
+  eyeBtn: { padding: 14, backgroundColor: "#fff", borderRadius: 10, borderWidth: 1, borderColor: "#E4DCC8", height: 50 },
+  btn: { backgroundColor: "#2A6F97", borderRadius: 12, padding: 16, alignItems: "center", marginTop: 24 },
   btnDisabled: { opacity: 0.7 },
   btnText: { color: "#fff", fontSize: 16, fontWeight: "700" },
-  secondaryBtn: { borderWidth: 1.5, borderColor: "#0077B6", borderRadius: 12, padding: 16, alignItems: "center", marginTop: 16 },
-  secondaryBtnText: { color: "#0077B6", fontSize: 15, fontWeight: "600" },
+  secondaryBtn: { borderWidth: 1.5, borderColor: "#2A6F97", borderRadius: 12, padding: 16, alignItems: "center", marginTop: 16 },
+  secondaryBtnText: { color: "#2A6F97", fontSize: 15, fontWeight: "600" },
   linkBtn: { alignItems: "center", marginTop: 20 },
   linkText: { color: "#555", fontSize: 14 },
-  linkBold: { color: "#0077B6", fontWeight: "700" },
+  linkBold: { color: "#2A6F97", fontWeight: "700" },
 });

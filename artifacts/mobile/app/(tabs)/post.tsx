@@ -22,7 +22,7 @@ export default function PostTab() {
   if (isLoading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator color="#0077B6" />
+        <ActivityIndicator color="#2A6F97" />
       </View>
     );
   }
@@ -37,7 +37,7 @@ export default function PostTab() {
         <meta property="og:url" content="/post" />
       </Head>
       <View style={styles.iconCircle}>
-        <Ionicons name="business" size={48} color="#0077B6" />
+        <Ionicons name="business" size={48} color="#2A6F97" />
       </View>
 
       <Text style={styles.title}>Employer Portal</Text>
@@ -53,7 +53,7 @@ export default function PostTab() {
           { icon: "people-outline", text: "Reach verified Maldives job seekers" },
         ].map(({ icon, text }) => (
           <View key={text} style={styles.featureRow}>
-            <Ionicons name={icon as any} size={20} color="#0077B6" />
+            <Ionicons name={icon as any} size={20} color="#2A6F97" />
             <Text style={styles.featureText}>{text}</Text>
           </View>
         ))}
@@ -72,15 +72,15 @@ export default function PostTab() {
 
 const styles = StyleSheet.create({
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
-  container: { flex: 1, backgroundColor: "#F0F7FF", alignItems: "center", paddingHorizontal: 28 },
-  iconCircle: { width: 96, height: 96, borderRadius: 48, backgroundColor: "#E0F2FE", alignItems: "center", justifyContent: "center", marginBottom: 20 },
-  title: { fontSize: 26, fontWeight: "800", color: "#003A6B", marginBottom: 10, textAlign: "center" },
+  container: { flex: 1, backgroundColor: "#FBF8F1", alignItems: "center", paddingHorizontal: 28 },
+  iconCircle: { width: 96, height: 96, borderRadius: 48, backgroundColor: "#F3ECD9", alignItems: "center", justifyContent: "center", marginBottom: 20 },
+  title: { fontSize: 26, fontWeight: "800", color: "#1C4E6B", marginBottom: 10, textAlign: "center" },
   subtitle: { fontSize: 15, color: "#555", textAlign: "center", lineHeight: 22, marginBottom: 28 },
   features: { width: "100%", backgroundColor: "#fff", borderRadius: 16, padding: 20, gap: 14, marginBottom: 28, shadowColor: "#000", shadowOpacity: 0.04, shadowRadius: 8, elevation: 2 },
   featureRow: { flexDirection: "row", alignItems: "center", gap: 12 },
   featureText: { fontSize: 14, color: "#333", flex: 1 },
-  loginBtn: { width: "100%", backgroundColor: "#0077B6", borderRadius: 14, paddingVertical: 16, alignItems: "center", marginBottom: 12 },
+  loginBtn: { width: "100%", backgroundColor: "#2A6F97", borderRadius: 14, paddingVertical: 16, alignItems: "center", marginBottom: 12 },
   loginBtnText: { color: "#fff", fontSize: 16, fontWeight: "700" },
-  registerBtn: { width: "100%", borderWidth: 1.5, borderColor: "#0077B6", borderRadius: 14, paddingVertical: 16, alignItems: "center" },
-  registerBtnText: { color: "#0077B6", fontSize: 15, fontWeight: "600" },
+  registerBtn: { width: "100%", borderWidth: 1.5, borderColor: "#2A6F97", borderRadius: 14, paddingVertical: 16, alignItems: "center" },
+  registerBtnText: { color: "#2A6F97", fontSize: 15, fontWeight: "600" },
 });

@@ -74,9 +74,9 @@ const PERK_ICONS: Record<string, keyof typeof Feather.glyphMap> = {
 
 const PERK_COLORS: Record<string, string> = {
   "Free Accommodation": "#0EA5E9",
-  "Staff Meals": "#10B981",
+  "Staff Meals": "#2A9D8F",
   "Annual Flight": "#8B5CF6",
-  "Medical Insurance": "#F59E0B",
+  "Medical Insurance": "#E76F51",
   "Transport Provided": "#EC4899",
 };
 
@@ -428,8 +428,8 @@ export default function JobCard({ job, featured = false }: JobCardProps) {
           )}
           {(job.applyCount ?? 0) > 0 && (
             <View style={[styles.statChip, { backgroundColor: "#EFF6FF" }]}>
-              <Feather name="send" size={11} color="#0077B6" />
-              <Text style={[styles.statChipText, { color: "#0077B6" }]}>{job.applyCount} applied</Text>
+              <Feather name="send" size={11} color="#2A6F97" />
+              <Text style={[styles.statChipText, { color: "#2A6F97" }]}>{job.applyCount} applied</Text>
             </View>
           )}
         </View>
@@ -490,7 +490,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
-    backgroundColor: "#EF4444",
+    backgroundColor: "#E63946",
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 20,

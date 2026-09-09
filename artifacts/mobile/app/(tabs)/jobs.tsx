@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: -4,
     right: -4,
-    backgroundColor: "#EF4444",
+    backgroundColor: "#E63946",
     borderRadius: 10,
     minWidth: 18,
     height: 18,
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 4,
     borderWidth: 1.5,
-    borderColor: "#0077B6",
+    borderColor: "#2A6F97",
   },
   bellBadgeText: {
     color: "#fff",

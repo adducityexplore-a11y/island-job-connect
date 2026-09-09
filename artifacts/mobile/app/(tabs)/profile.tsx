@@ -372,8 +372,8 @@ export default function ProfileScreen() {
             CV / Resume
           </Text>
           {form.cvAvailable ? (
-            <View style={[styles.cvUploaded, { borderColor: "#10B981", backgroundColor: "#ECFDF5" }]}>
-              <Feather name="file-text" size={22} color="#10B981" />
+            <View style={[styles.cvUploaded, { borderColor: "#2A9D8F", backgroundColor: "#ECFDF5" }]}>
+              <Feather name="file-text" size={22} color="#2A9D8F" />
               <View style={{ flex: 1 }}>
                 <Text style={styles.cvFileName} numberOfLines={1}>
                   {form.cvFileName || "CV uploaded"}
@@ -441,7 +441,7 @@ export default function ProfileScreen() {
         <TouchableOpacity
           style={[
             styles.saveBtn,
-            { backgroundColor: saved ? "#10B981" : colors.primary },
+            { backgroundColor: saved ? "#2A9D8F" : colors.primary },
           ]}
           onPress={handleSave}
           activeOpacity={0.8}
@@ -472,7 +472,7 @@ function FField({
       <Text style={[styles.fieldLabel, { color: colors.foreground }]}>
         {label}
         {required ? (
-          <Text style={{ color: "#EF4444" }}> *</Text>
+          <Text style={{ color: "#E63946" }}> *</Text>
         ) : null}
       </Text>
       {children}

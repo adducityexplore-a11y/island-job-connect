@@ -83,7 +83,7 @@ export default function PostJobScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.topRow}>
-          <TouchableOpacity onPress={() => router.back()}><Ionicons name="arrow-back" size={24} color="#0077B6" /></TouchableOpacity>
+          <TouchableOpacity onPress={() => router.back()}><Ionicons name="arrow-back" size={24} color="#2A6F97" /></TouchableOpacity>
           <Text style={styles.pageTitle}>Post a Job</Text>
           <View style={{ width: 24 }} />
         </View>
@@ -137,19 +137,19 @@ export default function PostJobScreen() {
         <Text style={styles.label}>Company Logo or Photo (optional)</Text>
         <TouchableOpacity style={styles.imagePicker} onPress={pickAndUpload} disabled={imageUploading}>
           {imageUploading ? (
-            <ActivityIndicator color="#0077B6" />
+            <ActivityIndicator color="#2A6F97" />
           ) : form.imageUrl ? (
             <Image source={{ uri: form.imageUrl }} style={styles.imagePreview} resizeMode="cover" />
           ) : (
             <View style={styles.imagePickerEmpty}>
-              <Ionicons name="image-outline" size={32} color="#0077B6" />
+              <Ionicons name="image-outline" size={32} color="#2A6F97" />
               <Text style={styles.imagePickerText}>Tap to upload a photo</Text>
             </View>
           )}
         </TouchableOpacity>
         {form.imageUrl ? (
           <TouchableOpacity onPress={() => update("imageUrl", "")} style={styles.removeImageBtn}>
-            <Ionicons name="close-circle" size={16} color="#EF4444" />
+            <Ionicons name="close-circle" size={16} color="#E63946" />
             <Text style={styles.removeImageText}>Remove photo</Text>
           </TouchableOpacity>
         ) : null}
@@ -190,28 +190,28 @@ export default function PostJobScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F0F7FF" },
+  container: { flex: 1, backgroundColor: "#FBF8F1" },
   content: { padding: 20 },
   topRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 20 },
-  pageTitle: { fontSize: 18, fontWeight: "700", color: "#003A6B" },
+  pageTitle: { fontSize: 18, fontWeight: "700", color: "#1C4E6B" },
   errorBox: { backgroundColor: "#FEE2E2", borderRadius: 10, padding: 12, marginBottom: 16 },
   errorText: { color: "#991B1B", fontSize: 14, textAlign: "center" },
-  sectionHeader: { fontSize: 15, fontWeight: "700", color: "#003A6B", marginTop: 20, marginBottom: 10, borderBottomWidth: 1, borderBottomColor: "#D1E9FF", paddingBottom: 8 },
+  sectionHeader: { fontSize: 15, fontWeight: "700", color: "#1C4E6B", marginTop: 20, marginBottom: 10, borderBottomWidth: 1, borderBottomColor: "#E4DCC8", paddingBottom: 8 },
   label: { fontSize: 13, fontWeight: "600", color: "#333", marginBottom: 6, marginTop: 10 },
-  input: { backgroundColor: "#fff", borderRadius: 10, borderWidth: 1, borderColor: "#D1E9FF", padding: 13, fontSize: 15, color: "#111" },
+  input: { backgroundColor: "#fff", borderRadius: 10, borderWidth: 1, borderColor: "#E4DCC8", padding: 13, fontSize: 15, color: "#111" },
   textArea: { height: 100, textAlignVertical: "top" },
   chipRow: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
-  chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20, backgroundColor: "#fff", borderWidth: 1, borderColor: "#D1E9FF" },
-  chipSelected: { backgroundColor: "#0077B6", borderColor: "#0077B6" },
+  chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20, backgroundColor: "#fff", borderWidth: 1, borderColor: "#E4DCC8" },
+  chipSelected: { backgroundColor: "#2A6F97", borderColor: "#2A6F97" },
   chipText: { fontSize: 13, color: "#555", fontWeight: "500" },
   chipTextSelected: { color: "#fff", fontWeight: "700" },
-  btn: { backgroundColor: "#0077B6", borderRadius: 12, padding: 16, alignItems: "center", marginTop: 28 },
+  btn: { backgroundColor: "#2A6F97", borderRadius: 12, padding: 16, alignItems: "center", marginTop: 28 },
   btnDisabled: { opacity: 0.7 },
   btnText: { color: "#fff", fontSize: 16, fontWeight: "700" },
-  imagePicker: { borderRadius: 12, borderWidth: 1.5, borderColor: "#D1E9FF", borderStyle: "dashed", backgroundColor: "#fff", overflow: "hidden", marginTop: 4, minHeight: 120, justifyContent: "center", alignItems: "center" },
+  imagePicker: { borderRadius: 12, borderWidth: 1.5, borderColor: "#E4DCC8", borderStyle: "dashed", backgroundColor: "#fff", overflow: "hidden", marginTop: 4, minHeight: 120, justifyContent: "center", alignItems: "center" },
   imagePickerEmpty: { alignItems: "center", justifyContent: "center", padding: 24, gap: 8 },
-  imagePickerText: { color: "#0077B6", fontSize: 14, fontWeight: "500" },
+  imagePickerText: { color: "#2A6F97", fontSize: 14, fontWeight: "500" },
   imagePreview: { width: "100%", height: 160 },
   removeImageBtn: { flexDirection: "row", alignItems: "center", gap: 4, marginTop: 6 },
-  removeImageText: { color: "#EF4444", fontSize: 13 },
+  removeImageText: { color: "#E63946", fontSize: 13 },
 });

@@ -37,7 +37,7 @@ export default function ApplicationsScreen() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-          <Ionicons name="arrow-back" size={24} color="#0077B6" />
+          <Ionicons name="arrow-back" size={24} color="#2A6F97" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Applicants</Text>
         <View style={{ width: 24 }} />
@@ -65,7 +65,7 @@ export default function ApplicationsScreen() {
         refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={refetch} />}
       >
         {isLoading ? (
-          <ActivityIndicator color="#0077B6" style={{ marginTop: 40 }} />
+          <ActivityIndicator color="#2A6F97" style={{ marginTop: 40 }} />
         ) : filtered.length === 0 ? (
           <View style={styles.emptyState}>
             <Ionicons name="people-outline" size={48} color="#B0C4D8" />
@@ -80,7 +80,7 @@ export default function ApplicationsScreen() {
             >
               <View style={styles.cardTop}>
                 <View style={styles.avatar}>
-                  <Ionicons name="person" size={20} color="#0077B6" />
+                  <Ionicons name="person" size={20} color="#2A6F97" />
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.candidateName}>{app.candidateName || "Unknown Candidate"}</Text>
@@ -101,23 +101,23 @@ export default function ApplicationsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F0F7FF" },
+  container: { flex: 1, backgroundColor: "#FBF8F1" },
   header: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, paddingVertical: 14 },
   backBtn: { padding: 4 },
-  headerTitle: { fontSize: 18, fontWeight: "700", color: "#003A6B" },
+  headerTitle: { fontSize: 18, fontWeight: "700", color: "#1C4E6B" },
   tabsWrapper: { marginBottom: 12 },
   tabsScroll: { paddingHorizontal: 20, gap: 8 },
-  tabBtn: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, backgroundColor: "#fff", borderWidth: 1, borderColor: "#D1E9FF" },
-  tabBtnActive: { backgroundColor: "#0077B6", borderColor: "#0077B6" },
+  tabBtn: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, backgroundColor: "#fff", borderWidth: 1, borderColor: "#E4DCC8" },
+  tabBtnActive: { backgroundColor: "#2A6F97", borderColor: "#2A6F97" },
   tabBtnText: { fontSize: 13, color: "#475569", fontWeight: "500" },
   tabBtnTextActive: { color: "#fff", fontWeight: "700" },
   list: { flex: 1, paddingHorizontal: 20 },
   emptyState: { alignItems: "center", paddingTop: 40 },
-  emptyText: { fontSize: 15, color: "#64748B", marginTop: 12 },
-  card: { backgroundColor: "#fff", borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: "#E2E8F0" },
+  emptyText: { fontSize: 15, color: "#7A7469", marginTop: 12 },
+  card: { backgroundColor: "#fff", borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: "#E4DCC8" },
   cardTop: { flexDirection: "row", alignItems: "center", gap: 12 },
-  avatar: { width: 40, height: 40, borderRadius: 20, backgroundColor: "#E0F2FE", alignItems: "center", justifyContent: "center" },
-  candidateName: { fontSize: 16, fontWeight: "600", color: "#0F172A", marginBottom: 4 },
-  jobText: { fontSize: 13, color: "#64748B" },
+  avatar: { width: 40, height: 40, borderRadius: 20, backgroundColor: "#F3ECD9", alignItems: "center", justifyContent: "center" },
+  candidateName: { fontSize: 16, fontWeight: "600", color: "#22303C", marginBottom: 4 },
+  jobText: { fontSize: 13, color: "#7A7469" },
   metaText: { fontSize: 12, color: "#94A3B8", marginTop: 3 },
 });

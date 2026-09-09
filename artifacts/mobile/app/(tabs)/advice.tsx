@@ -163,7 +163,7 @@ export default function AdviceScreen() {
           <View style={styles.trustItems}>
             <View style={styles.trustItem}>
               <View style={[styles.trustIcon, { backgroundColor: "#ECFDF5" }]}>
-                <Feather name="shield" size={18} color="#10B981" />
+                <Feather name="shield" size={18} color="#2A9D8F" />
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={[styles.trustItemTitle, { color: colors.foreground }]}>
@@ -221,7 +221,7 @@ export default function AdviceScreen() {
         {/* Interview Tips */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <View style={[styles.sectionIcon, { backgroundColor: "#E0F2FE" }]}>
+            <View style={[styles.sectionIcon, { backgroundColor: "#F3ECD9" }]}>
               <Feather name="users" size={16} color={colors.primary} />
             </View>
             <Text style={[styles.sectionTitle, { color: colors.foreground }]}>

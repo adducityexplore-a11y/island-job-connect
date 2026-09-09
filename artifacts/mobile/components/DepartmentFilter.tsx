@@ -20,15 +20,15 @@ interface DeptMeta {
 }
 
 const DEPT_META: Record<Department, DeptMeta> = {
-  All:                   { icon: "grid",         color: "#0077B6", text: "#ffffff" },
+  All:                   { icon: "grid",         color: "#2A6F97", text: "#ffffff" },
   "F&B":                 { icon: "coffee",        color: "#D97706", text: "#ffffff" },
   "Front Office":        { icon: "briefcase",     color: "#7C3AED", text: "#ffffff" },
   Kitchen:               { icon: "thermometer",   color: "#DC2626", text: "#ffffff" },
   Housekeeping:          { icon: "home",          color: "#059669", text: "#ffffff" },
   Spa:                   { icon: "droplet",       color: "#DB2777", text: "#ffffff" },
-  Recreation:            { icon: "sun",           color: "#F59E0B", text: "#ffffff" },
-  Engineering:           { icon: "tool",          color: "#64748B", text: "#ffffff" },
-  "Sales & Marketing":   { icon: "trending-up",   color: "#10B981", text: "#ffffff" },
+  Recreation:            { icon: "sun",           color: "#E76F51", text: "#ffffff" },
+  Engineering:           { icon: "tool",          color: "#7A7469", text: "#ffffff" },
+  "Sales & Marketing":   { icon: "trending-up",   color: "#2A9D8F", text: "#ffffff" },
   HR:                    { icon: "users",         color: "#8B5CF6", text: "#ffffff" },
   Finance:               { icon: "dollar-sign",   color: "#0EA5E9", text: "#ffffff" },
   Transport:             { icon: "anchor",        color: "#1E40AF", text: "#ffffff" },

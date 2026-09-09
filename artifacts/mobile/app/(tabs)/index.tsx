@@ -84,7 +84,7 @@ export default function HomeScreen() {
             >
               {/* Left-to-right gradient overlay */}
               <LinearGradient
-                colors={["#003A6B", "#004E8A", "#0066A8BB", "#0077B655"]}
+                colors={["#1C4E6B", "#2A6F97", "#2A6F97BB", "#2A6F9755"]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={StyleSheet.absoluteFillObject}
@@ -162,8 +162,8 @@ export default function HomeScreen() {
             <View style={styles.trustBar}>
               {(
                 [
-                  { icon: "shield", label: "Scam-Free", sub: "Guarantee", color: "#10B981", bg: "#ECFDF5" },
-                  { icon: "check-circle", label: "Verified", sub: "Resorts", color: "#0077B6", bg: "#EFF6FF" },
+                  { icon: "shield", label: "Scam-Free", sub: "Guarantee", color: "#2A9D8F", bg: "#ECFDF5" },
+                  { icon: "check-circle", label: "Verified", sub: "Resorts", color: "#2A6F97", bg: "#EFF6FF" },
                   { icon: "user-check", label: "Real Jobs", sub: "Only", color: "#D97706", bg: "#FFFBEB" },
                 ] as const
               ).map(({ icon, label, sub, color, bg }) => (
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     minWidth: 16,
     height: 16,
     borderRadius: 8,
-    backgroundColor: "#EF4444",
+    backgroundColor: "#E63946",
     borderWidth: 1.5,
     borderColor: "rgba(255,255,255,0.5)",
     alignItems: "center",

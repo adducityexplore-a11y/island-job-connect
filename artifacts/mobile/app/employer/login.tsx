@@ -92,7 +92,7 @@ export default function EmployerLoginScreen() {
 
             <View style={styles.brandingContainer}>
               <View style={styles.iconCircle}>
-                <Ionicons name="business" size={28} color="#14294a" />
+                <Ionicons name="business" size={28} color="#1C4E6B" />
               </View>
               <View style={styles.employerBadge}>
                 <Text style={styles.employerBadgeText}>EMPLOYER PORTAL</Text>
@@ -154,7 +154,7 @@ export default function EmployerLoginScreen() {
                   accessibilityLabel={showPassword ? "Hide password" : "Show password"}
                   accessibilityRole="button"
                 >
-                  <Ionicons name={showPassword ? "eye-off" : "eye"} size={22} color="#64748B" />
+                  <Ionicons name={showPassword ? "eye-off" : "eye"} size={22} color="#7A7469" />
                 </Pressable>
               </View>
 
@@ -205,14 +205,14 @@ const styles = StyleSheet.create({
   headerSection: {
     paddingHorizontal: 24,
     paddingBottom: 40,
-    backgroundColor: "#14294a",
+    backgroundColor: "#1C4E6B",
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
     overflow: "hidden",
   },
   headerBackground: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "#14294a",
+    backgroundColor: "#1C4E6B",
   },
   backBtn: { 
     marginBottom: 24,
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
   formTitle: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#0F172A",
+    color: "#22303C",
     marginBottom: 24,
   },
   errorBox: { 
@@ -307,11 +307,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF", 
     borderRadius: 12, 
     borderWidth: 1, 
-    borderColor: "#E2E8F0", 
+    borderColor: "#E4DCC8", 
     paddingHorizontal: 16, 
     height: 56,
     fontSize: 16, 
-    color: "#0F172A",
+    color: "#22303C",
   },
   passwordRow: { 
     flexDirection: "row", 
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingHorizontal: 16,
     fontSize: 16,
-    color: "#0F172A",
+    color: "#22303C",
   },
   eyeBtn: { 
     paddingHorizontal: 16,
@@ -331,13 +331,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   btn: { 
-    backgroundColor: "#14294a", 
+    backgroundColor: "#1C4E6B", 
     borderRadius: 12, 
     height: 56,
     alignItems: "center", 
     justifyContent: "center",
     marginTop: 8,
-    shadowColor: "#14294a",
+    shadowColor: "#1C4E6B",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 8,
@@ -366,27 +366,27 @@ const styles = StyleSheet.create({
   dividerLine: { 
     flex: 1, 
     height: 1, 
-    backgroundColor: "#E2E8F0" 
+    backgroundColor: "#E4DCC8" 
   },
   dividerText: { 
-    color: "#64748B", 
+    color: "#7A7469", 
     fontSize: 14,
     fontWeight: "500",
   },
   secondaryBtn: { 
     backgroundColor: "transparent",
     borderWidth: 2, 
-    borderColor: "#E2E8F0", 
+    borderColor: "#E4DCC8", 
     borderRadius: 12, 
     height: 56,
     alignItems: "center", 
     justifyContent: "center",
   },
   secondaryBtnPressed: {
-    backgroundColor: "#F1F5F9",
+    backgroundColor: "#F1ECE1",
   },
   secondaryBtnText: { 
-    color: "#0F172A", 
+    color: "#22303C", 
     fontSize: 16, 
     fontWeight: "600" 
   },
