@@ -406,38 +406,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why We Exist */}
+      {/* Why JobsMV */}
       <section className="w-full py-24 md:py-32 bg-primary text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-foreground/5 via-primary to-primary"></div>
 
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-8">Why We Exist</p>
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-8">Why JobsMV</p>
 
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-semibold mb-10 leading-[1.05] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold mb-8 leading-[1.05] tracking-tight">
             Great talent should never be lost to a slow hiring process.
           </h2>
 
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light mb-20 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed font-light mb-10 max-w-2xl mx-auto">
             We make hospitality recruitment faster and simpler, helping employers find the right people and job seekers reach the right opportunities when they matter most.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-sm overflow-hidden">
-            <div className="bg-primary p-10 md:p-16 text-left">
-              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-white">People First</h3>
-              <p className="text-white/70 text-lg leading-relaxed font-light">
-                Behind every CV is a person looking for an opportunity. Behind every vacancy is a team looking for the right person.
-              </p>
-            </div>
-            <div className="bg-primary p-10 md:p-16 text-left">
-              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-white">Time Matters</h3>
-              <p className="text-white/70 text-lg leading-relaxed font-light">
-                Great talent doesn't wait forever. We help employers and job seekers connect before opportunities are lost.
-              </p>
-            </div>
-          </div>
+          <Button size="lg" variant="outline" asChild className="rounded-full h-14 px-8 border-white/20 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm">
+            <Link href="/about" data-testid="button-home-why-jobsmv">
+              See Why JobsMV <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
 
-          <div className="mt-24 pt-12 border-t border-white/10">
-            <p className="text-2xl md:text-4xl font-display font-semibold italic text-accent/90 tracking-tight">
+          <div className="mt-16 pt-10 border-t border-white/10">
+            <p className="text-xl md:text-3xl font-display font-semibold italic text-accent/90 tracking-tight">
               Right Talent. Right Opportunity. Right Time.
             </p>
           </div>

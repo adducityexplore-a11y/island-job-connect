@@ -276,6 +276,7 @@ function Router() {
               <Route path="/companies" component={Companies} />
                <Route path="/companies/:id" component={CompanyDetail} />
               <Route path="/about" component={About} />
+              <Route path="/why-jobsmv" component={About} />
                <Route path="/privacy-policy" component={PrivacyPolicy} />
                <Route path="/terms-and-conditions" component={TermsAndConditions} />
                <Route path="/employer-terms" component={EmployerTerms} />

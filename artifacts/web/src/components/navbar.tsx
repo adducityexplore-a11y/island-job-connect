@@ -176,7 +176,7 @@ export function Navbar() {
             <p className="px-3 pt-4 text-xs font-bold tracking-wider text-muted-foreground">GENERAL</p>
             {[
               { href: "/companies", label: "Companies" },
-              { href: "/about", label: "About The Jobs MV" },
+              { href: "/about", label: "Why JobsMV" },
             ].map((link) => (
               <Link
                 key={link.label}

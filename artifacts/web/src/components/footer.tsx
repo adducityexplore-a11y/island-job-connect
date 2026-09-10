@@ -38,7 +38,7 @@ export function Footer() {
           <div>
             <h3 className="font-display font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
-              <li><Link href="/about" className="hover:text-secondary transition-colors" data-testid="footer-link-about">About Us</Link></li>
+              <li><Link href="/about" className="hover:text-secondary transition-colors" data-testid="footer-link-about">Why JobsMV</Link></li>
               <li><Link href="/contact" className="hover:text-secondary transition-colors" data-testid="footer-link-contact">Contact</Link></li>
             </ul>
           </div>
