@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.SESSION_SECRET;
-if (!JWT_SECRET) {
+const rawSessionSecret = process.env.SESSION_SECRET;
+if (!rawSessionSecret) {
   throw new Error("SESSION_SECRET environment variable must be set");
 }
+const JWT_SECRET: string = rawSessionSecret;
 
 export interface AuthPayload {
   employerId: number;
