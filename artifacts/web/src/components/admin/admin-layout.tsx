@@ -31,6 +31,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   const { isLoaded, isSignedIn } = useAuth();
   const { user } = useUser();
   const { signOut } = useClerk();
+  const [moreOpen, setMoreOpen] = useState(false);
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   // Fetch overview to check admin access (will 403 if not admin)
@@ -113,7 +114,6 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     { href: "/admin/audit", icon: Activity, label: "Audit Log" },
   ];
   const isNavActive = (href: string) => location === href || (location.startsWith(href) && href !== "/admin");
-  const [moreOpen, setMoreOpen] = useState(false);
 
   const handleLogout = () => {
     signOut({ redirectUrl: `${basePath}/admin/sign-in` });
