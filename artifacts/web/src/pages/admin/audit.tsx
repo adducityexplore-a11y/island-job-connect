@@ -122,7 +122,61 @@ export default function AdminAuditLog() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0">
+        {/* Mobile cards */}
+        <CardContent className="p-0 md:hidden">
+          {isLoading ? (
+            <div className="divide-y divide-border/50">
+              {Array(6).fill(0).map((_, i) => (
+                <div key={i} className="p-4 space-y-2">
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-5 w-40" />
+                </div>
+              ))}
+            </div>
+          ) : emptyState ? (
+            <div className="p-8 text-center flex flex-col items-center justify-center text-muted-foreground">
+              <Activity className="w-12 h-12 text-muted-foreground/30 mb-3" />
+              <p className="text-sm">No audit events found matching your criteria.</p>
+            </div>
+          ) : (
+            <div className="divide-y divide-border/50">
+              {filteredEvents.map((event) => (
+                <div key={event.id} className="p-4 space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className={`text-xs ${getActionColor(event.action)}`}>{event.action}</span>
+                    <span className="text-xs text-muted-foreground shrink-0">
+                      {format(new Date(event.createdAt), "MMM d, HH:mm")}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded bg-muted flex items-center justify-center border border-border/50 shrink-0">
+                      {getEventIcon(event.entityType)}
+                    </div>
+                    <span className="capitalize font-medium text-sm text-foreground">{event.entityType}</span>
+                    {event.entityId && (
+                      <span className="font-mono text-[10px] bg-muted/80 px-1.5 py-0.5 rounded text-muted-foreground border border-border/50">
+                        #{event.entityId}
+                      </span>
+                    )}
+                  </div>
+                  {event.metadata && Object.keys(event.metadata).length > 0 && (
+                    <div className="bg-muted/20 border border-border/50 p-2 rounded text-xs font-mono">
+                      {Object.entries(event.metadata).map(([key, val]) => (
+                        <div key={key} className="flex gap-2">
+                          <span className="text-primary/70 font-semibold">{key}:</span>
+                          <span className="truncate">{String(val)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+
+        {/* Desktop table */}
+        <CardContent className="p-0 hidden md:block">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -199,14 +253,15 @@ export default function AdminAuditLog() {
               </TableBody>
             </Table>
           </div>
-          {data?.items && data.items.length >= limit && (
-            <div className="p-4 flex items-center justify-center border-t border-border/50 bg-muted/10">
-              <span className="text-xs text-muted-foreground">
-                Showing the {limit} most recent actions. Older events are archived.
-              </span>
-            </div>
-          )}
         </CardContent>
+
+        {data?.items && data.items.length >= limit && (
+          <div className="p-4 flex items-center justify-center border-t border-border/50 bg-muted/10">
+            <span className="text-xs text-muted-foreground">
+              Showing the {limit} most recent actions.
+            </span>
+          </div>
+        )}
       </Card>
     </div>
   );

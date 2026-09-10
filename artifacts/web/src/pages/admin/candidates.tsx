@@ -173,13 +173,95 @@ export default function AdminCandidates() {
                   <SelectItem value="all">All Candidates</SelectItem>
                   <SelectItem value="reviewed">The Jobs MV Reviewed</SelectItem>
                   <SelectItem value="not_reviewed">Not Reviewed</SelectItem>
-                  <SelectItem value="passport_complete">Hospitality Passport Complete</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0">
+        {/* Mobile cards */}
+        <CardContent className="p-0 md:hidden">
+          {isLoading ? (
+            <div className="divide-y divide-border/50">
+              {Array(4).fill(0).map((_, i) => (
+                <div key={i} className="p-4 space-y-3">
+                  <Skeleton className="h-5 w-40" />
+                  <Skeleton className="h-4 w-24" />
+                  <Skeleton className="h-8 w-full" />
+                </div>
+              ))}
+            </div>
+          ) : emptyState ? (
+            <div className="p-8 text-center flex flex-col items-center justify-center text-muted-foreground">
+              <Users className="w-12 h-12 text-muted-foreground/30 mb-3" />
+              <p className="text-sm">No candidates found matching your criteria.</p>
+            </div>
+          ) : (
+            <div className="divide-y divide-border/50">
+              {filteredCandidates.map((candidate) => (
+                <div key={candidate.id} className="p-4 space-y-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <Avatar className="h-9 w-9 border border-primary/10 shrink-0">
+                        <AvatarFallback className="bg-primary/5 text-primary font-bold text-xs">
+                          {getInitials(candidate.fullName)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="min-w-0">
+                        <p className="font-semibold text-primary truncate">{candidate.fullName}</p>
+                        {candidate.headline ? (
+                          <p className="text-xs text-muted-foreground truncate">{candidate.headline}</p>
+                        ) : (
+                          <p className="text-xs text-muted-foreground italic">No role specified</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1.5">
+                      <Mail className="w-3 h-3 shrink-0" />
+                      <span className="truncate">{candidate.email}</span>
+                    </div>
+                    {candidate.phone && (
+                      <div className="flex items-center gap-1.5">
+                        <Phone className="w-3 h-3 shrink-0" />
+                        <span>{candidate.phone}</span>
+                      </div>
+                    )}
+                    {candidate.location && (
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-3 h-3 shrink-0" />
+                        <span className="truncate">{candidate.location}</span>
+                      </div>
+                    )}
+                  </div>
+                  {candidate.jobsMvReviewed ? (
+                    <Badge className="gap-1.5 bg-[#e9c46a]/20 text-[#b58e24] border-[#e9c46a]/30 shadow-none font-bold w-fit">
+                      <ShieldCheck className="w-3 h-3" />
+                      The Jobs MV Reviewed
+                    </Badge>
+                  ) : (
+                    <Badge variant="secondary" className="gap-1.5 shadow-none font-medium bg-muted text-muted-foreground w-fit">
+                      <AlertCircle className="w-3 h-3" />
+                      Awaiting Review
+                    </Badge>
+                  )}
+                  <Button
+                    variant={candidate.jobsMvReviewed ? "outline" : "default"}
+                    size="sm"
+                    className={candidate.jobsMvReviewed ? "w-full h-10 text-sm font-medium border-border/50 hover:bg-destructive/5 hover:text-destructive hover:border-destructive/20" : "w-full h-10 text-sm font-medium bg-primary hover:bg-primary/90"}
+                    onClick={() => openReviewDialog(candidate.id, candidate.fullName, candidate.jobsMvReviewed)}
+                    disabled={updateReview.isPending}
+                  >
+                    {candidate.jobsMvReviewed ? "Clear Review" : "Review Candidate"}
+                  </Button>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+
+        {/* Desktop table */}
+        <CardContent className="p-0 hidden md:block">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -294,7 +376,7 @@ export default function AdminCandidates() {
                         )}
                       </TableCell>
                       <TableCell className="text-right">
-                        <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex justify-end gap-2">
                           <Button
                             variant={candidate.jobsMvReviewed ? "outline" : "default"}
                             size="sm"
@@ -328,35 +410,35 @@ export default function AdminCandidates() {
               </TableBody>
             </Table>
           </div>
-          
-          {data && data.total > limit && (
-            <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
-              <span className="text-xs text-muted-foreground">
-                Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} candidates
-              </span>
-              <div className="flex gap-2">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={page === 0}
-                  onClick={() => setPage(p => p - 1)}
-                  className="h-8 text-xs"
-                >
-                  Previous
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={(page + 1) * limit >= data.total}
-                  onClick={() => setPage(p => p + 1)}
-                  className="h-8 text-xs"
-                >
-                  Next
-                </Button>
-              </div>
-            </div>
-          )}
         </CardContent>
+
+        {data && data.total > limit && (
+          <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
+            <span className="text-xs text-muted-foreground">
+              Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} candidates
+            </span>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page === 0}
+                onClick={() => setPage(p => p - 1)}
+                className="h-9 text-xs"
+              >
+                Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={(page + 1) * limit >= data.total}
+                onClick={() => setPage(p => p + 1)}
+                className="h-9 text-xs"
+              >
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
       </Card>
 
       <AlertDialog

@@ -1,23 +1,26 @@
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useAuth, useUser, useClerk } from "@clerk/react";
-import { 
-  LayoutDashboard, 
-  Briefcase, 
-  Building2, 
-  Users, 
-  FileText, 
-  Activity, 
+import {
+  LayoutDashboard,
+  Briefcase,
+  Building2,
+  Users,
+  FileText,
+  Activity,
   LogOut,
-  Menu,
-  X,
   ShieldAlert,
   ClipboardList,
-  ArrowLeft
+  ArrowLeft,
+  House,
+  UsersRound,
+  UserSearch,
+  Ellipsis
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useGetAdminOverview, getGetAdminOverviewQueryKey } from "@workspace/api-client-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 interface AdminLayoutProps {
   children: ReactNode;
@@ -28,7 +31,6 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   const { isLoaded, isSignedIn } = useAuth();
   const { user } = useUser();
   const { signOut } = useClerk();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   // Fetch overview to check admin access (will 403 if not admin)
@@ -97,6 +99,22 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     { href: "/admin/audit", icon: Activity, label: "Audit Log" },
   ];
 
+  // Bottom nav keeps only the highest-frequency sections reachable with one hand;
+  // everything else lives behind "More" so the bar never overflows on small phones.
+  const bottomNavItems = [
+    { href: "/admin", icon: House, label: "Home" },
+    { href: "/admin/employers", icon: Building2, label: "Employers" },
+    { href: "/admin/candidates", icon: UsersRound, label: "Candidates" },
+    { href: "/admin/recruitment-requests", icon: UserSearch, label: "Hiring" },
+  ];
+  const moreNavItems = [
+    { href: "/admin/jobs", icon: Briefcase, label: "Vacancies" },
+    { href: "/admin/applications", icon: FileText, label: "Applications" },
+    { href: "/admin/audit", icon: Activity, label: "Audit Log" },
+  ];
+  const isNavActive = (href: string) => location === href || (location.startsWith(href) && href !== "/admin");
+  const [moreOpen, setMoreOpen] = useState(false);
+
   const handleLogout = () => {
     signOut({ redirectUrl: `${basePath}/admin/sign-in` });
   };
@@ -111,20 +129,11 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           </div>
           <span className="font-display font-bold tracking-tight text-white">ADMIN CONSOLE</span>
         </Link>
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 -mr-2 text-white/90 hover:text-white"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
-      {/* Sidebar (Desktop + Mobile) */}
-      <aside className={cn(
-        "fixed inset-y-0 left-0 z-40 w-64 bg-primary text-primary-foreground flex flex-col transition-transform duration-200 ease-in-out md:translate-x-0 md:static shadow-xl",
-        mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-      )}>
-        <div className="p-6 hidden md:flex flex-col gap-4 border-b border-white/10">
+      {/* Sidebar (Desktop only — mobile uses the bottom nav below) */}
+      <aside className="hidden md:flex md:static w-64 bg-primary text-primary-foreground flex-col shadow-xl">
+        <div className="p-6 flex flex-col gap-4 border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-md bg-white flex items-center justify-center overflow-hidden shrink-0">
               <img src={`${basePath}/images/logo_final.png`} alt="Logo" className="w-full h-full object-contain p-1" />
@@ -140,16 +149,15 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
         <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-1">
           {navItems.map((item) => {
-            const isActive = location === item.href || (location.startsWith(item.href) && item.href !== '/admin');
+            const isActive = isNavActive(item.href);
             return (
-              <Link 
-                key={item.href} 
+              <Link
+                key={item.href}
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all group relative overflow-hidden",
-                  isActive 
-                    ? "bg-white/10 text-white" 
+                  isActive
+                    ? "bg-white/10 text-white"
                     : "text-white/60 hover:bg-white/5 hover:text-white"
                 )}
               >
@@ -171,13 +179,13 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             asChild
             className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10"
           >
-            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Website
             </Link>
           </Button>
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10 border-white/20"
             onClick={handleLogout}
           >
@@ -187,18 +195,94 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         </div>
       </aside>
 
-      {/* Mobile overlay */}
-      {mobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-primary/80 backdrop-blur-sm z-30 md:hidden transition-opacity" 
-          onClick={() => setMobileMenuOpen(false)} 
-        />
-      )}
-
       {/* Main Content */}
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 pb-20 md:pb-0">
         {children}
       </main>
+
+      {/* Mobile Bottom Nav */}
+      <nav
+        className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-primary border-t border-white/10 flex items-stretch justify-around pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.3)]"
+        aria-label="Admin navigation"
+      >
+        {bottomNavItems.map((item) => {
+          const isActive = isNavActive(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "flex-1 flex flex-col items-center justify-center gap-1 py-2.5 min-h-[52px] text-[10px] font-medium transition-colors",
+                isActive ? "text-accent" : "text-white/60"
+              )}
+              data-testid={`admin-bottom-nav-${item.label.toLowerCase()}`}
+            >
+              <item.icon className="w-5 h-5" aria-hidden="true" />
+              {item.label}
+            </Link>
+          );
+        })}
+        <button
+          onClick={() => setMoreOpen(true)}
+          className={cn(
+            "flex-1 flex flex-col items-center justify-center gap-1 py-2.5 min-h-[52px] text-[10px] font-medium transition-colors",
+            moreOpen || moreNavItems.some((item) => isNavActive(item.href)) ? "text-accent" : "text-white/60"
+          )}
+          aria-label="More admin sections"
+          data-testid="admin-bottom-nav-more"
+        >
+          <Ellipsis className="w-5 h-5" aria-hidden="true" />
+          More
+        </button>
+      </nav>
+
+      {/* Mobile "More" sheet */}
+      <Sheet open={moreOpen} onOpenChange={setMoreOpen}>
+        <SheetContent side="bottom" className="rounded-t-2xl pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
+          <SheetHeader>
+            <SheetTitle className="text-left font-display text-primary">More</SheetTitle>
+          </SheetHeader>
+          <div className="mt-4 space-y-1">
+            {moreNavItems.map((item) => {
+              const isActive = isNavActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMoreOpen(false)}
+                  className={cn(
+                    "flex items-center gap-3 px-3 py-3 rounded-md text-sm font-medium min-h-[44px] transition-colors",
+                    isActive ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted/50"
+                  )}
+                >
+                  <item.icon className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
+                  {item.label}
+                </Link>
+              );
+            })}
+            <div className="pt-3 mt-3 border-t border-border space-y-1">
+              <Link
+                href="/"
+                onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-3 px-3 py-3 rounded-md text-sm font-medium min-h-[44px] text-foreground hover:bg-muted/50"
+              >
+                <ArrowLeft className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
+                Back to Website
+              </Link>
+              <button
+                onClick={() => {
+                  setMoreOpen(false);
+                  handleLogout();
+                }}
+                className="w-full flex items-center gap-3 px-3 py-3 rounded-md text-sm font-medium min-h-[44px] text-destructive hover:bg-destructive/5"
+              >
+                <LogOut className="w-5 h-5" aria-hidden="true" />
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

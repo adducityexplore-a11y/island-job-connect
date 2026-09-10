@@ -43,6 +43,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 export default function AdminEmployers() {
   const queryClient = useQueryClient();
@@ -171,7 +172,79 @@ export default function AdminEmployers() {
           </div>
         </CardHeader>
         
-        <CardContent className="p-0">
+        {/* Mobile cards */}
+        <CardContent className="p-0 md:hidden">
+          {isLoading ? (
+            <div className="divide-y divide-border/50">
+              {Array(4).fill(0).map((_, i) => (
+                <div key={i} className="p-4 space-y-3">
+                  <Skeleton className="h-5 w-40" />
+                  <Skeleton className="h-4 w-24" />
+                  <Skeleton className="h-8 w-full" />
+                </div>
+              ))}
+            </div>
+          ) : emptyState ? (
+            <div className="p-8 text-center flex flex-col items-center justify-center text-muted-foreground">
+              {statusFilter === "pending" ? (
+                <>
+                  <CheckCircle2 className="w-12 h-12 text-muted-foreground/30 mb-3" />
+                  <p className="font-medium text-primary">You're all caught up.</p>
+                  <p className="text-sm">No employers waiting for verification.</p>
+                </>
+              ) : (
+                <>
+                  <Building2 className="w-12 h-12 text-muted-foreground/30 mb-3" />
+                  <p className="text-sm">No employers found matching your criteria.</p>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="divide-y divide-border/50">
+              {filteredEmployers.map((employer) => (
+                <div key={employer.id} className="p-4 space-y-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 rounded bg-primary/5 flex items-center justify-center border border-primary/10 shrink-0">
+                        <Building2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-medium text-primary truncate">{employer.companyName}</p>
+                        <p className="text-xs text-muted-foreground truncate">{employer.contactName}</p>
+                      </div>
+                    </div>
+                    {employer.verified ? (
+                      <Badge variant="default" className="bg-emerald-50 text-emerald-700 border-emerald-200 shadow-none font-medium gap-1.5 shrink-0">
+                        <CheckCircle2 className="w-3 h-3" />
+                        Verified
+                      </Badge>
+                    ) : (
+                      <Badge variant="secondary" className="bg-amber-50 text-amber-700 border-amber-200 shadow-none font-medium gap-1.5 shrink-0">
+                        <AlertCircle className="w-3 h-3" />
+                        Pending
+                      </Badge>
+                    )}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Joined {format(new Date(employer.createdAt), "MMM d, yyyy")}
+                  </p>
+                  <Button
+                    variant={employer.verified ? "outline" : "default"}
+                    size="sm"
+                    className={cn("w-full h-10 text-sm font-medium", employer.verified ? "border-border/50 hover:bg-destructive/5 hover:text-destructive hover:border-destructive/20" : "bg-primary hover:bg-primary/90")}
+                    onClick={() => handleToggleVerification(employer.id, employer.companyName, employer.verified)}
+                    disabled={updateVerification.isPending && confirmDialog.employerId === employer.id}
+                  >
+                    {employer.verified ? "Revoke Verification" : "Verify Employer"}
+                  </Button>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+
+        {/* Desktop table */}
+        <CardContent className="p-0 hidden md:block">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -242,7 +315,7 @@ export default function AdminEmployers() {
                         )}
                       </TableCell>
                       <TableCell className="text-right">
-                        <div className="flex justify-end items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex justify-end items-center gap-2">
                           <Button 
                             variant={employer.verified ? "outline" : "default"}
                             size="sm"
@@ -272,35 +345,35 @@ export default function AdminEmployers() {
               </TableBody>
             </Table>
           </div>
-          
-          {data && data.total > limit && (
-            <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
-              <span className="text-xs text-muted-foreground">
-                Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} employers
-              </span>
-              <div className="flex gap-2">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={page === 0}
-                  onClick={() => setPage(p => p - 1)}
-                  className="h-8 text-xs"
-                >
-                  Previous
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={(page + 1) * limit >= data.total}
-                  onClick={() => setPage(p => p + 1)}
-                  className="h-8 text-xs"
-                >
-                  Next
-                </Button>
-              </div>
-            </div>
-          )}
         </CardContent>
+
+        {data && data.total > limit && (
+          <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
+            <span className="text-xs text-muted-foreground">
+              Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} employers
+            </span>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page === 0}
+                onClick={() => setPage(p => p - 1)}
+                className="h-9 text-xs"
+              >
+                Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={(page + 1) * limit >= data.total}
+                onClick={() => setPage(p => p + 1)}
+                className="h-9 text-xs"
+              >
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
       </Card>
 
       <AlertDialog open={confirmDialog.open} onOpenChange={(open) => !updateVerification.isPending && setConfirmDialog(prev => ({ ...prev, open }))}>

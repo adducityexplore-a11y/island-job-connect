@@ -263,7 +263,65 @@ export default function AdminApplications() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0">
+        {/* Mobile cards */}
+        <CardContent className="p-0 md:hidden">
+          {isLoading ? (
+            <div className="divide-y divide-border/50">
+              {Array(4).fill(0).map((_, i) => (
+                <div key={i} className="p-4 space-y-3">
+                  <Skeleton className="h-5 w-32" />
+                  <Skeleton className="h-4 w-48" />
+                </div>
+              ))}
+            </div>
+          ) : emptyState ? (
+            <div className="p-8 text-center flex flex-col items-center justify-center text-muted-foreground">
+              <FileText className="w-12 h-12 text-muted-foreground/30 mb-3" />
+              <p className="text-sm">No applications found matching your criteria.</p>
+            </div>
+          ) : (
+            <div className="divide-y divide-border/50">
+              {filteredApplications.map((app) => {
+                const daysWaiting = differenceInDays(new Date(), new Date(app.createdAt));
+                const isDelayed = (app.status === ApplicationStage.Application_Received || app.status === ApplicationStage.New_Applicant) && daysWaiting >= 7;
+                return (
+                  <button
+                    key={app.id}
+                    onClick={() => setSelectedAppId(app.id)}
+                    className="w-full text-left p-4 space-y-2 active:bg-muted/30 min-h-[44px]"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="font-medium text-primary truncate">{getCandidateName(app.candidateId)}</p>
+                        <p className="text-sm text-foreground truncate">{getJobTitle(app.jobId)}</p>
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-0.5">
+                          <Building2 className="w-3 h-3 shrink-0" />
+                          <span className="truncate">{getEmployerNameForJob(app.jobId)}</span>
+                        </div>
+                      </div>
+                      <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0 mt-1" />
+                    </div>
+                    <div className="flex items-center justify-between gap-2">
+                      <Badge variant="outline" className={`gap-1.5 shadow-none font-medium ${getStatusColor(app.status)}`}>
+                        {app.status}
+                      </Badge>
+                      {isDelayed ? (
+                        <span className="text-[11px] font-medium text-accent flex items-center gap-1">
+                          <Clock className="w-3 h-3" /> Waiting {daysWaiting}d
+                        </span>
+                      ) : (
+                        <span className="text-[11px] text-muted-foreground">{format(new Date(app.createdAt), "MMM d")}</span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </CardContent>
+
+        {/* Desktop table */}
+        <CardContent className="p-0 hidden md:block">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -350,35 +408,35 @@ export default function AdminApplications() {
               </TableBody>
             </Table>
           </div>
-          
-          {data && data.total > limit && (
-            <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
-              <span className="text-xs text-muted-foreground">
-                Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} applications
-              </span>
-              <div className="flex gap-2">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={page === 0}
-                  onClick={() => setPage(p => p - 1)}
-                  className="h-8 text-xs"
-                >
-                  Previous
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={(page + 1) * limit >= data.total}
-                  onClick={() => setPage(p => p + 1)}
-                  className="h-8 text-xs"
-                >
-                  Next
-                </Button>
-              </div>
-            </div>
-          )}
         </CardContent>
+
+        {data && data.total > limit && (
+          <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
+            <span className="text-xs text-muted-foreground">
+              Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} applications
+            </span>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page === 0}
+                onClick={() => setPage(p => p - 1)}
+                className="h-9 text-xs"
+              >
+                Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={(page + 1) * limit >= data.total}
+                onClick={() => setPage(p => p + 1)}
+                className="h-9 text-xs"
+              >
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
       </Card>
 
       <Dialog open={selectedAppId !== null} onOpenChange={(open) => !open && setSelectedAppId(null)}>

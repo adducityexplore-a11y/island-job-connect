@@ -285,7 +285,77 @@ export default function AdminJobs() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0">
+        {/* Mobile cards */}
+        <CardContent className="p-0 md:hidden">
+          {isLoading ? (
+            <div className="divide-y divide-border/50">
+              {Array(4).fill(0).map((_, i) => (
+                <div key={i} className="p-4 space-y-3">
+                  <Skeleton className="h-5 w-48" />
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-8 w-full" />
+                </div>
+              ))}
+            </div>
+          ) : emptyState ? (
+            <div className="p-8 text-center flex flex-col items-center justify-center text-muted-foreground">
+              <Briefcase className="w-12 h-12 text-muted-foreground/30 mb-3" />
+              <p className="text-sm">No vacancies found matching your criteria.</p>
+            </div>
+          ) : (
+            <div className="divide-y divide-border/50">
+              {filteredJobs.map((job) => (
+                <div key={job.id} className="p-4 space-y-3">
+                  <div>
+                    <p className="font-medium text-primary" title={job.title}>{job.title}</p>
+                    <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
+                      <Building2 className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">{getEmployerName(job.employerId)}</span>
+                    </div>
+                    {job.location && (
+                      <div className="flex items-center gap-1.5 mt-1 text-xs text-muted-foreground">
+                        <MapPin className="w-3 h-3 shrink-0" />
+                        <span className="truncate">{job.location}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {getStatusBadge(job.status, job.expiresAt || null)}
+                    {getVerificationBadge(job.verificationStatus)}
+                  </div>
+                  <div className="flex gap-2">
+                    <Select
+                      value={job.verificationStatus}
+                      onValueChange={(value) => handleVerificationChange(job.id, value as "unverified" | "verified" | "needs_review")}
+                      disabled={updateVerification.isPending}
+                    >
+                      <SelectTrigger className="h-10 flex-1 text-xs font-medium border-border/50">
+                        <SelectValue placeholder="Set Status" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="verified" className="text-emerald-700">Verify Vacancy</SelectItem>
+                        <SelectItem value="needs_review" className="text-amber-700">Needs Review</SelectItem>
+                        <SelectItem value="unverified" className="text-muted-foreground">Unverify</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {(job.status === "closed" || (job.expiresAt && isPast(new Date(job.expiresAt)))) ? (
+                      <Button variant="outline" size="sm" className="h-10 shrink-0" onClick={() => handleActionClick(job.id, job.title, "repost")}>
+                        <RefreshCcw className="w-4 h-4" />
+                      </Button>
+                    ) : (
+                      <Button variant="outline" size="sm" className="h-10 shrink-0 text-destructive border-destructive/20 hover:bg-destructive/5" onClick={() => handleActionClick(job.id, job.title, "close")}>
+                        <Ban className="w-4 h-4" />
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+
+        {/* Desktop table */}
+        <CardContent className="p-0 hidden md:block">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -367,7 +437,7 @@ export default function AdminJobs() {
                         </div>
                       </TableCell>
                       <TableCell className="text-right">
-                        <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex justify-end gap-2">
                            <Select
                             value={job.verificationStatus}
                             onValueChange={(value) => handleVerificationChange(
@@ -415,35 +485,35 @@ export default function AdminJobs() {
               </TableBody>
             </Table>
           </div>
-          
-          {data && data.total > limit && (
-            <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
-              <span className="text-xs text-muted-foreground">
-                Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} vacancies
-              </span>
-              <div className="flex gap-2">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={page === 0}
-                  onClick={() => setPage(p => p - 1)}
-                  className="h-8 text-xs"
-                >
-                  Previous
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  disabled={(page + 1) * limit >= data.total}
-                  onClick={() => setPage(p => p + 1)}
-                  className="h-8 text-xs"
-                >
-                  Next
-                </Button>
-              </div>
-            </div>
-          )}
         </CardContent>
+
+        {data && data.total > limit && (
+          <div className="p-4 flex items-center justify-between border-t border-border/50 bg-muted/10">
+            <span className="text-xs text-muted-foreground">
+              Showing {page * limit + 1} to {Math.min((page + 1) * limit, data.total)} of {data.total} vacancies
+            </span>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page === 0}
+                onClick={() => setPage(p => p - 1)}
+                className="h-9 text-xs"
+              >
+                Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={(page + 1) * limit >= data.total}
+                onClick={() => setPage(p => p + 1)}
+                className="h-9 text-xs"
+              >
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
       </Card>
 
       <AlertDialog open={actionDialog.open} onOpenChange={(open) => !closeJob.isPending && !repostJob.isPending && setActionDialog(prev => ({ ...prev, open }))}>
