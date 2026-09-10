@@ -6,6 +6,7 @@ import { getGetRecruiterDashboardQueryKey, useGetRecruiterDashboard } from "@wor
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { RecruiterOnboarding } from "@/components/recruiter/onboarding";
 
 const links = [
   { href: "/employer/dashboard", label: "Overview", icon: LayoutDashboard },
@@ -40,6 +41,21 @@ export function EmployerLayout({ children }: { children: ReactNode }) {
   }
 
   if (access.error) {
+    const status = (access.error as { status?: number } | null)?.status;
+
+    if (status === 403) {
+      return (
+        <div className="min-h-[100dvh] flex flex-col bg-muted/20">
+          <header className="flex h-16 shrink-0 items-center border-b bg-background px-6">
+            <img src={`${basePath}/images/logo_final.png`} alt="The Jobs MV Logo" className="h-8 w-8 object-contain" />
+          </header>
+          <div className="flex-1 px-4">
+            <RecruiterOnboarding />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-[100dvh] flex flex-col bg-muted/20">
         <header className="flex h-16 shrink-0 items-center border-b bg-background px-6">
@@ -51,9 +67,9 @@ export function EmployerLayout({ children }: { children: ReactNode }) {
               <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-destructive/10">
                 <ShieldAlert className="h-10 w-10 text-destructive" />
               </div>
-              <h1 className="font-display text-2xl font-bold tracking-tight mb-2">Employer Access Required</h1>
+              <h1 className="font-display text-2xl font-bold tracking-tight mb-2">Something Went Wrong</h1>
               <p className="text-muted-foreground mb-8">
-                Your account is not currently connected to an approved employer workspace.
+                We couldn't load your employer workspace. Please try again.
               </p>
               <Button variant="default" className="w-full shadow-sm" asChild data-testid="btn-return-options">
                 <Link href="/employers">Return to Employer Options</Link>
