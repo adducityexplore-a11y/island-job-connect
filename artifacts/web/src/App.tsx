@@ -29,6 +29,7 @@ import AdminApplications from '@/pages/admin/applications';
 import AdminAuditLog from '@/pages/admin/audit';
 import AdminRecruitmentRequests from '@/pages/admin/recruitment-requests';
 import AdminRecruitmentRequestDetail from '@/pages/admin/recruitment-request-detail';
+import AdminOutreach from '@/pages/admin/outreach';
 import { AdminLayout } from '@/components/admin/admin-layout';
 
 import EmployerLogin from '@/pages/employer/login';
@@ -263,6 +264,9 @@ function Router() {
         </Route>
         <Route path="/admin/recruitment-requests">
           <AdminLayout><AdminRecruitmentRequests /></AdminLayout>
+        </Route>
+        <Route path="/admin/outreach">
+          <AdminLayout><AdminOutreach /></AdminLayout>
         </Route>
 
         {/* Public Routes - Fallback layout */}

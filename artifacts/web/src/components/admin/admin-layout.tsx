@@ -15,7 +15,8 @@ import {
   House,
   UsersRound,
   UserSearch,
-  Ellipsis
+  Ellipsis,
+  Mail
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -97,6 +98,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     { href: "/admin/candidates", icon: Users, label: "Candidates" },
     { href: "/admin/applications", icon: FileText, label: "Applications" },
     { href: "/admin/recruitment-requests", icon: ClipboardList, label: "Recruitment" },
+    { href: "/admin/outreach", icon: Mail, label: "Outreach" },
     { href: "/admin/audit", icon: Activity, label: "Audit Log" },
   ];
 
@@ -111,6 +113,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   const moreNavItems = [
     { href: "/admin/jobs", icon: Briefcase, label: "Vacancies" },
     { href: "/admin/applications", icon: FileText, label: "Applications" },
+    { href: "/admin/outreach", icon: Mail, label: "Outreach" },
     { href: "/admin/audit", icon: Activity, label: "Audit Log" },
   ];
   const isNavActive = (href: string) => location === href || (location.startsWith(href) && href !== "/admin");

@@ -1250,6 +1250,24 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/RecruitmentAdminNoteRequest"
+  /admin/outreach/send:
+    post:
+      operationId: sendAdminOutreachEmail
+      security:
+        - ClerkCookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminOutreachSendRequest"
+      responses:
+        "200":
+          description: Send result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminOutreachSendResult"
 components:
   securitySchemes:
     ClerkCookieAuth:
@@ -3343,6 +3361,34 @@ components:
         reason:
           type: string
           maxLength: 2000
+    AdminOutreachSendRequest:
+      type: object
+      required: [recipients, subject, message]
+      properties:
+        recipients:
+          type: array
+          minItems: 1
+          maxItems: 200
+          items: { type: string, format: email }
+        subject:
+          type: string
+          maxLength: 200
+        message:
+          type: string
+          maxLength: 10000
+    AdminOutreachSendResult:
+      type: object
+      required: [sent, failed]
+      properties:
+        sent: { type: integer }
+        failed:
+          type: array
+          items:
+            type: object
+            required: [email, error]
+            properties:
+              email: { type: string }
+              error: { type: string }
     RecruitmentAdminNoteRequest:
       type: object
       required:

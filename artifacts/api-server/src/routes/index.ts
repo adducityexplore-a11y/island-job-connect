@@ -7,6 +7,7 @@ import storageRouter from "./storage.js";
 import adminJobsRouter from "./admin-jobs.js";
 import recruitmentRouter from "./recruitment.js";
 import recruitmentRequestsRouter from "./recruitment-requests.js";
+import adminOutreachRouter from "./admin-outreach.js";
 
 const router: IRouter = Router();
 
@@ -18,5 +19,6 @@ router.use(storageRouter);
 router.use(adminJobsRouter);
 router.use(recruitmentRouter);
 router.use(recruitmentRequestsRouter);
+router.use(adminOutreachRouter);
 
 export default router;
