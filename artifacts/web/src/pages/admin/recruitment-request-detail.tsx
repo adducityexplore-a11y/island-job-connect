@@ -1,11 +1,12 @@
 import { useState, useRef } from "react";
 import { useRoute, Link } from "wouter";
-import { 
+import {
   useGetAdminRecruitmentRequest,
   useUpdateAdminRecruitmentRequestStatus,
   useSearchRecruitmentCandidatePool,
   useAssignRecruitmentCandidate,
   useDecideRecruitmentCandidate,
+  useScreenRecruitmentCandidate,
   useAddRecruitmentAdminNote,
   useUpdateAdminUrgentService,
   useListAdminJobs,
@@ -18,7 +19,7 @@ import {
   type RecruitmentStatusUpdateStatus
 } from "@workspace/api-client-react";
 import { useQueryClient } from "@tanstack/react-query";
-import { 
+import {
   Building2,
   Calendar,
   Briefcase,
@@ -33,7 +34,10 @@ import {
   ChevronLeft,
   UserPlus,
   Info,
-  ShieldCheck
+  ShieldCheck,
+  Sparkles,
+  RefreshCw,
+  ShieldAlert
 } from "lucide-react";
 import { format } from "date-fns";
 import { toast } from "sonner";
@@ -70,6 +74,14 @@ import {
 } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+const aiCategoryColors: Record<string, string> = {
+  "Strong Alignment": "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "Possible Match": "bg-blue-50 text-blue-700 border-blue-200",
+  "Missing Information": "bg-muted text-muted-foreground border-border",
+  "Mandatory Concern": "bg-red-50 text-red-700 border-red-200",
+};
 
 const getUrgentServiceLabel = (status?: string) => ({
   "Not Requested": "Standard",
@@ -132,6 +144,19 @@ export default function AdminRecruitmentRequestDetail() {
       },
       onError: () => toast.error("Failed to update decision")
     }
+  });
+
+  const screenMutation = useScreenRecruitmentCandidate({
+    mutation: {
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: getGetAdminRecruitmentRequestQueryKey(requestId) });
+        toast.success("Screening complete");
+      },
+      onError: () => {
+        queryClient.invalidateQueries({ queryKey: getGetAdminRecruitmentRequestQueryKey(requestId) });
+        toast.error("AI screening failed — see the candidate's screening status");
+      },
+    },
   });
 
   const addNoteMutation = useAddRecruitmentAdminNote({
@@ -442,6 +467,7 @@ export default function AdminRecruitmentRequestDetail() {
                   <TableRow className="bg-muted/10 hover:bg-muted/10">
                     <TableHead className="font-semibold text-primary">Candidate</TableHead>
                     <TableHead className="font-semibold text-primary">Match</TableHead>
+                    <TableHead className="font-semibold text-primary">AI Screening</TableHead>
                     <TableHead className="font-semibold text-primary">Admin Decision</TableHead>
                     <TableHead className="font-semibold text-primary">Employer Action</TableHead>
                     <TableHead className="text-right font-semibold text-primary">Actions</TableHead>
@@ -450,7 +476,7 @@ export default function AdminRecruitmentRequestDetail() {
                 <TableBody>
                   {assignments.length === 0 ? (
                     <TableRow>
-                      <TableCell colSpan={5} className="h-48 text-center text-muted-foreground">
+                      <TableCell colSpan={6} className="h-48 text-center text-muted-foreground">
                         <div className="flex flex-col items-center justify-center">
                           <Users className="w-12 h-12 text-muted-foreground/30 mb-3" />
                           <p className="text-sm">No candidates assigned yet.</p>
@@ -477,6 +503,83 @@ export default function AdminRecruitmentRequestDetail() {
                             </div>
                           ) : (
                             <span className="text-xs text-muted-foreground italic">N/A</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          {a.assignment?.aiScreeningStatus === "completed" ? (
+                            <Popover>
+                              <PopoverTrigger asChild>
+                                <button className="text-left" data-testid={`button-ai-screening-${a.candidate?.id}`}>
+                                  <Badge variant="outline" className={`gap-1.5 shadow-none font-medium ${aiCategoryColors[a.assignment.aiScreeningCategory || ""] || ""}`}>
+                                    {a.assignment.aiScreeningCategory === "Mandatory Concern" ? <ShieldAlert className="w-3 h-3" /> : <Sparkles className="w-3 h-3" />}
+                                    {a.assignment.aiScreeningCategory}
+                                  </Badge>
+                                  <div className="text-[11px] text-muted-foreground mt-1 font-medium">{a.assignment.aiScreeningScore}% fit</div>
+                                </button>
+                              </PopoverTrigger>
+                              <PopoverContent className="w-80 space-y-3 text-sm">
+                                <p className="text-foreground leading-relaxed">{a.assignment.aiScreeningSummary}</p>
+                                {!!a.assignment.aiScreeningStrengths?.length && (
+                                  <div>
+                                    <p className="text-xs font-semibold text-emerald-700 mb-1">Strengths</p>
+                                    <ul className="space-y-1">
+                                      {a.assignment.aiScreeningStrengths.map((s: string, i: number) => (
+                                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0 mt-0.5" />{s}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                {!!a.assignment.aiScreeningGaps?.length && (
+                                  <div>
+                                    <p className="text-xs font-semibold text-muted-foreground mb-1">Gaps / Not Found</p>
+                                    <ul className="space-y-1">
+                                      {a.assignment.aiScreeningGaps.map((s: string, i: number) => (
+                                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-1.5"><Info className="w-3 h-3 shrink-0 mt-0.5" />{s}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                {!!a.assignment.aiScreeningMandatoryConcerns?.length && (
+                                  <div>
+                                    <p className="text-xs font-semibold text-red-700 mb-1">Mandatory Concerns</p>
+                                    <ul className="space-y-1">
+                                      {a.assignment.aiScreeningMandatoryConcerns.map((s: string, i: number) => (
+                                        <li key={i} className="text-xs text-red-700 flex items-start gap-1.5"><ShieldAlert className="w-3 h-3 shrink-0 mt-0.5" />{s}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                <Button
+                                  variant="outline" size="sm" className="w-full h-8 text-xs"
+                                  onClick={() => screenMutation.mutate({ id: requestId, candidateId: a.candidate?.id || 0 })}
+                                  disabled={screenMutation.isPending}
+                                >
+                                  <RefreshCw className="w-3 h-3 mr-1.5" /> Re-run Screening
+                                </Button>
+                              </PopoverContent>
+                            </Popover>
+                          ) : a.assignment?.aiScreeningStatus === "failed" ? (
+                            <div className="space-y-1.5">
+                              <Badge variant="outline" className="gap-1.5 shadow-none font-medium bg-red-50 text-red-700 border-red-200">
+                                <AlertCircle className="w-3 h-3" /> Screening Failed
+                              </Badge>
+                              <Button
+                                variant="ghost" size="sm" className="h-7 text-xs px-2 text-muted-foreground hover:text-primary"
+                                onClick={() => screenMutation.mutate({ id: requestId, candidateId: a.candidate?.id || 0 })}
+                                disabled={screenMutation.isPending}
+                              >
+                                Retry
+                              </Button>
+                            </div>
+                          ) : (
+                            <Button
+                              variant="outline" size="sm" className="h-8 text-xs font-medium"
+                              onClick={() => screenMutation.mutate({ id: requestId, candidateId: a.candidate?.id || 0 })}
+                              disabled={screenMutation.isPending}
+                            >
+                              <Sparkles className="w-3.5 h-3.5 mr-1.5" />
+                              {screenMutation.isPending ? "Screening..." : "Run Screening"}
+                            </Button>
                           )}
                         </TableCell>
                         <TableCell>

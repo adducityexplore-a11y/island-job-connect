@@ -1076,6 +1076,25 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/RecruitmentCandidateAssignmentRequest"
+  /admin/recruitment-requests/{id}/candidates/{candidateId}/screen:
+    post:
+      operationId: screenRecruitmentCandidate
+      security:
+        - ClerkCookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - name: candidateId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: AI screening result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecruitmentAssignment"
   /admin/recruitment-requests/{id}/candidates/{candidateId}/decision:
     patch:
       operationId: decideRecruitmentCandidate
@@ -3243,6 +3262,14 @@ components:
         invitedToInterviewAt: { type: [string, "null"], format: date-time }
         hiredAt: { type: [string, "null"], format: date-time }
         matchScore: { type: [integer, "null"] }
+        aiScreeningStatus: { type: [string, "null"] }
+        aiScreeningCategory: { type: [string, "null"] }
+        aiScreeningScore: { type: [integer, "null"] }
+        aiScreeningSummary: { type: [string, "null"] }
+        aiScreeningStrengths: { type: [array, "null"], items: { type: string } }
+        aiScreeningGaps: { type: [array, "null"], items: { type: string } }
+        aiScreeningMandatoryConcerns: { type: [array, "null"], items: { type: string } }
+        aiScreenedAt: { type: [string, "null"], format: date-time }
         assignedByClerkUserId: { type: string }
         createdAt: { type: string, format: date-time }
         updatedAt: { type: string, format: date-time }
@@ -3313,6 +3340,9 @@ components:
       properties:
         decision:
           type: string
+        reason:
+          type: string
+          maxLength: 2000
     RecruitmentAdminNoteRequest:
       type: object
       required:
@@ -3385,6 +3415,34 @@ components:
                     nullable: true
                   matchScore:
                     type: integer
+                    nullable: true
+                  aiScreeningStatus:
+                    type: string
+                    nullable: true
+                  aiScreeningCategory:
+                    type: string
+                    nullable: true
+                  aiScreeningScore:
+                    type: integer
+                    nullable: true
+                  aiScreeningSummary:
+                    type: string
+                    nullable: true
+                  aiScreeningStrengths:
+                    type: array
+                    nullable: true
+                    items: { type: string }
+                  aiScreeningGaps:
+                    type: array
+                    nullable: true
+                    items: { type: string }
+                  aiScreeningMandatoryConcerns:
+                    type: array
+                    nullable: true
+                    items: { type: string }
+                  aiScreenedAt:
+                    type: string
+                    format: date-time
                     nullable: true
         notes:
           type: array

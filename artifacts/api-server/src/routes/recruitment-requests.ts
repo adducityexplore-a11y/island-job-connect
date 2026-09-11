@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { and, desc, eq, ilike, isNotNull, ne, sql } from "drizzle-orm";
 import { z } from "zod";
-import { adminAuditLogsTable, applicationsTable, candidatesTable, db, jobsTable, recruitmentAdminNotesTable, recruitmentAssignmentsTable, recruitmentDecisions, recruitmentRequestStatuses, recruitmentRequestsTable, recruitmentRequestStatusHistoryTable } from "@workspace/db";
+import { adminAuditLogsTable, aiScreeningCategories, applicationsTable, candidatesTable, db, jobsTable, recruitmentAdminNotesTable, recruitmentAssignmentsTable, recruitmentDecisions, recruitmentRequestStatuses, recruitmentRequestsTable, recruitmentRequestStatusHistoryTable } from "@workspace/db";
 import { requireAdmin } from "../middleware/adminAuth.js";
 import { requireRecruiter } from "../middleware/recruiterAuth.js";
 
@@ -56,6 +56,101 @@ function match(request: typeof recruitmentRequestsTable.$inferSelect, candidate:
   const score = denominator ? Math.round(criteria.filter((criterion) => criterion.matched).reduce((total, criterion) => total + criterion.weight, 0) * 100 / denominator) : null;
   return { score, criteria, strengths: criteria.filter((criterion) => criterion.matched).map((criterion) => criterion.criterion), missingEvidence: criteria.filter((criterion) => !criterion.evidence).map((criterion) => criterion.criterion), reasons: criteria.map(({ criterion, matched, evidence }) => ({ criterion, matched, evidence })) };
 }
+const AI_SCREENING_MODEL = "claude-sonnet-5";
+
+/** Only the fields relevant to fit assessment — never anything used to discriminate unlawfully. */
+function screeningCandidateProfile(candidate: typeof candidatesTable.$inferSelect) {
+  return {
+    headline: candidate.headline, summary: candidate.summary, desiredPosition: candidate.desiredPosition, department: candidate.department,
+    yearsExperience: candidate.yearsExperience, totalHospitalityExperience: candidate.totalHospitalityExperience, totalResortExperience: candidate.totalResortExperience,
+    maldivesExperience: candidate.maldivesExperience, luxuryResortExperience: candidate.luxuryResortExperience, currentlyInMaldives: candidate.currentlyInMaldives,
+    hospitalitySpecialties: candidate.hospitalitySpecialties, roleSpecificSkills: candidate.roleSpecificSkills, technicalSkills: candidate.technicalSkills, posSystems: candidate.posSystems,
+    leadershipExperience: candidate.leadershipExperience, education: candidate.education, professionalCertifications: candidate.professionalCertifications,
+    hospitalityCertifications: candidate.hospitalityCertifications, languages: candidate.languages, languageProficiencies: candidate.languageProficiencies,
+    availability: candidate.availability, availabilityStatus: candidate.availabilityStatus, noticePeriod: candidate.noticePeriod, availableFrom: candidate.availableFrom,
+    expectedSalary: candidate.expectedSalary, workHistory: candidate.workHistory,
+  };
+}
+function screeningJobRequirements(request: typeof recruitmentRequestsTable.$inferSelect) {
+  return {
+    positionTitle: request.positionTitle, department: request.department, hiringScope: request.hiringScope,
+    minimumExperience: request.minimumExperience, preferredExperience: request.preferredExperience,
+    salary: request.salary, serviceCharge: request.serviceCharge, accommodationProvided: request.accommodationProvided, foodProvided: request.foodProvided,
+    joiningDate: request.joiningDate, englishLevel: request.englishLevel, educationRequirement: request.educationRequirement,
+    additionalRequirements: request.additionalRequirements, jobDescription: request.jobDescription,
+  };
+}
+interface AiScreeningResult {
+  category: typeof aiScreeningCategories[number];
+  score: number;
+  summary: string;
+  strengths: string[];
+  gaps: string[];
+  mandatoryConcerns: string[];
+}
+function parseScreeningResponse(text: string): AiScreeningResult {
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) throw new Error("Model response did not contain a JSON object");
+  const parsed = JSON.parse(jsonMatch[0]);
+  if (!aiScreeningCategories.includes(parsed.category)) throw new Error(`Unexpected category: ${parsed.category}`);
+  return {
+    category: parsed.category,
+    score: Math.max(0, Math.min(100, Math.round(Number(parsed.score) || 0))),
+    summary: String(parsed.summary ?? "").slice(0, 600),
+    strengths: Array.isArray(parsed.strengths) ? parsed.strengths.map(String).slice(0, 10) : [],
+    gaps: Array.isArray(parsed.gaps) ? parsed.gaps.map(String).slice(0, 10) : [],
+    mandatoryConcerns: Array.isArray(parsed.mandatoryConcerns) ? parsed.mandatoryConcerns.map(String).slice(0, 10) : [],
+  };
+}
+/**
+ * Calls Claude to assess one candidate against one vacancy's stated requirements, using only
+ * structured Hospitality Passport data (no CV text extraction exists in this codebase).
+ * This never runs automatically — only on an explicit admin "Run Screening" action.
+ */
+async function runAiScreening(
+  request: typeof recruitmentRequestsTable.$inferSelect,
+  candidate: typeof candidatesTable.$inferSelect,
+): Promise<AiScreeningResult> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error("ANTHROPIC_API_KEY is not configured");
+
+  const systemPrompt = `You are a hospitality recruitment screening assistant for The Jobs MV, a Maldives hospitality jobs platform. \
+Assess how well a candidate fits a vacancy's stated requirements, using ONLY the structured data provided. \
+Never invent, assume, or infer facts that are not present in the data — if something is not stated, treat it as unknown and list it under "gaps", not as a strength or a concern. \
+Only list something under "mandatoryConcerns" if the job requirements explicitly state it as required (e.g. a stated minimum experience, English level, education requirement, or explicit nationality/gender preference) and the candidate's data clearly fails to meet it. \
+Respond with ONLY a single JSON object, no other text, matching exactly this shape: \
+{"category": "Strong Alignment" | "Possible Match" | "Missing Information" | "Mandatory Concern", "score": <integer 0-100>, "summary": "<one or two sentence plain-language summary, under 400 characters>", "strengths": ["<short phrase>", ...], "gaps": ["<short phrase>", ...], "mandatoryConcerns": ["<short phrase>", ...]}. \
+Use "Mandatory Concern" only when a stated requirement is clearly unmet. Use "Missing Information" when key requirements can't be evaluated due to missing candidate data. Use "Possible Match" for partial fit. Use "Strong Alignment" only for a clearly strong fit.`;
+
+  const userPrompt = JSON.stringify({
+    vacancyRequirements: screeningJobRequirements(request),
+    candidateProfile: screeningCandidateProfile(candidate),
+  });
+
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: AI_SCREENING_MODEL,
+      max_tokens: 1024,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userPrompt }],
+    }),
+  });
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    throw new Error(`Anthropic API error ${response.status}: ${body.slice(0, 500)}`);
+  }
+  const data = await response.json() as { content: Array<{ type: string; text?: string }> };
+  const text = data.content.find((block) => block.type === "text")?.text;
+  if (!text) throw new Error("Anthropic response did not contain text content");
+  return parseScreeningResponse(text);
+}
+
 async function ownedRequest(requestId: number, employerId: number) {
   return (await db.select().from(recruitmentRequestsTable).where(and(eq(recruitmentRequestsTable.id, requestId), eq(recruitmentRequestsTable.employerId, employerId))).limit(1))[0];
 }
@@ -258,9 +353,47 @@ router.put("/admin/recruitment-requests/:id/candidates/:candidateId", requireAdm
   if (!request || !candidate) return void res.status(404).json({ error: "Request or opted-in candidate not found" });
   const [assignment] = await db.insert(recruitmentAssignmentsTable).values({ requestId, candidateId, decision: parsed.data.decision, matchScore: match(request, candidate).score, assignedByClerkUserId: req.admin!.clerkUserId }).onConflictDoUpdate({ target: [recruitmentAssignmentsTable.requestId, recruitmentAssignmentsTable.candidateId], set: { decision: parsed.data.decision, matchScore: match(request, candidate).score, updatedAt: new Date() } }).returning(); res.json(assignment);
 });
+router.post("/admin/recruitment-requests/:id/candidates/:candidateId/screen", requireAdmin, async (req, res) => {
+  const requestId = id(req.params.id), candidateId = id(req.params.candidateId);
+  if (!requestId || !candidateId) return void res.status(400).json({ error: "Invalid input" });
+  const request = (await db.select().from(recruitmentRequestsTable).where(eq(recruitmentRequestsTable.id, requestId)).limit(1))[0];
+  const candidate = (await db.select().from(candidatesTable).where(and(eq(candidatesTable.id, candidateId), eq(candidatesTable.openToOpportunities, true))).limit(1))[0];
+  if (!request || !candidate) return void res.status(404).json({ error: "Request or opted-in candidate not found" });
+
+  const now = new Date();
+  let update: Partial<typeof recruitmentAssignmentsTable.$inferInsert>;
+  try {
+    const result = await runAiScreening(request, candidate);
+    update = {
+      aiScreeningStatus: "completed", aiScreeningCategory: result.category, aiScreeningScore: result.score,
+      aiScreeningSummary: result.summary, aiScreeningStrengths: result.strengths, aiScreeningGaps: result.gaps,
+      aiScreeningMandatoryConcerns: result.mandatoryConcerns, aiScreenedAt: now, aiScreenedByClerkUserId: req.admin!.clerkUserId, aiModel: AI_SCREENING_MODEL,
+    };
+  } catch (error) {
+    req.log.error({ event: "ai_screening_failed", requestId, candidateId, err: error }, "AI screening failed");
+    update = { aiScreeningStatus: "failed", aiScreenedAt: now, aiScreenedByClerkUserId: req.admin!.clerkUserId, aiModel: AI_SCREENING_MODEL };
+  }
+
+  const [assignment] = await db.insert(recruitmentAssignmentsTable).values({
+    requestId, candidateId, matchScore: match(request, candidate).score, assignedByClerkUserId: req.admin!.clerkUserId, ...update,
+  }).onConflictDoUpdate({ target: [recruitmentAssignmentsTable.requestId, recruitmentAssignmentsTable.candidateId], set: { ...update, updatedAt: now } }).returning();
+
+  await db.insert(adminAuditLogsTable).values({
+    adminId: req.admin!.id, action: "recruitment.candidate_screened", entityType: "recruitment_assignment", entityId: String(assignment.id),
+    metadata: { requestId, candidateId, status: update.aiScreeningStatus, category: update.aiScreeningCategory ?? null, score: update.aiScreeningScore ?? null },
+  });
+
+  if (assignment.aiScreeningStatus === "failed") return void res.status(502).json({ ...assignment, error: "AI screening failed — see assignment status" });
+  res.json(assignment);
+});
 router.patch("/admin/recruitment-requests/:id/candidates/:candidateId/decision", requireAdmin, async (req, res) => {
-  const requestId = id(req.params.id), candidateId = id(req.params.candidateId), parsed = z.object({ decision: z.enum(recruitmentDecisions) }).safeParse(req.body); if (!requestId || !candidateId || !parsed.success) return void res.status(400).json({ error: "Invalid input" });
-  const [updated] = await db.update(recruitmentAssignmentsTable).set({ decision: parsed.data.decision, updatedAt: new Date() }).where(and(eq(recruitmentAssignmentsTable.requestId, requestId), eq(recruitmentAssignmentsTable.candidateId, candidateId), sql`exists (select 1 from ${candidatesTable} where ${candidatesTable.id} = ${recruitmentAssignmentsTable.candidateId} and ${candidatesTable.openToOpportunities} = true)`)).returning(); if (!updated) return void res.status(404).json({ error: "Assignment not found" }); res.json(updated);
+  const requestId = id(req.params.id), candidateId = id(req.params.candidateId), parsed = z.object({ decision: z.enum(recruitmentDecisions), reason: z.string().max(2000).optional() }).safeParse(req.body); if (!requestId || !candidateId || !parsed.success) return void res.status(400).json({ error: "Invalid input" });
+  const [updated] = await db.update(recruitmentAssignmentsTable).set({ decision: parsed.data.decision, updatedAt: new Date() }).where(and(eq(recruitmentAssignmentsTable.requestId, requestId), eq(recruitmentAssignmentsTable.candidateId, candidateId), sql`exists (select 1 from ${candidatesTable} where ${candidatesTable.id} = ${recruitmentAssignmentsTable.candidateId} and ${candidatesTable.openToOpportunities} = true)`)).returning(); if (!updated) return void res.status(404).json({ error: "Assignment not found" });
+  await db.insert(adminAuditLogsTable).values({
+    adminId: req.admin!.id, action: "recruitment.candidate_decision_updated", entityType: "recruitment_assignment", entityId: String(updated.id),
+    metadata: { requestId, candidateId, decision: parsed.data.decision, aiScreeningCategory: updated.aiScreeningCategory ?? null, aiScreeningScore: updated.aiScreeningScore ?? null, reason: parsed.data.reason ?? null },
+  });
+  res.json(updated);
 });
 router.post("/admin/recruitment-requests/:id/notes", requireAdmin, async (req, res) => {
   const requestId = id(req.params.id), parsed = z.object({ note: z.string().min(1).max(5000), candidateId: z.number().int().positive().optional() }).safeParse(req.body); if (!requestId || !parsed.success) return void res.status(400).json({ error: "Invalid input" });

@@ -1,4 +1,4 @@
-import { boolean, integer, pgTable, serial, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, integer, jsonb, pgTable, serial, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 import { employersTable } from "./employers";
 import { candidatesTable } from "./candidates";
 import { jobsTable } from "./jobs";
@@ -65,10 +65,23 @@ export const recruitmentAssignmentsTable = pgTable("recruitment_assignments", {
   invitedToInterviewAt: timestamp("invited_to_interview_at", { withTimezone: true }),
   hiredAt: timestamp("hired_at", { withTimezone: true }),
   matchScore: integer("match_score"),
+  /** AI-assisted screening result. Never written except by an explicit admin "Run Screening" action. */
+  aiScreeningStatus: text("ai_screening_status"),
+  aiScreeningCategory: text("ai_screening_category"),
+  aiScreeningScore: integer("ai_screening_score"),
+  aiScreeningSummary: text("ai_screening_summary"),
+  aiScreeningStrengths: jsonb("ai_screening_strengths").$type<string[]>(),
+  aiScreeningGaps: jsonb("ai_screening_gaps").$type<string[]>(),
+  aiScreeningMandatoryConcerns: jsonb("ai_screening_mandatory_concerns").$type<string[]>(),
+  aiScreenedAt: timestamp("ai_screened_at", { withTimezone: true }),
+  aiScreenedByClerkUserId: text("ai_screened_by_clerk_user_id"),
+  aiModel: text("ai_model"),
   assignedByClerkUserId: text("assigned_by_clerk_user_id").notNull(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 }, (table) => [uniqueIndex("recruitment_assignments_request_candidate_unique").on(table.requestId, table.candidateId)]);
+
+export const aiScreeningCategories = ["Strong Alignment", "Possible Match", "Missing Information", "Mandatory Concern"] as const;
 
 export const recruitmentAdminNotesTable = pgTable("recruitment_admin_notes", {
   id: serial("id").primaryKey(),
